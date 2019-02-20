@@ -1,0 +1,56 @@
+dn: dc=example,dc=com
+objectClass: top
+objectClass: domain
+dc: example
+aci: (targetattr!="userPassword")(version 3.0; acl "Allow anonymous read access for anyone"; allow (read,search,compare) userdn="ldap:///anyone";)
+aci: (targetattr="*")(version 3.0; acl "Allow users to update their own entries"; allow (write) userdn="ldap:///self";)
+
+dn: ou=People,dc=example,dc=com
+objectClass: top
+objectClass: organizationalUnit
+ou: People
+
+dn: uid=user.0,ou=People,dc=example,dc=com
+objectClass: top
+objectClass: person
+objectClass: uidObject
+sn: Brooke
+cn: Raeann Brooke
+uid: user.0
+userPassword: 2FederateM0re
+
+dn: uid=user.1,ou=People,dc=example,dc=com
+objectClass: top
+objectClass: person
+objectClass: uidObject
+sn: Seawell
+cn: Esko Seawell
+uid: user.1
+userPassword: 2FederateM0re
+
+dn: uid=user.2,ou=People,dc=example,dc=com
+objectClass: top
+objectClass: person
+objectClass: uidObject
+sn: Tancordo
+cn: Sidonia Tancordo
+uid: user.2
+userPassword: 2FederateM0re
+
+dn: uid=user.3,ou=People,dc=example,dc=com
+objectClass: top
+objectClass: person
+objectClass: uidObject
+sn: Knio
+cn: Pierre-Marc Knio
+uid: user.3
+userPassword: 2FederateM0re
+
+dn: uid=user.4,ou=People,dc=example,dc=com
+objectClass: top
+objectClass: person
+objectClass: uidObject
+sn: Psutka
+cn: Terza Psutka
+uid: user.4
+userPassword: 2FederateM0re

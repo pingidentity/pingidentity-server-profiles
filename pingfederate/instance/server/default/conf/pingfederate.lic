@@ -1,0 +1,15 @@
+ID=1112274
+Product=PingFederate
+Version=9.2
+IssueDate=2019-02-15
+EnforcementType=7
+ExpirationDate=2019-02-22
+ConnectionLimit=3
+NodeLimit=3
+Tier=Free
+SaasProvisioning=true
+WSTrustSTS=true
+OAuth=true
+GracePeriod=0
+SignCode=FF1F
+Signature=302D021467C53A4E1B602F2D77A0EF4858662F34FE0E733E021500929165FAA5C3B913A575F5C2A87809AD930D0C55
