@@ -51,3 +51,14 @@ sn: PingFederate
 cn: Administrator
 uid: administrator
 userPassword: 2FederateM0re
+
+dn: uid=auditor,ou=People,dc=example,dc=com
+objectClass: top
+objectClass: person
+objectClass: uidObject
+sn: PingFederate
+cn: Auditor
+uid: auditor
+userPassword: 2FederateM0re
+
+

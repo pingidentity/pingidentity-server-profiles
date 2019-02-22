@@ -20,13 +20,17 @@ dn: cn=PFCryptoGroup,ou=Groups,dc=example,dc=com
 objectClass: top
 objectClass: groupOfNames
 cn: PFCryptoGroup
+member: uid=administrator,ou=People,dc=example,dc=com
 
 dn: cn=PFAuditorGroup,ou=Groups,dc=example,dc=com
 objectClass: top
 objectClass: groupOfNames
 cn: PFAuditorGroup
+member: uid=auditor,ou=People,dc=example,dc=com
 
 dn: cn=PFUserAdminGroup,ou=Groups,dc=example,dc=com
 objectClass: top
 objectClass: groupOfNames
 cn: PFUserAdminGroup
+member: uid=administrator,ou=People,dc=example,dc=com
+
