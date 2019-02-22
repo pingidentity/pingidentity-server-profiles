@@ -1,9 +1,3 @@
-dn: ou=oauthClients,dc=example,dc=com
-aci: (targetattr="*")(version 3.0; acl "Allow the pingfederate user to do everything in this branch"; allow(all) userdn="ldap:///cn=pingfederate,cn=root dns,cn=config";)
-objectClass: top
-objectClass: organizationalUnit
-ou: oauthClients
-
 dn: pf-oauth-client-id=pingaccess,ou=oauthClients,dc=example,dc=com
 objectClass: pf-oauth-client
 pf-oauth-client-name: pingaccess
