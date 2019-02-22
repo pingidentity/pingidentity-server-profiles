@@ -42,3 +42,12 @@ sn: Psutka
 cn: Terza Psutka
 uid: user.4
 userPassword: 2FederateM0re
+
+dn: uid=administrator,ou=People,dc=example,dc=com
+objectClass: top
+objectClass: person
+objectClass: uidObject
+sn: PingFederate
+cn: Administrator
+uid: administrator
+userPassword: 2FederateM0re

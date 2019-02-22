@@ -9,3 +9,24 @@ objectClass: top
 objectClass: groupOfNames
 cn: group.1
 member: uid=user.1,ou=People,dc=example,dc=com
+
+dn: cn=PFAdminGroup,ou=Groups,dc=example,dc=com
+objectClass: top
+objectClass: groupOfNames
+cn: PFAdminGroup
+member: uid=administrator,ou=People,dc=example,dc=com
+
+dn: cn=PFCryptoGroup,ou=Groups,dc=example,dc=com
+objectClass: top
+objectClass: groupOfNames
+cn: PFCryptoGroup
+
+dn: cn=PFAuditorGroup,ou=Groups,dc=example,dc=com
+objectClass: top
+objectClass: groupOfNames
+cn: PFAuditorGroup
+
+dn: cn=PFUserAdminGroup,ou=Groups,dc=example,dc=com
+objectClass: top
+objectClass: groupOfNames
+cn: PFUserAdminGroup
