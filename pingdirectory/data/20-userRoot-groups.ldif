@@ -14,7 +14,7 @@ dn: cn=PFAdminGroup,ou=groups,dc=example,dc=com
 objectClass: top
 objectClass: groupOfNames
 cn: PFAdminGroup
-member: uid=administrator,ou=geople,dc=example,dc=com
+member: uid=administrator,ou=people,dc=example,dc=com
 
 dn: cn=PFCryptoGroup,ou=groups,dc=example,dc=com
 objectClass: top
