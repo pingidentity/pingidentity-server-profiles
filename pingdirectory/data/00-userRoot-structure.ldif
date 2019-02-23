@@ -23,6 +23,7 @@ objectClass: organizationalUnit
 ou: People
 
 dn: ou=groups,dc=example,dc=com
+aci: (targetattr="isMemberOf")(version 3.0; acl "Allow the pingfederate user to pull memberships in this branch"; allow(all) userdn="ldap:///cn=pingfederate,cn=root dns,cn=config";)
 objectClass: top
 objectClass: organizationalUnit
 ou: groups
