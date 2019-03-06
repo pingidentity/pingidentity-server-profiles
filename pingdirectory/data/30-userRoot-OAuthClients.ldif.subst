@@ -1,4 +1,4 @@
-dn: pf-oauth-client-id=pingaccessAc,ou=oauthClients,${USER_BASE_DN}
+dn: pf-oauth-client-id=pingaccessAc,ou=oauthClients,dc=example,dc=com
 objectClass: top
 objectClass: pf-oauth-client
 pf-oauth-client-name: pingaccessAc
@@ -33,7 +33,7 @@ pf-oauth-client-hashed-secret: Q7fh-XnaBdccBP6BQO7eAOSxI0MLf6Su6BNVEKcJdrw.K4Tve
 pf-oauth-client-enforce-replay-prevention: FALSE
 pf-oauth-client-bypass-approval-page: TRUE
 
-dn: pf-oauth-client-id=ro_client,ou=oauthClients,${USER_BASE_DN}
+dn: pf-oauth-client-id=ro_client,ou=oauthClients,dc=example,dc=com
 objectClass: top
 objectClass: pf-oauth-client
 pf-oauth-client-name: Resource Owner Client
@@ -69,7 +69,7 @@ pf-oauth-client-persistent-grant-exp-time-unit: d
 pf-oauth-client-enforce-replay-prevention: FALSE
 pf-oauth-client-bypass-approval-page: FALSE
 
-dn: pf-oauth-client-id=cc_secret_client,ou=oauthClients,${USER_BASE_DN}
+dn: pf-oauth-client-id=cc_secret_client,ou=oauthClients,dc=example,dc=com
 objectClass: top
 objectClass: pf-oauth-client
 pf-oauth-client-name: Client Credentials (Secret)
@@ -106,7 +106,7 @@ pf-oauth-client-persistent-grant-exp-time-unit: d
 pf-oauth-client-enforce-replay-prevention: FALSE
 pf-oauth-client-bypass-approval-page: FALSE
 
-dn: pf-oauth-client-id=ac_client,ou=oauthClients,${USER_BASE_DN}
+dn: pf-oauth-client-id=ac_client,ou=oauthClients,dc=example,dc=com
 objectClass: top
 objectClass: pf-oauth-client
 pf-oauth-client-name: Authorization Code Client
@@ -144,7 +144,7 @@ pf-oauth-client-persistent-grant-exp-time-unit: d
 pf-oauth-client-enforce-replay-prevention: FALSE
 pf-oauth-client-bypass-approval-page: FALSE
 
-dn: pf-oauth-client-id=rs_client,ou=oauthClients,${USER_BASE_DN}
+dn: pf-oauth-client-id=rs_client,ou=oauthClients,dc=example,dc=com
 objectClass: top
 objectClass: pf-oauth-client
 pf-oauth-client-name: Resource Server Client
@@ -181,7 +181,7 @@ pf-oauth-client-persistent-grant-exp-time-unit: d
 pf-oauth-client-enforce-replay-prevention: FALSE
 pf-oauth-client-bypass-approval-page: FALSE
 
-dn: pf-oauth-client-id=saml_client,ou=oauthClients,${USER_BASE_DN}
+dn: pf-oauth-client-id=saml_client,ou=oauthClients,dc=example,dc=com
 objectClass: top
 objectClass: pf-oauth-client
 pf-oauth-client-name: SAML Client
@@ -217,7 +217,7 @@ pf-oauth-client-persistent-grant-exp-time-unit: d
 pf-oauth-client-enforce-replay-prevention: FALSE
 pf-oauth-client-bypass-approval-page: FALSE
 
-dn: pf-oauth-client-id=cc_jwt_client,ou=oauthClients,${USER_BASE_DN}
+dn: pf-oauth-client-id=cc_jwt_client,ou=oauthClients,dc=example,dc=com
 objectClass: top
 objectClass: pf-oauth-client
 pf-oauth-client-name: Client Credentials (JWT)
@@ -254,7 +254,7 @@ pf-oauth-client-jwks: eyAgICJrZXlzIjogWyAgICAgeyAgICAgICAia3R5IjogIlJTQSIsICAgIC
 pf-oauth-client-enforce-replay-prevention: FALSE
 pf-oauth-client-bypass-approval-page: FALSE
 
-dn: pf-oauth-client-id=df_client,ou=oauthClients,${USER_BASE_DN}
+dn: pf-oauth-client-id=df_client,ou=oauthClients,dc=example,dc=com
 objectClass: top
 objectClass: pf-oauth-client
 pf-oauth-client-name: Device Flow
@@ -290,7 +290,7 @@ pf-oauth-client-persistent-grant-exp-time-unit: d
 pf-oauth-client-enforce-replay-prevention: FALSE
 pf-oauth-client-bypass-approval-page: FALSE
 
-dn: pf-oauth-client-id=ac_oic_client,ou=oauthClients,${USER_BASE_DN}
+dn: pf-oauth-client-id=ac_oic_client,ou=oauthClients,dc=example,dc=com
 objectClass: top
 objectClass: pf-oauth-client
 pf-oauth-client-name: OpenID Connect Basic Client Profile
@@ -331,7 +331,7 @@ pf-oauth-client-jwks: eyAgICAia2V5cyI6WyAgICAgICB7ICAgICAgICAgICJrdHkiOiJSU0EiLC
 pf-oauth-client-enforce-replay-prevention: FALSE
 pf-oauth-client-bypass-approval-page: FALSE
 
-dn: pf-oauth-client-id=jwt_client,ou=oauthClients,${USER_BASE_DN}
+dn: pf-oauth-client-id=jwt_client,ou=oauthClients,dc=example,dc=com
 objectClass: top
 objectClass: pf-oauth-client
 pf-oauth-client-name: JWT Client
@@ -367,7 +367,7 @@ pf-oauth-client-persistent-grant-exp-time-unit: d
 pf-oauth-client-enforce-replay-prevention: FALSE
 pf-oauth-client-bypass-approval-page: FALSE
 
-dn: pf-oauth-client-id=im_client,ou=oauthClients,${USER_BASE_DN}
+dn: pf-oauth-client-id=im_client,ou=oauthClients,dc=example,dc=com
 objectClass: top
 objectClass: pf-oauth-client
 pf-oauth-client-name: Implicit Client
@@ -404,7 +404,7 @@ pf-oauth-client-persistent-grant-exp-time-unit: d
 pf-oauth-client-enforce-replay-prevention: FALSE
 pf-oauth-client-bypass-approval-page: FALSE
 
-dn: pf-oauth-client-id=im_oic_client,ou=oauthClients,${USER_BASE_DN}
+dn: pf-oauth-client-id=im_oic_client,ou=oauthClients,dc=example,dc=com
 objectClass: top
 objectClass: pf-oauth-client
 pf-oauth-client-name: OpenID Connect Implicit Client Profile

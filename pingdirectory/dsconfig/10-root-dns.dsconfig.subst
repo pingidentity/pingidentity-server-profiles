@@ -4,7 +4,7 @@
 #
 dsconfig set-root-dn-user-prop \
     --user-name "Directory Manager"  \
-    --add alternate-bind-dn:cn=administrator
+    --add "alternate-bind-dn:${ROOT_USER_DN}"
 
 #
 # Ping Data Sync User

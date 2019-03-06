@@ -1,0 +1,35 @@
+dn: cn=group.0,ou=groups,dc=example,dc=com
+objectClass: top
+objectClass: groupOfNames
+cn: group.0
+member: uid=user.0,ou=people,dc=example,dc=com
+
+dn: cn=group.1,ou=groups,dc=example,dc=com
+objectClass: top
+objectClass: groupOfNames
+cn: group.1
+member: uid=user.1,ou=people,dc=example,dc=com
+
+dn: cn=PFAdminGroup,ou=groups,dc=example,dc=com
+objectClass: top
+objectClass: groupOfNames
+cn: PFAdminGroup
+member: uid=administrator,ou=people,dc=example,dc=com
+
+dn: cn=PFCryptoGroup,ou=groups,dc=example,dc=com
+objectClass: top
+objectClass: groupOfNames
+cn: PFCryptoGroup
+member: uid=administrator,ou=people,dc=example,dc=com
+
+dn: cn=PFAuditorGroup,ou=groups,dc=example,dc=com
+objectClass: top
+objectClass: groupOfNames
+cn: PFAuditorGroup
+member: uid=auditor,ou=people,dc=example,dc=com
+
+dn: cn=PFUserAdminGroup,ou=groups,dc=example,dc=com
+objectClass: top
+objectClass: groupOfNames
+cn: PFUserAdminGroup
+member: uid=administrator,ou=people,dc=example,dc=com
