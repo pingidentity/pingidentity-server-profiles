@@ -1,4 +1,4 @@
-dn: uid=user.0,ou=People,dc=example,dc=com
+dn: uid=user.0,ou=People,${USER_BASE_DN}
 objectClass: top
 objectClass: person
 objectClass: uidObject
@@ -7,7 +7,7 @@ cn: Raeann Brooke
 uid: user.0
 userPassword: 2FederateM0re
 
-dn: uid=user.1,ou=People,dc=example,dc=com
+dn: uid=user.1,ou=People,${USER_BASE_DN}
 objectClass: top
 objectClass: person
 objectClass: uidObject
@@ -16,7 +16,7 @@ cn: Esko Seawell
 uid: user.1
 userPassword: 2FederateM0re
 
-dn: uid=user.2,ou=People,dc=example,dc=com
+dn: uid=user.2,ou=People,${USER_BASE_DN}
 objectClass: top
 objectClass: person
 objectClass: uidObject
@@ -25,7 +25,7 @@ cn: Sidonia Tancordo
 uid: user.2
 userPassword: 2FederateM0re
 
-dn: uid=user.3,ou=People,dc=example,dc=com
+dn: uid=user.3,ou=People,${USER_BASE_DN}
 objectClass: top
 objectClass: person
 objectClass: uidObject
@@ -34,7 +34,7 @@ cn: Pierre-Marc Knio
 uid: user.3
 userPassword: 2FederateM0re
 
-dn: uid=user.4,ou=People,dc=example,dc=com
+dn: uid=user.4,ou=People,${USER_BASE_DN}
 objectClass: top
 objectClass: person
 objectClass: uidObject
@@ -43,7 +43,7 @@ cn: Terza Psutka
 uid: user.4
 userPassword: 2FederateM0re
 
-dn: uid=administrator,ou=People,dc=example,dc=com
+dn: uid=administrator,ou=People,${USER_BASE_DN}
 objectClass: top
 objectClass: person
 objectClass: uidObject
@@ -52,7 +52,7 @@ cn: Administrator
 uid: administrator
 userPassword: 2FederateM0re
 
-dn: uid=auditor,ou=People,dc=example,dc=com
+dn: uid=auditor,ou=People,${USER_BASE_DN}
 objectClass: top
 objectClass: person
 objectClass: uidObject
