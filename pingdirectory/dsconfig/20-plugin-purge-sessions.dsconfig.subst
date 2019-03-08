@@ -8,7 +8,7 @@ dsconfig create-plugin \
     --set datetime-attribute:pf-authn-session-group-expiry-time  \
     --set "expiration-offset:1 h"  \
     --set purge-behavior:subtree-delete-entries  \
-    --set base-dn:ou=sessions,dc=example,dc=com  \
+    --set base-dn:ou=sessions,${USER_BASE_DN}  \
     --set "filter:(objectClass=pf-authn-session-groups)"  \
     --set "polling-interval:20 m"
 
@@ -22,6 +22,6 @@ dsconfig create-plugin \
     --set datetime-attribute:pf-authn-session-group-last-activity-time  \
     --set "expiration-offset:1 w"  \
     --set purge-behavior:subtree-delete-entries  \
-    --set base-dn:ou=sessions,dc=example,dc=com  \
+    --set base-dn:ou=sessions,${USER_BASE_DN}\
     --set "filter:(objectClass=pf-authn-session-groups)"  \
     --set "polling-interval:1 d"
