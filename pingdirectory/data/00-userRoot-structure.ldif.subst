@@ -6,7 +6,8 @@ aci: (targetattr!="userPassword")(version 3.0; acl "Allow anonymous read access 
 aci: (targetattr="*")(version 3.0; acl "Allow users to update their own entries"; allow (write) userdn="ldap:///self";)
 
 dn: ou=people,${USER_BASE_DN}
-aci: (targetattr="isMemberOf")(version 3.0; acl "Allow the pingfederate user to pull memberships in this branch"; allow(read) userdn="ldap:///cn=pingfederate,cn=root dns,cn=config";)
+aci: (targetattr!="userPassword")(version 3.0; acl "Allow the pingfederate user to do everything in this branch"; allow(all) userdn="ldap:///cn=pingfederate,cn=root dns,cn=config";)
+aci: (targetattr="userPassword")(version 3.0; acl "Allow the pingfederate user to update passwords"; allow (write) userdn="ldap:///cn=pingfederate,cn=root dns,cn=config";)
 objectClass: top
 objectClass: organizationalUnit
 ou: People
@@ -21,12 +22,6 @@ aci: (targetattr="*")(version 3.0; acl "Allow the pingfederate user to do everyt
 objectClass: top
 objectClass: organizationalUnit
 ou: oauthClients
-
-dn: ou=identities,${USER_BASE_DN}
-aci: (targetattr="*")(version 3.0; acl "Allow the pingfederate user to do everything in this branch"; allow(all) userdn="ldap:///cn=pingfederate,cn=root dns,cn=config";)
-objectClass: top
-objectClass: organizationalUnit
-ou: identities
 
 dn: ou=grants,${USER_BASE_DN}
 aci: (targetattr="*")(version 3.0; acl "Allow the pingfederate user to do everything in this branch"; allow(all) userdn="ldap:///cn=pingfederate,cn=root dns,cn=config";)
