@@ -5,6 +5,10 @@ Included in this repo are several examples for getting started with some basic p
 ## What's in it?
 Server profiles aim at providing a common convention to adapt the common images into workable containers in all circumstances.
 
+## Documentation
+ * The complete collection of documentation for Ping Identity’s DevOps GitHub repositories is located on [Gitbook](https://pingidentity-devops.gitbook.io/devops/)
+ * Please navigate to Ping Identity's DevOps [page](https://www.pingidentity.com/content/developer/en/devops.html) for additional resources
+
 ## Layout
 ### PingFederate
 - instance
