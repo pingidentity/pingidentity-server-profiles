@@ -7,7 +7,7 @@ pf-oauth-client-restrict-scopes: FALSE
 pf-oauth-client-require-signed-requests: FALSE
 pf-oauth-client-grant-type: authorization_code
 pf-oauth-client-redirect-uri: https://pingaccess:443/pa/oidc/cb
-pf-oauth-client-redirect-uri: https://localhost/pa/oidc/cb
+pf-oauth-client-redirect-uri: https://${PA_ENGINE_PUBLIC_HOSTNAME}/pa/oidc/cb
 pf-oauth-client-supplemental-info: 22:ALLOW_EXCLUSIVE_SCOPES:false
 pf-oauth-client-supplemental-info: 44:BYPASS_ACTIVATION_CODE_CONFIRMATION_OVERRIDE:null
 pf-oauth-client-supplemental-info: 19:DEVICE_FLOW_SETTING:SERVER_DEFAULT
@@ -115,7 +115,7 @@ pf-oauth-client-restrict-scopes: FALSE
 pf-oauth-client-require-signed-requests: FALSE
 pf-oauth-client-grant-type: refresh_token
 pf-oauth-client-grant-type: authorization_code
-pf-oauth-client-redirect-uri: https://localhost:9031/OAuthPlayground/authorization_code/callback
+pf-oauth-client-redirect-uri: https://${PF_ENGINE_PUBLIC_HOSTNAME}:9031/OAuthPlayground/authorization_code/callback
 pf-oauth-client-supplemental-info: 44:BYPASS_ACTIVATION_CODE_CONFIRMATION_OVERRIDE:null
 pf-oauth-client-supplemental-info: 19:DEVICE_FLOW_SETTING:SERVER_DEFAULT
 pf-oauth-client-supplemental-info: 14:DEFAULT_ATM_ID:jwt
@@ -299,7 +299,7 @@ pf-oauth-client-restrict-scopes: FALSE
 pf-oauth-client-require-signed-requests: FALSE
 pf-oauth-client-grant-type: refresh_token
 pf-oauth-client-grant-type: authorization_code
-pf-oauth-client-redirect-uri: https://localhost:9031/OAuthPlayground/authorization_code/oidc/callback
+pf-oauth-client-redirect-uri: https://${PF_ENGINE_PUBLIC_HOSTNAME}:9031/OAuthPlayground/authorization_code/oidc/callback
 pf-oauth-client-supplemental-info: 44:BYPASS_ACTIVATION_CODE_CONFIRMATION_OVERRIDE:null
 pf-oauth-client-supplemental-info: 19:DEVICE_FLOW_SETTING:SERVER_DEFAULT
 pf-oauth-client-supplemental-info: 14:DEFAULT_ATM_ID:jwt
@@ -375,7 +375,7 @@ pf-oauth-client-last-modified: 1548660083889
 pf-oauth-client-restrict-scopes: FALSE
 pf-oauth-client-require-signed-requests: FALSE
 pf-oauth-client-grant-type: implicit
-pf-oauth-client-redirect-uri: https://localhost:9031/OAuthPlayground/implicit/callback
+pf-oauth-client-redirect-uri: https://${PF_ENGINE_PUBLIC_HOSTNAME}:9031/OAuthPlayground/implicit/callback
 pf-oauth-client-supplemental-info: 44:BYPASS_ACTIVATION_CODE_CONFIRMATION_OVERRIDE:null
 pf-oauth-client-supplemental-info: 19:DEVICE_FLOW_SETTING:SERVER_DEFAULT
 pf-oauth-client-supplemental-info: 14:DEFAULT_ATM_ID:jwt
@@ -412,7 +412,7 @@ pf-oauth-client-last-modified: 1548660083896
 pf-oauth-client-restrict-scopes: FALSE
 pf-oauth-client-require-signed-requests: FALSE
 pf-oauth-client-grant-type: implicit
-pf-oauth-client-redirect-uri: https://localhost:9031/OAuthPlayground/implicit/oidc/callback
+pf-oauth-client-redirect-uri: https://${PF_ENGINE_PUBLIC_HOSTNAME}:9031/OAuthPlayground/implicit/oidc/callback
 pf-oauth-client-supplemental-info: 44:BYPASS_ACTIVATION_CODE_CONFIRMATION_OVERRIDE:null
 pf-oauth-client-supplemental-info: 19:DEVICE_FLOW_SETTING:SERVER_DEFAULT
 pf-oauth-client-supplemental-info: 14:DEFAULT_ATM_ID:jwt
