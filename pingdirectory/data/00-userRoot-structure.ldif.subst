@@ -8,6 +8,7 @@ aci: (targetattr="*")(version 3.0; acl "Allow users to update their own entries"
 dn: ou=people,${USER_BASE_DN}
 aci: (targetattr!="userPassword")(version 3.0; acl "Allow the pingfederate user to do everything in this branch"; allow(all) userdn="ldap:///cn=pingfederate,cn=root dns,cn=config";)
 aci: (targetattr="userPassword")(version 3.0; acl "Allow the pingfederate user to update passwords"; allow (write) userdn="ldap:///cn=pingfederate,cn=root dns,cn=config";)
+aci: (targetattr="isMemberOf")(version 3.0; acl "Allow the pingfederate user to get memberships"; allow (read) userdn="ldap:///cn=pingfederate,cn=root dns,cn=config";)
 objectClass: top
 objectClass: organizationalUnit
 ou: People
