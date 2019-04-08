@@ -1,0 +1,18 @@
+dsconfig create-external-server \
+    --server-name smtp.mailtrap.io \
+    --type smtp \
+    --set server-host-name:smtp.mailtrap.io \
+    --set server-port:465 \
+    --set smtp-security:starttls \
+    --set user-name:f02fafedf3f7d4 \
+    --set password:AAAJHdv6baR7DLBSHgm0usdU63A2m5D2g3Q=
+
+dsconfig set-global-configuration-prop \
+    --set smtp-server:smtp.mailtrap.io
+
+dsconfig create-alert-handler \
+    --handler-name allAlerts \
+    --type smtp \
+    --set enabled:true \
+    --set 'sender-address:${HOSTNAME}.${PING_PRODUCT}@pingidentity.com' \
+    --set 'recipient-address:admin.identity@solderio.com'
