@@ -1,0 +1,118 @@
+dsconfig set-password-policy-prop \
+    --policy-name "Default Password Policy" \
+    --set "max-password-age:52 w"
+
+dsconfig create-delegated-admin-resource-type \
+    --type-name users \
+    --set enabled:false \
+    --set resource-endpoint:users \
+    --set structural-ldap-objectclass:inetOrgPerson \
+    --set search-base-dn:ou=people,dc=example,dc=com \
+    --set 'search-filter-pattern:(|(cn=*%%*)(mail=%%*)(uid=%%*))' \
+    --set primary-display-attribute-type:cn
+dsconfig create-delegated-administrator \
+    --type-name users \
+    --administrator-name "ÜberAdmin" \
+    --set enabled:true \
+    --set admin-user-dn:uid=user.0,ou=people,${USER_BASE_DN} \
+    --set admin-scope:manages-all-entries
+dsconfig create-delegated-admin-attribute \
+    --type-name users \
+    --attribute-type cn \
+    --set display-name:Name \
+    --set custom-presentation:false
+dsconfig create-delegated-admin-attribute \
+    --type-name users \
+    --attribute-type sn \
+    --set display-name:Surname \
+    --set display-order-index:1
+dsconfig create-delegated-admin-attribute \
+    --type-name users \
+    --attribute-type mail \
+    --set display-name:Email \
+    --set display-order-index:2
+dsconfig create-delegated-admin-attribute \
+    --type-name users \
+    --attribute-type ds-pwp-account-disabled \
+    --set "display-name:Account Disabled" \
+    --set display-order-index:3
+dsconfig create-delegated-admin-attribute \
+    --type-name users \
+    --attribute-type uid \
+    --set "display-name:User ID" \
+    --set display-order-index:4
+
+dsconfig set-trust-manager-provider-prop \
+    --provider-name "Blind Trust" \
+    --set enabled:true
+dsconfig create-external-server \
+    --server-name PingFederate \
+    --type http \
+    --set base-url:https://pingfederate:9031 \
+    --set "trust-manager-provider:Blind Trust"
+
+dsconfig create-identity-mapper \
+    --mapper-name entryUUIDMatch \
+    --type exact-match \
+    --set enabled:true \
+    --set match-attribute:entryUUID \
+    --set match-base-dn:ou=people,${USER_BASE_DN}
+dsconfig create-access-token-validator \
+    --validator-name PingFederate \
+    --type ping-federate \
+    --set identity-mapper:entryUUIDMatch \
+    --set enabled:true \
+    --set authorization-server:PingFederate \
+    --set client-id:PingDirectory \
+    --set client-secret:AAAJOlURTJX0zdk9g2i0H/zq4k78NPuJ7Bs=
+
+dsconfig set-access-control-handler-prop \
+    --add 'global-aci:(extop="1.3.6.1.4.1.30221.2.6.17")(version 3.0;acl "Authenticated access to the multi-update extended request for the Delegated Admin API"; allow (read) userdn="ldap:///all";)' \
+    --add 'global-aci:(targetcontrol="1.3.6.1.4.1.4203.1.10.2")(version 3.0;acl "Authenticated access to the no-op request control for the Delegated Admin API"; allow (read) userdn="ldap:///all";)'
+dsconfig set-virtual-attribute-prop \
+    --name "Delegated Admin Privilege" \
+    --set enabled:true
+dsconfig set-delegated-admin-resource-type-prop \
+    --type-name users \
+    --set enabled:true \
+    --set 'search-filter-pattern:(|(cn=*%%*)(mail=%%*)(uid=%%))'
+dsconfig create-http-servlet-cross-origin-policy \
+    --policy-name AnythingGoes \
+    --set cors-allowed-methods:DELETE \
+    --set cors-allowed-methods:GET \
+    --set cors-allowed-methods:HEAD \
+    --set cors-allowed-methods:OPTIONS \
+    --set cors-allowed-methods:PATCH \
+    --set cors-allowed-methods:POST \
+    --set cors-allowed-methods:PUT \
+    --set 'cors-allowed-origins:*'
+
+dsconfig set-http-servlet-extension-prop \
+    --extension-name "Delegated Admin" \
+    --set users-resource-type:users \
+    --set basic-auth-enabled:false \
+    --set identity-mapper:entryUUIDMatch \
+    --add access-token-validator:PingFederate \
+    --set access-token-scope:urn:pingidentity:directory-delegated-admin \
+    --set cross-origin-policy:AnythingGoes
+dsconfig set-connection-handler-prop \
+    --handler-name "HTTPS Connection Handler" \
+    --set enabled:false \
+    --set "trust-manager-provider:Blind Trust"
+dsconfig set-connection-handler-prop \
+    --handler-name "HTTPS Connection Handler" \
+    --set enabled:true
+
+#dsconfig create-virtual-attribute \
+#    --name pf-connected-identity \
+#    --type constructed \
+#    --set enabled:true \
+#    --set attribute-type:pf-connected-identity \
+#    --set base-dn:ou=people,${USER_BASE_DN} \
+#    --set "filter:(objectClass=person)" \
+#    --set conflict-behavior:virtual-overrides-real \
+#    --set allow-index-conflicts:true \
+#    --set "value-pattern:auth-source=pf-local-identity:user-id={entryUUID}"
+#dsconfig set-virtual-attribute-prop \
+#    --name pf-connected-identity \
+#    --set enabled:false
