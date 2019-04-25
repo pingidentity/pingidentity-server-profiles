@@ -351,3 +351,8 @@ javax.net.ssl.sessionCacheSize=5000
 
 # This property determines whether PingFederate omits line breaks in XML digital signatures. Default is true.
 org.apache.xml.security.ignoreLineBreaks=true
+
+# COMMENT THIS OUT IF TOO MUCH OUTPUT ON LDAP CHATTER
+com.unboundid.ldap.sdk.debug.enabled=true
+com.unboundid.ldap.sdk.debug.level=FINEST
+com.unboundid.ldap.sdk.debug.type=LDAP
