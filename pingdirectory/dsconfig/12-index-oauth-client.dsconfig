@@ -17,5 +17,5 @@ dsconfig create-local-db-index \
 
 dsconfig create-local-db-index \
   --backend-name userRoot \
-  --index-name pf-oauth-client-last-modified	\
+  --index-name pf-oauth-client-last-modified \
   --set index-type:ordering 
