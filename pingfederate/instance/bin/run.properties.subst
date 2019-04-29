@@ -76,7 +76,7 @@ pf.console.authentication=LDAP
 #     cert   - X509 certificate-based authentication.
 #     RADIUS - External RADIUS authentication.
 # Default is native.
-pf.admin.api.authentication=native
+pf.admin.api.authentication=LDAP
 
 #
 # When LDAP administrative-console authentication is enabled, this property
