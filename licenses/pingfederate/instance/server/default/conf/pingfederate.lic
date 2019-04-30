@@ -1,0 +1,15 @@
+ID=1206371
+Product=PingFederate
+Version=9.2
+IssueDate=2019-04-28
+EnforcementType=7
+ExpirationDate=2019-05-4
+ConnectionLimit=3
+NodeLimit=3
+Tier=Free
+SaasProvisioning=true
+WSTrustSTS=false
+OAuth=true
+GracePeriod=0
+SignCode=FF1F
+Signature=302D02143381D8BB63BDA13661438DF8595B0DD4960C4D900215008A0E1765E35488DEC38464A47A346E0710225A23
