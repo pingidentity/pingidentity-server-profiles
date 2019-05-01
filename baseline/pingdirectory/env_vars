@@ -6,7 +6,9 @@
 #         export MY_ENVIRONMENT_VARIABLE_0=${MY_ENVIRONMENT_VARIABLE_0:=myDefaultValue}
 #                or
 #         export MY_ENVIRONMENT_VARIABLE_1=${MY_ENVIRONMENT_VARIABLE_1:-wasNotSetElsewhere}
-
+#         
+#         Also be aware that many of these variable have default values set in the Docker image.
+#         If that is the case the variable is never not set, you may have to override the value
 
 # The location MUST be provided
 export LOCATION=${LOCATION:-Docker}
@@ -19,13 +21,13 @@ export LOCATION=${LOCATION:-Docker}
 # Default to /usr/local/secret to be passed via docker secrets
 # Retrieve from a vault ideally instead of this
 # NOTE: use ${BASE} in case the image was rebased
-export ROOT_USER_PASSWORD_FILE=${ROOT_USER_PASSWORD_FILE:-${BASE}/staging/pwd}
+export ROOT_USER_PASSWORD_FILE=${BASE}/staging/pwd
 
 # The replication administration user DN may be provided (Default: admin)
 # ADMIN_USER_NAME=yourReplicationUserHere
 
 # The replication administrator password file
-export ADMIN_USER_PASSWORD_FILE=${ADMIN_USER_PASSWORD_FILE:-${ROOT_USER_PASSWORD_FILE}}
+ADMIN_USER_PASSWORD_FILE=${ROOT_USER_PASSWORD_FILE}
 
 # The user base dn may be provided (Default: dc=example,dc=com)
 # USER_BASE_DN=dc=yourCompanyName,dc=com
@@ -37,11 +39,11 @@ export ADMIN_USER_PASSWORD_FILE=${ADMIN_USER_PASSWORD_FILE:-${ROOT_USER_PASSWORD
 # Customize this if you are providing a keystore in instance/config/keystore (for JKS)
 # or instance/config/keystore.p12 (for PKCS#12)
 # and the server certificate alias is not the default server-cert
-export CERTIFICATE_NICKNAME=${CERTIFICATE_NICKNAME:-server-cert}
+# CERTIFICATE_NICKNAME=server-cert
 
 # The encryption passphase to use
 # This is critical to allow encryption across replicated server and MUST be provided
-export ENCRYPTION_PASSWORD_FILE=${ENCRYPTION_PASSWORD_FILE:-${ROOT_USER_PASSWORD_FILE}}
+ENCRYPTION_PASSWORD_FILE=${ROOT_USER_PASSWORD_FILE}
 
 # whitespace-separated list of the log files to tail on the container's standard output
 # This is optional and will default to tailing access log
