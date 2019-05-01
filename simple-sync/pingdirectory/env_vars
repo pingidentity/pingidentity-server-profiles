@@ -11,22 +11,22 @@
 export LOCATION=${LOCATION:-Denver}
 
 # The root user may be provided (Default: cn=directory manager)
-export ROOT_USER_DN=${ROOT_USER_DN:-cn=administrator}
+ROOT_USER_DN=cn=administrator
 
 # The path to the root user password file
 # This does not necessarily need to be passed in to the container
 # Default to /usr/local/secret to be passed via docker secrets
 # Retrieve from a vault ideally instead of this
-export ROOT_USER_PASSWORD_FILE=${ROOT_USER_PASSWORD_FILE:-${BASE}/staging/pwd}
+ROOT_USER_PASSWORD_FILE=${BASE}/staging/pwd
 
 # The replication administration user DN may be provided (Default: admin)
 # ADMIN_USER_NAME=yourReplicationUserHere
 
 # The replication administrator password file
-export ADMIN_USER_PASSWORD_FILE=${ADMIN_USER_PASSWORD_FILE:-${ROOT_USER_PASSWORD_FILE}}
+ADMIN_USER_PASSWORD_FILE=${ROOT_USER_PASSWORD_FILE}
 
 # The user base dn may be provided (Default: dc=example,dc=com)
-export USER_BASE_DN=${USER_BASE_DN:-o=sync}
+USER_BASE_DN:-o=sync
 
 # The Java heap size may be provided
 # MAX_HEAP_SIZE=384m

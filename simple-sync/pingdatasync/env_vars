@@ -17,7 +17,7 @@ export ROOT_USER_PASSWORD_FILE=${ROOT_USER_PASSWORD_FILE:-${BASE}/staging/pwd}
 export LOCATION=${LOCATION:-Orlando}
 
 
-export USER_BASE_DN=${USER_BASE_DN:-o=sync}
+USER_BASE_DN=o=sync
 
 # The root user may be provided (Default: cn=directory manager)
 #ROOT_USER_DN=cn=administrator
