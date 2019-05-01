@@ -15,6 +15,7 @@ objectClass: top
 objectClass: groupOfNames
 cn: PFAdminGroup
 member: uid=administrator,ou=people,${USER_BASE_DN}
+member: uid=access2federate,ou=People,${USER_BASE_DN}
 
 dn: cn=PFCryptoGroup,ou=groups,${USER_BASE_DN}
 objectClass: top
