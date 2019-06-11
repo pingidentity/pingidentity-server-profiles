@@ -14,12 +14,12 @@ dsconfig create-root-dn-user \
     --set alternate-bind-dn:cn=sync  \
     --set alternate-bind-dn:cn=datasync  \
     --set inherit-default-root-privileges:false  \
-    --set "password:{PBKDF2}AAgJ/5P/ZopkkhAA93FOb+mypQj6GhzuYnK64RPsBkj/lQPGBhEPGlJAyXM="  \
     --set privilege:bypass-acl  \
     --set privilege:bypass-pw-policy  \
     --set privilege:config-read  \
     --set privilege:password-reset  \
-    --set privilege:unindexed-search
+    --set privilege:unindexed-search \
+    --set password<${ROOT_USER_PASSWORD_FILE}
 
 #
 # Create a user for pingfederate 
@@ -29,9 +29,16 @@ dsconfig create-root-dn-user \
   --set alternate-bind-dn:cn=fed \
   --set alternate-bind-dn:cn=pf \
   --set alternate-bind-dn:cn=pingfederate \
-  --set "password:{PBKDF2}AAgJ/5P/ZopkkhAA93FOb+mypQj6GhzuYnK64RPsBkj/lQPGBhEPGlJAyXM=" \
   --set inherit-default-root-privileges:false \
   --set privilege:password-reset \
   --set privilege:permit-get-password-policy-state-issues \
   --set privilege:unindexed-search \
-  --set is-proxyable:prohibited        
+  --set is-proxyable:prohibited \
+  --set password<${ROOT_USER_PASSWORD_FILE}
+
+dsconfig create-root-dn-user \
+    --user-name pingdirectoryproxy  \
+    --set alternate-bind-dn:cn=pingdirectoryproxy  \
+    --set alternate-bind-dn:cn=proxy  \
+    --set privilege:proxied-auth \
+    --set password<${ROOT_USER_PASSWORD_FILE}
