@@ -8,7 +8,7 @@ dsconfig create-request-criteria \
 dsconfig create-plugin \
     --plugin-name pingid-plugin \
     --type third-party \
-    --set enabled:false \
+    --set enabled:true \
     --set plugin-type:preparsebind \
     --set request-criteria:pingid-criteria \
     --set extension-class:com.pingidentity.ds.plugin.PingIDOnSimpleBind \
