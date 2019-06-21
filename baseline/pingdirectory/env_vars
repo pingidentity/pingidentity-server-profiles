@@ -48,3 +48,5 @@ ENCRYPTION_PASSWORD_FILE=${ROOT_USER_PASSWORD_FILE}
 # whitespace-separated list of the log files to tail on the container's standard output
 # This is optional and will default to tailing access log
 #TAIL_LOG_FILES="/opt/out/instance/logs/access /opt/out/instance/logs/audit"
+#
+PD_DELEGATOR_PUBLIC_HOSTNAME=localhost
