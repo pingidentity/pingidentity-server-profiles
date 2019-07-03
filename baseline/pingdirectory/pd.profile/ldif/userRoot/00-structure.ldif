@@ -18,6 +18,11 @@ objectClass: top
 objectClass: organizationalUnit
 ou: groups
 
+dn: ou=consents,${USER_BASE_DN}
+objectClass: top
+objectClass: organizationalUnit
+ou: consents
+
 dn: ou=oauthClients,${USER_BASE_DN}
 aci: (targetattr="*")(version 3.0; acl "Allow the pingfederate user to do everything in this branch"; allow(all) userdn="ldap:///cn=pingfederate,cn=root dns,cn=config";)
 objectClass: top
