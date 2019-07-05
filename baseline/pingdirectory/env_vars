@@ -11,7 +11,7 @@
 #         If that is the case the variable is never not set, you may have to override the value
 
 # The location MUST be provided
-LOCATION=${LOCATION:-Docker}
+#LOCATION=Docker
 
 # The root user may be provided (Default: cn=directory manager)
 #ROOT_USER_DN=cn=administrator
