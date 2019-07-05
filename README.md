@@ -1,10 +1,22 @@
-# Ping Identity DevOps - Server Profiles
-Provides example Server Profiles to configure Ping Identity DevOps Docker Images for different use cases. 
+# Server Profiles
 
-## Documentation
- * The collection of documentation on these server profiles are located on the [Gitbook-Server Profiles](https://pingidentity-devops.gitbook.io/devops/server-profiles)
- * The complete collection of documentation for Ping Identity’s DevOps GitHub repositories is located on [Gitbook](https://pingidentity-devops.gitbook.io/devops/)
+Ping Identity Server Profiles are used to provide the configuration, data, environment details to Ping Identity Docker Images.
 
-## Troubleshooting
-This repository is in active development and has not been officially released. 
-If you experience issues with this project, plese see details on contributing feedback at [Contributing](CONTRIBUTING.md).
+## Available Server Profiles
+
+There are several Ping Identity Server Profiles available in the Ping Identity Github repositories. They are outlined in the table below.
+
+| Server Profile | Description |
+| :--- | :--- |
+| [Getting Started](https://github.com/pingidentity/pingidentity-server-profiles/tree/master/getting-started) | Ping Identity products with basic install/config |
+| [Baseline](https://github.com/pingidentity/pingidentity-server-profiles/tree/master/baseline) | Ping Identity procucts with full integration |
+| [Simple Sync](https://github.com/pingidentity/pingidentity-server-profiles/tree/master/simple-sync) | DataSync server sync'ing between two PingDirectory trees |
+
+## Playground Server Profiles
+
+There is a Github Repository containing samples, experimental, training types of server profiles that may be created to help with examples and getting started projects. These are guaranteed to be documented as they are often one off examples of different concepts. Some of these products include:
+
+| Server Profile | Description |
+| :--- | :--- |
+| [PingFed Cluster](https://github.com/pingidentity/server-profile-pingidentity-playground/tree/master/getting-started-pingfederate-cluster) | Configuring a PingFed cluster with admin/engine nodes |
+| [PingOne for Customer](https://github.com/pingidentity/server-profile-pingidentity-playground/tree/master/pingone-cloud) | Use cases around PingOne for Customer |

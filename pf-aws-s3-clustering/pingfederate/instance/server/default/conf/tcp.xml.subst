@@ -1,0 +1,122 @@
+<config>
+    <TCP_NIO2
+            recv_buf_size="5M"
+            send_buf_size="5M"
+            max_bundle_size="64K"
+            max_bundle_timeout="30"
+            bind_port="${pf.cluster.bind.port}"
+            sock_conn_timeout="300"
+            max_send_buffers="1000"
+
+            enable_diagnostics="${pf.cluster.diagnostics.enabled}"
+            diagnostics_addr="${pf.cluster.diagnostics.addr}"
+            diagnostics_port="${pf.cluster.diagnostics.port}"
+
+            thread_pool.enabled="true"
+            thread_pool.min_threads="4"
+            thread_pool.max_threads="16"
+            thread_pool.keep_alive_time="8000"
+            thread_pool.queue_enabled="true"
+            thread_pool.queue_max_size="1000"
+            thread_pool.rejection_policy="discard"
+
+            oob_thread_pool.enabled="true"
+            oob_thread_pool.min_threads="4"
+            oob_thread_pool.max_threads="16"
+            oob_thread_pool.keep_alive_time="8000"
+            oob_thread_pool.queue_enabled="false"
+            oob_thread_pool.queue_max_size="100"
+            oob_thread_pool.rejection_policy="discard"
+
+            logical_addr_cache_expiration="1000"
+            logical_addr_cache_reaper_interval="10000"
+
+            bind_addr="${pf.cluster.bind.address}"
+            log_discard_msgs="false"/>
+<!--
+    <TCPPING initial_hosts="${pf.cluster.tcp.discovery.initial.hosts}"
+             return_entire_cache="true"
+             port_range="0"/>
+-->
+
+    <!-- To enable discovery using a file stored in S3, comment out TCPPING, and uncomment the section below.
+         Passwords and keys may be encrypted using PingFederate's obfuscate utility.
+         See JGroups documentation on S3_PING for further information on the available settings. -->
+   <S3_PING location="$DISCOVERY_S3_LOCATION"
+             access_key="$DISCOVERY_S3_ACCESS_KEY"
+             secret_access_key="$DISCOVERY_S3_SECRET_KEY"
+             remove_all_files_on_view_change="true"
+             write_data_on_find="true"/>
+
+    <!-- To enable discovery using a file stored in Swift, comment out TCPPING, and uncomment the section below.
+         Passwords and keys may be encrypted using PingFederate's obfuscate utility.
+         See JGroups documentation on SWIFT_PING for further information on the available settings. -->
+    <!--
+    <SWIFT_PING
+             auth_type="keystone_v_2_0"
+             auth_url="[...]/v2.0/tokens"
+             username="[...]"
+             password="[...]"
+             tenant="[...]"
+             container="[...]"
+             remove_all_files_on_view_change="true"/>
+    -->
+
+    <!-- To enable discovery of EC2 instances in AWS dynamically, comment out TCPPING, and uncomment the section below.
+
+         This plugin requires the ec2:Describe permission to be enabled in either the IAM settings for this EC2
+         instance or associated with the access_key configured below.
+
+         Tags, Filters, or a combination of the two can be used to identify the systems in EC2 that should be a
+         part of the PingFederate cluster.
+
+         port_number - The port number that PingFederate listens on for cluster communication. This should normally be left as
+                       ${pf.cluster.bind.port}.
+         port_range  - (OPTIONAL) PingFederate may probe additional ports when attempting to connect to other
+                       nodes. Specify the number of additional ports beyond port_number to probe. The default is 0.
+         regions     - (OPTIONAL) A comma separated list of EC2 regions in which discovery should be attempted. If no regions
+                       are specified, only nodes in the same region as this node will be discovered. If nodes are running in
+                       multiple regions, it is recommended to list all regions in this field.
+         tags        - (OPTIONAL) A comma separated list of EC2 tags to use to compare to other nodes found in EC2. For a node
+                       to be considered, all tags need to match.
+                       Example: tags="TAG1,TAG2" - Nodes that have the same value as this node for BOTH tags will be considered
+                       for joining the cluster.
+         filters     - (OPTIONAL) A semi-colon separated list of key value pairs to match on. Please refer to the EC2 documentation
+                       to see what attributes are available for filtering.
+                       Example: filters="FILTER1=VALUE1,VALUE2;FILTER2=VALUE3" - Any nodes that match at least one
+                       value for each filter will be considered for joining the cluster.
+         access_key  - (OPTIONAL) The access_key to use to query EC2 to get instance information. If omitted, AWS_PING
+                       will use the IAM settings configured for this EC2 instance. May be encrypted using PingFederate's
+                       obfuscate utility.
+         secret_key  - (OPTIONAL) Required if an access_key is provided. The secret key associated with the access_key.
+                       If omitted, AWS_PING will use the IAM settings configured for this EC2 instance. May be encrypted
+                       using PingFederate's obfuscate utility.
+    -->
+    <!--
+    <com.pingidentity.aws.AWS_PING
+            port_number="${pf.cluster.bind.port}"
+            port_range="0"
+            regions=""
+            tags=""
+            filters=""
+            access_key=""
+            secret_key=""
+            log_aws_error_messages="true"/>
+    -->
+
+    <MERGE3 min_interval="30000" max_interval="60000" />
+    <FD_SOCK start_port="${pf.cluster.failure.detection.bind.port}" bind_addr="${pf.cluster.bind.address}"/>
+    <FD timeout="10000" max_tries="5"/>
+    <VERIFY_SUSPECT timeout="1500"/>
+    <BARRIER/>
+    <pbcast.NAKACK2
+                   use_mcast_xmit="false"
+                   discard_delivered_msgs="false"/>
+    <pbcast.STABLE stability_delay="1000" desired_avg_gossip="50000"  max_bytes="400000"/>
+    ${ENCRYPT_TAG}
+    <AUTH auth_class="org.jgroups.auth.MD5Token" auth_value="${pf.cluster.auth.pwd}" token_hash="MD5"/>
+    <pbcast.GMS print_local_addr="true" join_timeout="3000"
+                view_bundling="true" view_ack_collection_timeout="5000"/>
+    <FRAG2 frag_size="60000"/>
+    <pbcast.STATE_TRANSFER/>
+</config>
