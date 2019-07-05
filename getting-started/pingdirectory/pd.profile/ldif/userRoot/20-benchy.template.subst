@@ -2,7 +2,7 @@ define suffix=${USER_BASE_DN}
 define maildomain=example.com
 define numusers=${MAKELDIF_USERS}
 
-branch: ou=people,[suffix]
+branch: ou=benchy,[suffix]
 subordinateTemplate: benchy:[numusers]
 
 template: benchy

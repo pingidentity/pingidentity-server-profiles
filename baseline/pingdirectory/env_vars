@@ -3,15 +3,15 @@
 #         
 #         if that is not the intent, and a default value should be set instead
 #         use a syntax like:
-#         export MY_ENVIRONMENT_VARIABLE_0=${MY_ENVIRONMENT_VARIABLE_0:=myDefaultValue}
+#            MY_ENVIRONMENT_VARIABLE_0=${MY_ENVIRONMENT_VARIABLE_0:=myDefaultValue}
 #                or
-#         export MY_ENVIRONMENT_VARIABLE_1=${MY_ENVIRONMENT_VARIABLE_1:-wasNotSetElsewhere}
+#            MY_ENVIRONMENT_VARIABLE_1=${MY_ENVIRONMENT_VARIABLE_1:-wasNotSetElsewhere}
 #         
 #         Also be aware that many of these variable have default values set in the Docker image.
 #         If that is the case the variable is never not set, you may have to override the value
 
 # The location MUST be provided
-export LOCATION=${LOCATION:-Docker}
+#LOCATION=Docker
 
 # The root user may be provided (Default: cn=directory manager)
 #ROOT_USER_DN=cn=administrator
@@ -21,7 +21,7 @@ export LOCATION=${LOCATION:-Docker}
 # Default to /usr/local/secret to be passed via docker secrets
 # Retrieve from a vault ideally instead of this
 # NOTE: use ${BASE} in case the image was rebased
-export ROOT_USER_PASSWORD_FILE=${BASE}/staging/pwd
+ROOT_USER_PASSWORD_FILE=${BASE}/staging/pwd
 
 # The replication administration user DN may be provided (Default: admin)
 # ADMIN_USER_NAME=yourReplicationUserHere
