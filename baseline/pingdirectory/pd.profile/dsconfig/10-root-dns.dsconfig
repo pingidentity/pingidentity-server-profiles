@@ -36,9 +36,27 @@ dsconfig create-root-dn-user \
   --set is-proxyable:prohibited \
   --set password<${ROOT_USER_PASSWORD_FILE}
 
+#
+# Create a user for pingdirectoryproxy 
+#
 dsconfig create-root-dn-user \
     --user-name pingdirectoryproxy  \
     --set alternate-bind-dn:cn=pingdirectoryproxy  \
     --set alternate-bind-dn:cn=proxy  \
     --set privilege:proxied-auth \
     --set password<${ROOT_USER_PASSWORD_FILE}
+
+#
+# Create a user for pingdatagovernance
+#
+dsconfig create-root-dn-user \
+    --user-name pingdatagovernance \
+    --set alternate-bind-dn:cn=pingdatagovernance \
+    --set alternate-bind-dn:cn=datagov \
+    --set password<${ROOT_USER_PASSWORD_FILE} \
+    --set inherit-default-root-privileges:false \
+    --set privilege:password-reset \
+    --set privilege:proxied-auth \
+    --set privilege:unindexed-search \
+    --set search-result-entry-limit:100000
+
