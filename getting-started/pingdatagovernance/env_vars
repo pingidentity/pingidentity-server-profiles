@@ -19,7 +19,7 @@ ROOT_USER_DN=cn=administrator
 ROOT_USER_PASSWORD_FILE=${BASE}/staging/pwd
 
 # The Java heap size may be provided
-# MAX_HEAP_SIZE=384m
+MAX_HEAP_SIZE=1g
 
 # The server certificate alias to use
 # Customize this if you are providing a keystore in instance/config/keystore (for JKS)
