@@ -1,0 +1,5 @@
+
+Server Profile baseline/pingdatagoverance
+  - Connects to a pingdirectory/:636 instance
+  - Provides a scim/v2/Users endpoint
+
