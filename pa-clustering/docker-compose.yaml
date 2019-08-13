@@ -1,0 +1,50 @@
+version: "3.1"
+
+services:
+  pingaccess:
+    image: pingidentity/pingaccess:${PING_IDENTITY_DEVOPS_TAG}
+    #command: wait-for pingfederate:9031 -t 420 -- entrypoint.sh start-server
+    environment: 
+    #  - SERVER_PROFILE_URL=https://ping-poc-hunr:8c9dcd072b7b6c6f69eeb949719c46cc82bdacac@github.com/ping-devops-program/ping-poc-intuit.git
+    #  - SERVER_PROFILE_PATH=server-profiles/pingaccess
+      - OPERATIONAL_MODE=CLUSTERED_CONSOLE
+      - PA_CONSOLE_HOST=pingaccess
+      # - SEVER_PROFILE_BRANCH=pf-env
+    #env_file:
+    #  - ~/.pingidentity/devops
+    healthcheck:
+      test: ["CMD", "curl", "-f", "-k", "https://pingaccess:9000/pa/heartbeat.ping"]
+      interval: 10s
+      timeout: 3s    
+    volumes:
+      # - ${HOME}/Documents/DevOps/playground/server-profiles/pingaccess-clustered/out:/opt/out
+      - ${HOME}/Documents/DevOps/playground/server-profiles/pingaccess-clustered/pingaccess:/opt/in
+    ports:
+      - 9000:9000
+      - 9090:9090
+    networks:
+      - pingnet-dmz
+    cap_add:
+      - NET_ADMIN
+
+  pingaccess-engine:
+    image: pingidentity/pingaccess:${PING_IDENTITY_DEVOPS_TAG}
+    command: wait-for pingaccess:9000 -t 420 -- entrypoint.sh start-server
+    environment: 
+    #  - SERVER_PROFILE_URL=https://ping-poc-hunr:8c9dcd072b7b6c6f69eeb949719c46cc82bdacac@github.com/ping-devops-program/ping-poc-intuit.git
+    #  - SERVER_PROFILE_PATH=server-profiles/pingaccess
+      - OPERATIONAL_MODE=CLUSTERED_ENGINE
+      - PA_CONSOLE_HOST=pingaccess
+      # - SEVER_PROFILE_BRANCH=pf-env
+    #env_file:
+    #  - ~/.pingidentity/devops
+    volumes:
+    #   - ${HOME}/projects/devops/volumes/full-stack.pingaccess:/opt/out
+      - ${HOME}/Documents/DevOps/playground/server-profiles/pingaccess-clustered/pingaccess:/opt/in
+    ports:
+      - 3000:3000
+    networks:
+      - pingnet-dmz
+              
+networks:
+    pingnet-dmz:
