@@ -2,7 +2,7 @@
 ${VERBOSE} && set -x
 
 # shellcheck source=/dev/null
-test -f "${BASE}/lib.sh" && . "${BASE}/lib.sh"
+test -f "${HOOKS_DIR}/pingcommon.lib.sh" && . "${HOOKS_DIR}/pingcommon.lib.sh"
 while true ; do
     curl -ss -o /dev/null -k https://pingdirectory/directory/v1 2>&1 && break
     sleep_at_most 8
