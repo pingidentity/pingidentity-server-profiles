@@ -68,7 +68,7 @@
                 <!--
                 <charset>UTF-8</charset>
                 -->
-                <pattern>%d{ISO8601}| %X{exchangeId}| %X{AUDIT.trackingId}| %X{AUDIT.subject}| %X{AUDIT.authMech}| %X{AUDIT.scopes}| %X{AUDIT.client}| %X{AUDIT.method}| %X{AUDIT.requestUri}| %X{AUDIT.responseCode} %n</pattern>
+                <pattern>%d{ISO8601}| %X{exchangeId}| %X{AUDIT.trackingId}| %X{AUDIT.roundTripMS} ms| %X{AUDIT.subject}| %X{AUDIT.authMech}| %X{AUDIT.client}| %X{AUDIT.method}| %X{AUDIT.requestUri}| %X{AUDIT.responseCode} %n</pattern>
             </PatternLayout>
             <Policies>
                 <TimeBasedTriggeringPolicy />
@@ -95,7 +95,6 @@
             <Column name="TRACKING_ID" pattern="%X{AUDIT.trackingId}" />
             <Column name="SUBJECT" pattern="%X{AUDIT.subject}" />
             <Column name="AUTH_MECH" pattern="%X{AUDIT.authMech}" />
-            <Column name="SCOPES" pattern="%X{AUDIT.scopes}" />
             <Column name="CLIENT" pattern="%X{AUDIT.client}" />
             <Column name="METHOD" pattern="%X{AUDIT.method}" />
             <Column name="REQUEST_URI" pattern="%X{AUDIT.requestUri}" isClob="true"/>
@@ -106,7 +105,7 @@
                      filePattern="${sys:pa.home}/log/pingaccess_api_audit_oracle_failover.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
-                <pattern>%d{ISO8601}| %X{exchangeId}| %X{AUDIT.trackingId}| %X{AUDIT.subject}| %X{AUDIT.authMech}| %X{AUDIT.scopes}| %X{AUDIT.client}| %X{AUDIT.method}| %X{AUDIT.requestUri}| %X{AUDIT.responseCode} %n</pattern>
+                <pattern>%d{ISO8601}| %X{exchangeId}| %X{AUDIT.trackingId}| %X{AUDIT.subject}| %X{AUDIT.authMech}| %X{AUDIT.client}| %X{AUDIT.method}| %X{AUDIT.requestUri}| %X{AUDIT.responseCode} %n</pattern>
             </PatternLayout>
             <Policies>
                 <TimeBasedTriggeringPolicy />
@@ -139,7 +138,6 @@
             <Column name="TRACKING_ID" pattern="%X{AUDIT.trackingId}" />
             <Column name="SUBJECT" pattern="%X{AUDIT.subject}" />
             <Column name="AUTH_MECH" pattern="%X{AUDIT.authMech}" />
-            <Column name="SCOPES" pattern="%X{AUDIT.scopes}" />
             <Column name="CLIENT" pattern="%X{AUDIT.client}" />
             <Column name="METHOD" pattern="%X{AUDIT.method}" />
             <Column name="REQUEST_URI" pattern="%X{AUDIT.requestUri}"/>
@@ -150,7 +148,7 @@
                      filePattern="${sys:pa.home}/log/pingaccess_api_audit_sqlserver_failover.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
-                <pattern>%d{ISO8601}| %X{exchangeId}| %X{AUDIT.trackingId}| %X{AUDIT.subject}| %X{AUDIT.authMech}| %X{AUDIT.scopes}| %X{AUDIT.client}| %X{AUDIT.method}| %X{AUDIT.requestUri}| %X{AUDIT.responseCode} %n</pattern>
+                <pattern>%d{ISO8601}| %X{exchangeId}| %X{AUDIT.trackingId}| %X{AUDIT.subject}| %X{AUDIT.authMech}| %X{AUDIT.client}| %X{AUDIT.method}| %X{AUDIT.requestUri}| %X{AUDIT.responseCode} %n</pattern>
             </PatternLayout>
             <Policies>
                 <TimeBasedTriggeringPolicy />
@@ -183,7 +181,6 @@
             <ColumnMapping name="TRACKING_ID" pattern="%X{AUDIT.trackingId}"/>
             <ColumnMapping name="SUBJECT" pattern="%X{AUDIT.subject}"/>
             <ColumnMapping name="AUTH_MECH" pattern="%X{AUDIT.authMech}"/>
-            <ColumnMapping name="SCOPES" pattern="%X{AUDIT.scopes}"/>
             <ColumnMapping name="CLIENT" pattern="%X{AUDIT.client}"/>
             <ColumnMapping name="METHOD" pattern="%X{AUDIT.method}"/>
             <ColumnMapping name="REQUEST_URI" pattern="%X{AUDIT.requestUri}"/>
@@ -194,7 +191,7 @@
                      filePattern="${sys:pa.home}/log/pingaccess_api_audit_postgresql_failover.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
-                <pattern>%d{ISO8601}| %X{exchangeId}| %X{AUDIT.trackingId}| %X{AUDIT.subject}| %X{AUDIT.authMech}| %X{AUDIT.scopes}| %X{AUDIT.client}| %X{AUDIT.method}| %X{AUDIT.requestUri}| %X{AUDIT.responseCode} %n</pattern>
+                <pattern>%d{ISO8601}| %X{exchangeId}| %X{AUDIT.trackingId}| %X{AUDIT.subject}| %X{AUDIT.authMech}| %X{AUDIT.client}| %X{AUDIT.method}| %X{AUDIT.requestUri}| %X{AUDIT.responseCode} %n</pattern>
             </PatternLayout>
             <Policies>
                 <TimeBasedTriggeringPolicy />
@@ -224,7 +221,7 @@
                      filePattern="${sys:pa.home}/log/pingaccess_api_audit_splunk.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
-                <pattern>%d{ISO8601} exchangeId="%X{exchangeId}" trackingId="%X{AUDIT.trackingId}" subject="%X{AUDIT.subject}" authMech="%X{AUDIT.authMech}" scopes="%X{AUDIT.scopes}" client="%X{AUDIT.client}" method="%X{AUDIT.method}" requestUri="%X{AUDIT.requestUri}" responseCode="%X{AUDIT.responseCode}" %n</pattern>
+                <pattern>%d{ISO8601} exchangeId="%X{exchangeId}" trackingId="%X{AUDIT.trackingId}" subject="%X{AUDIT.subject}" authMech="%X{AUDIT.authMech}" client="%X{AUDIT.client}" method="%X{AUDIT.method}" requestUri="%X{AUDIT.requestUri}" responseCode="%X{AUDIT.responseCode}" %n</pattern>
             </PatternLayout>
             <Policies>
                 <TimeBasedTriggeringPolicy />
@@ -246,6 +243,11 @@
         <!-- | %X{AUDIT.userInfoRespReceivedMillisec}-->
         <!-- | %X{AUDIT.applicationId}-->
         <!-- | %X{AUDIT.resourceId}-->
+        <!-- | %X{AUDIT.scopes}-->
+        <!-- | %appResponseHeader{a-header-name}-->
+        <!-- | %clientResponseHeader{a-header-name}-->
+        <!-- | %appRequestHeader{a-header-name}-->
+        <!-- | %clientRequestHeader{a-header-name}-->
         <RollingFile name="EngineAuditLog-File"
                      fileName="${sys:pa.home}/log/pingaccess_engine_audit.log"
                      filePattern="${sys:pa.home}/log/pingaccess_engine_audit.%d{yyyy-MM-dd}.log"
@@ -255,7 +257,7 @@
                 <!--
                 <charset>UTF-8</charset>
                 -->
-                <pattern>%d{ISO8601}| %X{exchangeId}| %X{AUDIT.trackingId}| %X{AUDIT.roundTripMS} ms| %X{AUDIT.proxyRoundTripMS} ms| %X{AUDIT.userInfoRoundTripMS} ms| %X{AUDIT.resource}| %X{AUDIT.subject}| %X{AUDIT.authMech}| %X{AUDIT.scopes}| %X{AUDIT.client}| %X{AUDIT.method}| %X{AUDIT.requestUri}| %X{AUDIT.responseCode}| %X{AUDIT.failedRuleType}| %X{AUDIT.failedRuleName}| %X{AUDIT.applicationName}| %X{AUDIT.resourceName}| %X{AUDIT.pathPrefix} %n</pattern>
+                <pattern>%d{ISO8601}| %X{exchangeId}| %X{AUDIT.trackingId}| %X{AUDIT.roundTripMS} ms| %X{AUDIT.proxyRoundTripMS} ms| %X{AUDIT.userInfoRoundTripMS} ms| %X{AUDIT.resource}| %X{AUDIT.subject}| %X{AUDIT.authMech}| %X{AUDIT.client}| %X{AUDIT.method}| %X{AUDIT.requestUri}| %X{AUDIT.responseCode}| %X{AUDIT.failedRuleType}| %X{AUDIT.failedRuleName}| %X{AUDIT.applicationName}| %X{AUDIT.resourceName}| %X{AUDIT.pathPrefix} %n</pattern>
             </PatternLayout>
             <Policies>
                 <TimeBasedTriggeringPolicy />
@@ -286,7 +288,6 @@
             <Column name="REQUESTED_RESOURCE" pattern="%X{AUDIT.resource}" />
             <Column name="SUBJECT" pattern="%X{AUDIT.subject}" />
             <Column name="AUTH_MECH" pattern="%X{AUDIT.authMech}" />
-            <Column name="SCOPES" pattern="%X{AUDIT.scopes}" />
             <Column name="CLIENT" pattern="%X{AUDIT.client}" />
             <Column name="METHOD" pattern="%X{AUDIT.method}" />
             <Column name="REQUEST_URI" pattern="%X{AUDIT.requestUri}" isClob="true"/>
@@ -303,7 +304,7 @@
                      filePattern="${sys:pa.home}/log/pingaccess_engine_audit_oracle_failover.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
-                <pattern>%d{ISO8601}| %X{exchangeId}| %X{AUDIT.trackingId}| %X{AUDIT.roundTripMS} ms| %X{AUDIT.proxyRoundTripMS} ms| %X{AUDIT.userInfoRoundTripMS} ms| %X{AUDIT.resource}| %X{AUDIT.subject}| %X{AUDIT.authMech}| %X{AUDIT.scopes}| %X{AUDIT.client}| %X{AUDIT.method}| %X{AUDIT.requestUri}| %X{AUDIT.responseCode}| %X{AUDIT.failedRuleType}| %X{AUDIT.failedRuleName}| %X{AUDIT.applicationName}| %X{AUDIT.resourceName}| %X{AUDIT.pathPrefix} %n</pattern>
+                <pattern>%d{ISO8601}| %X{exchangeId}| %X{AUDIT.trackingId}| %X{AUDIT.roundTripMS} ms| %X{AUDIT.proxyRoundTripMS} ms| %X{AUDIT.userInfoRoundTripMS} ms| %X{AUDIT.resource}| %X{AUDIT.subject}| %X{AUDIT.authMech}| %X{AUDIT.client}| %X{AUDIT.method}| %X{AUDIT.requestUri}| %X{AUDIT.responseCode}| %X{AUDIT.failedRuleType}| %X{AUDIT.failedRuleName}| %X{AUDIT.applicationName}| %X{AUDIT.resourceName}| %X{AUDIT.pathPrefix} %n</pattern>
             </PatternLayout>
             <Policies>
                 <TimeBasedTriggeringPolicy />
@@ -340,7 +341,6 @@
             <Column name="REQUESTED_RESOURCE" pattern="%X{AUDIT.resource}" />
             <Column name="SUBJECT" pattern="%X{AUDIT.subject}" />
             <Column name="AUTH_MECH" pattern="%X{AUDIT.authMech}" />
-            <Column name="SCOPES" pattern="%X{AUDIT.scopes}" />
             <Column name="CLIENT" pattern="%X{AUDIT.client}" />
             <Column name="METHOD" pattern="%X{AUDIT.method}" />
             <Column name="REQUEST_URI" pattern="%X{AUDIT.requestUri}"/>
@@ -357,7 +357,7 @@
                      filePattern="${sys:pa.home}/log/pingaccess_engine_audit_sqlserver_failover.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
-                <pattern>%d{ISO8601}| %X{exchangeId}| %X{AUDIT.trackingId}| %X{AUDIT.roundTripMS} ms| %X{AUDIT.proxyRoundTripMS} ms| %X{AUDIT.userInfoRoundTripMS} ms| %X{AUDIT.resource}| %X{AUDIT.subject}| %X{AUDIT.authMech}| %X{AUDIT.scopes}| %X{AUDIT.client}| %X{AUDIT.method}| %X{AUDIT.requestUri}| %X{AUDIT.responseCode}| %X{AUDIT.failedRuleType}| %X{AUDIT.failedRuleName}| %X{AUDIT.applicationName}| %X{AUDIT.resourceName}| %X{AUDIT.pathPrefix} %n</pattern>
+                <pattern>%d{ISO8601}| %X{exchangeId}| %X{AUDIT.trackingId}| %X{AUDIT.roundTripMS} ms| %X{AUDIT.proxyRoundTripMS} ms| %X{AUDIT.userInfoRoundTripMS} ms| %X{AUDIT.resource}| %X{AUDIT.subject}| %X{AUDIT.authMech}| %X{AUDIT.client}| %X{AUDIT.method}| %X{AUDIT.requestUri}| %X{AUDIT.responseCode}| %X{AUDIT.failedRuleType}| %X{AUDIT.failedRuleName}| %X{AUDIT.applicationName}| %X{AUDIT.resourceName}| %X{AUDIT.pathPrefix} %n</pattern>
             </PatternLayout>
             <Policies>
                 <TimeBasedTriggeringPolicy />
@@ -394,7 +394,6 @@
             <ColumnMapping name="REQUESTED_RESOURCE" pattern="%X{AUDIT.resource}" />
             <ColumnMapping name="SUBJECT" pattern="%X{AUDIT.subject}" />
             <ColumnMapping name="AUTH_MECH" pattern="%X{AUDIT.authMech}" />
-            <ColumnMapping name="SCOPES" pattern="%X{AUDIT.scopes}" />
             <ColumnMapping name="CLIENT" pattern="%X{AUDIT.client}" />
             <ColumnMapping name="METHOD" pattern="%X{AUDIT.method}" />
             <ColumnMapping name="REQUEST_URI" pattern="%X{AUDIT.requestUri}"/>
@@ -411,7 +410,7 @@
                      filePattern="${sys:pa.home}/log/pingaccess_engine_audit_postgresql_failover.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
-                <pattern>%d{ISO8601}| %X{exchangeId}| %X{AUDIT.trackingId}| %X{AUDIT.roundTripMS} ms| %X{AUDIT.proxyRoundTripMS} ms| %X{AUDIT.userInfoRoundTripMS} ms| %X{AUDIT.resource}| %X{AUDIT.subject}| %X{AUDIT.authMech}| %X{AUDIT.scopes}| %X{AUDIT.client}| %X{AUDIT.method}| %X{AUDIT.requestUri}| %X{AUDIT.responseCode}| %X{AUDIT.failedRuleType}| %X{AUDIT.failedRuleName}| %X{AUDIT.applicationName}| %X{AUDIT.resourceName}| %X{AUDIT.pathPrefix} %n</pattern>
+                <pattern>%d{ISO8601}| %X{exchangeId}| %X{AUDIT.trackingId}| %X{AUDIT.roundTripMS} ms| %X{AUDIT.proxyRoundTripMS} ms| %X{AUDIT.userInfoRoundTripMS} ms| %X{AUDIT.resource}| %X{AUDIT.subject}| %X{AUDIT.authMech}| %X{AUDIT.client}| %X{AUDIT.method}| %X{AUDIT.requestUri}| %X{AUDIT.responseCode}| %X{AUDIT.failedRuleType}| %X{AUDIT.failedRuleName}| %X{AUDIT.applicationName}| %X{AUDIT.resourceName}| %X{AUDIT.pathPrefix} %n</pattern>
             </PatternLayout>
             <Policies>
                 <TimeBasedTriggeringPolicy />
@@ -441,7 +440,7 @@
                      filePattern="${sys:pa.home}/log/pingaccess_engine_audit_splunk.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
-                <pattern>%d exchangeId="%X{exchangeId}" trackingId="%X{AUDIT.trackingId}" roundTripMS="%X{AUDIT.roundTripMS}" proxyRoundTripMS="%X{AUDIT.proxyRoundTripMS}" userInfoRoundTripMS="%X{AUDIT.userInfoRoundTripMS}" resource="%X{AUDIT.resource}" subject="%X{AUDIT.subject}" authMech="%X{AUDIT.authMech}" scopes="%X{AUDIT.scopes}" client="%X{AUDIT.client}" method="%X{AUDIT.method}" requestUri="%X{AUDIT.requestUri}" responseCode="%X{AUDIT.responseCode}" failedRuleType="%X{AUDIT.failedRuleType}" failedRuleName="%X{AUDIT.failedRuleName}" failedRuleClass="%X{AUDIT.failedRuleClass}" applicationName="%X{AUDIT.applicationName}" resourceName="%X{AUDIT.resourceName}" pathPrefix="%X{AUDIT.pathPrefix}" %n</pattern>
+                <pattern>%d exchangeId="%X{exchangeId}" trackingId="%X{AUDIT.trackingId}" roundTripMS="%X{AUDIT.roundTripMS}" proxyRoundTripMS="%X{AUDIT.proxyRoundTripMS}" userInfoRoundTripMS="%X{AUDIT.userInfoRoundTripMS}" resource="%X{AUDIT.resource}" subject="%X{AUDIT.subject}" authMech="%X{AUDIT.authMech}" client="%X{AUDIT.client}" method="%X{AUDIT.method}" requestUri="%X{AUDIT.requestUri}" responseCode="%X{AUDIT.responseCode}" failedRuleType="%X{AUDIT.failedRuleType}" failedRuleName="%X{AUDIT.failedRuleName}" failedRuleClass="%X{AUDIT.failedRuleClass}" applicationName="%X{AUDIT.applicationName}" resourceName="%X{AUDIT.resourceName}" pathPrefix="%X{AUDIT.pathPrefix}" %n</pattern>
             </PatternLayout>
             <Policies>
                 <TimeBasedTriggeringPolicy />
@@ -450,7 +449,7 @@
         -->
 
         <!-- Agent auditing asynchronous file logging configuration-->
-        <!-- Additional Engine Audit values available:-->
+        <!-- Additional Agent Audit values available:-->
         <!-- | %X{AUDIT.failedRuleClass}-->
         <!-- | %X{AUDIT.failedRuleSetName}-->
         <!-- | %X{AUDIT.host}-->
@@ -459,6 +458,11 @@
         <!-- | %X{AUDIT.respSentMillisec}-->
         <!-- | %X{AUDIT.applicationId}-->
         <!-- | %X{AUDIT.resourceId}-->
+        <!-- | %X{AUDIT.scopes}-->
+        <!-- | %appResponseHeader{a-header-name}-->
+        <!-- | %clientResponseHeader{a-header-name}-->
+        <!-- | %appRequestHeader{a-header-name}-->
+        <!-- | %clientRequestHeader{a-header-name}-->
         <RollingFile name="AgentAuditLog-File"
                      fileName="${sys:pa.home}/log/pingaccess_agent_audit.log"
                      filePattern="${sys:pa.home}/log/pingaccess_agent_audit.%d{yyyy-MM-dd}.log"
@@ -665,6 +669,9 @@
         <!-- Logs details/ordering of service proxies -->
         <AsyncLogger name="com.pingidentity.pa.core.proxies.ProxyInfoLogger" level="INFO"/>
 
+        <!-- Logs configuration replication details -->
+        <AsyncLogger name="com.pingidentity.pa.polling.replication" level="INFO"/>
+
         <!-- Log incoming and outgoing cookies-->
         <!--
         <AsyncLogger name="com.pingidentity.pa.core.interceptor.CookieLoggingInterceptor" level="TRACE" additivity="false" includeLocation="false">
@@ -717,6 +724,9 @@
             <AppenderRef ref="File"/>
         </AsyncLogger>
         <AsyncLogger name="org.hibernate" level="WARN" additivity="false" includeLocation="false">
+            <AppenderRef ref="File"/>
+        </AsyncLogger>
+        <AsyncLogger name="org.hibernate.orm.deprecation" level="FATAL" additivity="false" includeLocation="false">
             <AppenderRef ref="File"/>
         </AsyncLogger>
         <AsyncLogger name="org.hibernate.cache.ehcache.AbstractEhcacheRegionFactory" level="ERROR" additivity="false" includeLocation="false">
