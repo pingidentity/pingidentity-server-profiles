@@ -153,6 +153,10 @@
   </servlet>
 
   <!-- ARNO: prevent entering the servlet for write and execute calls -->
+  <servlet-mapping>
+    <servlet-name>jolokia-agent</servlet-name>
+    <url-pattern>/jolokia/*</url-pattern>
+  </servlet-mapping>
   <!-- <servlet-mapping>
     <servlet-name>jolokia-agent</servlet-name>
     <url-pattern>/jolokia/list</url-pattern>
