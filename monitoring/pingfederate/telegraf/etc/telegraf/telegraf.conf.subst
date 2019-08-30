@@ -1,0 +1,140 @@
+[global_tags]
+
+[agent]
+  interval = "1s"
+  round_interval = true
+  metric_batch_size = 1000
+  metric_buffer_limit = 10000
+  collection_jitter = "0s"
+  flush_interval = "10s"
+  flush_jitter = "0s"
+  precision = ""
+  hostname = ""
+  omit_hostname = false
+
+[[inputs.jolokia2_agent]]
+  # default_tag_prefix      = ""
+  # default_field_prefix    = ""
+  # default_field_separator = "."
+
+  # Add agents URLs to query
+  urls = ["http://localhost:9031/jolokia"]
+  # username = ""
+  # password = ""
+  response_timeout = "3s"
+  tagexclude= ["jolokia_agent_url"]
+
+[[inputs.jolokia2_agent.metric]]
+    name  = "java_runtime"
+    mbean = "java.lang:type=Runtime"
+    paths = ["Uptime"]
+
+[[inputs.jolokia2_agent.metric]]
+    name  = "java_memory"
+    mbean = "java.lang:type=Memory"
+    paths = ["HeapMemoryUsage", "NonHeapMemoryUsage", "ObjectPendingFinalizationCount"]
+
+[[inputs.jolokia2_agent.metric]]
+    name     = "java_garbage_collector"
+    mbean    = "java.lang:name=*,type=GarbageCollector"
+    paths    = ["CollectionTime", "CollectionCount"]
+    tag_keys = ["name"]
+
+[[inputs.jolokia2_agent.metric]]
+    name  = "java_last_garbage_collection"
+    mbean = "java.lang:name=*,type=GarbageCollector"
+    paths = ["LastGcInfo"]
+    tag_keys = ["name"]
+
+[[inputs.jolokia2_agent.metric]]
+    name  = "java_threading"
+    mbean = "java.lang:type=Threading"
+    paths = ["TotalStartedThreadCount", "ThreadCount", "CurrentThreadCpuTime", "DaemonThreadCount", "PeakThreadCount"]
+
+[[inputs.jolokia2_agent.metric]]
+    name  = "java_class_loading"
+    mbean = "java.lang:type=ClassLoading"
+    paths = ["LoadedClassCount", "UnloadedClassCount", "TotalLoadedClassCount"]
+
+[[inputs.jolokia2_agent.metric]]
+    name     = "java_memory_pool"
+    mbean    = "java.lang:name=*,type=MemoryPool"
+    paths    = ["Usage", "PeakUsage", "CollectionUsage"]
+    tag_keys = ["name"]
+
+[[inputs.jolokia2_agent.metric]]
+    name    = "pingfederate"
+    mbean   = "pingfederate:type=*"
+    paths   = ["Count"]
+
+[[inputs.jolokia2_agent.metric]]
+    name     = "jetty_connector_stats"
+    mbean    = "org.eclipse.jetty.server:context=*,id=*,type=connectorstatistics"
+    paths    = [
+			"bytesIn"
+			,"bytesOut"
+			,"connections"
+			,"connectionsOpen"
+			,"connectionsOpenMax"
+			,"connectionDurationMean"
+			,"connectionDurationMax"
+			,"connectionDurationStdDev"
+			,"messagesOutPerConnectionMax"
+			,"messagesOutPerConnectionMean"
+			,"messagesOutPerConnectionStdDev"
+			,"messagesOutPerSecond"
+			,"messagesInPerConnectionMax"
+			,"messagesInPerConnectionMean"
+			,"messagesInPerConnectionStdDev"
+			,"messagesInPerSecond"
+		]
+
+[[inputs.jolokia2_agent.metric]]
+    name     = "jetty_connector_resources"
+	mbean    = "com.pingidentity.appserver.jetty.server.connector:context=*,id=*,type=serverconnector"
+    paths    = ["acceptQueueSize","acceptors"]
+
+# [[inputs.kernel_vmstat]]
+  # no configuration
+
+# [[inputs.net]]
+#   interfaces = ["eth0"]
+#   ignore_protocol_stats = true
+
+# [[inputs.netstat]]
+  # no configuration
+
+# [[inputs.logparser]]
+#   files = ["/var/log/pingfederate/audit.log"]
+#   from_beginning = false
+#   watch_method = "inotify"
+#   tagexclude = ["path"]
+
+#   [inputs.logparser.grok]
+#     patterns = ["%{DATESTAMP:timestamp:drop}\\| tid:%{DATA:transactionId:drop}\\| %{DATA:event:drop}\\| %{DATA:subject:drop}\\| %{IP:ip:drop} \\| %{DATA:app:drop}\\| %{DATA:connId:drop}\\| %{DATA:protocol:drop}\\| %{DATA:host:tag}\\| %{DATA:role:drop}\\| %{DATA:status}\\| %{DATA:adapterId:tag}\\| %{DATA:description:drop}\\| %{INT:responseTime:int}"]
+#     measurement = "audit_log"
+#     custom_pattern_files = []
+#     custom_patterns = '''
+#     '''
+#     unique_timestamp = "disable"
+
+# [[aggregators.histogram]]
+#   period = "10s"                        # send & clear the aggregate every 10s.
+#   drop_original = true                  # drop the original measurement.
+#   reset = false                         # drop the original metric.
+#   namepass = ["audit_log"]              # only "pass" audit_log metric through the aggregator.
+#   fieldpass = ["responseTime"]          # only "pass" the responseTime field through the aggregator
+#   [[aggregators.histogram.config]]
+#     measurement_name = "rt_hist"
+#     buckets = [20.0,40.0,80.0,160.0,320.0,640.0,1280.0]
+
+# [[aggregators.basicstats]]
+#   period = "10s"                        # send & clear the aggregate every 10s.
+#   stats = ["min","max","mean","stdev"]
+#   drop_original = true                  # drop the original metrics.
+#   namepass = ["audit_log"]              # only "pass" audit_log metric through the aggregator.
+#   fieldpass = ["responseTime"]          # only "pass" the responseTime field through the aggregator
+
+# [[outputs.cloudwatch]]
+#   region = ${AWS_REGION}
+#   namespace = "${CLOUDWATCH_NAMESPACE}"
