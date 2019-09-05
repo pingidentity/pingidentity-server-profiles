@@ -1,0 +1,6 @@
+dsconfig set-global-configuration-prop --set allow-insecure-local-jmx-connections:true
+dsconfig create-web-application-extension --extension-name jolokia --set base-context-path:/jolokia --set document-root-directory:webapps/jolokia
+dsconfig set-connection-handler-prop --handler-name "HTTPS Connection Handler" --add web-application-extension:jolokia
+# this is not necessary if using manage-profile but is required if you want to deploy the web app on a live server
+# dsconfig set-connection-handler-prop --handler-name "HTTPS Connection Handler" --set enabled:false
+# dsconfig set-connection-handler-prop --handler-name "HTTPS Connection Handler" --set enabled:true
