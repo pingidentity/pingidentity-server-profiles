@@ -481,6 +481,7 @@ pf-oauth-client-last-modified: 1555105760814
 pf-oauth-client-restrict-scopes: FALSE
 pf-oauth-client-require-signed-requests: FALSE
 pf-oauth-client-grant-type: urn:pingidentity.com:oauth2:grant_type:validate_bearer
+pf-oauth-client-grant-type: client_credentials
 pf-oauth-client-supplemental-info: 22:ALLOW_EXCLUSIVE_SCOPES:true
 pf-oauth-client-supplemental-info: 44:BYPASS_ACTIVATION_CODE_CONFIRMATION_OVERRIDE:null
 pf-oauth-client-supplemental-info: 19:DEVICE_FLOW_SETTING:SERVER_DEFAULT
