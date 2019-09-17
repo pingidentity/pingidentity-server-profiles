@@ -22,6 +22,7 @@
             <urn:RoleExtension LastModified="2019-01-28T03:14:54.809Z"/>
         </md:Extensions>
         <urn:WsTrustSettings>
+            <urn:AppliesTo>localhost:default:entityId</urn:AppliesTo>
             <urn:AppliesTo>docker</urn:AppliesTo>
             <urn:TokenType>http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0</urn:TokenType>
             <urn:UseSamlHoK>false</urn:UseSamlHoK>
