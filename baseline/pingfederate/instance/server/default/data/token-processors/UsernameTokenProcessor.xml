@@ -9,6 +9,9 @@
             <urn:Row>
                 <urn:Field name="Password Credential Validator Instance">pingdirectory</urn:Field>
             </urn:Row>
+            <urn:Row>
+                <urn:Field name="Password Credential Validator Instance">simple</urn:Field>
+            </urn:Row>            
         </urn:Table>
     </urn:Tables>
     <urn:ExtendedContractAttributes/>
