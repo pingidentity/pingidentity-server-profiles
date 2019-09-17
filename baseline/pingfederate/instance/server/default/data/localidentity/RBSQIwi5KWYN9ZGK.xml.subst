@@ -28,6 +28,11 @@
             <loc:parameter param-name="Unique ID Field" value="false"/>
             <loc:parameter param-name="Mask Log Values" value="false"/>
         </loc:field>
+        <loc:field type="HIDDEN" default-value="" id="uid" label="uid">
+            <loc:appliesTo profile="false" registration="true"/>
+            <loc:parameter param-name="Unique ID Field" value="false"/>
+            <loc:parameter param-name="Mask Log Values" value="false"/>
+        </loc:field>	
     </loc:fields>
     <loc:email-verification-config emailVerificationEnabled="false" verifyEmailTemplateName="message-template-email-ownership-verification.html" emailVerificationSentTemplateName="local.identity.email.verification.sent.html" emailVerificationSuccessTemplateName="local.identity.email.verification.success.html" emailVerificationErrorTemplateName="local.identity.email.verification.error.html" otlTimeToLive="1440" verificationEmailField="" verificationStatusField=""/>
     <loc:registration-config captchaEnabled="false" templateName="local.identity.registration.html"/>
@@ -43,5 +48,6 @@
         <loc:Attribute fieldName="cn" datastore-field="cn"/>
         <loc:Attribute fieldName="sn" datastore-field="sn"/>
         <loc:Attribute fieldName="mail" datastore-field="mail"/>
+        <loc:Attribute fieldName="uid" datastore-field="uid"/>	
     </loc:datastore-mapping>
 </loc:localIdentity>
