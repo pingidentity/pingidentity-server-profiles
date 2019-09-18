@@ -660,7 +660,7 @@
 
     <Loggers>
         <!-- PingAccess Loggers-->
-        <AsyncLogger name="com.pingidentity" level="INFO" additivity="false" includeLocation="false">
+        <AsyncLogger name="com.pingidentity" level="${PA_LOG_LEVEL}" additivity="false" includeLocation="false">
             <AppenderRef ref="File"/>
             <!--<AppenderRef ref="CONSOLE" />-->
             <!--<AppenderRef ref="SYSLOG" />-->
