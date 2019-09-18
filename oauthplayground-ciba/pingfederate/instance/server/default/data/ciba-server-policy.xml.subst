@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:CibaServerPolicy defaultRequestHandlingPolicyId="OAuthPlayground" xmlns:urn="urn:pingidentity.com:pf:openid:ciba">
+    <urn:CibaRequestHandlingPolicy id="OAuthPlayground" name="OAuthPlayground" pluginId="SampleEmailAuthenticator" transactionLifeInSeconds="120" allowUnsignedLoginHintToken="true" requireHintToken="false" userCodePcvId="">
+        <urn:EnhanceRequestHintContractMapping>
+            <urn1:AttributeMap Name="IDENTITY_HINT_SUBJECT" Type="Request" Value="IDENTITY_HINT_SUBJECT" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+            <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        </urn:EnhanceRequestHintContractMapping>
+        <urn:HintContractToOOBAuthPluginMapping>
+            <urn1:AttributeMap Name="USER_KEY" Type="Request" Value="IDENTITY_HINT_SUBJECT" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+            <urn1:AttributeMap Name="email" Type="LDAP" AttributeSourceId="pingdirectory" Value="mail" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+            <urn1:AttributeSource Id="pingdirectory" Description="pingdirectory" Type="LDAP" DataSourceId="LDAP-D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                <urn1:Parameter Name="filter" Value="mail=${_DOLLAR_}{IDENTITY_HINT_SUBJECT}"/>
+                <urn1:Parameter Name="search_base" Value="${USER_BASE_DN}"/>
+                <urn1:Parameter Name="search_scope" Value="SUBTREE_SCOPE"/>
+                <urn1:Parameter Name="memberof_nested_group" Value="false"/>
+            </urn1:AttributeSource>
+            <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        </urn:HintContractToOOBAuthPluginMapping>
+    </urn:CibaRequestHandlingPolicy>
+</urn:CibaServerPolicy>

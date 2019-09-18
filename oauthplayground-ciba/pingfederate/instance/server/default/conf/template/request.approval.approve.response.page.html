@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+#*
+The server renders this HTML page in an end-user's browser with a response following an action.
+
+Velocity variables (identified by the $ character) are generated
+at runtime by the server.
+
+Change text or formatting as needed. Modifying Velocity statements
+is not recommended as it may interfere with expected server behavior.
+*#
+
+<!-- template name: request.approval.approve.response.page.html -->
+
+<html lang="$locale.getLanguage()" dir="ltr">
+<head>
+    <title>$pluginTemplateMessages.getMessage("title")</title>
+    <base href="$CurrentPingFedBaseURL" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+</head>
+
+<body>
+
+<div class="ping-container">
+
+    <!--
+     if there is a logo present in the 'company-logo' container,
+     then 'has-logo' class should be added to 'ping-header' container.
+     -->
+    <div class="ping-header">
+        <span class="company-logo"><!-- client company logo here --></span>
+        $pluginTemplateMessages.getMessage("title")
+    </div><!-- .ping-header -->
+
+    <div class="ping-body-container">
+        <!--<div class="section-title">-->
+            <!--$pluginTemplateMessages.getMessage("header")-->
+        <!--</div>-->
+        <div class="ping-messages ping-nopad">
+            <div>
+                $pluginTemplateMessages.getMessage("approveMessage")
+            </div>
+        </div>
+    </div> <!-- .ping-body-container -->
+
+    <div class="ping-footer-container">
+        <div class="ping-footer">
+            <div class="ping-credits"></div>
+            <div class="ping-copyright">$pluginTemplateMessages.getMessage("global.footerMessage")</div>
+        </div> <!-- .ping-footer -->
+    </div> <!-- .ping-footer-container -->
+
+</div> <!-- .ping-container -->
+
+</body>
+</html>

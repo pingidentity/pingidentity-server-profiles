@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:PluginConfiguration isInheritExtendedContractAttributes="false" name="SampleEmailAuthenticator" xmlns:urn="urn:sourceid.org:saml2:adapter:conf">
+    <urn:Fields>
+        <urn:Field name="From Address">${OOBAUTH_FROM_EMAIL_ADDRESS}</urn:Field>
+        <urn:Field name="Email Server">${OOBAUTH_EMAIL_SMTP_HOST}</urn:Field>
+        <urn:Field name="SMTP Port">${OOBAUTH_EMAIL_SMTP_PORT}</urn:Field>
+        <urn:Field name="Encryption Method">NONE</urn:Field>
+        <urn:Field name="SMTPS Port">2525</urn:Field>
+        <urn:Field name="Username">${OOBAUTH_EMAIL_SMTP_USERNAME}</urn:Field>
+        <urn:Field name="Password">${OOBAUTH_EMAIL_SMTP_PASSWORD}</urn:Field>
+        <urn:Field name="Test Address"></urn:Field>
+        <urn:Field name="Connection Timeout">30</urn:Field>
+        <urn:Field name="Company Logo">company-logo.png</urn:Field>
+        <urn:Field name="Make Status Change Callback">false</urn:Field>
+    </urn:Fields>
+    <urn:AdvancedFields>
+        <urn:Field name="Connection Timeout">30</urn:Field>
+        <urn:Field name="Company Logo">company-logo.png</urn:Field>
+        <urn:Field name="Make Status Change Callback">false</urn:Field>
+    </urn:AdvancedFields>
+    <urn:Tables/>
+    <urn:ExtendedContractAttributes/>
+</urn:PluginConfiguration>
