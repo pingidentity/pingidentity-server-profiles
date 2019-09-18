@@ -49,8 +49,8 @@
         <!-- ================================= -->
 
         <!-- Main log : A size based file rolling appender -->
-        <RollingFile name="FILE" fileName="${sys:pf.log.dir}/server.log"
-                     filePattern="${sys:pf.log.dir}/server.log.%i" ignoreExceptions="false">
+        <RollingFile name="FILE" fileName="${_DOLLAR_}{sys:pf.log.dir}/server.log"
+                     filePattern="${_DOLLAR_}{sys:pf.log.dir}/server.log.%i" ignoreExceptions="false">
             <PatternLayout>
                 <!-- Uncomment this if you want to use UTF-8 encoding instead
                     of system's default encoding.
@@ -65,8 +65,8 @@
         </RollingFile>
 
         <!-- SAML Transaction log : A time/date based rolling appender -->
-        <RollingFile name="SamlTransaction" fileName="${sys:pf.log.dir}/transaction.log"
-                     filePattern="${sys:pf.log.dir}/transaction.%d{yyyy-MM-dd}.log"
+        <RollingFile name="SamlTransaction" fileName="${_DOLLAR_}{sys:pf.log.dir}/transaction.log"
+                     filePattern="${_DOLLAR_}{sys:pf.log.dir}/transaction.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
                 <!-- Uncomment this if you want to use UTF-8 encoding instead
@@ -96,8 +96,8 @@
         <charset>UTF-8</charset>
         -->
         <!--
-        <RollingFile name="SecurityAudit2Splunk" fileName="${sys:pf.log.dir}/splunk-audit.log"
-            filePattern="${sys:pf.log.dir}/splunk-audit.%d{yyyy-MM-dd}.log"
+        <RollingFile name="SecurityAudit2Splunk" fileName="${_DOLLAR_}{sys:pf.log.dir}/splunk-audit.log"
+            filePattern="${_DOLLAR_}{sys:pf.log.dir}/splunk-audit.%d{yyyy-MM-dd}.log"
             ignoreExceptions="false">
             <PatternLayout>
                 <pattern>%d trackingid=&quot;%X{trackingid}&quot; event=%X{event} subject=&quot;%X{subject}&quot; ip=%X{ip} app=%X{app} connectionid=%X{connectionid} protocol=&quot;%X{protocol}&quot; pfhost=%X{host} role=%X{role} status=%X{status} adapterid=%X{adapterid} description=&quot;%X{description}&quot; responsetime=%X{responsetime} inmessagetype=&quot;%X{inmessagetype}&quot; %n</pattern>
@@ -108,8 +108,8 @@
         </RollingFile>
         -->
 
-        <RollingFile name="SecurityAudit2File" fileName="${sys:pf.log.dir}/audit.log"
-                     filePattern="${sys:pf.log.dir}/audit.%d{yyyy-MM-dd}.log"
+        <RollingFile name="SecurityAudit2File" fileName="${_DOLLAR_}{sys:pf.log.dir}/audit.log"
+                     filePattern="${_DOLLAR_}{sys:pf.log.dir}/audit.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
                 <!-- Uncomment this if you want to use UTF-8 encoding instead
@@ -170,8 +170,8 @@
         </RollingFile>
 
         <!-- Admin Audit log : A time/date based rolling appender -->
-        <RollingFile name="AdminAudit" fileName="${sys:pf.log.dir}/admin.log"
-                     filePattern="${sys:pf.log.dir}/admin.%d{yyyy-MM-dd}.log"
+        <RollingFile name="AdminAudit" fileName="${_DOLLAR_}{sys:pf.log.dir}/admin.log"
+                     filePattern="${_DOLLAR_}{sys:pf.log.dir}/admin.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
                 <!-- Uncomment this if you want to use UTF-8 encoding instead
@@ -185,8 +185,8 @@
         </RollingFile>
 
         <!-- Admin Event Detail Audit log : A time/date based rolling appender -->
-        <RollingFile name="AdminEventDetailAudit" fileName="${sys:pf.log.dir}/admin-event-detail.log"
-                     filePattern="${sys:pf.log.dir}/admin-event-detail.%d{yyyy-MM-dd}.log"
+        <RollingFile name="AdminEventDetailAudit" fileName="${_DOLLAR_}{sys:pf.log.dir}/admin-event-detail.log"
+                     filePattern="${_DOLLAR_}{sys:pf.log.dir}/admin-event-detail.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
                 <!-- Uncomment this if you want to use UTF-8 encoding instead
@@ -200,8 +200,8 @@
         </RollingFile>
 
         <!-- Admin API Audit log : A time/date based rolling appender -->
-        <RollingFile name="AdminApiAudit" fileName="${sys:pf.log.dir}/admin-api.log"
-                     filePattern="${sys:pf.log.dir}/admin-api.%d{yyyy-MM-dd}.log"
+        <RollingFile name="AdminApiAudit" fileName="${_DOLLAR_}{sys:pf.log.dir}/admin-api.log"
+                     filePattern="${_DOLLAR_}{sys:pf.log.dir}/admin-api.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
                 <!-- Uncomment this if you want to use UTF-8 encoding instead
@@ -227,8 +227,8 @@
         </RollingFile>
 
         <!-- Runtime API Audit log : A time/date based rolling appender -->
-        <RollingFile name="RuntimeApiAudit" fileName="${sys:pf.log.dir}/runtime-api.log"
-                     filePattern="${sys:pf.log.dir}/runtime-api.%d{yyyy-MM-dd}.log"
+        <RollingFile name="RuntimeApiAudit" fileName="${_DOLLAR_}{sys:pf.log.dir}/runtime-api.log"
+                     filePattern="${_DOLLAR_}{sys:pf.log.dir}/runtime-api.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
                 <!-- Uncomment this if you want to use UTF-8 encoding instead
@@ -254,8 +254,8 @@
         </RollingFile>
 
         <!-- Provisioner log : A time/date based rolling appender -->
-        <RollingFile name="ProvisionerLog" fileName="${sys:pf.log.dir}/provisioner.log"
-                     filePattern="${sys:pf.log.dir}/provisioner.%d{yyyy-MM-dd}.log"
+        <RollingFile name="ProvisionerLog" fileName="${_DOLLAR_}{sys:pf.log.dir}/provisioner.log"
+                     filePattern="${_DOLLAR_}{sys:pf.log.dir}/provisioner.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
                 <pattern>%d{ABSOLUTE} %-5p [%c{1}] %m %x %X{ChannelCode}%n</pattern>
@@ -267,8 +267,8 @@
 
         <!-- Outbound provisioner audit log: A time/date based rolling appender -->
         <RollingFile name="OutboundProvisionerEventToFile"
-                     fileName="${sys:pf.log.dir}/provisioner-audit.log"
-                     filePattern="${sys:pf.log.dir}/provisioner-audit.%d{yyyy-MM-dd}.log"
+                     fileName="${_DOLLAR_}{sys:pf.log.dir}/provisioner-audit.log"
+                     filePattern="${_DOLLAR_}{sys:pf.log.dir}/provisioner-audit.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
             <PatternLayout>
                 <!-- Uncomment this if you want to use UTF-8 encoding instead
@@ -305,8 +305,8 @@
         -->
         <!--
         <RollingFile name="OutboundProvisionerEventToSplunk"
-            fileName="${sys:pf.log.dir}/provisioner-audit-splunk.log"
-            filePattern="${sys:pf.log.dir}/provisioner-audit-splunk.%d{yyyy-MM-dd}.log"
+            fileName="${_DOLLAR_}{sys:pf.log.dir}/provisioner-audit-splunk.log"
+            filePattern="${_DOLLAR_}{sys:pf.log.dir}/provisioner-audit-splunk.%d{yyyy-MM-dd}.log"
             ignoreExceptions="false">
             <PatternLayout>
                 <pattern>%d| cycle_id=%X{cycle_id} channel_id=%X{channel_id} event_type=%X{event_type} source_id=%X{source_id} target_id=%X{target_id} is_success=%X{is_success} non_success_cause=&quot;%X{non_success_cause}&quot; %n</pattern>
@@ -345,8 +345,8 @@
             <Column name="username" pattern="%X{subject}" />
             <Column name="message" pattern="%escape{DB}{%m}" />
         </JDBC>
-        <RollingFile name="ServerLogToOracleDB-FILE" fileName="${sys:pf.log.dir}/server-oracle-failover.log"
-            filePattern="${sys:pf.log.dir}/server-oracle-failover.%d{yyyy-MM-dd}.log" >
+        <RollingFile name="ServerLogToOracleDB-FILE" fileName="${_DOLLAR_}{sys:pf.log.dir}/server-oracle-failover.log"
+            filePattern="${_DOLLAR_}{sys:pf.log.dir}/server-oracle-failover.%d{yyyy-MM-dd}.log" >
             <PatternLayout>
                 <pattern>%d %X{trackingid} %-5p [%c] %X{connectionid} %X{subject} %m %n</pattern>
             </PatternLayout>
@@ -389,8 +389,8 @@
             <Column name="username" pattern="%X{subject}" />
             <Column name="message" pattern="%escape{DB}{%m}" />
         </JDBC>
-        <RollingFile name="ServerLogToSQLServerDB-FILE" fileName="${sys:pf.log.dir}/server-sqlserver-failover.log"
-            filePattern="${sys:pf.log.dir}/server-sqlserver-failover.%d{yyyy-MM-dd}.log" >
+        <RollingFile name="ServerLogToSQLServerDB-FILE" fileName="${_DOLLAR_}{sys:pf.log.dir}/server-sqlserver-failover.log"
+            filePattern="${_DOLLAR_}{sys:pf.log.dir}/server-sqlserver-failover.%d{yyyy-MM-dd}.log" >
             <PatternLayout>
                 <pattern>%d %X{trackingid} %-5p [%c] %X{connectionid} %X{subject} %m %n</pattern>
             </PatternLayout>
@@ -433,8 +433,8 @@
             <Column name="username" pattern="%X{subject}" />
             <Column name="message" pattern="%escape{MYSQL}{%m}" />
         </JDBC>
-        <RollingFile name="ServerLogToMySQLDB-FILE" fileName="${sys:pf.log.dir}/server-mysql-failover.log"
-            filePattern="${sys:pf.log.dir}/server-mysql-failover.%d{yyyy-MM-dd}.log" >
+        <RollingFile name="ServerLogToMySQLDB-FILE" fileName="${_DOLLAR_}{sys:pf.log.dir}/server-mysql-failover.log"
+            filePattern="${_DOLLAR_}{sys:pf.log.dir}/server-mysql-failover.%d{yyyy-MM-dd}.log" >
             <PatternLayout>
                 <pattern>%d %X{trackingid} %-5p [%c] %X{connectionid} %X{subject} %m %n</pattern>
             </PatternLayout>
@@ -477,8 +477,8 @@
             <ColumnMapping name="username" pattern="%X{subject}"  />
             <ColumnMapping name="message" pattern="%escape{DB}{%m}"  />
         </JDBC>
-        <RollingFile name="ServerLogToPostgreSQLDB-FILE" fileName="${sys:pf.log.dir}/server-postgresql-failover.log"
-                     filePattern="${sys:pf.log.dir}/server-postgresql-failover.%d{yyyy-MM-dd}.log" >
+        <RollingFile name="ServerLogToPostgreSQLDB-FILE" fileName="${_DOLLAR_}{sys:pf.log.dir}/server-postgresql-failover.log"
+                     filePattern="${_DOLLAR_}{sys:pf.log.dir}/server-postgresql-failover.%d{yyyy-MM-dd}.log" >
             <PatternLayout>
                 <pattern>%d %X{trackingid} %-5p [%c] %X{connectionid} %X{subject} %m %n</pattern>
             </PatternLayout>
@@ -515,8 +515,8 @@
             <Column name="channelcode" pattern="%X{ChannelCode}" />
             <Column name="message" pattern="%escape{DB}{%m}" />
         </JDBC>
-        <RollingFile name="ProvisionerLogToOracleDB-FILE" fileName="${sys:pf.log.dir}/provisioner-oracle-failover.log"
-            filePattern="${sys:pf.log.dir}/provisioner-oracle-failover.%d{yyyy-MM-dd}.log" >
+        <RollingFile name="ProvisionerLogToOracleDB-FILE" fileName="${_DOLLAR_}{sys:pf.log.dir}/provisioner-oracle-failover.log"
+            filePattern="${_DOLLAR_}{sys:pf.log.dir}/provisioner-oracle-failover.%d{yyyy-MM-dd}.log" >
             <PatternLayout>
                 <pattern>%d{ABSOLUTE} %-5p [%c{1}] %m %x %X{ChannelCode}%n</pattern>
             </PatternLayout>
@@ -553,8 +553,8 @@
             <Column name="channelcode" pattern="%X{ChannelCode}" />
             <Column name="message" pattern="%escape{DB}{%m}" />
         </JDBC>
-        <RollingFile name="ProvisionerLogToSQLServerDB-FILE" fileName="${sys:pf.log.dir}/provisioner-sqlserver-failover.log"
-            filePattern="${sys:pf.log.dir}/provisioner-sqlserver-failover.%d{yyyy-MM-dd}.log" >
+        <RollingFile name="ProvisionerLogToSQLServerDB-FILE" fileName="${_DOLLAR_}{sys:pf.log.dir}/provisioner-sqlserver-failover.log"
+            filePattern="${_DOLLAR_}{sys:pf.log.dir}/provisioner-sqlserver-failover.%d{yyyy-MM-dd}.log" >
             <PatternLayout>
                 <pattern>%d{ABSOLUTE} %-5p [%c{1}] %m %x %X{ChannelCode}%n</pattern>
             </PatternLayout>
@@ -591,8 +591,8 @@
             <Column name="channelcode" pattern="%X{ChannelCode}" />
             <Column name="message" pattern="%escape{MYSQL}{%m}" />
         </JDBC>
-        <RollingFile name="ProvisionerLogToMySQLDB-FILE" fileName="${sys:pf.log.dir}/provisioner-mysql-failover.log"
-            filePattern="${sys:pf.log.dir}/provisioner-mysql-failover.%d{yyyy-MM-dd}.log" >
+        <RollingFile name="ProvisionerLogToMySQLDB-FILE" fileName="${_DOLLAR_}{sys:pf.log.dir}/provisioner-mysql-failover.log"
+            filePattern="${_DOLLAR_}{sys:pf.log.dir}/provisioner-mysql-failover.%d{yyyy-MM-dd}.log" >
             <PatternLayout>
                 <pattern>%d{ABSOLUTE} %-5p [%c{1}] %m %x %X{ChannelCode}%n</pattern>
             </PatternLayout>
@@ -629,8 +629,8 @@
             <ColumnMapping name="channelcode" pattern="%X{ChannelCode}"  />
             <ColumnMapping name="message" pattern="%escape{DB}{%m}"  />
         </JDBC>
-        <RollingFile name="ProvisionerLogToPostgreSQLDB-FILE" fileName="${sys:pf.log.dir}/provisioner-postgresql-failover.log"
-            filePattern="${sys:pf.log.dir}/provisioner-postgresql-failover.%d{yyyy-MM-dd}.log" >
+        <RollingFile name="ProvisionerLogToPostgreSQLDB-FILE" fileName="${_DOLLAR_}{sys:pf.log.dir}/provisioner-postgresql-failover.log"
+            filePattern="${_DOLLAR_}{sys:pf.log.dir}/provisioner-postgresql-failover.%d{yyyy-MM-dd}.log" >
             <PatternLayout>
                 <pattern>%d{ABSOLUTE} %-5p [%c{1}] %m %x %X{ChannelCode}%n</pattern>
             </PatternLayout>
@@ -670,8 +670,8 @@
             <Column name="is_success" pattern="%X{is_success}" />
             <Column name="failure_cause" pattern="%X{non_success_cause}" />
         </JDBC>
-        <RollingFile name="OutboundProvisionerEventToOracleDB-FILE" fileName="${sys:pf.log.dir}/provisioner-audit-oracle-failover.log"
-            filePattern="${sys:pf.log.dir}/provisioner-audit-oracle-failover.%d{yyyy-MM-dd}.log" >
+        <RollingFile name="OutboundProvisionerEventToOracleDB-FILE" fileName="${_DOLLAR_}{sys:pf.log.dir}/provisioner-audit-oracle-failover.log"
+            filePattern="${_DOLLAR_}{sys:pf.log.dir}/provisioner-audit-oracle-failover.%d{yyyy-MM-dd}.log" >
             <PatternLayout>
                 <pattern>%d| %X{cycle_id}| %X{channel_id}| %X{event_type}| %X{source_id}| %X{target_id}| %X{is_success}| %X{non_success_cause} %n</pattern>
             </PatternLayout>
@@ -711,8 +711,8 @@
             <Column name="is_success" pattern="%X{is_success}" />
             <Column name="failure_cause" pattern="%X{non_success_cause}" />
         </JDBC>
-        <RollingFile name="OutboundProvisionerEventToSQLServerDB-FILE" fileName="${sys:pf.log.dir}/provisioner-audit-sqlserver-failover.log"
-            filePattern="${sys:pf.log.dir}/provisioner-audit-sqlserver-failover.%d{yyyy-MM-dd}.log" >
+        <RollingFile name="OutboundProvisionerEventToSQLServerDB-FILE" fileName="${_DOLLAR_}{sys:pf.log.dir}/provisioner-audit-sqlserver-failover.log"
+            filePattern="${_DOLLAR_}{sys:pf.log.dir}/provisioner-audit-sqlserver-failover.%d{yyyy-MM-dd}.log" >
             <PatternLayout>
                 <pattern>%d| %X{cycle_id}| %X{channel_id}| %X{event_type}| %X{source_id}| %X{target_id}| %X{is_success}| %X{non_success_cause} %n</pattern>
             </PatternLayout>
@@ -752,8 +752,8 @@
             <Column name="is_success" pattern="%X{is_success}" />
             <Column name="failure_cause" pattern="%X{non_success_cause}" />
         </JDBC>
-        <RollingFile name="OutboundProvisionerEventToMySQLDB-FILE" fileName="${sys:pf.log.dir}/provisioner-audit-mysql-failover.log"
-            filePattern="${sys:pf.log.dir}/provisioner-audit-mysql-failover.%d{yyyy-MM-dd}.log" >
+        <RollingFile name="OutboundProvisionerEventToMySQLDB-FILE" fileName="${_DOLLAR_}{sys:pf.log.dir}/provisioner-audit-mysql-failover.log"
+            filePattern="${_DOLLAR_}{sys:pf.log.dir}/provisioner-audit-mysql-failover.%d{yyyy-MM-dd}.log" >
             <PatternLayout>
                 <pattern>%d| %X{cycle_id}| %X{channel_id}| %X{event_type}| %X{source_id}| %X{target_id}| %X{is_success}| %X{non_success_cause} %n</pattern>
             </PatternLayout>
@@ -793,8 +793,8 @@
             <ColumnMapping name="is_success" pattern="%X{is_success}"  />
             <ColumnMapping name="failure_cause" pattern="%X{non_success_cause}"  />
         </JDBC>
-        <RollingFile name="OutboundProvisionerEventToPostgreSQLDB-FILE" fileName="${sys:pf.log.dir}/provisioner-audit-postgresql-failover.log"
-            filePattern="${sys:pf.log.dir}/provisioner-audit-postgresql-failover.%d{yyyy-MM-dd}.log" >
+        <RollingFile name="OutboundProvisionerEventToPostgreSQLDB-FILE" fileName="${_DOLLAR_}{sys:pf.log.dir}/provisioner-audit-postgresql-failover.log"
+            filePattern="${_DOLLAR_}{sys:pf.log.dir}/provisioner-audit-postgresql-failover.%d{yyyy-MM-dd}.log" >
             <PatternLayout>
                 <pattern>%d| %X{cycle_id}| %X{channel_id}| %X{event_type}| %X{source_id}| %X{target_id}| %X{is_success}| %X{non_success_cause} %n</pattern>
             </PatternLayout>
@@ -834,8 +834,8 @@
                 </PatternLayout>
             </PingSyslogLayout>
         </Socket>
-        <RollingFile name="OutboundProvisionerEventToCEFSyslog-FILE" fileName="${sys:pf.log.dir}/provisioner-audit-cef-syslog-failover.log"
-            filePattern="${sys:pf.log.dir}/provisioner-audit-cef-syslog-failover.%d{yyyy-MM-dd}.log" >
+        <RollingFile name="OutboundProvisionerEventToCEFSyslog-FILE" fileName="${_DOLLAR_}{sys:pf.log.dir}/provisioner-audit-cef-syslog-failover.log"
+            filePattern="${_DOLLAR_}{sys:pf.log.dir}/provisioner-audit-cef-syslog-failover.%d{yyyy-MM-dd}.log" >
             <PatternLayout>
                 <pattern>%escape{CEF}{CEF:0|Ping Identity|PingFederate|%X{pfversion}|%X{event_type}|%X{event_type}|0|rt=%d{MMM dd yyyy HH:mm:ss.SSS} cs1Label=Cycle ID cs1=%X{cycle_id} cs2Label=Channel ID cs2=%X{channel_id} cs3Label=Event type cs3=%X{event_type} cs4Label=Source ID cs4=%X{source_id} cs5Label=Target ID cs5=%X{target_id} cs6Label=Was Event Successful cs6=%X{is_success} cs7Label=Failure Cause cs7=%X{non_success_cause} %n}</pattern>
             </PatternLayout>
@@ -858,8 +858,8 @@
         "Set up the Outbound provisioner audit logger" section before the appender can be used:
         -->
         <!--
-        <RollingFile name="OutboundProvisionerEventToCEFFile" fileName="${sys:pf.log.dir}/provisioner-audit-cef.log"
-            filePattern="${sys:pf.log.dir}/provisioner-audit-cef.%d{yyyy-MM-dd}.log" >
+        <RollingFile name="OutboundProvisionerEventToCEFFile" fileName="${_DOLLAR_}{sys:pf.log.dir}/provisioner-audit-cef.log"
+            filePattern="${_DOLLAR_}{sys:pf.log.dir}/provisioner-audit-cef.%d{yyyy-MM-dd}.log" >
             <PatternLayout>
                 <pattern>%escape{CEF}{CEF:0|Ping Identity|PingFederate|%X{pfversion}|%X{event_type}|%X{event_type}|0|rt=%d{MMM dd yyyy HH:mm:ss.SSS} cs1Label=Cycle ID cs1=%X{cycle_id} cs2Label=Channel ID cs2=%X{channel_id} cs3Label=Event type cs3=%X{event_type} cs4Label=Source ID cs4=%X{source_id} cs5Label=Target ID cs5=%X{target_id} cs6Label=Was Event Successful cs6=%X{is_success} cs7Label=Failure Cause cs7=%X{non_success_cause} %n}</pattern>
             </PatternLayout>
@@ -904,8 +904,8 @@
             <Column name="responsetime" pattern="%X{responsetime}" />
             <Column name="trackingid" pattern="%X{trackingid}" />
         </JDBC>
-        <RollingFile name="SecurityAuditToOracleDB-FILE" fileName="${sys:pf.log.dir}/audit-oracle-failover.log"
-            filePattern="${sys:pf.log.dir}/audit-oracle-failover.%d{yyyy-MM-dd}.log" >
+        <RollingFile name="SecurityAuditToOracleDB-FILE" fileName="${_DOLLAR_}{sys:pf.log.dir}/audit-oracle-failover.log"
+            filePattern="${_DOLLAR_}{sys:pf.log.dir}/audit-oracle-failover.%d{yyyy-MM-dd}.log" >
             <PatternLayout>
                 <pattern>%d| %X{trackingid}| %X{event}| %X{subject}| %X{ip} | %X{app}| %X{connectionid}| %X{protocol}| %X{host}| %X{role}| %X{status}| %X{adapterid}| %X{description}| %X{responsetime} %n</pattern>
             </PatternLayout>
@@ -955,8 +955,8 @@
             <Column name="responsetime" pattern="%X{responsetime}" />
             <Column name="trackingid" pattern="%X{trackingid}" />
         </JDBC>
-        <RollingFile name="SecurityAuditToSQLServerDB-FILE" fileName="${sys:pf.log.dir}/audit-sqlserver-failover.log"
-            filePattern="${sys:pf.log.dir}/audit-sqlserver-failover.%d{yyyy-MM-dd}.log" >
+        <RollingFile name="SecurityAuditToSQLServerDB-FILE" fileName="${_DOLLAR_}{sys:pf.log.dir}/audit-sqlserver-failover.log"
+            filePattern="${_DOLLAR_}{sys:pf.log.dir}/audit-sqlserver-failover.%d{yyyy-MM-dd}.log" >
             <PatternLayout>
                 <pattern>%d| %X{trackingid}| %X{event}| %X{subject}| %X{ip} | %X{app}| %X{connectionid}| %X{protocol}| %X{host}| %X{role}| %X{status}| %X{adapterid}| %X{description}| %X{responsetime} %n</pattern>
             </PatternLayout>
@@ -1006,8 +1006,8 @@
             <Column name="responsetime" pattern="%X{responsetime}" />
             <Column name="trackingid" pattern="%X{trackingid}" />
         </JDBC>
-        <RollingFile name="SecurityAuditToMySQLDB-FILE" fileName="${sys:pf.log.dir}/audit-mysql-failover.log"
-            filePattern="${sys:pf.log.dir}/audit-mysql-failover.%d{yyyy-MM-dd}.log" >
+        <RollingFile name="SecurityAuditToMySQLDB-FILE" fileName="${_DOLLAR_}{sys:pf.log.dir}/audit-mysql-failover.log"
+            filePattern="${_DOLLAR_}{sys:pf.log.dir}/audit-mysql-failover.%d{yyyy-MM-dd}.log" >
             <PatternLayout>
                 <pattern>%d| %X{trackingid}| %X{event}| %X{subject}| %X{ip} | %X{app}| %X{connectionid}| %X{protocol}| %X{host}| %X{role}| %X{status}| %X{adapterid}| %X{description}| %X{responsetime} %n</pattern>
             </PatternLayout>
@@ -1057,8 +1057,8 @@
             <ColumnMapping name="responsetime" pattern="%X{responsetime}" type="java.lang.Integer"/>
             <ColumnMapping name="trackingid" pattern="%X{trackingid}" />
         </JDBC>
-        <RollingFile name="SecurityAuditToPostgreSQLDB-FILE" fileName="${sys:pf.log.dir}/audit-postgresql-failover.log"
-                     filePattern="${sys:pf.log.dir}/audit-postgresql-failover.%d{yyyy-MM-dd}.log" >
+        <RollingFile name="SecurityAuditToPostgreSQLDB-FILE" fileName="${_DOLLAR_}{sys:pf.log.dir}/audit-postgresql-failover.log"
+                     filePattern="${_DOLLAR_}{sys:pf.log.dir}/audit-postgresql-failover.%d{yyyy-MM-dd}.log" >
             <PatternLayout>
                 <pattern>%d| %X{trackingid}| %X{event}| %X{subject}| %X{ip} | %X{app}| %X{connectionid}| %X{protocol}| %X{host}| %X{role}| %X{status}| %X{adapterid}| %X{description}| %X{responsetime} %n</pattern>
             </PatternLayout>
@@ -1102,8 +1102,8 @@
                 </PatternLayout>
             </PingSyslogLayout>
         </Socket>
-        <RollingFile name="SecurityAuditToCEFSyslog-FILE" fileName="${sys:pf.log.dir}/audit-cef-syslog-failover.log"
-            filePattern="${sys:pf.log.dir}/audit-cef-syslog-failover.%d{yyyy-MM-dd}.log" >
+        <RollingFile name="SecurityAuditToCEFSyslog-FILE" fileName="${_DOLLAR_}{sys:pf.log.dir}/audit-cef-syslog-failover.log"
+            filePattern="${_DOLLAR_}{sys:pf.log.dir}/audit-cef-syslog-failover.%d{yyyy-MM-dd}.log" >
             <PatternLayout>
                 <pattern>%escape{CEF}{CEF:0|Ping Identity|PingFederate|%X{pfversion}|%X{event}|%X{event}|0|rt=%d{MMM dd yyyy HH:mm:ss.SSS} duid=%X{subject} src=%X{ip} msg=%X{status} cs1Label=Target Application URL cs1=%X{app} cs2Label=Connection ID cs2=%X{connectionid} cs3Label=Protocol cs3=%X{protocol} dvchost=%X{host} cs4Label=Role cs4=%X{role} externalId=%X{trackingid} cs5Label=SP Local User ID cs5=%X{localuserid} cs6Label=Attributes cs6=%X{attributes} %n}</pattern>
             </PatternLayout>
@@ -1133,8 +1133,8 @@
         org.sourceid.websso.profiles.idp.AsAuditLogger (when PingFederate is acting as an OAuth Authorization Server)
         -->
         <!--
-        <RollingFile name="SecurityAuditToCEFFile" fileName="${sys:pf.log.dir}/audit-cef.log"
-            filePattern="${sys:pf.log.dir}/audit-cef.%d{yyyy-MM-dd}.log" >
+        <RollingFile name="SecurityAuditToCEFFile" fileName="${_DOLLAR_}{sys:pf.log.dir}/audit-cef.log"
+            filePattern="${_DOLLAR_}{sys:pf.log.dir}/audit-cef.%d{yyyy-MM-dd}.log" >
             <PatternLayout>
                 <pattern>%escape{CEF}{CEF:0|Ping Identity|PingFederate|%X{pfversion}|%X{event}|%X{event}|0|rt=%d{MMM dd yyyy HH:mm:ss.SSS} duid=%X{subject} src=%X{ip} msg=%X{status} cs1Label=Target Application URL cs1=%X{app} cs2Label=Connection ID cs2=%X{connectionid} cs3Label=Protocol cs3=%X{protocol} dvchost=%X{host} cs4Label=Role cs4=%X{role} externalId=%X{trackingid} cs5Label=SP Local User ID cs5=%X{localuserid} cs6Label=Attributes cs6=%X{attributes} %n}</pattern>
             </PatternLayout>
