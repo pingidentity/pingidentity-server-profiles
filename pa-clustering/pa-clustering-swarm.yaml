@@ -2,7 +2,7 @@ version: "3.1"
 
 services:
   pingaccess:
-    image: pingidentity/pingaccess:${PING_IDENTITY_DEVOPS_TAG}
+    image: pingidentity/pingaccess:pingaccess:5.2.3-edge
     healthcheck: 
       test: ["CMD", "curl", "-f", "-k", "https://localhost:9000/pa/heartbeat.ping"]
       interval: 10s
@@ -27,7 +27,7 @@ services:
       #- ${HOME}/<PATH_TO_LOCAL_REPO>/pingaccess-clustered/pingaccess:/opt/in
 
   pingaccess-engine:
-    image: pingidentity/pingaccess:${PING_IDENTITY_DEVOPS_TAG}
+    image: pingidentity/pingaccess:pingaccess:5.2.3-edge
     command: ["sh", "-c", "wait-for pingaccess:9000 -t 420 -- entrypoint.sh start-server"]
     healthcheck: 
       test: ["CMD", "curl", "-f", "-k", "https://localhost:3000/pa/heartbeat.ping"]
