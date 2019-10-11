@@ -24,23 +24,24 @@ while true; do
     break
   fi
 done
-
+set -x
+INITIAL_ADMIN_PASSWORD=${INITIAL_ADMIN_PASSWORD:=2FederateM0re}
 curl -k -v -X PUT -u Administrator:2Access --silent -H "X-Xsrf-Header: PingAccess" -d '{ "email": null,
-    "slaAccepted": false,
+    "slaAccepted": true,
     "firstLogin": false,
     "showTutorial": false,
     "username": "Administrator"
 }' https://localhost:9000/pa-admin-api/v3/users/1 > /dev/null
 
-curl -k -v -X PUT -u Administrator:2Access --silent -H "X-Xsrf-Header: PingAccess" -d '{
+curl -k -X PUT -u Administrator:2Access --silent -H "X-Xsrf-Header: PingAccess" -d '{
   "currentPassword": "2Access",
-  "newPassword": "2FederateM0re"
+  "newPassword": "'"${INITIAL_ADMIN_PASSWORD}"'"
 }' https://localhost:9000/pa-admin-api/v3/users/1/password > /dev/null
 
 echo "importing data"
-curl -k -v -X POST -u Administrator:2FederateM0re -H "Content-Type: application/json" -H "X-Xsrf-Header: PingAccess" \
+curl -k -v -X POST -u Administrator:${INITIAL_ADMIN_PASSWORD} -H "Content-Type: application/json" -H "X-Xsrf-Header: PingAccess" \
   -d @${STAGING_DIR}/instance/data/data.json \
   https://localhost:9000/pa-admin-api/v3/config/import
 
 echo "apps after import"
-curl -k -u Administrator:2FederateM0re -H "X-Xsrf-Header: PingAccess" https://localhost:9000/pa-admin-api/v3/applications
+curl -k -u Administrator:${INITIAL_ADMIN_PASSWORD} -H "X-Xsrf-Header: PingAccess" https://localhost:9000/pa-admin-api/v3/applications

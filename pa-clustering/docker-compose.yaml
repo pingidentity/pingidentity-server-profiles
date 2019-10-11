@@ -12,10 +12,13 @@ services:
       - SERVER_PROFILE_PATH=pa-clustering/pingaccess
       - OPERATIONAL_MODE=CLUSTERED_CONSOLE
       - PA_CONSOLE_HOST=pingaccess
+      - INITIAL_ADMIN_PASSWORD=2FederateM0re
     env_file:
      - ~/.pingidentity/devops    
-    #volumes:
-      #- ${HOME}/<PATH_TO_LOCAL_REPO>/pingaccess-clustered/pingaccess:/opt/in
+    # volu
+    mes:
+      # - ${HOME}/projects/pingidentity-server-profiles/pa-clustering/pingaccess:/opt/in
+      #- ${HOME}/<PATH_TO_LOCAL_REPO>/pa-clustering/pingaccess:/opt/in
     ports:
       - 9000:9000
       - 9090:9090
@@ -32,10 +35,12 @@ services:
       - SERVER_PROFILE_PATH=pa-clustering/pingaccess
       - OPERATIONAL_MODE=CLUSTERED_ENGINE
       - PA_CONSOLE_HOST=pingaccess
+      - INITIAL_ADMIN_PASSWORD=2FederareM0re
     env_file:
      - ~/.pingidentity/devops      
-    #volumes:
-    #  - ${HOME}/<PATH_TO_LOCAL_REPO>/pingaccess-clustered/pingaccess:/opt/in
+    # volumes:
+    #  - ${HOME}/projects/pingidentity-server-profiles/pa-clustering/pingaccess:/opt/in
+    #  - ${HOME}/<PATH_TO_LOCAL_REPO>/pa-clustering/pingaccess:/opt/in
     ports:
       - 3000:3000
     networks:
