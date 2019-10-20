@@ -16,18 +16,14 @@ services:
       - SERVER_PROFILE_EXTENSIONS_PARENT=OAUTH
 
       # Server Profile - OAUTH
-      - SERVER_PROFILE_EXTENSIONS_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
-      - SERVER_PROFILE_EXTENSIONS_PATH=layered-profiles/oauth/pingfederate
-      - SERVER_PROFILE_EXTENSIONS_PARENT=GETTING_STARTED
+      - SERVER_PROFILE_OAUTH_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
+      - SERVER_PROFILE_OAUTH_PATH=layered-profiles/oauth/pingfederate
+      - SERVER_PROFILE_OAUTH_PARENT=GETTING_STARTED
       
       # Base Server Profile
       - SERVER_PROFILE_GETTING_STARTED_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
       - SERVER_PROFILE_GETTING_STARTED_PATH=getting-started/pingfederate
       # **** SERVER PROFILE END ****
-    env_file:
-      # Configuration file created when setup.sh (Getting-started project root directory) is first run to source
-      # devops user/key details for evaluation licenses and for docker image/git tags
-      - ~/.pingidentity/devops
     ports:
       - 9031:9031
       - 9999:9999
