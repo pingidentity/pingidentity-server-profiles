@@ -1,0 +1,13 @@
+ID=1436553
+Product=PingFederate
+Version=9.3
+IssueDate=2019-10-12
+Tier=Free
+ExpirationDate=2019-11-11
+EnforcementType=7
+SaasProvisioning=true
+WSTrustSTS=true
+OAuth=true
+Generator=WebAPI
+SignCode=FF07
+Signature=302C02140DF6272B5B33FDDF1FB220B780B3C882AB6F2AB30214587B76D161549CA3C5DBD0BAAFF9DEE374ABFA6B
