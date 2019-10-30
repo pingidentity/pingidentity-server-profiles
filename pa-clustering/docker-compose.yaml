@@ -40,7 +40,7 @@ services:
       - SERVER_PROFILE_BRANCH=pingaccess-5.3.1
       - OPERATIONAL_MODE=CLUSTERED_ENGINE
       - PA_CONSOLE_HOST=pingaccess
-      - INITIAL_ADMIN_PASSWORD=2FederareM0re
+      - INITIAL_ADMIN_PASSWORD=2Access
     env_file:
      - ~/.pingidentity/devops      
     # volumes:
