@@ -14,7 +14,7 @@
 # shellcheck source=pingcommon.lib.sh
 . "${HOOKS_DIR}/pingcommon.lib.sh"
 
- pahost=${PA_CONSOLE_HOST}
+pahost=${PA_CONSOLE_HOST}
 INITIAL_ADMIN_PASSWORD=${INITIAL_ADMIN_PASSWORD:=2FederateM0re}
 if [[ ! -z "${OPERATIONAL_MODE}" && "${OPERATIONAL_MODE}" = "CLUSTERED_ENGINE" ]]; then
     echo "This node is an engine..."
@@ -31,6 +31,7 @@ if [[ ! -z "${OPERATIONAL_MODE}" && "${OPERATIONAL_MODE}" = "CLUSTERED_ENGINE" ]
 
     # Get Engine Certificate ID
     echo "Retrieving Key Pair ID from administration API..."
+    echo "INITIAL_ADMIN_PASSWORD:"${INITIAL_ADMIN_PASSWORD}
     keypairid=$( curl -v -k -u Administrator:"${INITIAL_ADMIN_PASSWORD}" -H "X-Xsrf-Header: PingAccess" https://${pahost}:9000/pa-admin-api/v3/httpsListeners | jq '.items[] | select(.name=="CONFIG QUERY") | .keyPairId' )
     echo "KeyPairId:"${keypairid}
 
