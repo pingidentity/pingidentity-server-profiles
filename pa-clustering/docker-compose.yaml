@@ -2,7 +2,9 @@ version: "3.1"
 
 services:
   pingaccess:
-    image: pingidentity/pingaccess:5.2.3-edge
+    image: pingidentity/pingaccess:5.3.1-edge
+    deploy:
+      replicas: 1    
     healthcheck:
       test: ["CMD", "curl", "-f", "-k", "https://pingaccess:9000/pa/heartbeat.ping"]
       interval: 10s
@@ -10,15 +12,15 @@ services:
     environment: 
       - SERVER_PROFILE_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
       - SERVER_PROFILE_PATH=pa-clustering/pingaccess
+      - SERVER_PROFILE_BRANCH=pingaccess-5.3.1
       - OPERATIONAL_MODE=CLUSTERED_CONSOLE
       - PA_CONSOLE_HOST=pingaccess
       - INITIAL_ADMIN_PASSWORD=2FederateM0re
     env_file:
-     - ~/.pingidentity/devops    
-    # volu
-    mes:
-      # - ${HOME}/projects/pingidentity-server-profiles/pa-clustering/pingaccess:/opt/in
-      #- ${HOME}/<PATH_TO_LOCAL_REPO>/pa-clustering/pingaccess:/opt/in
+      - ~/.pingidentity/devops    
+    #volumes:
+    #  - ${HOME}/projects/pingidentity-server-profiles/pa-clustering/pingaccess:/opt/in
+    #  - ${HOME}/<PATH_TO_LOCAL_REPO>/pa-clustering/pingaccess:/opt/in
     ports:
       - 9000:9000
       - 9090:9090
@@ -28,11 +30,14 @@ services:
       - NET_ADMIN
 
   pingaccess-engine:
-    image: pingidentity/pingaccess:5.2.3-edge
+    image: pingidentity/pingaccess:5.3.1-edge
+    deploy:
+      replicas: 1  
     command: wait-for pingaccess:9000 -t 420 -- entrypoint.sh start-server
     environment: 
       - SERVER_PROFILE_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
       - SERVER_PROFILE_PATH=pa-clustering/pingaccess
+      SERVER_PROFILE_BRANCH=pingaccess-5.3.1
       - OPERATIONAL_MODE=CLUSTERED_ENGINE
       - PA_CONSOLE_HOST=pingaccess
       - INITIAL_ADMIN_PASSWORD=2FederareM0re
