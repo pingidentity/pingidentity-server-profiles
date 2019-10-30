@@ -2,7 +2,7 @@ version: "3.1"
 
 services:
   pingaccess:
-    image: pingidentity/pingaccess:5.3.1-edge
+    image: pingidentity/pingaccess:5.3.1-alpine-edge
     deploy:
       replicas: 1    
     healthcheck:
@@ -18,8 +18,8 @@ services:
       - INITIAL_ADMIN_PASSWORD=2FederateM0re
     env_file:
       - ~/.pingidentity/devops    
-    #volumes:
-    #  - ${HOME}/projects/pingidentity-server-profiles/pa-clustering/pingaccess:/opt/in
+    # volumes:
+    #  - ${HOME}/projects/devops/pingidentity-server-profiles/pa-clustering/pingaccess:/opt/in
     #  - ${HOME}/<PATH_TO_LOCAL_REPO>/pa-clustering/pingaccess:/opt/in
     ports:
       - 9000:9000
@@ -30,7 +30,7 @@ services:
       - NET_ADMIN
 
   pingaccess-engine:
-    image: pingidentity/pingaccess:5.3.1-edge
+    image: pingidentity/pingaccess:5.3.1-alpine-edge
     deploy:
       replicas: 1  
     command: wait-for pingaccess:9000 -t 420 -- entrypoint.sh start-server
@@ -44,7 +44,7 @@ services:
     env_file:
      - ~/.pingidentity/devops      
     # volumes:
-    #  - ${HOME}/projects/pingidentity-server-profiles/pa-clustering/pingaccess:/opt/in
+    #  - ${HOME}/projects/devops/pingidentity-server-profiles/pa-clustering/pingaccess:/opt/in
     #  - ${HOME}/<PATH_TO_LOCAL_REPO>/pa-clustering/pingaccess:/opt/in
     ports:
       - 3000:3000
