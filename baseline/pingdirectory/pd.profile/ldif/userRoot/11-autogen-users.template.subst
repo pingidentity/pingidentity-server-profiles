@@ -11,8 +11,8 @@ givenName: <first>
 sn: <last>
 cn: {givenName} {sn}
 initials: {givenName:1}<random:chars:ABCDEFGHIJKLMNOPQRSTUVWXYZ:1>{sn:1}
-uid: user.<sequential:0>
-mail: {uid}@example.com
+uid: autogen.user.<sequential:0>
+mail: {uid}@autogen.example.com
 userPassword: 2FederateM0re
 telephoneNumber: <random:telephone>
 homePhone: <random:telephone>
