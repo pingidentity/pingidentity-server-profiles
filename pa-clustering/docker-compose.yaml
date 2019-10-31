@@ -15,8 +15,7 @@ services:
       - INITIAL_ADMIN_PASSWORD=2FederateM0re
     env_file:
      - ~/.pingidentity/devops    
-    # volu
-    mes:
+    # volumes:
       # - ${HOME}/projects/pingidentity-server-profiles/pa-clustering/pingaccess:/opt/in
       #- ${HOME}/<PATH_TO_LOCAL_REPO>/pa-clustering/pingaccess:/opt/in
     ports:
