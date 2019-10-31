@@ -1,4 +1,4 @@
-branch: ou=people,${USER_BASE_DN}
+branch: ou=autogen,ou=people,${USER_BASE_DN}
 subordinateTemplate: person:${MAKELDIF_USERS}
 
 template: person
@@ -11,8 +11,7 @@ givenName: <first>
 sn: <last>
 cn: {givenName} {sn}
 initials: {givenName:1}<random:chars:ABCDEFGHIJKLMNOPQRSTUVWXYZ:1>{sn:1}
-employeeNumber: <sequential:0>
-uid: autogen.user.{employeeNumber}
+uid: user.<sequential:0>
 mail: {uid}@example.com
 userPassword: 2FederateM0re
 telephoneNumber: <random:telephone>
