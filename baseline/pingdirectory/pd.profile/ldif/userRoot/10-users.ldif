@@ -82,7 +82,6 @@ uid: access2federate
 userPassword: ${ROOT_USER_PASSWORD}
 pf-connected-identity: auth-source=pf-local-identity:user-id=access2federate
 
-
 dn: uid=auditor,ou=People,${USER_BASE_DN}
 objectClass: top
 objectClass: person
