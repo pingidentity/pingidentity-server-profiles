@@ -476,7 +476,7 @@
             },
             {
                 "id": 9,
-                "host": "pingaccess",
+                "host": "${PA_ENGINE_PUBLIC_HOSTNAME}",
                 "port": 443,
                 "agentResourceCacheTTL": 900,
                 "keyPairId": 0,
