@@ -13,7 +13,7 @@ cn: {givenName} {sn}
 initials: {givenName:1}<random:chars:ABCDEFGHIJKLMNOPQRSTUVWXYZ:1>{sn:1}
 uid: autogen.user.<sequential:0>
 mail: {uid}@autogen.example.com
-userPassword: 2FederateM0re
+userPassword: ${ROOT_USER_PASSWORD}
 telephoneNumber: <random:telephone>
 homePhone: <random:telephone>
 mobile: <random:telephone>
