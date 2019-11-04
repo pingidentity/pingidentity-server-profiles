@@ -11,3 +11,4 @@
 #         If that is the case the variable is never not set, you may have to override the value
 
 PD_DELEGATOR_PUBLIC_HOSTNAME=localhost
+ROOT_USER_PASSWORD=rootpassword
