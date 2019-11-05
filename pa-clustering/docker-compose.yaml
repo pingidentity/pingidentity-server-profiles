@@ -6,20 +6,19 @@ services:
     deploy:
       replicas: 1    
     healthcheck:
-      test: ["CMD", "curl", "-f", "-k", "https://pingaccess:9000/pa/heartbeat.ping"]
+      test: ["CMD-SHELL", "curl -s -u administrator:2FederateM0re -H \"X-XSRF-Header: PingAccess\" -k https://localhost:9000/pa-admin-api/v3/sites | jq -e '.items[0].name' "]
       interval: 10s
       timeout: 3s    
     environment: 
       - SERVER_PROFILE_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
       - SERVER_PROFILE_PATH=pa-clustering/pingaccess
-      - SERVER_PROFILE_BRANCH=pingaccess-5.3.1
       - OPERATIONAL_MODE=CLUSTERED_CONSOLE
       - PA_CONSOLE_HOST=pingaccess
       - INITIAL_ADMIN_PASSWORD=2FederateM0re
     env_file:
       - ~/.pingidentity/devops    
     # volumes:
-    #  - ${HOME}/projects/devops/pingidentity-server-profiles/pa-clustering/pingaccess:/opt/in
+    #  - ${HOME}/tmp/pa-cluster/liveness.sh:/opt/in/instance/.
     #  - ${HOME}/<PATH_TO_LOCAL_REPO>/pa-clustering/pingaccess:/opt/in
     ports:
       - 9000:9000
@@ -37,7 +36,6 @@ services:
     environment: 
       - SERVER_PROFILE_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
       - SERVER_PROFILE_PATH=pa-clustering/pingaccess
-      - SERVER_PROFILE_BRANCH=pingaccess-5.3.1
       - OPERATIONAL_MODE=CLUSTERED_ENGINE
       - PA_CONSOLE_HOST=pingaccess
       - INITIAL_ADMIN_PASSWORD=2FederateM0re
@@ -49,8 +47,6 @@ services:
     ports:
       - 3000:3000
     networks:
-      - pingnet
-
-              
+      - pingnet              
 networks:
     pingnet:
