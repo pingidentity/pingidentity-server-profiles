@@ -16,10 +16,10 @@ services:
       - PA_CONSOLE_HOST=pingaccess
       - INITIAL_ADMIN_PASSWORD=2FederateM0re
     env_file:
-      - ~/.pingidentity/devops    
+     - ~/.pingidentity/devops    
     # volumes:
-    #  - ${HOME}/tmp/pa-cluster/liveness.sh:/opt/in/instance/.
-    #  - ${HOME}/<PATH_TO_LOCAL_REPO>/pa-clustering/pingaccess:/opt/in
+      # - ${HOME}/projects/pingidentity-server-profiles/pa-clustering/pingaccess:/opt/in
+      #- ${HOME}/<PATH_TO_LOCAL_REPO>/pa-clustering/pingaccess:/opt/in
     ports:
       - 9000:9000
       - 9090:9090
