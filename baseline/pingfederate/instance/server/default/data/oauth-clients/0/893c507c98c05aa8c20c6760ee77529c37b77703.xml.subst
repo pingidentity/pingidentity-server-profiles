@@ -2,7 +2,7 @@
 <urn:Clients xmlns:urn="urn:pingidentity.com:pf:oauth:client">
     <urn:Client client_id="im_client" name="Implicit Client" persistentGrantExpirationTime="0" enabled="true" persistentGrantExpirationTimeUnit="d" lastModified="2019-01-28T03:14:56.124Z" bypassApprovalPage="false" restrictScopes="false" clientAuthnType="NONE" enforceOneTimeJWT="false" isRequireSignedRequest="false">
         <urn:Grant type="implicit"/>
-        <urn:RedirectUri>https://${PF_ENGINE_PUBLIC_HOSTNAME}:9031/OAuthPlayground/implicit/callback</urn:RedirectUri>
+        <urn:RedirectUri>https://${PF_ENGINE_PUBLIC_HOSTNAME}/OAuthPlayground/implicit/callback</urn:RedirectUri>
         <urn:SupplementalInfo key="DEVICE_FLOW_SETTING" value="SERVER_DEFAULT"/>
         <urn:SupplementalInfo key="DEFAULT_ATM_ID" value="jwt"/>
         <urn:SupplementalInfo key="PING_ACCESS_LOGOUT_CAPABLE" value="false"/>
