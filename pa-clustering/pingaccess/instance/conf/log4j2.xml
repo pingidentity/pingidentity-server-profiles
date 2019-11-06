@@ -656,7 +656,7 @@
 
     <Loggers>
         <!-- PingAccess Loggers-->
-        <AsyncLogger name="com.pingidentity" level="INFO" additivity="false" includeLocation="false">
+        <AsyncLogger name="com.pingidentity" level="DEBUG" additivity="false" includeLocation="false">
             <AppenderRef ref="File"/>
             <!--<AppenderRef ref="CONSOLE" />-->
             <!--<AppenderRef ref="SYSLOG" />-->
@@ -746,7 +746,7 @@
         </AsyncLogger>
 
         <!-- Root Logger-->
-        <AsyncRoot level="INFO" includeLocation="false">
+        <AsyncRoot level="DEBUG" includeLocation="false">
             <AppenderRef ref="File"/>
         </AsyncRoot>
     </Loggers>
