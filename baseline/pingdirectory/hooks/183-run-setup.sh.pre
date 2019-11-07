@@ -3,7 +3,9 @@ echo Hello from the baseline server profile 183-run-setup.sh.pre hook!
 echo "====> USER_BASE_DN=[${USER_BASE_DN}]"
 computedDomain=$(echo ${USER_BASE_DN} | sed 's/^dc=\([^,]*\).*/\1/' )
 if ! test "${USER_BASE_DN}" = "${computedDomain}" ; then
-    cat "DOMAIN_COMPONENT=${computedDomain}" >> ${STAGING_DIR}/env_vars
+    cat<<END >>${STAGING_DIR}/env_vars
+DOMAIN_COMPONENT=${computedDomain}
+END
 else
     echo_red "ERROR: the base is expected to be dc=<your domain>"
     exit 183
