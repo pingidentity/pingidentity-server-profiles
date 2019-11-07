@@ -58,6 +58,18 @@ uid: user.4
 userPassword: ${ROOT_USER_PASSWORD}
 pf-connected-identity: auth-source=pf-local-identity:user-id=user.4
 
+dn: uid=user.5,ou=People,${USER_BASE_DN}
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: pf-connected-identities
+sn: Vladimirova
+cn: Nadia Vladimirova
+uid: user.5
+userPassword: ${ROOT_USER_PASSWORD}
+pf-connected-identity: auth-source=pf-local-identity:user-id=user.5
+
 dn: uid=administrator,ou=People,${USER_BASE_DN}
 objectClass: top
 objectClass: person
