@@ -1,0 +1,5 @@
+dsconfig set-global-configuration-prop \
+  --add allowed-task:com.unboundid.directory.server.tasks.ExecTask
+
+dsconfig set-root-dn-prop \
+  --add default-root-privilege-name:exec-task
