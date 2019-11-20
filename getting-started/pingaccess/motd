@@ -1,4 +1,3 @@
+##### Security Warning #####
 
-Server Profile getting-started/pingaccess
-  - Out of the box install of PingAccess
-
+The server profiles contained within this repository are for demo and documentation purposes only. As they contain default keys/credentials etc and are not suitable for production and carry a substantial security risk.
