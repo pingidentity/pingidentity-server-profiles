@@ -9,7 +9,7 @@ dsconfig create-external-server \
     --set "bind-dn:cn=pingdatagovernance,cn=Root DNs,cn=config" \
     --set password<${ROOT_USER_PASSWORD_FILE} \
     --set authorization-method:none \
-    --set location:Docker \
+    --set location:${LOCATION} \
     --set connection-security:ssl \
     --set key-manager-provider:Null \
     --set trust-manager-provider:JKS

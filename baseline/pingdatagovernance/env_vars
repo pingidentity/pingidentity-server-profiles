@@ -7,7 +7,7 @@
 #                or
 #         export MY_ENVIRONMENT_VARIABLE_1=${MY_ENVIRONMENT_VARIABLE_1:-wasNotSetElsewhere}
 # The location MUST be provided
-export LOCATION=${LOCATION:-Denver}
+export LOCATION=${LOCATION:-Docker}
 
 # The root user may be provided (Default: cn=directory manager)
 ROOT_USER_DN=cn=administrator
