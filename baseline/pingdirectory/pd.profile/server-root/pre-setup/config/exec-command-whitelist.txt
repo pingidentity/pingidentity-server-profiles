@@ -148,3 +148,4 @@
 # allowed to be invoked using the exec task below:
 
 /opt/out/instance/bin/collect-support-data
+/bin/sh
