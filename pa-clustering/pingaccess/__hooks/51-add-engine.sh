@@ -13,13 +13,14 @@
 
 # shellcheck source=pingcommon.lib.sh
 . "${HOOKS_DIR}/pingcommon.lib.sh"
+. "${HOOKS_DIR}/utils.lib.sh"
 
+host=`hostname`
 pahost=${PA_CONSOLE_HOST}
-INITIAL_ADMIN_PASSWORD=${INITIAL_ADMIN_PASSWORD:=2FederateM0re}
 if [[ ! -z "${OPERATIONAL_MODE}" && "${OPERATIONAL_MODE}" = "CLUSTERED_ENGINE" ]]; then
     echo "This node is an engine..."
     while true; do
-    curl -ss --silent -o /dev/null -k https://${pahost}:9000/pa/heartbeat.ping 
+    curl -ss --silent -o /dev/null -k https://${pahost}:9090/pa/heartbeat.ping
     if ! test $? -eq 0 ; then
         echo "Adding Engine: Server not started, waiting.."
         sleep 3
@@ -29,41 +30,46 @@ if [[ ! -z "${OPERATIONAL_MODE}" && "${OPERATIONAL_MODE}" = "CLUSTERED_ENGINE" ]
     fi
     done
 
-    # Get Engine Certificate ID
-    echo "Retrieving Key Pair ID from administration API..."
-    keypairid=$( curl -v -k -u Administrator:"${INITIAL_ADMIN_PASSWORD}" -H "X-Xsrf-Header: PingAccess" https://${pahost}:9000/pa-admin-api/v3/httpsListeners | jq '.items[] | select(.name=="CONFIG QUERY") | .keyPairId' )
-    echo "KeyPairId:"${keypairid}
+    # Retrieving CONFIG QUERY id
+    OUT=$( make_api_request https://${pahost}:9000/pa-admin-api/v3/httpsListeners )
+    configQueryListenerKeyPairId=$( jq -n "$OUT" | jq '.items[] | select(.name=="CONFIG QUERY") | .keyPairId' )
+    echo "ConfigQueryListenerKeyPairId:${configQueryListenerKeyPairId}"
 
     echo "Retrieving the Key Pair alias..."
-    kpalias=$( curl -v -k -u Administrator:"${INITIAL_ADMIN_PASSWORD}" -H "X-Xsrf-Header: PingAccess" https://${pahost}:9000/pa-admin-api/v3/keyPairs | jq '.items[] | select(.id=='${keypairid}') | .alias' )
+    OUT=$( make_api_request https://${pahost}:9000/pa-admin-api/v3/keyPairs  )
+    kpalias=$( jq -n "$OUT" | jq -r '.items[] | select(.id=='${configQueryListenerKeyPairId}') | .alias' )
     echo "Key Pair Alias:"${kpalias}
 
-    echo "Retrieving Engine Certificate ID..."
-    certid=$( curl -v -k -u Administrator:"${INITIAL_ADMIN_PASSWORD}" -H "X-Xsrf-Header: PingAccess" https://${pahost}:9000/pa-admin-api/v3/engines/certificates| jq '.items[] | select(.alias=='${kpalias}' and .keyPair==true) | .id' )
-    echo "Engine Cert ID:"${certid}
+    # Retrieve Engine Cert ID
+    OUT=$( make_api_request https://${pahost}:9000/pa-admin-api/v3/engines/certificates )
+    paEngineCertId=$( jq -n "$OUT" | jq --arg kpalias "${kpalias}" '.items[] | select(.alias==$kpalias and .keyPair==true) | .id' )
+    echo "Engine Cert ID:${paEngineCertId}"
 
-    echo "Adding new engine"
-    host=`hostname`
-    engineid=$( curl -v -k -X POST -u Administrator:"${INITIAL_ADMIN_PASSWORD}" -H "X-Xsrf-Header: PingAccess" -d "{
+    # Retrieve Engine ID
+    OUT=$( make_api_request https://pingaccess:9000/pa-admin-api/v3/engines )
+    engineId=$( jq -n "$OUT" | jq --arg host "${host}" '.items[] | select(.name==$host) | .id' )
+
+    # If engine doesnt exist, then create new engine
+    if test -z "${engineId}" || test "${engineId}" = null ; then
+        OUT=$( make_api_request -X POST -d "{
             \"name\":\"${host}\",
-            \"selectedCertificateId\": ${certid}
-        }" https://${pahost}:9000/pa-admin-api/v3/engines | jq '.id' )
+            \"selectedCertificateId\": ${paEngineCertId},
+            \"configReplicationEnabled\": true
+        }" https://${pahost}:9000/pa-admin-api/v3/engines )
+        engineId=$( jq -n "$OUT" | jq '.id' )
+    fi
 
-    echo "EngineId:"${engineid}
-    set PA_ENGINE_ID=${engineid}
-    echo "Retrieving the engine config..."
-    curl -v -k -X POST -u Administrator:"${INITIAL_ADMIN_PASSWORD}" -H "X-Xsrf-Header: PingAccess" https://${pahost}:9000/pa-admin-api/v3/engines/${engineid}/config -o engine-config.zip
+    # Download Engine Configuration
+    echo "EngineId:"${engineId}
+    echo "Retrieving the engine config"
+    make_api_request -X POST https://${pahost}:9000/pa-admin-api/v3/engines/${engineId}/config -o engine-config.zip
 
     echo "Extracting config files to conf folder..."
     unzip -o engine-config.zip -d ${OUT_DIR}/instance
-    ls -la ${OUT_DIR}instance/conf
+    ls -la ${OUT_DIR}/instance/conf
     cat ${OUT_DIR}/instance/conf/bootstrap.properties
     chmod 400 ${OUT_DIR}/instance/conf/pa.jwk
 
     echo "Cleanup zip.."
     rm engine-config.zip
 fi
-
-
-
-
