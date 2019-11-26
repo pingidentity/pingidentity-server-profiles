@@ -4,7 +4,7 @@ dsconfig set-global-configuration-prop \
 dsconfig set-root-dn-prop \
   --add default-root-privilege-name:exec-task
 
-dsconfig create-exec-recurring-task \
+dsconfig create-recurring-task \
   --task-name run-csd \
   --type exec \
   --set command-path:/bin/sh \
