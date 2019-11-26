@@ -1,4 +1,6 @@
-#!/usr/bin/env sh -x
+#!/usr/bin/env sh
+
+${VERBOSE} && set -x
 
 # Install AWS CLI if the upload location is S3
 if test "${LOG_ARCHIVE_URL#s3}" == "${LOG_ARCHIVE_URL}"; then
