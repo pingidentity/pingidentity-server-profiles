@@ -3,3 +3,16 @@ dsconfig set-global-configuration-prop \
 
 dsconfig set-root-dn-prop \
   --add default-root-privilege-name:exec-task
+
+dsconfig create-exec-recurring-task \
+  --task-name run-csd \
+  --type exec \
+  --set command-path:/bin/sh \
+  --set "command-arguments:${HOOKS_DIR}/82-upload-csd-s3.sh"
+
+dsconfig create-recurring-task-chain \
+  --chain-name "hourly-collect-support-data" \
+  --set enabled:true \
+  --set recurring-task:run-csd \
+  --set scheduled-date-selection-type:every-day \
+  --set scheduled-time-of-day:*:00
