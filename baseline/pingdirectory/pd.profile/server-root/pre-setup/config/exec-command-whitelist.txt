@@ -149,3 +149,4 @@
 
 /opt/out/instance/bin/collect-support-data
 /bin/sh
+/bin/busybox
