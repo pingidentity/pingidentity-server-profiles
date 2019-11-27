@@ -147,6 +147,4 @@
 # Put the absolute paths (without any arguments) of any commands that are
 # allowed to be invoked using the exec task below:
 
-/opt/out/instance/bin/collect-support-data
-/bin/sh
-/bin/busybox
+${HOOKS_DIR}/82-upload-csd-s3.sh

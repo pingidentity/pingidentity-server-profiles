@@ -7,8 +7,7 @@ dsconfig set-root-dn-prop \
 dsconfig create-recurring-task \
   --task-name run-csd \
   --type exec \
-  --set command-path:/bin/sh \
-  --set "command-arguments:${HOOKS_DIR}/82-upload-csd-s3.sh"
+  --set "command-path:${HOOKS_DIR}/82-upload-csd-s3.sh"
 
 dsconfig create-recurring-task-chain \
   --chain-name "hourly-collect-support-data" \
