@@ -2,6 +2,10 @@
 
 ${VERBOSE} && set -x
 
+# Allow overriding the log archive URL with an arg
+test ! -z "${1}" && LOG_ARCHIVE_URL="${1}"
+echo "Uploading to location ${LOG_ARCHIVE_URL}"
+
 # Install AWS CLI if the upload location is S3
 if test "${LOG_ARCHIVE_URL#s3}" == "${LOG_ARCHIVE_URL}"; then
   echo "Upload location is not S3"
@@ -24,5 +28,7 @@ CSD_OUT=$(find . -name support\*zip -type f | sort | tail -1)
 echo "Uploading "${CSD_OUT}" to ${LOG_ARCHIVE_URL}"
 DST_FILE=$(basename "${CSD_OUT}")
 aws s3 cp "${CSD_OUT}" "${LOG_ARCHIVE_URL}/${DST_FILE}"
+
+echo "Upload return code: ${?}"
 
 rm -f "${CSD_OUT}"
