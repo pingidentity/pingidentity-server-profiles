@@ -22,7 +22,7 @@ NOW=$(date "${FORMAT}")
 AN_HOUR_AGO=$(date --date="@$(($(date +%s) - 3600))" "${FORMAT}")
 
 cd "${OUT_DIR}"
-collect-support-data --timeRange "\"[${AN_HOUR_AGO}],[${NOW}]\""
+"${SERVER_ROOT_DIR}"/bin/collect-support-data --timeRange "\"[${AN_HOUR_AGO}],[${NOW}]\""
 CSD_OUT=$(find . -name support\*zip -type f | sort | tail -1)
 
 echo "Uploading "${CSD_OUT}" to ${LOG_ARCHIVE_URL}"
