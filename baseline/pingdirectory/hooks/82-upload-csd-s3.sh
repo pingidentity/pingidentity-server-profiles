@@ -2,6 +2,9 @@
 
 ${VERBOSE} && set -x
 
+# Set PATH - since this is executed from within the server process, it may not have all we need on the path.
+export PATH="${PATH}:${SERVER_ROOT_DIR}/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${JAVA_HOME}/bin"
+
 # Allow overriding the log archive URL with an arg
 test ! -z "${1}" && LOG_ARCHIVE_URL="${1}"
 echo "Uploading to location ${LOG_ARCHIVE_URL}"
@@ -22,7 +25,7 @@ NOW=$(date "${FORMAT}")
 AN_HOUR_AGO=$(date --date="@$(($(date +%s) - 3600))" "${FORMAT}")
 
 cd "${OUT_DIR}"
-"${SERVER_ROOT_DIR}"/bin/collect-support-data --timeRange "\"[${AN_HOUR_AGO}],[${NOW}]\""
+collect-support-data --timeRange "\"[${AN_HOUR_AGO}],[${NOW}]\""
 CSD_OUT=$(find . -name support\*zip -type f | sort | tail -1)
 
 echo "Uploading "${CSD_OUT}" to ${LOG_ARCHIVE_URL}"
