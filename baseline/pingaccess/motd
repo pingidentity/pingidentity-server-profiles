@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
                      Security Warning
 
 The server profile being used to configure this Ping Identity Docker Image
@@ -8,4 +9,9 @@ security risk.
 
 For additional information, please see
 https://github.com/pingidentity/pingidentity-devops-getting-started/blob/master/SECURITY.md
+=======
+Server Profile baseline/pingaccess
+  - Creates an initial PingAccess instance
+  - Authenticates admin console to PingDirectory
+>>>>>>> e0cb568b03ec7b45a70580e29b991bb52fb5a5f0
 

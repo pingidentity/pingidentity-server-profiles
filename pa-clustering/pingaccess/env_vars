@@ -1,1 +1,0 @@
-PA_CONSOLE_HOST=${PA_CONSOLE_HOST:=pingaccess}
