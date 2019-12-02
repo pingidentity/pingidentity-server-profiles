@@ -6,7 +6,6 @@ objectClass: inetOrgPerson
 objectClass: pf-connected-identities
 sn: Brooke
 cn: Raeann Brooke
-givenName: Raeann
 uid: user.0
 userPassword: ${ROOT_USER_PASSWORD}
 pf-connected-identity: auth-source=pf-local-identity:user-id=user.0
@@ -19,7 +18,6 @@ objectClass: inetOrgPerson
 objectClass: pf-connected-identities
 sn: Seawell
 cn: Esko Seawell
-givenName: Esko
 uid: user.1
 userPassword: ${ROOT_USER_PASSWORD}
 pf-connected-identity: auth-source=pf-local-identity:user-id=user.1
@@ -32,7 +30,6 @@ objectClass: inetOrgPerson
 objectClass: pf-connected-identities
 sn: Tancordo
 cn: Sidonia Tancordo
-givenName: Sidonia
 uid: user.2
 userPassword: ${ROOT_USER_PASSWORD}
 pf-connected-identity: auth-source=pf-local-identity:user-id=user.2
@@ -45,7 +42,6 @@ objectClass: inetOrgPerson
 objectClass: pf-connected-identities
 sn: Knio
 cn: Pierre-Marc Knio
-givenName: Pierre-Marc
 uid: user.3
 userPassword: ${ROOT_USER_PASSWORD}
 pf-connected-identity: auth-source=pf-local-identity:user-id=user.3
@@ -58,7 +54,6 @@ objectClass: inetOrgPerson
 objectClass: pf-connected-identities
 sn: Psutka
 cn: Terza Psutka
-givenName: Terza
 uid: user.4
 userPassword: ${ROOT_USER_PASSWORD}
 pf-connected-identity: auth-source=pf-local-identity:user-id=user.4
@@ -83,7 +78,6 @@ objectClass: inetOrgPerson
 objectClass: pf-connected-identities
 sn: PingFederate
 cn: Administrator
-givenName: PingFederate
 uid: administrator
 userPassword: ${ROOT_USER_PASSWORD}
 pf-connected-identity: auth-source=pf-local-identity:user-id=administrator
@@ -96,7 +90,6 @@ objectClass: inetOrgPerson
 objectClass: pf-connected-identities
 sn: PingAccess
 cn: pingFederateAdministrator
-givenName: PingAccess
 uid: access2federate
 userPassword: ${ROOT_USER_PASSWORD}
 pf-connected-identity: auth-source=pf-local-identity:user-id=access2federate
@@ -109,7 +102,6 @@ objectClass: inetOrgPerson
 objectClass: pf-connected-identities
 sn: PingFederate
 cn: Auditor
-givenName: PingFederate
 uid: auditor
 userPassword: ${ROOT_USER_PASSWORD}
 pf-connected-identity: auth-source=pf-local-identity:user-id=auditor
