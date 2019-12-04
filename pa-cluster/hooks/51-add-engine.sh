@@ -20,7 +20,7 @@ if [[ ! -z "${OPERATIONAL_MODE}" && "${OPERATIONAL_MODE}" = "CLUSTERED_ENGINE" ]
     while true; do
         curl -ss --silent -o /dev/null -k https://${K8S_STATEFUL_SET_SERVICE_NAME_PA}:9090/pa/heartbeat.ping
         if ! test $? -eq 0 ; then
-            echo "Adding Engine: Server not started, waiting.."
+            echo "Adding Engine: Server ${K8S_STATEFUL_SET_SERVICE_NAME_PA} not started, waiting.."
             sleep 3
         else
             echo "PA started, begin adding engine"
