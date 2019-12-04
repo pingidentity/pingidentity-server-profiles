@@ -20,7 +20,7 @@ if [[ ! -z "${OPERATIONAL_MODE}" && "${OPERATIONAL_MODE}" = "CLUSTERED_ENGINE" ]
     while true; do
         curl -ss --silent -o /dev/null -k https://${K8S_STATEFUL_SET_SERVICE_NAME_PA}:9090/pa/heartbeat.ping
         if ! test $? -eq 0 ; then
-            echo "Adding Engine: Server ${K8S_STATEFUL_SET_SERVICE_NAME_PA} not started, waiting.."
+            echo "Adding Engine: Server not started, waiting.."
             sleep 3
         else
             echo "PA started, begin adding engine"
@@ -50,7 +50,7 @@ if [[ ! -z "${OPERATIONAL_MODE}" && "${OPERATIONAL_MODE}" = "CLUSTERED_ENGINE" ]
     OUT=$( make_api_request https://${K8S_STATEFUL_SET_SERVICE_NAME_PA}:9000/pa-admin-api/v3/engines )
     ENGINE_ID=$( jq -n "$OUT" | \
                  jq --arg SHORT_HOST_NAME "${SHORT_HOST_NAME}" \
-                 '.items[] | select(.name==${SHORT_HOST_NAME}) | .id' )
+                 '.items[] | select(.name==$SHORT_HOST_NAME) | .id' )
 
     # If engine doesnt exist, then create new engine
     if test -z "${ENGINE_ID}" || test "${ENGINE_ID}" = null ; then
