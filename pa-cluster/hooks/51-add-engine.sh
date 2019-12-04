@@ -41,18 +41,16 @@ if [[ ! -z "${OPERATIONAL_MODE}" && "${OPERATIONAL_MODE}" = "CLUSTERED_ENGINE" ]
     # Retrieve Engine Cert ID
     OUT=$( make_api_request https://${K8S_STATEFUL_SET_SERVICE_NAME_PA}:9000/pa-admin-api/v3/engines/certificates )
     ENGINE_CERT_ID=$( jq -n "$OUT" | \
-                      jq --arg KEYPAIR_ALIAS_NAME "${KEYPAIR_ALIAS_NAME}" '.items[] | \
-                      select(.alias==$KEYPAIR_ALIAS_NAME and .keyPair==true) | \
-                      .id' )
+                      jq --arg KEYPAIR_ALIAS_NAME "${KEYPAIR_ALIAS_NAME}" \
+                      '.items[] | select(.alias==$KEYPAIR_ALIAS_NAME and .keyPair==true) | .id' )
     echo "ENGINE_CERT_ID:${ENGINE_CERT_ID}"
 
     # Retrieve Engine ID
     SHORT_HOST_NAME=$(hostname)
     OUT=$( make_api_request https://${K8S_STATEFUL_SET_SERVICE_NAME_PA}:9000/pa-admin-api/v3/engines )
     ENGINE_ID=$( jq -n "$OUT" | \
-                 jq --arg SHORT_HOST_NAME "${SHORT_HOST_NAME}" '.items[] | \
-                 select(.name==$SHORT_HOST_NAME) | \
-                 .id' )
+                 jq --arg SHORT_HOST_NAME "${SHORT_HOST_NAME}" \
+                 '.items[] | select(.name==$SHORT_HOST_NAME) | .id' )
 
     # If engine doesnt exist, then create new engine
     if test -z "${ENGINE_ID}" || test "${ENGINE_ID}" = null ; then
