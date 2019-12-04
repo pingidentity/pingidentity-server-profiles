@@ -35,7 +35,7 @@ if [[ ! -z "${OPERATIONAL_MODE}" && "${OPERATIONAL_MODE}" = "CLUSTERED_ENGINE" ]
 
     echo "Retrieving the Key Pair alias..."
     OUT=$( make_api_request https://${K8S_STATEFUL_SET_SERVICE_NAME_PA}:9000/pa-admin-api/v3/keyPairs  )
-    KEYPAIR_ALIAS_NAME=$( jq -n "$OUT" | jq -r '.items[] | select(.id=='${configQueryListenerKeyPairId}') | .alias' )
+    KEYPAIR_ALIAS_NAME=$( jq -n "$OUT" | jq -r '.items[] | select(.id=='${CONFIG_QUERY_LISTENER_KEYPAIR_ID}') | .alias' )
     echo "KEYPAIR_ALIAS_NAME:"${KEYPAIR_ALIAS_NAME}
 
     # Retrieve Engine Cert ID
