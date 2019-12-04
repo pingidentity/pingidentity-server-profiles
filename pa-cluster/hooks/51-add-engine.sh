@@ -16,7 +16,7 @@
 . "${HOOKS_DIR}/utils.lib.sh"
 
 host=`hostname`
-pahost=${PA_CONSOLE_HOST}
+pahost=${K8S_STATEFUL_SET_SERVICE_NAME_PA}
 if [[ ! -z "${OPERATIONAL_MODE}" && "${OPERATIONAL_MODE}" = "CLUSTERED_ENGINE" ]]; then
     echo "This node is an engine..."
     while true; do
@@ -46,7 +46,7 @@ if [[ ! -z "${OPERATIONAL_MODE}" && "${OPERATIONAL_MODE}" = "CLUSTERED_ENGINE" ]
     echo "Engine Cert ID:${paEngineCertId}"
 
     # Retrieve Engine ID
-    OUT=$( make_api_request https://pingaccess:9000/pa-admin-api/v3/engines )
+    OUT=$( make_api_request https://${pahost}:9000/pa-admin-api/v3/engines )
     engineId=$( jq -n "$OUT" | jq --arg host "${host}" '.items[] | select(.name==$host) | .id' )
 
     # If engine doesnt exist, then create new engine
