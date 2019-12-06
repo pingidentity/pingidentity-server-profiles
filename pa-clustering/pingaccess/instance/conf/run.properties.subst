@@ -157,6 +157,12 @@ pa.default.maxConnectionsPerSite=-1
 pa.default.session.cookie.attributes.httponly=true
 pa.default.session.cookie.attributes.secure=true
 pa.default.session.cookie.size.threshold=4093
+pa.websession.cookie.sameSiteExcludedUserAgentPatterns= ^.*\\(iP.+; CPU .*OS 12[_\\d]*.*\\) AppleWebKit\\/.*$,\
+                                                        ^.*Macintosh;.*Mac OS X 10_14.*Version.*Safari.*$,\
+                                                        ^.*(Chromium|Chrome)\\/(5[1-9]|6[0-6])\\.(\\d+)(?:\\.(\\d+)|)(?:\\.(\\d+)|).*$,\
+                                                        ^.*UCBrowser\\/[0-9][0-1]?.(\\d+)\\.(\\d+)[\\.\\d]*.*$,\
+                                                        ^.*UCBrowser\\/12.[0-9][0-2]?.(\\d+)[\\.\\d]*.*$,\
+                                                        ^.*UCBrowser\\/12.13.[0-2][\\.\\d]*.*$
 
 # Request URI handling
 pa.uri.strict=false
@@ -202,7 +208,14 @@ pa.interceptors.relativepath.decode.regex=[\\p{Po}\\p{N}\\p{Z}\\p{L}\\p{M}\\p{Zs
 
 tls.default.protocols = TLSv1.1, TLSv1.2
 
-tls.default.cipherSuites = TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_128_GCM_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,TLS_EMPTY_RENEGOTIATION_INFO_SCSV
+tls.default.cipherSuites = TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,\
+                           TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,\
+                           TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,\
+                           TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,\
+                           TLS_RSA_WITH_AES_128_GCM_SHA256,\
+                           TLS_RSA_WITH_AES_128_CBC_SHA256,\
+                           TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,\
+                           TLS_EMPTY_RENEGOTIATION_INFO_SCSV
 
 clusterconfig.ssl.protocols=${tls.default.protocols}
 clusterconfig.ssl.ciphers=${tls.default.cipherSuites}
@@ -258,7 +271,7 @@ pf.api.readTimeout=-1
 #-------------------------------------------------------------------------------
 
 pa.backup.filesToKeep=25
-pa.admin.user.password.regex=((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})
+pa.admin.user.password.regex=((?\=.*\\d)(?\=.*[a-z])(?\=.*[A-Z]).{6,20})
 pa.admin.user.password.error.message=Password must be 8 to 64 characters in length, and contain at least one upper-case letter, one lower-case letter and one digit.
 pa.admin.test.connections=true
 
