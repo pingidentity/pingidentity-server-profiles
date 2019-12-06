@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--
-  ~ ****************************************************
-  ~  Copyright (C) 2017 Ping Identity Corporation
-  ~  All rights reserved.
-  ~
-  ~  The contents of this file are the property of Ping Identity Corporation.
-  ~  You may not copy or use this file, in either source code or executable
-  ~  form, except in compliance with terms set by Ping Identity Corporation.
-  ~  For further information please contact:
-  ~
-  ~  Ping Identity Corporation
-  ~  1099 18th St Suite 2950
-  ~  Denver, CO 80202
-  ~  303.468.2900
-  ~  http://www.pingidentity.com
-  ~ ******************************************************
-  -->
-  
-  <!-- ===================================================================== -->
+<!-- ===================================================================== -->
 <!--                                                                       -->
 <!--  Log4J2 Configuration                                                 -->
 <!--                                                                       -->
@@ -678,7 +660,7 @@
 
     <Loggers>
         <!-- PingAccess Loggers-->
-        <AsyncLogger name="com.pingidentity" level="${PA_LOG_LEVEL}" additivity="false" includeLocation="false">
+        <AsyncLogger name="com.pingidentity" level="INFO" additivity="false" includeLocation="false">
             <AppenderRef ref="File"/>
             <!--<AppenderRef ref="CONSOLE" />-->
             <!--<AppenderRef ref="SYSLOG" />-->
