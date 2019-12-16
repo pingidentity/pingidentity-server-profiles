@@ -7,7 +7,6 @@
 
 # shellcheck source=pingcommon.lib.sh
 . "${HOOKS_DIR}/pingcommon.lib.sh"
-INITIAL_ADMIN_PASSWORD=${INITIAL_ADMIN_PASSWORD:=2FederateM0re}
 if test ${RUN_PLAN} = "START" ; then
   echo "Check for configuration to import.."
   if ! test -f ${STAGING_DIR}/instance/conf/pa.jwk ; then
