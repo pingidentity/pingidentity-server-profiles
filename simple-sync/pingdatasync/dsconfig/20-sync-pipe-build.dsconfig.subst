@@ -38,4 +38,5 @@ dsconfig create-sync-class \
     --set dn-map:source_to_destination  \
     --set ignore-zero-length-values:true  \
     --set modifies-as-creates:true  \
-    --set creates-as-modifies:true
+    --set creates-as-modifies:true \
+    --set auto-mapped-source-attribute:-all-
