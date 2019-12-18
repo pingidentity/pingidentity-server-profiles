@@ -1,0 +1,4 @@
+dn: o=test
+objectClass: organization
+o: test
+

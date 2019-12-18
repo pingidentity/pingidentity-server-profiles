@@ -1,0 +1,7 @@
+dsconfig create-backend \
+    --backend-name test  \
+    --type local-db  \
+    --set enabled:true  \
+    --set base-dn:o=test
+
+
