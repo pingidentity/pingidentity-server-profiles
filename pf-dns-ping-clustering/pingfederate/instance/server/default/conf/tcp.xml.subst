@@ -53,9 +53,10 @@
          This is the recommended dynamic discovery mechanism when using Kubernetes.
          See JGroups documentation on DNS_PING for further information on the available settings. -->
 
+    <!-- for k8s the variableDNS_QUERY={service}.{namespace}.svc.cluster.local -->
 
     <dns.DNS_PING
-		 dns_query="${PF_DNS_PING_CLUSTER}.${PF_DNS_PING_NAMESPACE}.svc.cluster.local" />
+		 dns_query="${DNS_QUERY_LOCATION}" />
 
 
     <!-- To enable discovery of EC2 instances in AWS dynamically, comment out TCPPING, and uncomment the section below.
