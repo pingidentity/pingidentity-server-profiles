@@ -91,10 +91,14 @@
         -->
         <create-instance class="org.sourceid.oauth20.token.AccessGrantManagerLDAPPingDirectoryImpl"/>
     </service-point>
-
     <!-- Service/adapter for creating pseudonym name ids -->
     <service-point id="PseudonymService" interface="org.sourceid.saml20.service.PseudonymService">
         <create-instance class="org.sourceid.saml20.service.impl.PseudonymServiceSha1Impl" model="primitive"/>
+    </service-point>
+
+    <!-- Service/adapter for creating pairwise pseudonymous identifiers -->
+    <service-point id="PairwisePseudonymService" interface="org.sourceid.openid.connect.service.PairwisePseudonymService">
+        <create-instance class="org.sourceid.openid.connect.service.impl.PairwisePseudonymServiceAESImpl" model="primitive"/>
     </service-point>
 
     <!-- URL matching service for target apps/adapter selection -->
