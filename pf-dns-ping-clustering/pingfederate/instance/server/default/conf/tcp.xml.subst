@@ -53,7 +53,8 @@
          This is the recommended dynamic discovery mechanism when using Kubernetes.
          See JGroups documentation on DNS_PING for further information on the available settings. -->
 
-    <!-- for k8s the variableDNS_QUERY={service}.{namespace}.svc.cluster.local -->
+    <!-- for k8s the pass `DNS_QUERY={service}.{namespace}.svc.cluster.local` as an env var-->
+    <!-- for docker pass `DNS_QUERY={service}` as an env var-->
 
     <dns.DNS_PING
 		 dns_query="${DNS_QUERY_LOCATION}" />
