@@ -57,7 +57,7 @@
     <!-- for docker pass `DNS_QUERY={service}` as an env var-->
 
     <dns.DNS_PING
-		 dns_query="${DNS_QUERY_LOCATION}" dns_record_type="SRV" />
+		 dns_query="${DNS_QUERY_LOCATION}" dns_record_type="${DNS_RECORD_TYPE}" />
 
 
     <!-- To enable discovery of EC2 instances in AWS dynamically, comment out TCPPING, and uncomment the section below.
