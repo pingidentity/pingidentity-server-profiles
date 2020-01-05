@@ -30,6 +30,13 @@ cd "${OUT_DIR}"
 collect-support-data --timeRange "\"[${AN_HOUR_AGO}],[${NOW}]\""
 CSD_OUT=$(find . -name support\*zip -type f | sort | tail -1)
 
+BUCKET_URL_NO_PROTOCOL=${LOG_ARCHIVE_URL#s3://}
+BUCKET_NAME=$(echo ${BUCKET_URL_NO_PROTOCOL} | cut -d/ -f1)
+
+DIRECTORY_NAME=pingdirectory
+echo "Creating directory ${DIRECTORY_NAME} under bucket ${BUCKET_NAME}"
+aws s3api put-object --bucket "${BUCKET_NAME}" --key "${DIRECTORY_NAME}"/
+
 echo "Uploading "${CSD_OUT}" to ${LOG_ARCHIVE_URL} at ${NOW}"
 DST_FILE=$(basename "${CSD_OUT}")
 aws s3 cp "${CSD_OUT}" "${LOG_ARCHIVE_URL}/${DST_FILE}"
