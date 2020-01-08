@@ -8,7 +8,6 @@ sn: Brooke
 cn: Raeann Brooke
 givenName: Raeann
 uid: user.0
-mail: {uid}@example.com
 userPassword: 2FederateM0re
 pf-connected-identity: auth-source=pf-local-identity:user-id=user.0
 
@@ -22,7 +21,6 @@ sn: Seawell
 cn: Esko Seawell
 givenName: Esko
 uid: user.1
-mail: {uid}@example.com
 userPassword: 2FederateM0re
 pf-connected-identity: auth-source=pf-local-identity:user-id=user.1
 
@@ -36,7 +34,6 @@ sn: Tancordo
 cn: Sidonia Tancordo
 givenName: Sidonia
 uid: user.2
-mail: {uid}@example.com
 userPassword: 2FederateM0re
 pf-connected-identity: auth-source=pf-local-identity:user-id=user.2
 
@@ -50,7 +47,6 @@ sn: Knio
 cn: Pierre-Marc Knio
 givenName: Pierre-Marc
 uid: user.3
-mail: {uid}@example.com
 userPassword: 2FederateM0re
 pf-connected-identity: auth-source=pf-local-identity:user-id=user.3
 
@@ -64,7 +60,6 @@ sn: Psutka
 cn: Terza Psutka
 givenName: Terza
 uid: user.4
-mail: {uid}@example.com
 userPassword: 2FederateM0re
 pf-connected-identity: auth-source=pf-local-identity:user-id=user.4
 
@@ -105,7 +100,6 @@ sn: PingFederate
 cn: Auditor
 givenName: PingFederate
 uid: auditor
-mail: {uid}@example.com
 userPassword: 2FederateM0re
 pf-connected-identity: auth-source=pf-local-identity:user-id=auditor
 
