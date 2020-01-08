@@ -204,7 +204,7 @@ pf.cluster.encryption.keysize=128
 
 # Specify the IP address for cluster communication, or leave as NON_LOOPBACK to
 # allow the system to choose an available non-loopback IP address.
-pf.cluster.bind.address=$CLUSTER_BIND_ADDRESS
+pf.cluster.bind.address=NON_LOOPBACK
 pf.cluster.bind.port=7600
 pf.cluster.failure.detection.bind.port=7700
 
@@ -226,7 +226,7 @@ pf.cluster.mcast.group.port=7601
 # discovery mechanisms are available. See server/default/conf/tcp.xml for
 # further details. If a dynamic discovery mechanism is used, this property
 # is ignored.
-pf.cluster.tcp.discovery.initial.hosts=$DISCOVERY_INITIAL_HOST
+pf.cluster.tcp.discovery.initial.hosts=
 
 # This property enables/disables adaptive clustering. Please see the
 # PingFederate clustering guide for more information on this capability.

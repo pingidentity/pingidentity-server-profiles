@@ -1,28 +1,9 @@
 # Purpose
-This directory provides a minimal PingFederate installation using PingDirectory as the
-LDAP provider.The directory layout within the 'instance' directory needs to mirror the
-structure of the pingfederate directory within the PingFederate install as its contents
-overlays that of the vanilla installation.
+This directory contains the data that is required to customize PingFederate containers to 
+taste. The file system structure must follow that of a PingFederate instance. These files 
+are laid over a vanilla installation of PingFederate.
 
-This configuration is compatible with PingFederate Version 10.
-
-# Parameters
-The following environment variables are used to configure PingFederate
-
-## bin/run.properties
-
-OPERATIONAL_MODE: Used to select the operational mode for this instance,
-see run.properties for details.
-
-## server/default/conf/log4j2.xml
-
-PF_LOG_LEVEL: Set the loging level for PingFederate, this is read via native
-log4j code and does not need substitution.
-
-## bin/ldap.properties
-
-LDAP_PASSWORD::q
-
-
-USER_BASE_DN:	
-
+The files in instance/server/default/conf are configured to support clustering PingFederate
+using the DNS_PING mechanism which was introduced in PingFederate Version 10. These files
+are comparible with running a standalone PingFederate 10 instance but will break earlier
+versions of PingFederate due to an imcompatible change to hivemodule.xml.

@@ -167,5 +167,9 @@
      -->
     <service-point id="MasterKeyEncryptor" interface="com.pingidentity.sdk.key.MasterKeyEncryptor">
         <create-instance class="com.pingidentity.crypto.jwk.NoOpMasterKeyEncryptor"/>
+	  </service-point>
+	  <!-- Service/adapter for creating pairwise pseudonymous identifiers -->
+    <service-point id="PairwisePseudonymService" interface="org.sourceid.openid.connect.service.PairwisePseudonymService">
+        <create-instance class="org.sourceid.openid.connect.service.impl.PairwisePseudonymServiceAESImpl" model="primitive"/>
     </service-point>
 </module>
