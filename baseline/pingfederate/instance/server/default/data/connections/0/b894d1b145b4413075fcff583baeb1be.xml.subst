@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<md:EntityDescriptor entityID="docker" urn:name="docker" ID="aLGfLX1-K4VP6a3uGh33YOuZodG" urn:baseUrl="https://${PF_ENGINE_PUBLIC_HOSTNAME}:9031" urn:LogLevel="STANDARD" urn:isActive="true" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:urn="urn:sourceid.org:saml2:metadata-extension:v2">
+<md:EntityDescriptor entityID="docker" urn:name="docker" ID="aLGfLX1-K4VP6a3uGh33YOuZodG" urn:baseUrl="https://${PF_ENGINE_PUBLIC_HOSTNAME}:${PF_ENGINE_PUBLIC_PORT}" urn:LogLevel="STANDARD" urn:isActive="true" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:urn="urn:sourceid.org:saml2:metadata-extension:v2">
     <md:Extensions>
         <urn:EntityExtension PFVersion="9.2.0.10">
             <urn:DigitialSignatureAliases>
