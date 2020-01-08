@@ -1,0 +1,17 @@
+dsconfig set-trust-manager-provider-prop \
+	--provider-name "Blind Trust" \
+	--set enabled:true
+
+dsconfig create-external-server \
+	--server-name pingdatagovernancepap \
+	--type policy \
+	--set base-url:https://pingdatagovernancepap:8443 \
+	--set hostname-verification-method:allow-all \
+	--set key-manager-provider:Null \
+	--set "trust-manager-provider:Blind Trust" \
+	--set shared-secret:${DECISION_POINT_SHARED_SECRET} \
+	--set branch:ping-devops
+
+dsconfig set-policy-decision-service-prop \
+	--set pdp-mode:external \
+	--set policy-server:pingdatagovernancepap
