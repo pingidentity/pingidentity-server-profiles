@@ -11,7 +11,7 @@ dsconfig create-external-server \
 	--set "trust-manager-provider:Blind Trust" \
 	--set shared-secret:${DECISION_POINT_SHARED_SECRET} \
 	--set decision-node:e51688ff-1dc9-4b6c-bb36-8af64d02e9d1 \
-	--set branch:default
+	--set branch:defaultPolicies.SNAPSHOT
 
 dsconfig set-policy-decision-service-prop \
 	--set pdp-mode:external \
