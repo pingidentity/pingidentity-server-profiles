@@ -1,0 +1,39 @@
+dsconfig set-trust-manager-provider-prop \
+	--provider-name "Blind Trust" \
+	--set enabled:true
+
+dsconfig create-external-server \
+	--server-name pingdatagovernancepap \
+	--type policy \
+	--set base-url:https://pingdatagovernancepap:8443 \
+	--set hostname-verification-method:allow-all \
+	--set key-manager-provider:Null \
+	--set "trust-manager-provider:Blind Trust" \
+	--set shared-secret:${DECISION_POINT_SHARED_SECRET} \
+	--set decision-node:e51688ff-1dc9-4b6c-bb36-8af64d02e9d1 \
+	--set branch:defaultPolicies.SNAPSHOT
+
+dsconfig set-external-server-prop \
+	--server-name pingdirectory:636 \
+	--set "trust-manager-provider:Blind Trust
+
+dsconfig set-policy-decision-service-prop \
+	--set pdp-mode:external \
+	--set policy-server:pingdatagovernancepap
+
+dsconfig create-access-token-validator \
+	--validator-name "Mock ATV" \
+	--type mock \
+	--set enabled:true
+
+dsconfig set-http-servlet-extension-prop \
+	--extension-name SCIM2 \
+	--set "access-token-validator:Mock ATV"
+
+dsconfig create-token-resource-lookup-method \
+	--validator-name "Mock ATV" \
+	--method-name scim-entry-uuid \
+	--type scim \
+	--set evaluation-order-index:9999 \
+	--set scim-resource-type:Users \
+	--set 'match-filter:userName eq "%sub%"'
