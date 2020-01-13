@@ -143,7 +143,7 @@
                         org.sourceid.oauth20.domain.ClientManagerLdapImpl               : Use this service-point for a LDAP implementation.
                         org.sourceid.oauth20.domain.ClientManagerGenericImpl            : Use this service-point if you have specified a custom ClientStorageManager implementation above.
             -->
-            <construct class="org.sourceid.oauth20.domain.ClientManagerLdapImpl"/>
+            <construct class="org.sourceid.oauth20.domain.ClientManagerXmlFileImpl"/>
         </invoke-factory>
     </service-point>
 
