@@ -5,7 +5,7 @@ ${VERBOSE} && set -x
 # shellcheck source=pingcommon.lib.sh
 . "${HOOKS_DIR}/pingcommon.lib.sh"
 
-run_hook "84-download-artifact-s3.sh"
+run_hook "10-download-artifact-s3.sh"
 
 #if ! [ -z "${OPERATIONAL_MODE}" ] &&  [ "${OPERATIONAL_MODE}" != "CLUSTERED_ENGINE" ]; then
 #	run_hook "10-setup-master-key.sh"
