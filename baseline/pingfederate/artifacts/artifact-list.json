@@ -1,5 +1,13 @@
 [
   {
+    "name": "pf-invalid-kit",
+    "version": "9.9.9"
+  },
+  {
+    "name": "pf-duo-security-integration-kit",
+    "version": "2.2.1"
+  },
+  {
     "name": "pf-x509-certificate-integration-kit",
     "version": "1.2.1"
   },
@@ -34,10 +42,6 @@
   {
     "name": "mobileiron-ik",
     "version": "1.0.0"
-  },
-  {
-    "name": "pf-invalid-kit",
-    "version": "1.9.9"
   },
   {
     "name": "pf-rsa-securid-integration-kit",
