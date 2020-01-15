@@ -120,6 +120,7 @@ if ! [ -f ../server/default/data/pf.jwk ]; then
       fi
    elif [ "${result}" != "1" ]; then
       echo_red "Unexpected error accessing S3 - crash the container to prevent spurious key creation"
+      aws s3 ls ${masterKey}
       exit 1
    else
       echo "No pre-existing master key found - crash the container to prevent spurious key creation"
