@@ -28,10 +28,6 @@
     "version": "1.0"
   },
   {
-    "name": "pf-atlassian-integration-kit",
-    "version": "2.1"
-  },
-  {
     "name": "pf-amazon-cloud-identity-connector",
     "version": "1.0"
   },
