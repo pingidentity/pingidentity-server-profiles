@@ -50,52 +50,21 @@ if test -f "${STAGING_DIR}/artifacts/artifact-list.json"; then
         ARTIFACT_VERSION=$(_artifact '.version')
         ARTIFACT_RUNTIME_ZIP=${ARTIFACT_NAME}-${ARTIFACT_VERSION}-runtime.zip
 
-        #CURRENT_DIRECTORY=$(pwd)
-
         echo "${TARGET_BASE_URL}/${ARTIFACT_NAME}/${ARTIFACT_VERSION})/${ARTIFACT_RUNTIME_ZIP}" > ${OUT_DIR}/${ARTIFACT_VERSION}-url.txt
 
         # Use aws command if ARTIFACT_REPO_URL is in s3 format otherwise use curl
         if ! test "${ARTIFACT_REPO_URL#s3}" == "${ARTIFACT_REPO_URL}"; then
-          aws s3 cp "${TARGET_BASE_URL}/${ARTIFACT_NAME}/${ARTIFACT_VERSION}/${ARTIFACT_RUNTIME_ZIP}" /tmp 2> ${OUT_DIR}/aws-error-${ARTIFACT_NAME}.txt
+          aws s3 cp "${TARGET_BASE_URL}/${ARTIFACT_NAME}/${ARTIFACT_VERSION}/${ARTIFACT_RUNTIME_ZIP}" /tmp
         else
-          curl "${TARGET_BASE_URL}/${ARTIFACT_NAME}/${ARTIFACT_VERSION}/${ARTIFACT_RUNTIME_ZIP}" --output /tmp/${ARTIFACT_RUNTIME_ZIP} 2> ${OUT_DIR}/curl-error-${ARTIFACT_NAME}.txt
+          curl "${TARGET_BASE_URL}/${ARTIFACT_NAME}/${ARTIFACT_VERSION}/${ARTIFACT_RUNTIME_ZIP}" --output /tmp/${ARTIFACT_RUNTIME_ZIP}
         fi
 
         if test $(echo $?) == "0"; then
-          unzip -o /tmp/${ARTIFACT_RUNTIME_ZIP} -d ${OUT_DIR}/instance/server/default 2> ${OUT_DIR}/unzip-error-${ARTIFACT_NAME}.txt
+          unzip -o /tmp/${ARTIFACT_RUNTIME_ZIP} -d ${OUT_DIR}/instance/server/default
         fi
 
         #Cleanup
         rm /tmp/${ARTIFACT_RUNTIME_ZIP}
-
-        #if [ ! -z "$(aws s3 ls ${TARGET_BASE_URL}/${ARTIFACT_NAME}/${ARTIFACT_VERSION})" ]
-        #then
-        #  aws s3 cp "${TARGET_BASE_URL}/${ARTIFACT_NAME}/${ARTIFACT_VERSION}/" "${OUT_DIR}/instance/server/default" --recursive
-        #fi
-
-        # Download artifact zip
-        #curl "${TARGET_BASE_URL}/${ARTIFACT_NAME}/${ARTIFACT_VERSION})/${ARTIFACT_NAME}-${ARTIFACT_VERSION}.zip" --output /tmp/${ARTIFACT_NAME}-${ARTIFACT_VERSION}.zip
-        #cd /tmp
-        #wget "${TARGET_BASE_URL}/${ARTIFACT_NAME}/${ARTIFACT_VERSION})/${ARTIFACT_NAME}-${ARTIFACT_VERSION}.zip"
-
-        #if test $(echo $?) == "0"; then
-        #if [ -f "/tmp/${ARTIFACT_NAME}-${ARTIFACT_VERSION}.zip" ]
-        #then
-          #if unzip -o /tmp/${ARTIFACT_NAME}-${ARTIFACT_VERSION}.zip -d ${OUT_DIR}/instance/server/default 2> ${OUT_DIR}/${ARTIFACT_NAME}.txt
-          #then
-          #  rm /tmp/${ARTIFACT_NAME}-${ARTIFACT_VERSION}.zip
-          #fi
-          #unzip -o /tmp/${ARTIFACT_NAME}-${ARTIFACT_VERSION}.zip -d ${OUT_DIR}/instance/server/default 2> ${OUT_DIR}/${ARTIFACT_NAME}.txt
-          #cd "${OUT_DIR}/instance/server/default"
-          #unzip "/tmp/${ARTIFACT_NAME}-${ARTIFACT_VERSION}.zip" 2> ${OUT_DIR}/error.txt
-          #rm /tmp/${ARTIFACT_NAME}-${ARTIFACT_VERSION}.zip
-          #cd ${CURRENT_DIRECTORY}
-        #fi
-
-        #if [ ! -z "$(aws s3 ls ${TARGET_BASE_URL}/${ARTIFACT_NAME}/${ARTIFACT_VERSION})" ]
-        #then
-        #  aws s3 cp "${TARGET_BASE_URL}/${ARTIFACT_NAME}/${ARTIFACT_VERSION}/" "${OUT_DIR}/instance/server/default" --recursive
-        #fi
 
       done
 
