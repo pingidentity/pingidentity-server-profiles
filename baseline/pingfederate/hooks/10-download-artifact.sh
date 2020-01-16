@@ -78,7 +78,6 @@ if test -f "${STAGING_DIR}/artifacts/artifact-list.json"; then
             rm /tmp/${ARTIFACT_RUNTIME_ZIP}
           else
             echo "Artifact ${ARTIFACT_NAME} is specified more than once in ${STAGING_DIR}/artifacts/artifact-list.json"
-            exit 0
           fi
 
 
