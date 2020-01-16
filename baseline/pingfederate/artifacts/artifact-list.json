@@ -1,10 +1,6 @@
-#[
-#  {
-#    "name": "<ARTIFACT_1_NAME)>",
-#    "version": "<ARTIFACT_1_VERSION>>"
-#  },
-#  {
-#    "name": "<ARTIFACT_2_NAME>",
-#    "version": "<ARTIFACT_2_VERSION>"
-#  },
-#]
+[
+  {
+    "name": "<ARTIFACT_1_NAME)>",
+    "version": "<ARTIFACT_1_VERSION>>"
+  }
+]
