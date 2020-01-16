@@ -29,8 +29,8 @@ mkdir -p ${DST_DIRECTORY}
 make_api_request -X GET https://localhost:9999/pf-admin-api/v1/configArchive/export \
     -o ${DST_DIRECTORY}/${DST_FILE}
 
-# Validate admin API call was successful and that zip isn't empty
-if test ! $? -eq 0 || test "$( unzip ${DST_DIRECTORY}/${DST_FILE} > /dev/null 2>&1;echo $?)" != "0" ; then
+# Validate admin API call was successful and that zip isn't corrupted
+if test ! $? -eq 0 || test "$( unzip -t ${DST_DIRECTORY}/${DST_FILE} > /dev/null 2>&1;echo $?)" != "0" ; then
   echo "Failed to export archive"
   # Cleanup k8s-s3-upload-archive temp directory
   rm -r ${DST_DIRECTORY}
