@@ -5,9 +5,6 @@
 
 ${VERBOSE} && set -x
 
-# Set PATH - since this is executed from within the server process, it may not have all we need on the path
-export PATH="${PATH}:${SERVER_ROOT_DIR}/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${JAVA_HOME}/bin"
-
 # Allow overriding the backup URL with an arg
 test ! -z "${1}" && BACKUP_URL="${1}"
 echo "Downloading from location ${BACKUP_URL}"
@@ -52,16 +49,18 @@ if ! test -z "${DATA_BACKUP_FILE}"; then
 
   echo "Download return code: ${AWS_API_RESULT}"
 
-  # Print the filename of the downloaded file from s3
-  echo "Download file name: ${DATA_BACKUP_FILE}"
-
-  # Print listed files from drop-in-deployer
-  ls ${OUT_DIR}/instance/server/default/data/drop-in-deployer
-
   if [ "${AWS_API_RESULT}" != "0" ]; then
     echo_red "Download was unsuccessful - crash the container"
     exit 1
   fi
+
+  # Print the filename of the downloaded file from s3
+  echo "Download file name: ${DATA_BACKUP_FILE}"
+
+  # Print listed files from drop-in-deployer
+  DST_DIR_CONTENTS=$(mktemp)
+  ls ${OUT_DIR}/instance/server/default/data/drop-in-deployer > ${DST_DIR_CONTENTS}
+  cat ${DST_DIR_CONTENTS}
 
 else
 

@@ -5,9 +5,6 @@
 
 ${VERBOSE} && set -x
 
-# Set PATH - since this is executed from within the server process, it may not have all we need on the path
-export PATH="${PATH}:${SERVER_ROOT_DIR}/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${JAVA_HOME}/bin"
-
 # Allow overriding the backup URL with an arg
 test ! -z "${1}" && BACKUP_URL="${1}"
 echo "Uploading to location ${BACKUP_URL}"
@@ -33,7 +30,7 @@ make_api_request -X GET https://localhost:9999/pf-admin-api/v1/configArchive/exp
 if test ! $? -eq 0 || test "$( unzip -t ${DST_DIRECTORY}/${DST_FILE} > /dev/null 2>&1;echo $?)" != "0" ; then
   echo "Failed to export archive"
   # Cleanup k8s-s3-upload-archive temp directory
-  rm -r ${DST_DIRECTORY}
+  rm -rf ${DST_DIRECTORY}
   exit 0
 fi
 
@@ -55,16 +52,18 @@ AWS_API_RESULT="${?}"
 
 echo "Upload return code: ${AWS_API_RESULT}"
 
-# Print the filename of the uploaded file to s3
-echo "Uploaded file name: ${DST_FILE}"
-
-# Print listed files from k8s-s3-upload-archive
-ls ${DST_DIRECTORY}
-
-# Cleanup k8s-s3-upload-archive temp directory
-rm -r ${DST_DIRECTORY}
-
 if [ "${AWS_API_RESULT}" != "0" ]; then
   echo_red "Upload was unsuccessful - crash the container"
   exit 1
 fi
+
+# Print the filename of the uploaded file to s3
+echo "Uploaded file name: ${DST_FILE}"
+
+# Print listed files from k8s-s3-upload-archive
+DST_DIR_CONTENTS=$(mktemp)
+ls ${DST_DIRECTORY} > ${DST_DIR_CONTENTS}
+cat ${DST_DIR_CONTENTS}
+
+# Cleanup k8s-s3-upload-archive temp directory
+rm -rf ${DST_DIRECTORY)
