@@ -75,7 +75,7 @@ if test -f "${STAGING_DIR}/artifacts/artifact-list.json"; then
         ls ${OUT_DIR}/instance/server/default/conf/template
 
       else
-        echo "Could not parse ${STAGING_DIR}/artifacts/artifact-list.json."
+        echo "Artifacts will not be deployed as could not parse ${STAGING_DIR}/artifacts/artifact-list.json."
         exit 0
       fi
     else
