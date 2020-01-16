@@ -20,58 +20,62 @@ if test -f "${STAGING_DIR}/artifacts/artifact-list.json"; then
         pip3 install --no-cache-dir --upgrade jq
       fi
 
-      if ! which unzip > /dev/null; then
-        echo "Installing unzip"
-        pip3 install --no-cache-dir --upgrade unzip
-      fi
+      # Check to see if the artifact list is a valid json string
+      echo ${ARTIFACT_LIST_JSON} | jq
+      if test $(echo $?) == "0"; then
+        if ! which unzip > /dev/null; then
+          echo "Installing unzip"
+          pip3 install --no-cache-dir --upgrade unzip
+        fi
 
-      # Install AWS CLI if the upload location is S3
-      if ! test "${ARTIFACT_REPO_URL#s3}" == "${ARTIFACT_REPO_URL}"; then
-        echo "Installing AWS CLI"
-        apk --update add python3
-        pip3 install --no-cache-dir --upgrade pip
-        pip3 install --no-cache-dir --upgrade awscli
-      fi
-
-      DIRECTORY_NAME=$(echo ${PING_PRODUCT} | tr '[:upper:]' '[:lower:]')
-
-      if [ -z "${ARTIFACT_REPO_URL##*/pingfederate*}" ] ; then
-        TARGET_BASE_URL="${ARTIFACT_REPO_URL}"
-      else
-        TARGET_BASE_URL="${ARTIFACT_REPO_URL}/${DIRECTORY_NAME}"
-      fi
-
-      for artifact in $(echo "${ARTIFACT_LIST_JSON}" | jq -c '.[]'); do
-        _artifact() {
-          echo ${artifact} | jq -r ${1}
-        }
-
-        ARTIFACT_NAME=$(_artifact '.name')
-        ARTIFACT_VERSION=$(_artifact '.version')
-        ARTIFACT_RUNTIME_ZIP=${ARTIFACT_NAME}-${ARTIFACT_VERSION}-runtime.zip
-
-        echo "${TARGET_BASE_URL}/${ARTIFACT_NAME}/${ARTIFACT_VERSION})/${ARTIFACT_RUNTIME_ZIP}" > ${OUT_DIR}/${ARTIFACT_VERSION}-url.txt
-
-        # Use aws command if ARTIFACT_REPO_URL is in s3 format otherwise use curl
+        # Install AWS CLI if the upload location is S3
         if ! test "${ARTIFACT_REPO_URL#s3}" == "${ARTIFACT_REPO_URL}"; then
-          aws s3 cp "${TARGET_BASE_URL}/${ARTIFACT_NAME}/${ARTIFACT_VERSION}/${ARTIFACT_RUNTIME_ZIP}" /tmp
+          echo "Installing AWS CLI"
+          apk --update add python3
+          pip3 install --no-cache-dir --upgrade pip
+          pip3 install --no-cache-dir --upgrade awscli
+        fi
+
+        DIRECTORY_NAME=$(echo ${PING_PRODUCT} | tr '[:upper:]' '[:lower:]')
+
+        if [ -z "${ARTIFACT_REPO_URL##*/pingfederate*}" ] ; then
+          TARGET_BASE_URL="${ARTIFACT_REPO_URL}"
         else
-          curl "${TARGET_BASE_URL}/${ARTIFACT_NAME}/${ARTIFACT_VERSION}/${ARTIFACT_RUNTIME_ZIP}" --output /tmp/${ARTIFACT_RUNTIME_ZIP}
+          TARGET_BASE_URL="${ARTIFACT_REPO_URL}/${DIRECTORY_NAME}"
         fi
 
-        if test $(echo $?) == "0"; then
-          unzip -o /tmp/${ARTIFACT_RUNTIME_ZIP} -d ${OUT_DIR}/instance/server/default
-        fi
+        for artifact in $(echo "${ARTIFACT_LIST_JSON}" | jq -c '.[]'); do
+          _artifact() {
+            echo ${artifact} | jq -r ${1}
+          }
 
-        #Cleanup
-        rm /tmp/${ARTIFACT_RUNTIME_ZIP}
+          ARTIFACT_NAME=$(_artifact '.name')
+          ARTIFACT_VERSION=$(_artifact '.version')
+          ARTIFACT_RUNTIME_ZIP=${ARTIFACT_NAME}-${ARTIFACT_VERSION}-runtime.zip
 
-      done
+          echo "${TARGET_BASE_URL}/${ARTIFACT_NAME}/${ARTIFACT_VERSION})/${ARTIFACT_RUNTIME_ZIP}" > ${OUT_DIR}/${ARTIFACT_VERSION}-url.txt
 
-      # Print listed files from deploy
-      ls ${OUT_DIR}/instance/server/default/deploy
-      ls ${OUT_DIR}/instance/server/default/conf/template
+          # Use aws command if ARTIFACT_REPO_URL is in s3 format otherwise use curl
+          if ! test "${ARTIFACT_REPO_URL#s3}" == "${ARTIFACT_REPO_URL}"; then
+            aws s3 cp "${TARGET_BASE_URL}/${ARTIFACT_NAME}/${ARTIFACT_VERSION}/${ARTIFACT_RUNTIME_ZIP}" /tmp
+          else
+            curl "${TARGET_BASE_URL}/${ARTIFACT_NAME}/${ARTIFACT_VERSION}/${ARTIFACT_RUNTIME_ZIP}" --output /tmp/${ARTIFACT_RUNTIME_ZIP}
+          fi
 
+          if test $(echo $?) == "0"; then
+            unzip -o /tmp/${ARTIFACT_RUNTIME_ZIP} -d ${OUT_DIR}/instance/server/default
+          fi
+
+          #Cleanup
+          rm /tmp/${ARTIFACT_RUNTIME_ZIP}
+
+        done
+
+        # Print listed files from deploy
+        ls ${OUT_DIR}/instance/server/default/deploy
+        ls ${OUT_DIR}/instance/server/default/conf/template
+
+      fi
     fi
   fi
 fi
