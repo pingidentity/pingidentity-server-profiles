@@ -60,7 +60,12 @@ if test -f "${STAGING_DIR}/artifacts/artifact-list.json"; then
           fi
 
           if test $(echo $?) == "0"; then
-            unzip -o /tmp/${ARTIFACT_RUNTIME_ZIP} -d ${OUT_DIR}/instance/server/default
+            if ! unzip -o /tmp/${ARTIFACT_RUNTIME_ZIP} -d ${OUT_DIR}/instance/server/default
+            then
+                echo Artifact /tmp/${ARTIFACT_RUNTIME_ZIP} could not be unzipped.
+            fi
+          else
+            echo "Artifact download failed from ${TARGET_BASE_URL}/${ARTIFACT_NAME}/${ARTIFACT_VERSION}/${ARTIFACT_RUNTIME_ZIP}"
           fi
 
           #Cleanup
