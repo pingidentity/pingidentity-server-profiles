@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+${VERBOSE} && set -x
+
+# shellcheck source=pingcommon.lib.sh
+. "${HOOKS_DIR}/pingcommon.lib.sh"
+
+if ! [ -z "${OPERATIONAL_MODE}" ] &&  [ "${OPERATIONAL_MODE}" != "CLUSTERED_ENGINE" ]; then
+	run_hook "10-setup-master-key.sh"
+fi
+
+if ! [ -z "${OPERATIONAL_MODE}" ] &&  [ "${OPERATIONAL_MODE}" = "CLUSTERED_ENGINE" ]; then
+	run_hook "10-get-master-key.sh"
+fi
