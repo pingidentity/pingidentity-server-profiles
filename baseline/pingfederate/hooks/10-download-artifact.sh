@@ -6,7 +6,6 @@ ${VERBOSE} && set -x
 export PATH="${PATH}:${SERVER_ROOT_DIR}/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${JAVA_HOME}/bin"
 
 if test -f "${STAGING_DIR}/artifacts/artifact-list.json"; then
-
   # Check to see if the artifact file is empty
   ARTIFACT_LIST_JSON=$(cat "${STAGING_DIR}/artifacts/artifact-list.json")
   # Check to see if the source S3 bucket is specified
@@ -75,7 +74,19 @@ if test -f "${STAGING_DIR}/artifacts/artifact-list.json"; then
         ls ${OUT_DIR}/instance/server/default/deploy
         ls ${OUT_DIR}/instance/server/default/conf/template
 
+      else
+        echo "Could not parse ${STAGING_DIR}/artifacts/artifact-list.json."
+        exit 0
       fi
+    else
+      echo "Artifacts will not be deployed as the environment variable ARTIFACT_REPO_URL is empty."
+      exit 0
     fi
+  else
+    echo "Artifacts will not be deployed as ${STAGING_DIR}/artifacts/artifact-list.json is empty."
+    exit 0
   fi
+else
+  echo "Artifacts will not be deployed as ${STAGING_DIR}/artifacts/artifact-list.json doesn't exist."
+  exit 0
 fi
