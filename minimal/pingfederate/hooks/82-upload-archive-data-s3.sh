@@ -66,4 +66,4 @@ ls ${DST_DIRECTORY} > ${DST_DIR_CONTENTS}
 cat ${DST_DIR_CONTENTS}
 
 # Cleanup k8s-s3-upload-archive temp directory
-rm -rf ${DST_DIRECTORY)
+rm -rf ${DST_DIRECTORY}
