@@ -22,7 +22,7 @@ server.port=9022
 # indicate their default values. You need only define them to override the defaults.
 #
 # For development and testing. Setting this to true causes PingCentral to trust any certificate
-server.ssl.trust-any=true
+server.ssl.trust-any=${SSL_TRUST_ANY}
 # Whether or not the HTTPS client performs server hostname validation
 #server.ssl.https.verify-hostname=true
 # When a trust store is configured below, by default certificate chain resolution is delegated to the system truststore
