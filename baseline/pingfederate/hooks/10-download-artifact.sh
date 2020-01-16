@@ -52,6 +52,16 @@ if test -f "${STAGING_DIR}/artifacts/artifact-list.json"; then
           ARTIFACT_VERSION=$(_artifact '.version')
           ARTIFACT_RUNTIME_ZIP=${ARTIFACT_NAME}-${ARTIFACT_VERSION}-runtime.zip
 
+          # Make sure there aren't any duplicate entries for the artifact.
+          # This is needed to avoid issues with multiple plugin versions
+          ARTIFACT_NAME_COUNT=$(echo "${ARTIFACT_LIST_JSON}" | grep -iEo "${ARTIFACT_NAME}" | wc -l | xargs)
+          echo "${ARTIFACT_NAME_COUNT}" > "${OUT_DIR}/${ARTIFACT_NAME}-count.txt"
+
+          if ! test "${ARTIFACT_NAME_COUNT}" == "1"; then
+            echo "Artifact ${ARTIFACT_NAME} is specified more than once in ${STAGING_DIR}/artifacts/artifact-list.json"
+            exit 0
+          fi
+
           # Use aws command if ARTIFACT_REPO_URL is in s3 format otherwise use curl
           if ! test "${ARTIFACT_REPO_URL#s3}" == "${ARTIFACT_REPO_URL}"; then
             aws s3 cp "${TARGET_BASE_URL}/${ARTIFACT_NAME}/${ARTIFACT_VERSION}/${ARTIFACT_RUNTIME_ZIP}" /tmp
