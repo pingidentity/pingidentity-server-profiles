@@ -4,6 +4,10 @@
     "version": "9.9.9"
   },
   {
+    "name": "coreblox-integration-kit",
+    "version": "2.6.1"
+  },
+  {
     "name": "pf-duo-security-integration-kit",
     "version": "2.2.1"
   },
@@ -26,6 +30,10 @@
   {
     "name": "pf-github-cloud-identity-connector",
     "version": "1.0"
+  },
+  {
+    "name": "pf-atlassian-integration-kit",
+    "version": "2.1"
   },
   {
     "name": "pf-amazon-cloud-identity-connector",
