@@ -1,0 +1,70 @@
+[
+  {
+    "name": "pf-invalid-kit",
+    "version": "9.9.9"
+  },
+  {
+    "name": "pf-aws-connector",
+    "version": "2.0"
+  },
+  {
+    "name": "coreblox-integration-kit",
+    "version": "2.6.1"
+  },
+  {
+    "name": "pf-duo-security-integration-kit",
+    "version": "2.2.1"
+  },
+  {
+    "name": "pf-x509-certificate-integration-kit",
+    "version": "1.2.1"
+  },
+  {
+    "name": "pf-vip-integration-kit",
+    "version": "1.4.0"
+  },
+  {
+    "name": "pf-p14c-integration-kit",
+    "version": "1.2.1"
+  },
+  {
+    "name": "pf-google-cloud-identity-connector",
+    "version": "1.4.1"
+  },
+  {
+    "name": "pf-github-cloud-identity-connector",
+    "version": "1.0"
+  },
+  {
+    "name": "pf-atlassian-integration-kit",
+    "version": "2.1"
+  },
+  {
+    "name": "pf-amazon-cloud-identity-connector",
+    "version": "1.0"
+  },
+  {
+    "name": "pf-airwatch-adapter",
+    "version": "1.0.2"
+  },
+  {
+    "name": "mobileiron-ik",
+    "version": "1.0.0"
+  },
+  {
+    "name": "pf-rsa-securid-integration-kit",
+    "version": "3.0.1"
+  },
+  {
+    "name": "pf-facebook-cloud-identity-connector",
+    "version": "2.0.1"
+  },
+  {
+    "name": "pf-apple-cloud-identity-connector",
+    "version": "1.0.1"
+  },
+  {
+    "name": "pf-iovation-integration-kit",
+    "version": "1.0"
+  }
+]
