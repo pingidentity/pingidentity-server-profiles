@@ -12,6 +12,12 @@ ${VERBOSE} && set -x
 function obfuscatePassword()
 {
    #
+   # Ensure Java home is set
+   #
+   if [ -z "${JAVA_HOME}" ]; then
+      JAVA_HOME=/usr/lib/jvm/default-jvm/jre/
+   fi
+   #
    # The master key may not exist, this means no key was passed in as a secret and this is the first run of PF 
    # for this environment, we can use the obfuscate utility to generate a master key as a byproduct of obfuscating 
    # the password used to authenticate to PingDirectory in the ldap properties file. The utility obfuscate.sh 
