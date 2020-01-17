@@ -1,9 +1,0 @@
-#!/usr/bin/env sh
-
-${VERBOSE} && set -x
-
-# shellcheck source=pingcommon.lib.sh
-. "${HOOKS_DIR}/pingcommon.lib.sh"
-
-run_hook "10-download-artifact.sh"
-
