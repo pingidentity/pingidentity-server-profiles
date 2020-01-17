@@ -15,7 +15,7 @@ function obfuscatePassword()
    # Ensure Java home is set
    #
    if [ -z "${JAVA_HOME}" ]; then
-      JAVA_HOME=/usr/lib/jvm/default-jvm/jre/
+      export JAVA_HOME=/usr/lib/jvm/default-jvm/jre/
    fi   
    #
    # The master key may not exist, this means no key was passed in as a secret and this is the first run of PF 
