@@ -1,0 +1,150 @@
+# This file specifies the commands that can be invoked using the exec task.
+#
+# Because the exec task allows an external user to execute commands on the
+# server system, there are a number of safeguards in place to limit which
+# commands can be executed and who can execute them.  Those safeguards
+# include:
+#
+# * The global configuration must be updated to allow the exec task.  The
+#   server does not permit it by default.  The following configuration change
+#   can be used to enable it:
+#
+#        dsconfig set-global-configuration-prop \
+#             --add allowed-task:com.unboundid.directory.server.tasks.ExecTask
+#
+#
+# * The user that is scheduling the task must have the exec-task privilege.
+#   The server does not grant this task to any user, even root users, by
+#   default.  The following configuration change can be used to grant the
+#   exec-task privilege to a single root user:
+#
+#        dsconfig set-root-dn-user-prop --user-name "{username}" \
+#             --add privilege:exec-task
+#
+#   The following configuration change can be used to grant the exec-task
+#   privilege to all root users that automatically inherit the default set of
+#   root privileges:
+#
+#        dsconfig set-root-dn-prop --add default-root-privilege-name:exec-task
+#
+#   The following change can be applied to the entry for any non-root user to
+#   grant them the exec-task privilege:
+#
+#        dn: {userdn}
+#        changetype: modify
+#        add: ds-privilege-name
+#        ds-privilege-name: exec-task
+#        -
+#
+#
+# * The command to execute (as specified by the ds-task-exec-command-path
+#   attribute in the task entry) must be provided as an absolute path, and that
+#   absolute path must be contained in this file on a line by itself (without
+#   any arguments; if a command is listed in this file, then it will be
+#   permitted with any set of arguments).  Any attempt to execute a command
+#   that is not provided as an absolute path will be rejected.  Any attempt to
+#   execute a command that is not listed in this file will be rejected.
+#
+#
+# An exec task may be scheduled by creating an entry below
+# "cn=Scheduled Tasks,cn=tasks" with the ds-task-exec object class and the
+# following attributes:
+#
+# * ds-task-exec-command-path -- The absolute path (on the server filesystem)
+#   to the command to be executed.  This must be provided, must be an absolute
+#   path, and that absolute path must be contained in this file.
+#
+# * ds-task-exec-command-arguments -- An optional string with the list of
+#   arguments to provide when invoking the specified command.  If this is not
+#   provided, then the command will be invoked without any arguments.  If this
+#   is provided, then the list of arguments must be given as a single string,
+#   and that string should be formatted in the same way as the arguments would
+#   be listed on the command line (for example, separate arguments should be
+#   separated by spaces, and special characters may need to be escaped).  Note
+#   that the server root will be used as the command's working directory, so
+#   any arguments that represent relative paths will be interpreted as relative
+#   to the server root.
+#
+# * ds-task-exec-command-output-file -- An optional string that specifies the
+#   path to a file to which the command's output may be written.  If this is
+#   provided, then the path may be absolute or relative, with relative paths
+#   interpreted as being relative to the server root.  The output file does not
+#   need to exist in advance, but the parent directory must already exist.
+#   The output will combine both standard output and standard error.  If this
+#   attribute is not provided, then the command output will not be written to a
+#   file.
+#
+# * ds-task-exec-log-command-output -- An optional Boolean value that indicates
+#   whether to record the command output in the server error log.  If this
+#   attribute is present with a value of true, then all non-blank lines
+#   that the command writes to either standard output or standard error will be
+#   logged to the error log, and will also be available in the
+#   ds-task-log-message attribute in the task entry.  If the value is false,
+#   or if the attribute is not present in the task entry, then the command
+#   output will not be logged.  Note that you should only provide a value of
+#   true if you know that the command output will be text; if the command may
+#   generate non-text output, or if it may generate text output with extremely
+#   long lines (for example, thousands of characters per line), then the
+#   output should not be logged to the error log (although the
+#   ds-task-exec-command-output-file attribute may still be used).
+#
+# * ds-task-exec-task-completion-state-for-nonzero-exit-code -- An optional
+#   string value that specifies the task state that should be used if the
+#   command completes with a nonzero exit code.  If this is provided, then the
+#   value must be one of "STOPPED_BY_ERROR" (which will be interpreted as a
+#   total failure), "COMPLETED_WITH_ERRORS" (which will be interpreted as a
+#   partial success, and will not be considered a failure for task dependency
+#   purposes), or "COMPLETED_SUCCESSFULLY" (which will be interpreted as a
+#   total success).  If this is not provided, then a default value of
+#   "STOPPED_BY_ERROR" will be used.
+#
+# * ds-task-exec-working-directory -- An optional string that specifies the
+#   path to the directory where the command should be executed.  If this is
+#   provided, then the path must be absolute and the directory must already
+#   exist.  If this attribute is not provided, then the server root will be
+#   used as the working directory.
+#
+# For example, if the server is installed in /ds, then an exec task to run the
+# verify-index tool to check the integrity of the cn index in the backend that
+# hosts "dc=example,dc=com", the entry might look like the following:
+#
+#      dn: ds-task-id=Verify the cn index,cn=Scheduled Tasks,cn=tasks
+#      objectClass: top
+#      objectClass: ds-task
+#      objectClass: ds-task-exec
+#      ds-task-id: Verify the cn index
+#      ds-task-class-name: com.unboundid.directory.server.tasks.ExecTask
+#      ds-task-alert-on-start: false
+#      ds-task-alert-on-success: false
+#      ds-task-alert-on-error: false
+#      ds-task-failed-dependency-action: process
+#      ds-task-exec-command-path: /ds/bin/verify-index
+#      ds-task-exec-command-arguments: --baseDN dc=example,dc=com --index cn
+#      ds-task-exec-task-completion-state-for-nonzero-exit-code: STOPPED_BY_ERROR
+#      ds-task-exec-log-command-output: true
+#
+# The schedule-exec-task tool can be used to create an exec task from the
+# command line.  For example, the following command can be used to schedule the
+# exec task listed above:
+#
+#      bin/schedule-exec-task --hostname directory.example.com \
+#           --port 389 \
+#           --bindDN uid=admin,dc=example,dc=com \
+#           --promptForBindPassword \
+#           --waitForCompletion \
+#           --logCommandOutput \
+#           /ds/bin/verify-index --baseDN dc=example,dc=com --index cn
+#
+# Alternately, you can use the UnboundID LDAP SDK for Java to schedule an exec
+# task programmatically.  The com.unboundid.ldap.sdk.unboundidds.tasks.ExecTask
+# class can be used to construct the exec task, and the
+# com.unboundid.ldap.sdk.unboundidds.tasks.TaskManager class can be used to
+# schedule the task and monitor its progress.  Other LDAP APIs can also be used
+# to create the task programmatically, but in that case you will need to send
+# an LDAP add request to create an appropriate entry like the one listed above.
+#
+#
+# Put the absolute paths (without any arguments) of any commands that are
+# allowed to be invoked using the exec task below:
+
+${HOOKS_DIR}/82-upload-csd-s3.sh

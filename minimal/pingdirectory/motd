@@ -1,0 +1,5 @@
+
+Server Profile baseline/pingdirectory
+  - Creates an initial PingDirectory with users
+  - Prepared for connections from DataSync, DirectoryProxy and DataGovernance
+
