@@ -1,0 +1,17 @@
+server.port=9022
+server.ssl.trust-any=${PING_CENTRAL_BLIND_TRUST}
+server.ssl.https.verify-hostname=false
+#server.ssl.trust-store=<PATH_TO_TRUSTSTORE_JKS_FILE>
+#server.ssl.trust-store-password=<TRUSTSTORE_PASSWORD>
+#pingcentral.sso.oidc.enabled=false
+#pingcentral.sso.oidc.issuer-uri=<ISSUER_URI>
+#pingcentral.sso.oidc.client-id=<CLIENT_ID>
+#pingcentral.sso.oidc.client-secret=<CLIENT_SECRET>
+#pingcentral.sso.oidc.role-claim-name=PingCentral-Role
+#pingcentral.sso.oidc.role-claim-value-admin=IAM-Admin
+#pingcentral.sso.oidc.role-claim-value-app-owner=Application-Owner
+#pingcentral.sso.oidc.oauth-jwk-set-uri=<JWKS_ENDPOINT_URI>
+#pingcentral.sso.oidc.oauth-username-claim-name=Username
+logging.level.com.pingidentity=${PING_CENTRAL_LOG_LEVEL}
+
+
