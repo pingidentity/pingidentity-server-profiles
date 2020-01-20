@@ -36,6 +36,9 @@ function obfuscatePassword()
    #
    mv ldap.properties ldap.properties.subst
    envsubst < ldap.properties.subst > ldap.properties
+   PF_LDAP_PASSWORD_OBFUSCATED="${PF_LDAP_PASSWORD_OBFUSCATED:8}"
+   mv ../server/default/data/pingfederate-ldap-ds.xml ../server/default/data/pingfederate-ldap-ds.xml.subst
+   envsubst < ../server/default/data/pingfederate-ldap-ds.xml.subst > ../server/default/data/pingfederate-ldap-ds.xml
 }   
 
 #---------------------------------------------------------------------------------------------
