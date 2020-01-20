@@ -28,11 +28,18 @@ else
   TARGET_URL="${BACKUP_URL}/${DIRECTORY_NAME}"
 fi
 
+# Filter data.zip to most recent uploaded files that occured 3 days ago.
+# AWS has a 1000 list-object limit per request. This will help filter out older backup files.
+FORMAT="+%Y-%m-%d"
+DAYS=3
+DAYS_AGO=$(date --date="@$(($(date +%s) - (${DAYS} * 24 * 3600)))" "${FORMAT}")
+
 # Get the name of the latest backup zip file from s3
 DATA_BACKUP_FILE=$( aws s3api list-objects \
-      --bucket "${BUCKET_NAME}" \
-      --prefix "${DIRECTORY_NAME}/data" \
-      --query "reverse(sort_by(Contents, &LastModified))[:1].Key" --output=text )
+  --bucket "${BUCKET_NAME}" \
+  --prefix "${DIRECTORY_NAME}/data" \
+  --query 'reverse(sort_by(Contents[?LastModified>=`${DAYS_AGO}`], &LastModified))[0].Key' \
+  | tr -d '"' )
 
 # If a backup file in s3 exist
 if ! test -z "${DATA_BACKUP_FILE}"; then
