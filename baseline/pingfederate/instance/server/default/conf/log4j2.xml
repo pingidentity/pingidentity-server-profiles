@@ -1490,7 +1490,7 @@
 
             For database logging, comment the <AsyncRoot> block and uncomment the <Root> block.
         -->
-        <AsyncRoot level="INFO" includeLocation="false">
+        <AsyncRoot level="$${env:PF_LOG_LEVEL:-INFO}" includeLocation="false">
             <!-- <AppenderRef ref="CONSOLE" /> -->
             <AppenderRef ref="FILE" />
         </AsyncRoot>
