@@ -8,8 +8,7 @@ ${VERBOSE} && set -x
 run_hook "10-download-artifact.sh"
 
 if ! [ -z "${OPERATIONAL_MODE}" ] &&  [ "${OPERATIONAL_MODE}" != "CLUSTERED_ENGINE" ]; then
-	chmod +x "82-upload-archive-data-s3.sh"
-	un_hook "83-download-archive-data-s3.sh"
+	run_hook "83-download-archive-data-s3.sh"
 	run_hook "10-setup-master-key.sh"
 fi
 
