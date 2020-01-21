@@ -1,4 +1,4 @@
-ldap.url=ldap://pingdirectory:389
+ldap.url=ldap://pingdirectory:${LDAP_PORT}
 ldap.username=cn=pingfederate
 ldap.password=OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiRW1JY1UxOVdueSIsInZlcnNpb24iOiI5LjIuMS4xIn0..euBO0bawJz3XC_plAjxECg.yF7BpnCTPZlpZUo21WQ5IQ.YlLtlJTxXhrp3LsxyQDo5g
 ldap.connectTimeout=10000
