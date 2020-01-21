@@ -31,7 +31,7 @@ fi
 # Filter data.zip to most recent uploaded files that occured 3 days ago.
 # AWS has a 1000 list-object limit per request. This will help filter out older backup files.
 FORMAT="+%Y-%m-%d"
-DAYS=${S3_BACKUP_FILTER_DAY_COUNT:3}
+DAYS=${S3_BACKUP_FILTER_DAY_COUNT-3}
 DAYS_AGO=$(date --date="@$(($(date +%s) - (${DAYS} * 24 * 3600)))" "${FORMAT}")
 
 # Get the name of the latest backup zip file from s3
