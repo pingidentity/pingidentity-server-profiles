@@ -34,6 +34,7 @@ dsconfig create-root-dn-user \
   --set privilege:permit-get-password-policy-state-issues \
   --set privilege:unindexed-search \
   --set privilege:config-read \
+  --set privilege:proxied-auth \
   --set is-proxyable:prohibited \
   --set password<${ROOT_USER_PASSWORD_FILE}
 
