@@ -1,9 +1,9 @@
 # Purpose
 This repository serves as an example of how scripts and configuration can be stored and 
-passed into a PingToolkit container for runtime.
+passed into a Ping Tool Kit container for runtime.
 
 ## Default Execution of Container
-If the PingToolkit is run with a default defition (i.e. no environment variables), the resulting container will be a simply Alpine container with the PingCommon hooks that prepare the container
+If the Ping Tool Kit is run with a default defition (i.e. no environment variables), the resulting container will be a simply Alpine container with the PingCommon hooks that prepare the container
 like any Ping Docker Image.
 
 ### Example Run
@@ -28,9 +28,8 @@ docker container exec -it pingtoolkit sh
 #> 
 ```
 
-## Initializing PingToolkit with a Server Profile
-Because the PingToolkit uses the commong Docker Profile image, if a `SERVER_PROFILE_URL` and 
-`SERVER_PROFILE_PATH` are provided, those those profiles will be included into image.  You can
+## Initializing Ping Tool Kit with a Server Profile
+Because the Ping Tool Kit are provided, those those profiles will be included into image.  You can
 also have layers of server profiles.  More information that can be found at ____URL FOR LAYERS___
 
 As with all Ping Docker images, the contents of the server profile will be placed into the 
@@ -59,8 +58,8 @@ ls /opt/staging
 # contents from your server profile is listed 
 ```
 
-## Execution of commands in PingToolkit Container
-When the PingToolkit container starts up, the default execution, if the environment variables ( `STARTUP_COMMAND` and `STARTUP_FOREGROUND_OPTS`) are not set, will be to place the container in a
+## Execution of commands in Ping Tool Kit Container
+When the Ping Tool Kit container starts up, the default execution, if the environment variables ( `STARTUP_COMMAND` and `STARTUP_FOREGROUND_OPTS`) are not set, will be to place the container in a
 holding state with a `tail -f /dev/null` command.  This will allow you to `docker exec ...` into
 the container.
 
@@ -73,7 +72,7 @@ when the container starts up and upon completion, the container will die.
 | STARTUP_COMMAND=ls<br>STARTUP_FOREGROUND_OPTS="-l /opt"         | ls -l /opt   |
 
 ### Example Execution
-The following example will startup a PingToolkit and simply list the /opt directory and 
+The following example will startup a Ping Tool Kit and simply list the /opt directory and 
 immediately die upon finishing the listing.
 
 ```
@@ -92,8 +91,8 @@ docker run \
 # ...
 ```
 
-## Execution of script from Server Profile in PingToolkit Container
-To execute a script from a server profile in a PingToolkit container, the combination 
+## Execution of script from Server Profile in Ping Tool Kit Container
+To execute a script from a server profile in a Ping Tool Kit container, the combination 
 `SERVER_PROFILE_...` and `STARTUP_...` variables can be used to achieve this.
 
 The use case for this might be to have an init container perform some steps prior to a 
@@ -101,7 +100,7 @@ Deployment or StatefulSet set of containers in a Kubernetes cluster.
 
 
 ### Example Execution
-The PingToolkit Getting-Started Server Profile has a sample `hello.sh` that can be run
+The Ping Tool Kit Getting-Started Server Profile has a sample `hello.sh` that can be run
 from the `/opt/out/instance/bin` directory int he container.  The example below shows 
 how this can be acheived.
 
@@ -114,7 +113,7 @@ docker run \
 
 # ...
 ########################################
-# Hello from the PingToolkit Container!
+# Hello from the Ping Tool Kit Container!
 #
 #     Date: Tue Feb 25 15:37:42 UTC 2020
 # Hostname: *********
