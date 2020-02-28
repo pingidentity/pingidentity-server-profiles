@@ -1,1 +1,1 @@
-See [Layering server profiles](../../pingidentity-devops-getting-started/docs/profilesLayered.md) for more information.
+See [Layering server profiles](https://pingidentity-devops.gitbook.io/devops/config/profiles/profileslayered) for more information.
