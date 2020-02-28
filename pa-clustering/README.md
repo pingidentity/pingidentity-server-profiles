@@ -1,1 +1,1 @@
-See [Deploy a PingAccess cluster](https://github.com/pingidentity/pingidentity-devops-getting-started/blob/master/docs/deployPaCluster.md) for more information.
+See [Deploy a PingAccess cluster](https://pingidentity-devops.gitbook.io/devops/deploy/deploycompose/deploypacluster) for more information.
