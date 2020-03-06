@@ -1,1 +1,1 @@
-See [Customizing server profiles](../../pingidentity-devops-getting-started/docs/profiles.md) for more information.
+See [server profiles](https://pingidentity-devops.gitbook.io/devops/config) docs on gitbook for more information.
