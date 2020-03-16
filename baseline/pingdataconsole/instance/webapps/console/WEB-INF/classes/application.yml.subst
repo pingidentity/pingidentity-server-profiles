@@ -20,16 +20,16 @@ logging:
     com.unboundid: DEBUG
     org.springframework: WARN
     org.springframework.web: WARN
-    org.springframework.boot: INFO
+    org.springframework.boot: DEBUG
     org.thymeleaf: WARN
     ch.qos.logback: WARN
 logging.console: true
 log.file: /opt/out/instance/logs/console.log
 login.hide-server: false
 ldap:
-  server: pingdirectory:636
-  init-user: cn=administrator
-  init-password: 2FederateM0re
+  server: ${PD_ENGINE_PRIVATE_HOSTNAME}:${LDAPS_PORT}
+  init-user: ${ROOT_USER_DN}
+  # init-password: 2FederateM0re
   trust-store-file: # none needed for non-SSL access
 configuration:
   complexity: advanced
@@ -42,7 +42,7 @@ server: # server settings for running embedded
 ldap: # initialize login in development
   server: ${PD_ENGINE_PRIVATE_HOSTNAME}:${LDAPS_PORT}
   init-user: ${ROOT_USER_DN}
-  init-password: 2FederateM0re
+  # init-password: 2FederateM0re
   trust-store-file: # none needed for non-SSL access
 log.console: true
 # NOTE: These log levels may cause sensitive information to be logged.
