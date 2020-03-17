@@ -8,3 +8,5 @@ echo "
 # Hostname: $(hostname)
 ##########################################
 "
+
+aws --version
