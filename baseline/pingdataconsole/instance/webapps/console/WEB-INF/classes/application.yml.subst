@@ -18,8 +18,8 @@ logging:
   level:
     root: WARN
     com.unboundid: DEBUG
-    org.springframework: WARN
-    org.springframework.web: WARN
+    org.springframework: DEBUG
+    org.springframework.web: DEBUG
     org.springframework.boot: DEBUG
     org.thymeleaf: WARN
     ch.qos.logback: WARN
