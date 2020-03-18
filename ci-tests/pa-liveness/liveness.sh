@@ -9,7 +9,7 @@ if test -z "${OPERATIONAL_MODE}" || test "${OPERATIONAL_MODE}" = "CLUSTERED_CONS
             sleep 2 ;;
             '"Complete"')
             echo "Import status: ${_import_status}"
-            exit 0
+            exit 0 ;;
             *)
             echo "Import status: ${_import_status}"
             echo "ERROR: Unsuccessful Import"
