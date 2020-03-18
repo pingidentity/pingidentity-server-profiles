@@ -9,4 +9,8 @@ echo "
 ##########################################
 "
 
+set -e
 aws --version
+kubectl version --client
+kustomize version
+set +e
