@@ -23,13 +23,6 @@ export LOCATION=${LOCATION:-Docker}
 # NOTE: use ${BASE} in case the image was rebased
 export ROOT_USER_PASSWORD_FILE=${BASE}/staging/pwd
 
-# The replication administration user DN may be provided (Default: admin)
-# ADMIN_USER_NAME=yourReplicationUserHere
-
-# The replication administrator password file
-ADMIN_USER_PASSWORD_FILE=${ROOT_USER_PASSWORD_FILE}
-
-
 # The Java heap size may be provided
 # MAX_HEAP_SIZE=384m
 
