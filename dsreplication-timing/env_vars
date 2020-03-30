@@ -1,0 +1,6 @@
+
+TIMING_TOPOLOGY_FILE=etc/topology.json
+TIMING_BASE_DN=cn=replication-timing,dc=example,dc=com
+BIND_DN=cn=administrator
+BIND_PASSWORD_FILE=etc/bind-pwd
+STARTUP_COMMAND=
