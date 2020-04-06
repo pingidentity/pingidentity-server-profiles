@@ -1,0 +1,1 @@
+{"keys":[{"kty":"oct","kid":"bnPbAO7n6tzaHMYs","key_ops":["encrypt","decrypt"],"alg":"A128CBC-HS256","k":"Pi32-2a0NHukY_LVZK6hXhpkI_YcpdLGfIycuSSGi-M"}]}
