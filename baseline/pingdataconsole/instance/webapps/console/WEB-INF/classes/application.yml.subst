@@ -17,7 +17,7 @@ management:
 logging:
   level:
     root: WARN
-    com.unboundid: DEBUG
+    com.unboundid: TRACE
     org.springframework: DEBUG
     org.springframework.web: DEBUG
     org.springframework.boot: DEBUG
@@ -29,8 +29,8 @@ login.hide-server: false
 ldap:
   server: ${PD_ENGINE_PRIVATE_HOSTNAME}:${LDAPS_PORT}
   init-user: ${ROOT_USER_DN}
-  # init-password: 2FederateM0re
-  trust-store-file: # none needed for non-SSL access
+  init-password: 2FederateM0re
+  trust-store-file: /opt/staging/autogen-truststore
 configuration:
   complexity: advanced
 --- # development profile-specific settings
