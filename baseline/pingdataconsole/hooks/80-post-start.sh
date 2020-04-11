@@ -8,15 +8,36 @@ ${VERBOSE} && set -x
 
 # shellcheck source=../../pingcommon/hooks/pingcommon.lib.sh
 . "${HOOKS_DIR}/pingcommon.lib.sh"
+_pinFile="${SECRETS_DIR}/.autogen-truststore.pin"
+_storeFile="${STAGING_DIR}/autogen-truststore"
+
+ensure_trust_store_present ()
+{
+    test -f "${_pinFile}" || head -c 1024 /dev/urandom | tr -dc 'a-zA-Z0-9-' | cut -c 1-64 > "${_pinFile}"
+    _storePass="$( cat "${_pinFile}" )"
+    if ! test -f "${_storeFile}" ;
+    then
+        keytool \
+            -genkey\
+            -keyalg RSA \
+            -alias stub \
+            -keystore "${_storeFile}" \
+            -storepass "${_storePass}" \
+            -validity 30 \
+            -keysize 2048 \
+            -noprompt \
+            -dname "CN=ephemeral, OU=Docker, O=PingIdentity Corp., L=Denver, ST=CO, C=US"
+        keytool \
+            -delete \
+            -alias stub \
+            -keystore "${_storeFile}" \
+            -storepass "${_storePass}"
+    fi
+}
 
 # this function conveniently allows to trust a remote server
 trust_server () 
-{
-    _pinFile="/opt/staging/autogen-truststore.pin"
-    _storeFile="/opt/staging/autogen-truststore"
-    
-    test -f "${_pinFile}" || head -c 1024 /dev/urandom | tr -dc 'a-zA-Z0-9-' | cut -c 1-64 > "${_pinFile}"
-    _storePass="$( cat "${_pinFile}" )"
+{    
     _server="${1}"
     
     # shellcheck disable=SC2039
@@ -30,11 +51,12 @@ trust_server ()
     if ! test -f "${_storeFile}" || keytool -list -keystore "${_storeFile}" -storepass ${_storePass} | awk 'BEGIN{x=0}/SHA-256/ && $4~/'${_certFingerPrint}'/{x=1}END{exit x}' ;
     then
         echo "Processinng ${_server} certificate"
-        keytool -import -file "${_certFile}" -noprompt -alias "${_alias}" -keystore "${_storeFile}" -storepass ${_storePass}
+        _storePass="$( cat "${_pinFile}" )"
+        keytool -import -file "${_certFile}" -noprompt -alias "${_alias}" -keystore "${_storeFile}" -storepass "${_storePass}"
     else
         echo "${_server} certificate was NOT added to keystore"
     fi
-    rm ${_certFile}
+    rm "${_certFile}"
 }
 
 is_reachable ()
@@ -60,9 +82,9 @@ watch_server ()
         done
     fi
 }
-
+ensure_trust_store_present
 for server in "pingdirectory:${LDAPS_PORT}" "pingdirectoryproxy:${LDAPS_PORT}" "pingdatasync:${LDAPS_PORT}" "pingdatagovernance:${LDAPS_PORT}" ;
 do
-    sleep 7
+    sleep 3
     watch_server "${server}" &
 done
