@@ -9,7 +9,8 @@ ${VERBOSE} && set -x
 # shellcheck source=../../pingcommon/hooks/pingcommon.lib.sh
 . "${HOOKS_DIR}/pingcommon.lib.sh"
 _pinFile="${SECRETS_DIR}/.autogen-truststore.pin"
-_storeFile="${STAGING_DIR}/autogen-truststore"
+# _storeFile="${STAGING_DIR}/autogen-truststore"
+_storeFile="${AUTOGEN_TRUSTSTORE_FILE}"
 
 ensure_trust_store_present ()
 {
@@ -47,14 +48,22 @@ trust_server ()
     
     _certFingerPrint=$( keytool -printcert -file "${_certFile}" | awk '/SHA256:/{print $2}' )
 
+    if test -f "${_storeFile}" ;
+    then
+        _certificateFound="false"
+        if keytool -list -keystore "${_storeFile}" -storepass ${_storePass} | awk 'BEGIN{x=0}/SHA-256/ && $4~/'${_certFingerPrint}'/{x=1}END{exit x}' ;
+        then
+            _certificateFound="true"
+        fi
+    fi
 
-    if ! test -f "${_storeFile}" || keytool -list -keystore "${_storeFile}" -storepass ${_storePass} | awk 'BEGIN{x=0}/SHA-256/ && $4~/'${_certFingerPrint}'/{x=1}END{exit x}' ;
+    if test "${_certificateFound}" != "true" ;
     then
         echo "Processinng ${_server} certificate"
         _storePass="$( cat "${_pinFile}" )"
         keytool -import -file "${_certFile}" -noprompt -alias "${_alias}" -keystore "${_storeFile}" -storepass "${_storePass}"
     else
-        echo "${_server} certificate was NOT added to keystore"
+        echo "${_server} certificate was NOT added to keystore" >/dev/null
     fi
     rm "${_certFile}"
 }
@@ -82,9 +91,13 @@ watch_server ()
         done
     fi
 }
-ensure_trust_store_present
-for server in "pingdirectory:${LDAPS_PORT}" "pingdirectoryproxy:${LDAPS_PORT}" "pingdatasync:${LDAPS_PORT}" "pingdatagovernance:${LDAPS_PORT}" ;
-do
-    sleep 3
-    watch_server "${server}" &
-done
+
+if test -n "${AUTOGEN_TRUSTSTORE_ENABLED}" ; 
+then
+    ensure_trust_store_present
+    for server in "pingdirectory:${LDAPS_PORT}" "pingdirectoryproxy:${LDAPS_PORT}" "pingdatasync:${LDAPS_PORT}" "pingdatagovernance:${LDAPS_PORT}" ;
+    do
+        sleep 3
+        watch_server "${server}" &
+    done
+fi

@@ -31,7 +31,7 @@ login.hide-server: false
 ldap:
   server: ldaps://${PD_ENGINE_PRIVATE_HOSTNAME}:${LDAPS_PORT}
   init-user: ${ROOT_USER}
-  #init-password: ${PING_IDENTITY_PASSWORD}
-  #trust-store-file: ${STAGING_DIR}/autogen-truststore
+  init-password: ${PING_IDENTITY_PASSWORD}
+  trust-store-file: ${AUTOGEN_TRUSTSTORE_FILE}
 configuration:
   complexity: advanced
