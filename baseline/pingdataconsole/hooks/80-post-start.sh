@@ -51,7 +51,7 @@ trust_server ()
     if test -f "${_storeFile}" ;
     then
         _certificateFound="false"
-        if keytool -list -keystore "${_storeFile}" -storepass ${_storePass} | awk 'BEGIN{x=0}/SHA-256/ && $4~/'${_certFingerPrint}'/{x=1}END{exit x}' ;
+        if keytool -list -keystore "${_storeFile}" -storepass ${_storePass} | awk 'BEGIN{x=1}/SHA-256/ && $4~/'${_certFingerPrint}'/{x=0}END{exit x}' ;
         then
             _certificateFound="true"
         fi
