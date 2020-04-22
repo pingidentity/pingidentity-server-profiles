@@ -9,8 +9,9 @@ computedOrg=$(echo ${USER_BASE_DN} | sed 's/^o=\([^,]*\).*/\1/' )
 #
 _outEnv="${STAGING_DIR}/env_vars"
 if test ! -z "${CONTAINER_ENV}" && test -f "${CONTAINER_ENV}"; then
-    _out_env="${CONTAINER_ENV}"
+    _outEnv="${CONTAINER_ENV}"
 fi
+echo "Appending to ${_outEnv}"
 
 if ! test "${USER_BASE_DN}" = "${computedDomain}"; then
     cat<<END_DOMAIN >>${_outEnv}
