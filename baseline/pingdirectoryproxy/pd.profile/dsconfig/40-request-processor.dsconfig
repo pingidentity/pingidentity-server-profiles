@@ -1,4 +1,6 @@
 dsconfig create-request-processor \
     --processor-name pingdirectory \
     --type proxying \
-    --set load-balancing-algorithm:pingdirectory
+    --set load-balancing-algorithm:pingdirectory \
+    --add transformation:remove-description \
+    --add transformation:description
