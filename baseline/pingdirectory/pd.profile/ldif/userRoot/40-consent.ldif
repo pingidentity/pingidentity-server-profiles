@@ -1,5 +1,5 @@
 
-dn: uid=Consent Admin,ou=people,${USER_BASE_DN} 
+dn: uid=Consent Admin,ou=people,${USER_BASE_DN}
 objectClass: top
 objectClass: person
 objectClass: organizationalPerson
