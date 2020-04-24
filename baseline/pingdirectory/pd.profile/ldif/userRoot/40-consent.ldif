@@ -1,6 +1,5 @@
 
-dn: uid=Consent Admin,ou=people,${USER_BASE_DN}
-changetype: add
+dn: uid=Consent Admin,ou=people,${USER_BASE_DN} 
 objectClass: top
 objectClass: person
 objectClass: organizationalPerson
