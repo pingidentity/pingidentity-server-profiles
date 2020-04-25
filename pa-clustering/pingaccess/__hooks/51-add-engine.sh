@@ -14,7 +14,7 @@
 # shellcheck source=pingcommon.lib.sh
 . "${HOOKS_DIR}/pingcommon.lib.sh"
 
-pahost=${PA_CONSOLE_HOST}
+pahost=${PA_ADMIN_PUBLIC_HOSTNAME}
 INITIAL_ADMIN_PASSWORD=${INITIAL_ADMIN_PASSWORD:=2FederateM0re}
 if [[ ! -z "${OPERATIONAL_MODE}" && "${OPERATIONAL_MODE}" = "CLUSTERED_ENGINE" ]]; then
     echo "This node is an engine..."

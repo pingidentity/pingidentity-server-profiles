@@ -1,0 +1,33 @@
+#!/usr/bin/env
+echo Hello from the baseline server profile 183-run-setup.sh.pre hook!
+echo "====> USER_BASE_DN=[${USER_BASE_DN}]"
+computedDomain=$(echo ${USER_BASE_DN} | sed 's/^dc=\([^,]*\).*/\1/' )
+computedOrg=$(echo ${USER_BASE_DN} | sed 's/^o=\([^,]*\).*/\1/' )
+
+#
+# temporary until GDO-200 is complete (env_vars --> .env)
+#
+_outEnv="${STAGING_DIR}/env_vars"
+if test ! -z "${CONTAINER_ENV}" && test -f "${CONTAINER_ENV}"; then
+    _outEnv="${CONTAINER_ENV}"
+fi
+echo "Appending to ${_outEnv}"
+
+if ! test "${USER_BASE_DN}" = "${computedDomain}"; then
+    cat<<END_DOMAIN >>${_outEnv}
+BASE_VALUE=${computedDomain}
+BASE_ATTRIBUTE=dc
+BASE_CLASS=domain
+END_DOMAIN
+
+elif ! test "${USER_BASE_DN}" = "${computedOrg}"; then
+    cat<<END_ORG >>${_outEnv}
+BASE_VALUE=${computedOrg}
+BASE_ATTRIBUTE=o
+BASE_CLASS=organization
+END_ORG
+
+else
+    echo_red "ERROR: the base is expected to be dc=<your domain> or o=<your org>"
+    exit 183
+fi
