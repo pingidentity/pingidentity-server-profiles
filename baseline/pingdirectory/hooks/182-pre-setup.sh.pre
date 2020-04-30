@@ -1,5 +1,5 @@
 #!/usr/bin/env
-echo Hello from the baseline server profile 183-run-setup.sh.pre hook!
+echo Hello from the baseline server profile 182-pre-setup.sh.pre hook!
 echo "====> USER_BASE_DN=[${USER_BASE_DN}]"
 computedDomain=$(echo ${USER_BASE_DN} | sed 's/^dc=\([^,]*\).*/\1/' )
 computedOrg=$(echo ${USER_BASE_DN} | sed 's/^o=\([^,]*\).*/\1/' )
