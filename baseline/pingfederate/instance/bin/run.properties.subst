@@ -166,7 +166,7 @@ pf.log.eventdetail=false
 # This property enables detailed system monitoring information to be made available
 # in the heartbeat endpoint
 #
-pf.heartbeat.system.monitoring=false
+pf.heartbeat.system.monitoring=true
 
 # ---------------------
 # Deployment Properties
