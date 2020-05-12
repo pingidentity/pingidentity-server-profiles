@@ -15,7 +15,7 @@ dsconfig create-external-server \
 
 dsconfig set-external-server-prop \
 	--server-name pingdirectory:636 \
-	--set "trust-manager-provider:Blind Trust
+	--set "trust-manager-provider:Blind Trust"
 
 dsconfig set-policy-decision-service-prop \
 	--set pdp-mode:external \
