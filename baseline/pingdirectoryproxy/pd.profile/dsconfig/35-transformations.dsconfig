@@ -1,0 +1,13 @@
+dsconfig create-proxy-transformation \
+    --transformation-name remove-description  \
+    --type suppress-attribute  \
+    --set enabled:true  \
+    --set target-attribute:description
+
+dsconfig create-proxy-transformation \
+    --transformation-name description  \
+    --type default-value  \
+    --set enabled:true  \
+    --set target-attribute:description  \
+    --set "value:hello from proxy"  \
+    --set entry-type:search-result-entry
