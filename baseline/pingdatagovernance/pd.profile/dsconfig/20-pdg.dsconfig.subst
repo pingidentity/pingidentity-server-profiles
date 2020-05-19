@@ -103,6 +103,7 @@ dsconfig create-gateway-api-endpoint \
     --endpoint-name pd-rest-api  \
     --set inbound-base-path:/pd-rest-api  \
     --set outbound-base-path:/directory/v1  \
+    --set access-token-validator:mock-atv \
     --set api-server:pingdirectory-http
 
 dsconfig set-policy-decision-service-prop \
