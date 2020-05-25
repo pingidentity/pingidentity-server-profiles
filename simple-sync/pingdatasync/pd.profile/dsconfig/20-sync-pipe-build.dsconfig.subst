@@ -26,7 +26,7 @@ dsconfig create-sync-pipe \
     --pipe-name pingdirectory_source-to-pingdirectory_destination  \
     --set sync-source:pingdirectory_source  \
     --set sync-destination:pingdirectory_destination  \
-    --set "change-detection-polling-interval:1 s"  \
+    --set "change-detection-polling-interval:500 ms"  \
     --set num-worker-threads:1
 dsconfig create-dn-map \
     --map-name source_to_destination  \
