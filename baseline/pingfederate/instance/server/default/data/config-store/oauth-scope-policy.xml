@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <con:config xmlns:con="http://www.sourceid.org/2004/05/config">
     <con:item name="default-scope-description">default</con:item>
-    <con:item name="lastUpdated">1548660082795</con:item>
+    <con:item name="lastUpdated">1590528762651</con:item>
     <con:map name="scope-descriptions">
         <con:item name="address">Address access</con:item>
         <con:item name="phone">Phone Number access</con:item>
@@ -14,7 +14,9 @@
     <con:list name="dynamic-common-scopes"/>
     <con:map name="scope-group-descriptions"/>
     <con:map name="scope-group-mappings"/>
-    <con:map name="exclusive-scope-descriptions"/>
+    <con:map name="exclusive-scope-descriptions">
+        <con:item name="urn:pingidentity:directory-delegated-admin">Directory Delegated Admin</con:item>
+    </con:map>
     <con:list name="dynamic-exclusive-scopes"/>
     <con:map name="exclusive-scope-group-descriptions"/>
     <con:map name="exclusive-scope-group-mappings"/>
