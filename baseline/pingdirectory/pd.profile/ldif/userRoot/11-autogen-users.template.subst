@@ -23,5 +23,5 @@ street: <random:numeric:5> <file:streets> Street
 l: <file:cities>
 st: <file:states>
 postalCode: <random:numeric:5>
-postalAddress: {cn}${street}${l}, {st}  {postalCode}
+postalAddress: {cn}$${street}$${l}, {st}  {postalCode}
 description: This is the description for {cn}.
