@@ -1,0 +1,9 @@
+dsconfig create-external-server   --server-name "upstream-api"   --type api   --set base-url:http://small1.ryan80.ping-eng.com:3000
+
+dsconfig create-gateway-api-endpoint   --endpoint-name "api-records"   --set inbound-base-path:/api/records   --set outbound-base-path:/api/records   --set "api-server:upstream-api"   --set http-auth-evaluation-behavior:evaluate-and-discard   --set "access-token-validator:Mock Access Token Validator"
+
+dsconfig create-gateway-api-endpoint   --endpoint-name "ob-banking-transactions"   --set inbound-base-path:/ob/accounts/1/transactions   --set outbound-base-path:/ob/accounts/1/transactions   --set "api-server:upstream-api"   --set http-auth-evaluation-behavior:evaluate-and-discard   --set "access-token-validator:Mock Access Token Validator"
+
+dsconfig create-gateway-api-endpoint   --endpoint-name "jokes-random"   --set inbound-base-path:/api/jokes/random   --set outbound-base-path:/api/jokes/random   --set "api-server:upstream-api"   --set http-auth-evaluation-behavior:evaluate-and-discard   --set "access-token-validator:Mock Access Token Validator"
+
+

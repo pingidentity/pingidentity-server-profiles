@@ -1,0 +1,16 @@
+dsconfig set-trust-manager-provider-prop --provider-name "Blind Trust" --set enabled:true
+dsconfig set-policy-decision-service-prop --add decision-response-view:decision-tree --add decision-response-view:request --add decision-response-view:evaluated-entities
+dsconfig set-log-publisher-prop --publisher-name "Debug Trace Logger" --set enabled:true
+dsconfig set-http-servlet-cross-origin-policy-prop --policy-name "Development Cross-Origin Policy" --set 'cors-allowed-origins:*'
+
+dsconfig create-access-token-validator --validator-name "Mock Access Token Validator" --type mock --set enabled:true --set subject-claim-name:sub
+
+dsconfig create-token-resource-lookup-method --validator-name "Mock Access Token Validator" --method-name "User by uid" --type scim --set scim-resource-type:Users --set 'match-filter:uid eq "%_subject_claim_name%"' --set evaluation-order-index:100
+
+dsconfig create-external-server --server-name "Joke API Server" --type api --set base-url:https://official-joke-api.appspot.com/
+
+dsconfig create-gateway-api-endpoint --endpoint-name "Random Joke API" --set inbound-base-path:/jokes/random --set outbound-base-path:/jokes/random --set "api-server:Joke API Server" --set http-auth-evaluation-behavior:evaluate-and-discard --set "access-token-validator:Mock Access Token Validator"
+
+dsconfig create-sideband-api-endpoint   --endpoint-name "Consent Definitions"   --set base-path:/c/definitions   --set service:Consent
+
+dsconfig create-sideband-api-endpoint   --endpoint-name "Consent Records"   --set base-path:/c/consents   --set service:Consent
