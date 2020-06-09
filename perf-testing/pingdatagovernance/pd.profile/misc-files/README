@@ -1,0 +1,36 @@
+This profile was created with the manage-profile generate-profile subcommand.
+It was generated at 29/Apr/2020:20:53:30.952 +0000 by user centos, from the
+server in /ds/dg2.
+
+Certain steps will always need to be taken to use this generated profile with
+the manage-profile tool. The generated profile includes a setup-arguments.txt
+file that contains variables, such as ${PING_INSTANCE_NAME}. When using this
+profile with the manage-profile tool, values for those variables will need to
+be provided using either a profile variables file or environment variables. See
+manage-profile setup --help for more information on providing variable values.
+In addition, file-based arguments in setup-arguments.txt, such as
+--rootUserPasswordFile, must have the necessary files available when the
+profile is run. The provided PING_PROFILE_ROOT and PING_SERVER_ROOT variables
+can be used when referring to those files.
+
+Other steps may need to be taken depending on the generated profile. Additional
+files can be added to the generated profile, such as server root files, server
+SDK extensions, and dsconfig commands. The profile can be modified as necessary
+for documentation and organization.
+
+For more information on the server profile, see the example profile template
+and README in the resource/ directory in the server root.
+
+The following files and directories in the server root were excluded from the
+generated profile, and can be manually added if necessary. These files can also
+be included by generate-profile with the --includePath argument:
+config/encryption-settings/encryption-settings-db
+config/tools.properties
+config/keystore
+config/keystore.pin
+config/truststore
+config/ads-truststore.pin
+config/ads-truststore
+config/encryption-settings.pin
+password.file
+config/truststore.pin

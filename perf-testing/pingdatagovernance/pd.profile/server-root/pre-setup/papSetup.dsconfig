@@ -1,0 +1,3 @@
+dsconfig create-external-server --server-name "Policy Administration Point" --type policy --set base-url:https://small1.ryan80.ping-eng.com:9443   --set hostname-verification-method:allow-all --set "trust-manager-provider:Blind Trust" --set "shared-secret:rootpassword"   --set decision-node:e51688ff-1dc9-4b6c-bb36-8af64d02e9d1 --set "branch:defaultPolicies" --set user-id:admin
+
+dsconfig set-policy-decision-service-prop --set pdp-mode:external --set "policy-server:Policy Administration Point"
