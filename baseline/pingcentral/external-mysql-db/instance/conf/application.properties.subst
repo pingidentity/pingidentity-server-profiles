@@ -51,3 +51,5 @@ server.ssl.https.verify-hostname=${PING_CENTRAL_VERIFY_HOSTNAME}
 # The name of the claim which identifies the username as determined by the Authorization Server
 #pingcentral.sso.oidc.oauth-username-claim-name=Username
 logging.level.com.pingidentity=${PING_CENTRAL_LOG_LEVEL}
+# Security headers to include in API responses
+#pingcentral.admin.api-security-headers=Strict-Transport-Security,Content-Security-Policy,Feature-Policy
