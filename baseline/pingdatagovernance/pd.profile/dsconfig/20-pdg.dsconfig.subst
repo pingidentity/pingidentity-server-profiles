@@ -23,7 +23,7 @@ dsconfig create-external-server \
     --type api  \
     --set base-url:https://pingdirectory:${HTTPS_PORT}  \
     --set hostname-verification-method:allow-all  \
-    --set 'trust-manager-provider:Blind Trust'
+    --set 'trust-manager-provider:Blind Trust' 
 
 dsconfig create-load-balancing-algorithm \
     --type failover \
@@ -75,7 +75,7 @@ dsconfig create-scim-resource-type \
 dsconfig create-access-token-validator \
     --validator-name mock-access-token-validator  \
     --type mock  \
-    --set enabled:true
+    --set enabled:true 
 
 dsconfig create-token-resource-lookup-method \
     --validator-name mock-access-token-validator  \
@@ -83,13 +83,13 @@ dsconfig create-token-resource-lookup-method \
     --type scim  \
     --set evaluation-order-index:100  \
     --set scim-resource-type:Users  \
-    --set 'match-filter:uid eq "%_subject_claim_name%"'
+    --set 'match-filter:uid eq "%_subject_claim_name%"' 
 
 dsconfig create-access-token-validator \
     --validator-name mock-atv  \
     --type mock  \
     --set enabled:true  \
-    --set evaluation-order-index:1
+    --set evaluation-order-index:1 
 
 dsconfig create-token-resource-lookup-method \
     --validator-name mock-atv  \
@@ -97,7 +97,7 @@ dsconfig create-token-resource-lookup-method \
     --type scim  \
     --set evaluation-order-index:100  \
     --set scim-resource-type:Users  \
-    --set 'match-filter:uid eq "%sub%"'
+    --set 'match-filter:uid eq "%sub%"' 
 
 dsconfig create-gateway-api-endpoint \
     --endpoint-name pd-rest-api  \
@@ -106,10 +106,10 @@ dsconfig create-gateway-api-endpoint \
     --set access-token-validator:mock-atv \
     --set api-server:pingdirectory-http
 
-# dsconfig set-policy-decision-service-prop \
-#    --set pdp-mode:embedded  \
-#    --set "deployment-package<${SERVER_ROOT_DIR}/resource/simple.SDP"
-
+dsconfig set-policy-decision-service-prop \
+    --set pdp-mode:embedded  \
+    --set "deployment-package<${SERVER_ROOT_DIR}/resource/simple.SDP" 
+    
 # dsconfig set-http-servlet-cross-origin-policy-prop \
 #    --policy-name development-cross-origin-policy  \
-#    --set cors-allowed-origins:*
+#    --set cors-allowed-origins:* 
