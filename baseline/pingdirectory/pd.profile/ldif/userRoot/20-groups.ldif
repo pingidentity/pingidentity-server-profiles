@@ -34,3 +34,10 @@ objectClass: top
 objectClass: groupOfNames
 cn: PFUserAdminGroup
 member: uid=administrator,ou=people,${USER_BASE_DN}
+
+# PingFederate 10.1 introduces a new expression manager role
+dn: cn=PFExpressionAdminGroup,ou=groups,${USER_BASE_DN}
+objectClass: top
+objectClass: groupOfNames
+cn: PFExpressionAdminGroup
+member: uid=administrator,ou=people,${USER_BASE_DN}
