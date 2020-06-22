@@ -93,14 +93,14 @@
                 "name": "ADMIN",
                 "keyPairId": 6,
                 "useServerCipherSuiteOrder": true,
-                "restartRequired": false
+                "restartRequired": true
             },
             {
                 "id": 2,
                 "name": "ENGINE",
                 "keyPairId": 2,
                 "useServerCipherSuiteOrder": true,
-                "restartRequired": false
+                "restartRequired": true
             },
             {
                 "id": 3,
