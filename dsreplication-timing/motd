@@ -1,0 +1,9 @@
+                   Ping Directory Replication Timing Tool
+
+Provides the ability to run replication timings across a nubmer of
+Ping Directory instances based on the following inputs:
+
+  - topology.json file
+  - Timing BASE DN - Where timing info will be put in the directories
+  - BIND DN - DN of user creating/updating timing info
+  - BIND Password File - File with BIND DN credentials

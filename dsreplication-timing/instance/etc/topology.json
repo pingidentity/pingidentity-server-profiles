@@ -1,0 +1,43 @@
+{
+  "serverInstances" : [ {
+    "instanceName" : "pingdirectory-0.pingdirectory",
+    "hostname" : "pingdirectory-0.pingdirectory",
+    "location" : "Docker",
+    "ldapPort" : 389,
+    "ldapsPort" : 636,
+    "replicationPort" : 8989,
+    "startTLSEnabled" : true,
+    "preferredSecurity" : "SSL",
+    "product" : "DIRECTORY"
+  }, {
+    "instanceName" : "pingdirectory-1.pingdirectory",
+    "hostname" : "pingdirectory-1.pingdirectory",
+    "location" : "Docker",
+    "ldapPort" : 389,
+    "ldapsPort" : 636,
+    "replicationPort" : 8989,
+    "startTLSEnabled" : true,
+    "preferredSecurity" : "SSL",
+    "product" : "DIRECTORY"
+  }, {
+    "instanceName" : "pingdirectory-2.pingdirectory",
+    "hostname" : "pingdirectory-2.pingdirectory",
+    "location" : "Docker",
+    "ldapPort" : 389,
+    "ldapsPort" : 636,
+    "replicationPort" : 8989,
+    "startTLSEnabled" : true,
+    "preferredSecurity" : "SSL",
+    "product" : "DIRECTORY"
+  }, {
+    "instanceName" : "pingdirectory-3.pingdirectory",
+    "hostname" : "pingdirectory-3.pingdirectory",
+    "location" : "Docker",
+    "ldapPort" : 389,
+    "ldapsPort" : 636,
+    "replicationPort" : 8989,
+    "startTLSEnabled" : true,
+    "preferredSecurity" : "SSL",
+    "product" : "DIRECTORY"
+  } ]
+}

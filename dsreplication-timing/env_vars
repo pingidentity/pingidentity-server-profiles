@@ -1,0 +1,21 @@
+# .suppress-container-warning
+#
+# NOTICE: Settings in this file will override values set at the
+#         image or orchestraton layers of the container.  Examples
+#         include variables that are specific to this server profile.
+#         Options include:
+#
+# ALWAYS OVERRIDE the value in the container
+#   NAME=VAL        
+#
+# SET TO DEFAULT VALUE if not already set       
+#   export NAME=${NAME:=myDefaultValue}  # Sets to string of "myDefaultValue"
+#   export NAME=${NAME:-OTHER_VAR}       # Sets ot value of OTHER_VAR variable
+# 
+
+export TIMING_TOPOLOGY_FILE=${TIMING_TOPOLOGY_FILE:=etc/topology.json}
+export TIMING_BASE_DN=${TIMING_BASE_DN:=cn=replication-timing,dc=example,dc=com}
+export BIND_DN=${BIND_DN:=cn=administrator}
+export BIND_PASSWORD_FILE=${BIND_PASSWORD_FILE:=etc/bind-pwd}
+
+STARTUP_COMMAND=

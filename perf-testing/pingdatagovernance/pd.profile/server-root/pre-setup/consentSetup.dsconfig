@@ -1,0 +1,7 @@
+dsconfig create-access-token-validator   --validator-name "Mock ATV"   --type mock   --set enabled:true   --set evaluation-order-index:1
+
+dsconfig create-token-resource-lookup-method   --validator-name "Mock ATV"   --method-name "Users by uid"   --type scim   --set evaluation-order-index:100   --set scim-resource-type:Users   --set 'match-filter:uid eq "%sub%"'
+
+dsconfig create-external-server   --server-name DS   --type api   --set base-url:https://small1.ryan80.ping-eng.com:1443   --set hostname-verification-method:allow-all   --set "trust-manager-provider:Blind Trust"
+
+dsconfig create-gateway-api-endpoint   --endpoint-name "Directory REST API"   --set inbound-base-path:/ds   --set outbound-base-path:/directory/v1   --set api-server:DS
