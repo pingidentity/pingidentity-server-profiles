@@ -72,19 +72,6 @@ dsconfig create-scim-resource-type \
     --set primary-store-adapter:UserStoreAdapter \
     --set id-attribute:entryUUID
 
-# dsconfig create-access-token-validator \
-#     --validator-name mock-access-token-validator  \
-#     --type mock  \
-#     --set enabled:true
-#
-# dsconfig create-token-resource-lookup-method \
-#     --validator-name mock-access-token-validator  \
-#     --method-name users-by-uid  \
-#     --type scim  \
-#     --set evaluation-order-index:100  \
-#     --set scim-resource-type:Users  \
-#     --set 'match-filter:uid eq "%_subject_claim_name%"'
-
 dsconfig create-access-token-validator \
     --validator-name mock-atv  \
     --type mock  \
@@ -108,9 +95,5 @@ dsconfig create-gateway-api-endpoint \
 
 dsconfig set-policy-decision-service-prop \
    --set pdp-mode:embedded  \
-   --set trust-framework-version:v2 \
+   --set trust-framework-version:v1 \
    --set "deployment-package<${SERVER_ROOT_DIR}/resource/simple.SDP"
-
-# dsconfig set-http-servlet-cross-origin-policy-prop \
-#    --policy-name development-cross-origin-policy  \
-#    --set cors-allowed-origins:*

@@ -18,3 +18,4 @@ role.map.admin=cn=PFAdminGroup,ou=groups,${USER_BASE_DN}
 role.map.cryptoManager=cn=PFCryptoGroup,ou=groups,${USER_BASE_DN}
 role.map.auditor=cn=PFAuditorGroup,ou=groups,${USER_BASE_DN}
 role.map.userAdmin=cn=PFUserAdminGroup,ou=groups,${USER_BASE_DN}
+role.map.expressionAdmin=cn=PFExpressionAdminGroup,ou=groups,${USER_BASE_DN}

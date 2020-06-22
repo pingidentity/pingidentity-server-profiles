@@ -1,5 +1,4 @@
 # see http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#common-application-properties
-# default settings (optional: ldap.server)
 spring:
   profiles.active: default
   main.show-banner: false
@@ -12,14 +11,17 @@ spring:
     favicon.enabled: false
 management:
   context-path: /actuator
-# NOTE: Increasing the log levels may cause sensitive information to be logged.
-#       Appropriate precautions should be taken when doing so.
+
+#################### WARNING ####################
+# Increasing the log levels may cause sensitive information to be logged.
+#   Appropriate precautions should be taken when doing so.
+#################### WARNING ####################
 logging:
   level:
     root: WARN
-    com.unboundid: DEBUG
-    org.springframework: WARN
-    org.springframework.web: WARN
+    com.unboundid: TRACE
+    org.springframework: DEBUG
+    org.springframework.web: DEBUG
     org.springframework.boot: DEBUG
     org.thymeleaf: WARN
     ch.qos.logback: WARN
@@ -27,49 +29,9 @@ logging.console: true
 log.file: /opt/out/instance/logs/console.log
 login.hide-server: false
 ldap:
-  server: ${PD_ENGINE_PRIVATE_HOSTNAME}:${LDAPS_PORT}
-  init-user: ${ROOT_USER_DN}
-  # init-password: 2FederateM0re
-  trust-store-file: # none needed for non-SSL access
+  server: ldaps://${PD_ENGINE_PRIVATE_HOSTNAME}:${LDAPS_PORT}
+  init-user: ${ROOT_USER}
+  init-password: ${PING_IDENTITY_PASSWORD}
+  #trust-store-file: ${AUTOGEN_TRUSTSTORE_FILE}
 configuration:
   complexity: advanced
---- # development profile-specific settings
-spring:
-  profiles: development
-  thymeleaf.cache: false
-server: # server settings for running embedded
-  port: 9092
-ldap: # initialize login in development
-  server: ${PD_ENGINE_PRIVATE_HOSTNAME}:${LDAPS_PORT}
-  init-user: ${ROOT_USER_DN}
-  # init-password: 2FederateM0re
-  trust-store-file: # none needed for non-SSL access
-log.console: true
-# NOTE: These log levels may cause sensitive information to be logged.
-#       Appropriate precautions should be taken when doing so.
-logging:
-  level:
-    root: INFO
-    com.unboundid: TRACE
-    org.springframework: INFO
-    org.springframework.web: DEBUG
-    org.springframework.boot: DEBUG
-    org.thymeleaf: INFO
-    ch.qos.logback: DEBUG
-configuration:
-  complexity: advanced
---- # test profile-specific settings
-spring:
-  profiles: test
-log.console: true
-# NOTE: These log levels may cause sensitive information to be logged.
-#       Appropriate precautions should be taken when doing so.
-logging:
-  level:
-    root: DEBUG
-    com.unboundid: DEBUG
-    org.springframework: DEBUG
-    org.springframework.web: DEBUG
-    org.springframework.boot: DEBUG
-    org.thymeleaf: DEBUG
-    ch.qos.logback: DEBUG
