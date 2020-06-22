@@ -1,3 +1,7 @@
+
+dsconfig set-policy-decision-service-prop \
+    --set trust-framework-version:v1
+
 #
 # Status:Creating External Servers
 #
