@@ -1,0 +1,13 @@
+dsconfig create-external-server \
+    --server-name pingdatagovernance  \
+    --type policy  \
+    --set base-url:https://pingdatagovernancepap:443  \
+    --set hostname-verification-method:allow-all  \
+    --set shared-secret:AABH0OckWREHX68XhxlpI4WBAXmw9IvKv0A=  \
+    --set key-manager-provider:Null  \
+    --set "trust-manager-provider:Blind Trust" \
+    --set branch:dirRestAPI
+dsconfig set-policy-decision-service-prop \
+    --set pdp-mode:external  \
+    --set policy-server:pingdatagovernance  \
+    --set trust-framework-version:v2
