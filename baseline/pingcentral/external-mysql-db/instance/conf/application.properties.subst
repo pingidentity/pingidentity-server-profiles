@@ -2,7 +2,7 @@
 # The property "pingcentral.home" is available to be used in templates as "${pingcentral.home}" and is the path to the installed product.
 # This property is optional.  The driver to be used will determined from the spring.datasource.url.
 # If for some reason the driver cannot be determined automatically, it can be specified here.
-spring.datasource.url=jdbc:mysql://pingcentral-db:3306/pingcentral?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useJvmCharsetConverters=true
+spring.datasource.url=jdbc:mysql://${MYSQL_SERVICE_HOST}:${MYSQL_SERVICE_PORT}/${MYSQL_DATABASE}?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useJvmCharsetConverters=true
 spring.datasource.username=${MYSQL_USER}
 spring.datasource.password=${MYSQL_PASSWORD}
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
