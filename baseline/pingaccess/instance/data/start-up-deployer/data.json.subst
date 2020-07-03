@@ -238,7 +238,7 @@
             "adminPassword": {
                 "encryptedValue": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiMDcxVnJRZWlmUExoQnpIeCJ9..AcXYQY7ZvHZyQ71uda1OKw.tStEKhPoWwInxOvhyHlaPQ.8GsjAk6oqpvwEM0HvtyRlw"
             },
-            "host": "${PF_ENGINE_PRIVATE_HOSTNAME}",
+            "host": "${PF_ADMIN_PRIVATE_HOSTNAME}",
             "port": 9999,
             "basePath": "",
             "useProxy": false,
