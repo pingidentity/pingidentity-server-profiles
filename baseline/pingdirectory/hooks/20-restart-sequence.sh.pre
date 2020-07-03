@@ -15,13 +15,13 @@ echo "Appending to ${_outEnv}"
 
 if ! test "${USER_BASE_DN}" = "${computedDomain}"; then
     cat<<END_DOMAIN >>${_outEnv}
-BASE_ATTRIBUTE=dc: ${computedDomain}
+BASE_ATTRIBUTE=dc:${computedDomain}
 BASE_CLASS=domain
 END_DOMAIN
 
 elif ! test "${USER_BASE_DN}" = "${computedOrg}"; then
     cat<<END_ORG >>${_outEnv}
-BASE_ATTRIBUTE=o: ${computedOrg}
+BASE_ATTRIBUTE=o:${computedOrg}
 BASE_CLASS=organization
 END_ORG
 
