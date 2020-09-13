@@ -20,4 +20,3 @@ export PD_DELEGATOR_PUBLIC_PORT=${PD_DELEGATOR_PUBLIC_PORT:=6443}
 # Matches the certificate alias found in config/keystore.p12
 #
 export CERTIFICATE_NICKNAME=${CERTIFICATE_NICKNAME:=ping}
-export MAX_HEAP_SIZE=768m
