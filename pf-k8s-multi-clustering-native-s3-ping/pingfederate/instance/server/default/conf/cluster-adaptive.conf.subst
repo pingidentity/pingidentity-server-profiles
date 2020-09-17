@@ -1,0 +1,55 @@
+# This file contains settings for PingFederate's adaptive clustering
+# capability. Please see the PingFederate Server Clustering Guide for more
+# information on adaptive clustering. Settings in this file are ignored if
+# adaptive clustering is disabled in run.properties. 
+
+# Specifies the number of nodes each runtime state record will be replicated to.
+# All cluster nodes must have the same value for this setting.
+# A value of 2 provides data redundancy in case a single node fails.
+# The recommended value is 3. Most runtime state requests wait for a response
+# from a majority of the replica set. A value of 3 ensures that requests will
+# not be delayed if a single node is slow to respond. 
+replication.factor=3
+
+# Determines whether this node will be used to store runtime state. By 
+# default, all nodes store runtime state.
+track.state=true
+
+# Determines the timeout (in milliseconds) for requests related to runtime state
+# rebalancing.
+rebalance.rpc.timeout=5000
+
+# Determines the group this node belongs to for adaptive clustering. If a group
+# identifier is specified, this node will retrieve state only from other nodes
+# with the same identifier. When a cluster spans multiple regions, it is
+# recommended to assign nodes in different regions to different groups to avoid
+# the latency impact of synchronously saving and retrieving state across
+# regions. Asynchronous cross-group replication of state is enabled by default
+# and controlled through settings later in this file.
+#
+# The node group identifier cannot contain whitespace, but all other characters
+# are allowed. It is recommended to use a short string, such as a single
+# character, to reduce the size of tokens that include this value.
+node.group.id=${PF_NODE_GROUP_ID}
+
+# Determines whether user sessions are replicated asynchronously to other node
+# groups. This includes adapter session attributes, authentication sessions and
+# SLO-related data.
+inter.group.replicate.sessions=true
+
+# Determines whether OAuth reference tokens are replicated to other node groups.
+inter.group.replicate.reference.tokens=true
+
+# By default, reference tokens are replicated synchronously, to ensure they can
+# be immediately validated on other node groups. If this is not necessary, you
+# can change the replication mode to asynchronous. This will reduce the time
+# taken to create a token.
+inter.group.replicate.reference.tokens.synchronous=true
+
+# Determines whether assertion replay state is replicated asynchronously to
+# other node groups.
+inter.group.replicate.assertion.replay=true
+
+# Determines whether account locking state is replicated asynchronously to other
+# node groups.
+inter.group.replicate.account.locking=true
