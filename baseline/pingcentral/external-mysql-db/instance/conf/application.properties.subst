@@ -44,12 +44,17 @@ server.ssl.https.verify-hostname=${PING_CENTRAL_VERIFY_HOSTNAME}
 #
 # OAuth2 resource server configuration for Admin API access.
 #
-# PingCentral supports only JWT access tokens verifiable via a JWKS endpoint. The JWKS endpoint derived from
-# the OIDC well known metadata is used by default. If that is not appropriate, define the JWKS endpoint
-# below to be used for verification of bearer tokens.
+# PingCentral supports only signed JWT access tokens verifiable via a JWKS endpoint. The JWKS endpoint derived from
+# the OIDC well known configuration endpoint is used by default. This is appropriate for PingFederate 10.1 and above
+# when "Use Centralized Signing Key" is set to true in the Access Token Manager. If instead a separate JWKS endpoint
+# path is defined in the Access Token Manager, define that below.
 #pingcentral.sso.oidc.oauth-jwk-set-uri=<JWKS_ENDPOINT_URI>
 # The name of the claim which identifies the username as determined by the Authorization Server
 #pingcentral.sso.oidc.oauth-username-claim-name=Username
 logging.level.com.pingidentity=${PING_CENTRAL_LOG_LEVEL}
+# If the access token manager defines issuer and/or audience claim values, define those below and PingCentral
+# will validate them. Otherwise, validation will not be performed.
+#pingcentral.sso.oidc.oauth-iss-claim-value=<EXPECTED_ISS_CLAIM_VALUE>
+#pingcentral.sso.oidc.oauth-aud-claim-value=<EXPECTED_AUD_CLAIM_VALUE>
 # Security headers to include in API responses
 #pingcentral.admin.api-security-headers=Strict-Transport-Security,Content-Security-Policy,Feature-Policy
