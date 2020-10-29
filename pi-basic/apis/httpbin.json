@@ -1,0 +1,63 @@
+{
+    "api_metadata": {
+      "protocol": "http",
+      "url": "/anything",
+      "hostname": "*",
+      "cookie": "",
+      "cookie_idle_timeout": "200m",
+      "logout_api_enabled": false,
+      "cookie_persistence_enabled": false,
+      "oauth2_access_token": false,
+      "apikey_qs": "",
+      "apikey_header": "",
+      "login_url": "",
+      "enable_blocking": true,
+      "api_mapping": {
+        "internal_url": ""
+      },
+      "api_pattern_enforcement": {
+        "protocol_allowed": "",
+        "http_redirect": {
+          "response_code": "",
+          "response_def": "",
+          "https_url": ""
+        },
+        "methods_allowed": [],
+        "content_type_allowed": "",
+        "error_code": "401",
+        "error_def": "Unauthorized",
+        "error_message_body": "401 Unauthorized by PingIntelligence"
+      },
+      "flow_control": {
+        "client_spike_threshold": "0/second",
+        "server_connection_queueing": false
+      },
+      "api_memory_size": "128mb",
+      "health_check": false,
+      "health_check_interval": 60,
+      "health_retry_count": 4,
+      "health_url": "/health",
+      "health_check_headers": {},
+      "server_ssl": false,
+      "servers": [
+        {
+          "host": "httpbin",
+          "port": 80,
+          "server_spike_threshold": "0/second",
+          "server_connection_quota": 0
+        }
+      ],
+      "decoy_config": {
+        "decoy_enabled": false,
+        "response_code": 200,
+        "response_def": "",
+        "response_message": "",
+        "decoy_subpaths": []
+      },
+      "jwt": {
+        "location": "h:authorization:bearer",
+        "username": "username",
+        "clientid": "client_id"
+      }
+    }
+  }
