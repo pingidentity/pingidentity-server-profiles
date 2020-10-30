@@ -15,6 +15,8 @@
 
 export PD_DELEGATOR_PUBLIC_HOSTNAME=${PD_DELEGATOR_PUBLIC_HOSTNAME:=localhost}
 export PD_DELEGATOR_PUBLIC_PORT=${PD_DELEGATOR_PUBLIC_PORT:=6443}
+export PF_ENGINE_PRIVATE_HOSTNAME=${PF_ENGINE_PRIVATE_HOSTNAME:=pingfederate}
+export PF_ENGINE_PORT=${PF_ENGINE_PORT:=9031}
 
 #
 # Matches the certificate alias found in config/keystore.p12
