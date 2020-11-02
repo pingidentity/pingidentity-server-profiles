@@ -88,7 +88,7 @@ dsconfig set-trust-manager-provider-prop   \
 dsconfig create-external-server   \
     --server-name pingfederate \
     --type "http" \
-    --set "base-url:https://${PF_ENGINE_PRIVATE_HOSTNAME}:9031" \
+    --set "base-url:https://${PF_ENGINE_PRIVATE_HOSTNAME}:${PF_ENGINE_PORT}" \
     --set "hostname-verification-method:allow-all" \
     --set "trust-manager-provider:Blind Trust"
 
