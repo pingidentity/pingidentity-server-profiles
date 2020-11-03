@@ -239,7 +239,7 @@
                 "encryptedValue": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiMDcxVnJRZWlmUExoQnpIeCJ9..AcXYQY7ZvHZyQ71uda1OKw.tStEKhPoWwInxOvhyHlaPQ.8GsjAk6oqpvwEM0HvtyRlw"
             },
             "host": "${PF_ADMIN_PRIVATE_HOSTNAME}",
-            "port": 9999,
+            "port": ${PF_ADMIN_PORT},
             "basePath": "",
             "useProxy": false,
             "trustedCertificateGroupId": 2,
@@ -261,7 +261,7 @@
         },
         "pingFederateRuntime": {
             "description": null,
-            "issuer": "https://${PF_ENGINE_PRIVATE_HOSTNAME}:9031",
+            "issuer": "https://${PF_ENGINE_PRIVATE_HOSTNAME}:${PF_ENGINE_PORT}",
             "trustedCertificateGroupId": 2,
             "useProxy": false,
             "useSlo": false,
@@ -424,7 +424,7 @@
                 "id": 2,
                 "name": "pingfederate_docker",
                 "targets": [
-                    "${PF_ENGINE_PRIVATE_HOSTNAME}:9031"
+                    "${PF_ENGINE_PRIVATE_HOSTNAME}:${PF_ENGINE_PORT}"
                 ],
                 "secure": true,
                 "trustedCertificateGroupId": 2,
