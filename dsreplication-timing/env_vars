@@ -18,4 +18,3 @@ export TIMING_BASE_DN=${TIMING_BASE_DN:=cn=replication-timing,dc=example,dc=com}
 export BIND_DN=${BIND_DN:=cn=administrator}
 export BIND_PASSWORD_FILE=${BIND_PASSWORD_FILE:=etc/bind-pwd}
 
-STARTUP_COMMAND=
