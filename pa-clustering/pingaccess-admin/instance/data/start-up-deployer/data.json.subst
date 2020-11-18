@@ -32,7 +32,7 @@
             "sessionTimeoutInMinutes": 240
         },
         "adminConfig": {
-            "hostPort": "pingaccess-admin:9090",
+            "hostPort": "${PA_CONSOLE_HOST}:9090",
             "httpProxyId": 0,
             "httpsProxyId": 0
         },
