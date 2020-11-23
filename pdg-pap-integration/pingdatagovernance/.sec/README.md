@@ -1,4 +1,4 @@
-# WARNING - Example for gerring-started use only
+# WARNING - Example for getting-started use only
 
 The password files in this directory exist as an example to help in
 quickly starting up a container with minimal effort.
