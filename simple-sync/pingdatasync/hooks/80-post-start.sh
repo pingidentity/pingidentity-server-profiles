@@ -3,10 +3,24 @@ ${VERBOSE} && set -x
 
 # shellcheck source=/dev/null
 test -f "${HOOKS_DIR}/pingcommon.lib.sh" && . "${HOOKS_DIR}/pingcommon.lib.sh"
-while true ; do
-    curl -ss -o /dev/null -k https://pingdirectory/directory/v1 2>&1 && break
-    sleep_at_most 8
+
+#
+# Wait for PingDataSync (localhost) before continuing
+#
+while true; do
+    echo "Waiting for PingDataSync - 127.0.0.1:${LDAPS_PORT}..."
+    wait-for "127.0.0.1:${LDAPS_PORT}" -q -t 30 && break
 done
+echo "PingDataSync - 127.0.0.1:${LDAPS_PORT} appears available"
+
+#
+# Wait for PingDirectory before continuing
+#
+while true; do
+    echo "Waiting for PingDirectory - ${PD_ENGINE_PRIVATE_HOSTNAME}:${LDAPS_PORT}..."
+    wait-for "${PD_ENGINE_PRIVATE_HOSTNAME}:${LDAPS_PORT}" -q -t 30 && break
+done
+echo "PingDirectory - ${PD_ENGINE_PRIVATE_HOSTNAME}:${LDAPS_PORT} appears available"
 sleep 2
 
 #
