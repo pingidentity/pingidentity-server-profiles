@@ -4,7 +4,17 @@ ${VERBOSE} && set -x
 # shellcheck source=/dev/null
 test -f "${HOOKS_DIR}/pingcommon.lib.sh" && . "${HOOKS_DIR}/pingcommon.lib.sh"
 
-echo "Waiting for ${PD_ENGINE_PRIVATE_HOSTNAME}:${LDAPS_PORT}..."
+#
+# Wait for PingDataSync (localhost) before continuing
+#
+echo "Waiting for PingDataSync - 127.0.0.1:${LDAPS_PORT}..."
+wait-for "127.0.0.1:${LDAPS_PORT}" || exit 1
+echo "127.0.0.1:${LDAPS_PORT} appears available"
+
+#
+# Wait for PingDirectory before continuing
+#
+echo "Waiting for PingDirectory - ${PD_ENGINE_PRIVATE_HOSTNAME}:${LDAPS_PORT}..."
 wait-for "${PD_ENGINE_PRIVATE_HOSTNAME}:${LDAPS_PORT}" || exit 1
 echo "${PD_ENGINE_PRIVATE_HOSTNAME}:${LDAPS_PORT} appears available"
 sleep 2
