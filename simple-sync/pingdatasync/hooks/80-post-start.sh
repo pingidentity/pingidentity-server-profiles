@@ -9,18 +9,18 @@ test -f "${HOOKS_DIR}/pingcommon.lib.sh" && . "${HOOKS_DIR}/pingcommon.lib.sh"
 #
 while true; do
     echo "Waiting for PingDataSync - 127.0.0.1:${LDAPS_PORT}..."
-    wait-for "127.0.0.1:${LDAPS_PORT}" -t 30 && break
+    wait-for "127.0.0.1:${LDAPS_PORT}" -q -t 30 && break
 done
-echo "127.0.0.1:${LDAPS_PORT} appears available"
+echo "PingDataSync - 127.0.0.1:${LDAPS_PORT} appears available"
 
 #
 # Wait for PingDirectory before continuing
 #
 while true; do
     echo "Waiting for PingDirectory - ${PD_ENGINE_PRIVATE_HOSTNAME}:${LDAPS_PORT}..."
-    wait-for "${PD_ENGINE_PRIVATE_HOSTNAME}:${LDAPS_PORT}" -t 30 && break
+    wait-for "${PD_ENGINE_PRIVATE_HOSTNAME}:${LDAPS_PORT}" -q -t 30 && break
 done
-echo "${PD_ENGINE_PRIVATE_HOSTNAME}:${LDAPS_PORT} appears available"
+echo "PingDirectory - ${PD_ENGINE_PRIVATE_HOSTNAME}:${LDAPS_PORT} appears available"
 sleep 2
 
 #
