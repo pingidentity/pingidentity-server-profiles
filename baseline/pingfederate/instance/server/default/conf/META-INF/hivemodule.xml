@@ -50,21 +50,25 @@
          <invoke-factory>
              <!--
                  Supported classes are
-                     com.pingidentity.crypto.SunJCEManager     : Use this service-point if you are using default certificate storage
-                     com.pingidentity.crypto.LunaJCEManager6   : Use this service-point element if you are using the SafeNet Luna SA HSM 6.x to store certs
-                     com.pingidentity.crypto.NcipherJCEManager : Use this service-point element if you are using the Thales nShield Connect HSM to store certs
+                     com.pingidentity.crypto.SunJCEManager         : Use this service-point if you are using default certificate storage
+                     com.pingidentity.crypto.LunaJCEManager        : Use this service-point element if you are using the SafeNet Luna SA HSM to store certs
+                     com.pingidentity.crypto.NcipherJCEManager     : Use this service-point element if you are using the Thales nShield Connect HSM to store certs
+                     com.pingidentity.crypto.AWSCloudHSMJCEManager : Use this service-point element if you are using the AWS Cloud HSM (not classic) to store certs
+                     com.pingidentity.crypto.BCFIPSJCEManager      : Use this service-point element if you are using the Bouncy Castle FIPS provider to store certs
              -->
              <construct class="com.pingidentity.crypto.SunJCEManager"/>
          </invoke-factory>
      </service-point>
 
     <service-point id="CertificateService" interface="com.pingidentity.crypto.CertificateService">
-         <invoke-factory>
+         <invoke-factory model="autoreloadable">
              <!--
                  Supported classes are
-                     com.pingidentity.crypto.CertificateServiceImpl        : Use this service-point if you are using default certificate storage
-                     com.pingidentity.crypto.LunaCertificateServiceImpl6   : Use this service-point element if you are using the SafeNet Luna SA HSM 6.x to store certs
-                     com.pingidentity.crypto.NcipherCertificateServiceImpl : Use this service-point element if you are using the Thales nShield Connect HSM to store certs
+                     com.pingidentity.crypto.CertificateServiceImpl            : Use this service-point if you are using default certificate storage
+                     com.pingidentity.crypto.LunaCertificateServiceImpl        : Use this service-point element if you are using the SafeNet Luna SA HSM to store certs
+                     com.pingidentity.crypto.NcipherCertificateServiceImpl     : Use this service-point element if you are using the Thales nShield Connect HSM to store certs
+                     com.pingidentity.crypto.AWSCloudHSMCertificateServiceImpl : Use this service-point element if you are using the AWS Cloud HSM (not classic) to store certs
+                     com.pingidentity.crypto.BCFIPSCertificateServiceImpl      : Use this service-point element if you are using the Bouncy Castle FIPS provider to store certs
              -->
              <construct class="com.pingidentity.crypto.CertificateServiceImpl"/>
          </invoke-factory>
@@ -77,7 +81,7 @@
                         org.sourceid.saml20.service.impl.AccountLinkingServiceDBImpl    : Use this service-point for a database implementation
                         org.sourceid.saml20.service.impl.AccountLinkingServiceLDAPImpl  : Use this service-point for an LDAP implementation
         -->
-        <create-instance class="org.sourceid.saml20.service.impl.AccountLinkingServiceLDAPImpl"/>
+        <create-instance model="autoreloadable" class="org.sourceid.saml20.service.impl.AccountLinkingServiceLDAPImpl"/>
     </service-point>
 
     <!-- Service for storage of access grants -->
@@ -89,11 +93,12 @@
                         org.sourceid.oauth20.token.AccessGrantManagerLDAPOracleImpl         : Use this service-point for a Oracle Directory Server Enterprise Edition implementation
                         org.sourceid.oauth20.token.AccessGrantManagerLDAPPingDirectoryImpl  : Use this service-point for a PingDirectory implementation
         -->
-        <create-instance class="org.sourceid.oauth20.token.AccessGrantManagerLDAPPingDirectoryImpl"/>
+        <create-instance model="autoreloadable" class="org.sourceid.oauth20.token.AccessGrantManagerLDAPPingDirectoryImpl"/>
     </service-point>
+
     <!-- Service/adapter for creating pseudonym name ids -->
     <service-point id="PseudonymService" interface="org.sourceid.saml20.service.PseudonymService">
-        <create-instance class="org.sourceid.saml20.service.impl.PseudonymServiceSha1Impl" model="primitive"/>
+        <create-instance model="autoreloadable" class="org.sourceid.saml20.service.impl.PseudonymServiceSha1Impl"/>
     </service-point>
 
     <!-- Service/adapter for creating pairwise pseudonymous identifiers -->
@@ -139,7 +144,7 @@
 
     <!-- Service for storing OAuth client configuration. -->
     <service-point id="ClientManager" interface="org.sourceid.oauth20.domain.ClientManager">
-        <invoke-factory>
+        <invoke-factory model="autoreloadable">
             <!--
                 Supported classes are
                         org.sourceid.oauth20.domain.ClientManagerXmlFileImpl            : Use this service-point for a XML implementation.
@@ -166,8 +171,13 @@
     <!--
         Service for encrypting/decrypting PingFederate's master key file (pf.jwk). The default
         implementation does no operation and hence the keys are stored in plain text. Any custom
-        implementation can be created and referred to here. See the PingFederate SDK's
+        implementation can be created and referred to here. Ping Federate 9.3 added support for
+        master key encryption using AWS Key Management Services. See the PingFederate SDK's
         com.pingidentity.sdk.key.MasterKeyEncryptor interface for more info.
+
+        Supported classes are
+            com.pingidentity.crypto.jwk.NoOpMasterKeyEncryptor                    : The default implementation that does no operation.
+            com.pingidentity.pingcommons.aws.key.AwsKmsMasterKeyEncryptor         : AWS KMS implementation. Note that admin should specify the key Id in MasterKeySet.xml.
      -->
     <service-point id="MasterKeyEncryptor" interface="com.pingidentity.sdk.key.MasterKeyEncryptor">
         <create-instance class="com.pingidentity.crypto.jwk.NoOpMasterKeyEncryptor"/>
