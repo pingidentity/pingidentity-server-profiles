@@ -4,14 +4,15 @@ pingdataconsole container. This feature is only available in pingdataconsole and
 versions 8.2.0.0 or later.
 
 ## PingOne configuration
-Some steps will need to be taken in PingOne to enable SSO to the PingData Console. See the comments in
-13-enable-console-sso.dsconfig and the PingDirectory documentation ("Configuring PingOne to use
-SSO for the PingData Administrative Console") for more information.
+Some steps will need to be taken in PingOne to enable SSO to the PingData Console, including
+creating an application and a user. See the comments in 13-enable-console-sso.dsconfig and
+the PingDirectory documentation ("Configuring PingOne to use SSO for the PingData Administrative
+Console") for more information.
 
 ## PingDirectory configuration
 The necessary PingDirectory configuration is included in the 13-enable-console-sso.dsconfig
-file in the pingdirectory profile. Root DNs for SSO can be created in the 12-root-dns.dsconfig file.
-One example Root DN (Jane Smith, username jsmith) is already configured.
+file in the pingdirectory profile. Root user DNs for SSO can be created in the 12-root-dns.dsconfig file.
+One example root user DN (Jane Smith, username jsmith) is already configured.
 
 ### Required PingDirectory variables to enable SSO
 **PD_CONSOLE_SSO_ISSUER_URI**
