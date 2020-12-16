@@ -58,3 +58,18 @@ logging.level.com.pingidentity=${PING_CENTRAL_LOG_LEVEL}
 #pingcentral.sso.oidc.oauth-aud-claim-value=<EXPECTED_AUD_CLAIM_VALUE>
 # Security headers to include in API responses
 #pingcentral.admin.api-security-headers=Strict-Transport-Security,Content-Security-Policy,Feature-Policy
+#
+# PingCentral Actuator (Healthcheck, info, and more)
+#management.endpoints.enabled-by-default=true
+#management.endpoints.web.exposure.include=*
+#
+# PingCentral Metrics
+#management.endpoint.metrics.enabled=false
+# Graphite Option
+#management.metrics.export.graphite.step=5s
+#management.metrics.export.graphite.enabled=true
+#management.metrics.export.graphite.host=127.0.0.1
+#management.metrics.export.graphite.port=2004
+# Prometheus Option
+#management.metrics.export.prometheus.enabled=true
+#management.metrics.export.prometheus.step=5s
