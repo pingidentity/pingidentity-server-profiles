@@ -1,0 +1,84 @@
+# By default, the Administrative Console allows administrative users to log in
+# using a username/password form. Alternatively, you can configure PingDirectory
+# and Administrative Console in OpenID Connect SSO (single sign-on) mode.  When
+# configured in SSO mode, the Administrative Console delegates primary
+# authentication responsibilities to an OpenID Connect provider such as PingOne.
+# This makes it possible for your organization to centralize authentication
+# policies and to offer a unified login experience for administrative accounts.
+#
+# To use OpenID Connect authentication for the Administrative Console, you must
+# configure the following components:
+#
+# * The OAUTHBEARER SASL mechanism handler, which handles LDAP bind requests
+#   from the Administrative Console that identify the login identity using an
+#   OpenID Connect ID token rather than a DN and password.
+#
+# * An ID token validator, which validates the authenticity of the ID token.
+#
+# * An identity mapper, which correlates the ID token subject to a PingData
+#   administrative account, which is typically stored in the server
+#   configuration as a root DN user or topology admin user.  For example, if you
+#   use the "Root DN Users" identity mapper, then the username named by an ID
+#   token's subject claim will be used to look up a root DN user with a
+#   matching "cn" attribute value.
+#
+# * The Console web application, which must be configured with information
+#   needed to make OpenID Connect authentication requests, such as a client ID
+#   and client secret.
+
+# This example demonstrates the process for enabling SSO with PingOne for
+# logins to the Administrative Console.
+#
+# Before executing this configuration script, you must configure the following
+# in PingOne:
+#
+# 1) An environment dedicated for use by administrative users.
+#
+# 2) One or more PingOne users to act as administrators.  These administrative
+#    users have the same usernames as administrative accounts defined in the
+#    PingData server configuration.
+#
+# 3) An application to represent the PingData Administrative Console.
+#
+# This application must have the following settings:
+#
+# * App Type: Web App (OpenID Connect)
+#
+# * Response Type: Code
+#
+# * Grant Type: Authorization Code
+#
+# * Redirect URIs: https://[HOSTNAME]:[HTTPS_PORT]/console/oidc/cb
+#
+# * Attribute Mappings:
+#    * Username -> sub
+#
+# After creating the application, take note of the following application
+# settings and use them to customize this configuration:
+#
+# * Issuer -> PD_CONSOLE_SSO_ISSUER_URI
+#
+# * Client ID -> PD_CONSOLE_SSO_CLIENT_ID
+#
+# * Client Secret -> PD_CONSOLE_SSO_CLIENT_SECRET
+
+# Create an ID token validator suitable for verifying ID tokens generated
+# by the PingOne service. The "All Admin Users" identity mapper will be used
+# to match users that authenticate with PingOne to either root DN users or
+# topology admin users defined in the server configuration.
+dsconfig create-id-token-validator \
+         --validator-name "PingOne ID Token Validator" \
+         --type ping-one \
+         --set enabled:true \
+         --set "identity-mapper:All Admin Users" \
+         --set evaluation-order-index:1 \
+         --set "issuer-url:${PD_CONSOLE_SSO_ISSUER_URI}"
+
+# Create the OAUTHBEARER SASL mechanism handler:
+dsconfig create-sasl-mechanism-handler \
+         --handler-name OAUTHBEARER \
+         --type oauth-bearer \
+         --set enabled:true \
+         --set "id-token-validator:PingOne ID Token Validator" \
+         --set require-both-access-token-and-id-token:false
+
