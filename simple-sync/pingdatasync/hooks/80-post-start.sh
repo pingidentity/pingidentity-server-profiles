@@ -4,6 +4,9 @@ ${VERBOSE} && set -x
 # shellcheck source=/dev/null
 test -f "${HOOKS_DIR}/pingcommon.lib.sh" && . "${HOOKS_DIR}/pingcommon.lib.sh"
 
+# shellcheck source=/dev/null
+test -f "${HOOKS_DIR}/pingdata.lib.sh" && . "${HOOKS_DIR}/pingdata.lib.sh"
+
 #
 # Wait for PingDataSync (localhost) before continuing
 #
