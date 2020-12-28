@@ -13,6 +13,11 @@ while true; do
 done
 echo "PingDataSync - 127.0.0.1:${LDAPS_PORT} appears available"
 
+# set the pingdatasync server as available
+# note: this method introduced end of 12/2020.  Will get a command not found on
+#       previous versions, hence redirecting stderr to /dev/null
+set_server_available 2>/dev/null
+
 #
 # Wait for PingDirectory before continuing
 #
