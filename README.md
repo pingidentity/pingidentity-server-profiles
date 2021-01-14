@@ -1,1 +1,1 @@
-See [server profiles](https://pingidentity-devops.gitbook.io/devops/config) docs on gitbook for more information.
+See [server profiles](https://devops.pingidentity.com/how-to/containerAnatomy/) docs for more information.
