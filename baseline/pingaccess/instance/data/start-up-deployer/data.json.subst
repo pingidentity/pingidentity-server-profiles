@@ -261,7 +261,7 @@
         },
         "pingFederateRuntime": {
             "description": null,
-            "issuer": "https://${PF_ENGINE_PRIVATE_HOSTNAME}:${PF_ENGINE_PORT}",
+            "issuer": "https://${PF_ENGINE_PRIVATE_HOSTNAME}:${PF_ENGINE_PRIVATE_PORT_HTTPS}",
             "trustedCertificateGroupId": 2,
             "useProxy": false,
             "useSlo": false,
@@ -424,7 +424,7 @@
                 "id": 2,
                 "name": "pingfederate_docker",
                 "targets": [
-                    "${PF_ENGINE_PRIVATE_HOSTNAME}:${PF_ENGINE_PORT}"
+                    "${PF_ENGINE_PRIVATE_HOSTNAME}:${PF_ENGINE_PRIVATE_PORT_HTTPS}"
                 ],
                 "secure": true,
                 "trustedCertificateGroupId": 2,
