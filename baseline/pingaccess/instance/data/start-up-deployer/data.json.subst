@@ -436,7 +436,7 @@
                     "${PD_ENGINE_PRIVATE_HOSTNAME}:${HTTPS_PORT}"
                 ],
                 "secure": true,
-                "trustedCertificateGroupId": 2,
+                "trustedCertificateGroupId": 0,
                 "sendPaCookie": false,
                 "useTargetHostHeader": true,
                 "keepAliveTimeout": 0,
