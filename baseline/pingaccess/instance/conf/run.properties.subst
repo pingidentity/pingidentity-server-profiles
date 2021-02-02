@@ -19,7 +19,7 @@
 #                       - Configuration is queried from Console at startup.
 #
 
-pa.operational.mode=STANDALONE
+pa.operational.mode=${OPERATIONAL_MODE}
 
 #-------------------------------------------------------------------------------
 # Admin Properties
