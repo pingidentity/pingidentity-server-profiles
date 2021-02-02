@@ -226,7 +226,7 @@
             },
             {
                 "id": 4,
-                "alias": "HELM GENERATED CERT",
+                "alias": "PRIVATE HOSTNAME CERT",
                 "fileData": "${PRIVATE_KEYSTORE}",
                 "password": {
                     "value": "${PRIVATE_KEYSTORE_PIN}"
@@ -255,7 +255,7 @@
                 "encryptedValue": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiMDcxVnJRZWlmUExoQnpIeCJ9..AcXYQY7ZvHZyQ71uda1OKw.tStEKhPoWwInxOvhyHlaPQ.8GsjAk6oqpvwEM0HvtyRlw"
             },
             "host": "${PF_ADMIN_PRIVATE_HOSTNAME}",
-            "port": ${PF_ADMIN_PORT},
+            "port": "${PF_ADMIN_PORT}",
             "basePath": "",
             "useProxy": false,
             "trustedCertificateGroupId": 2,
