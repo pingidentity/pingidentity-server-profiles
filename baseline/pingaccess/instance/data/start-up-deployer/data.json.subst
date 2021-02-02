@@ -177,21 +177,21 @@
             {
                 "id": 2,
                 "name": "ENGINE",
-                "keyPairId": 2,
+                "keyPairId": 1,
                 "useServerCipherSuiteOrder": true,
                 "restartRequired": false
             },
             {
                 "id": 3,
                 "name": "AGENT",
-                "keyPairId": 3,
+                "keyPairId": 1,
                 "useServerCipherSuiteOrder": true,
                 "restartRequired": false
             },
             {
                 "id": 4,
                 "name": "CONFIG QUERY",
-                "keyPairId": 4,
+                "keyPairId": 1,
                 "useServerCipherSuiteOrder": true,
                 "restartRequired": false
             }
@@ -199,33 +199,6 @@
         "keyPairs": [
             {
                 "id": 1,
-                "alias": "Generated: ADMIN",
-                "fileData": "${PRIVATE_KEYSTORE}",
-                "password": {
-                    "value": "${PRIVATE_KEYSTORE_PIN}"
-                },
-                "hsmProviderId": 0
-            },
-            {
-                "id": 2,
-                "alias": "Generated: ENGINE",
-                "fileData": "${PRIVATE_KEYSTORE}",
-                "password": {
-                    "value": "${PRIVATE_KEYSTORE_PIN}"
-                },
-                "hsmProviderId": 0
-            },
-            {
-                "id": 3,
-                "alias": "Generated: AGENT",
-                "fileData": "${PRIVATE_KEYSTORE}",
-                "password": {
-                    "value": "${PRIVATE_KEYSTORE_PIN}"
-                },
-                "hsmProviderId": 0
-            },
-            {
-                "id": 4,
                 "alias": "PRIVATE HOSTNAME CERT",
                 "fileData": "${PRIVATE_KEYSTORE}",
                 "password": {
