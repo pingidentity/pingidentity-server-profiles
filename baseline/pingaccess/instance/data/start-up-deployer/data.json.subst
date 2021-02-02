@@ -252,7 +252,7 @@
         "pingFederateAdmin": {
             "adminUsername": "${ROOT_USER}",
             "adminPassword": {
-                "encryptedValue": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiMDcxVnJRZWlmUExoQnpIeCJ9..AcXYQY7ZvHZyQ71uda1OKw.tStEKhPoWwInxOvhyHlaPQ.8GsjAk6oqpvwEM0HvtyRlw"
+                "value": "${PING_IDENTITY_PASSWORD}"
             },
             "host": "${PF_ADMIN_PRIVATE_HOSTNAME}",
             "port": ${PF_ADMIN_PRIVATE_PORT_HTTPS},
@@ -265,7 +265,7 @@
         "pingFederateOAuth": {
             "clientId": "rs_client",
             "clientSecret": {
-                "encryptedValue": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiMDcxVnJRZWlmUExoQnpIeCJ9..sRH_QcDdFCyxaf_R1-1sVg.tfS7CoWJ-e8QYDLVSJ6B1w.KAAHLaoBA-4KsozQv8fiNw"
+                "value": "${PING_IDENTITY_PASSWORD}"
             },
             "cacheTokens": false,
             "tokenTimeToLiveSeconds": -1,
@@ -409,7 +409,7 @@
                 "configuration": {
                     "username": "${ROOT_USER_DN}",
                     "password": {
-                        "encryptedValue": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiMDcxVnJRZWlmUExoQnpIeCJ9..oFvAxZ_UrrX687EVBXOS2w.3fOqwsH9q1iO73IKVyBURQ.YQFZA2amc9yOXLcS7sqXhg"
+                        "value": "${PING_IDENTITY_PASSWORD}"
                     }
                 }
             }
