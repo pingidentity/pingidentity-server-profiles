@@ -238,9 +238,9 @@
         "pingFederateOAuth": {
             "clientId": "rs_client",
             "clientSecret": {
-                "value": "${PING_IDENTITY_PASSWORD}"
+                "value": "2Federate"
             },
-            "cacheTokens": false,
+            "c  acheTokens": false,
             "tokenTimeToLiveSeconds": -1,
             "subjectAttributeName": "Username",
             "sendAudience": false,
