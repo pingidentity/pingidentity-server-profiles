@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+${HOOKS_DIR}/continuous-re-staging.sh &
