@@ -1,0 +1,59 @@
+version: "3.1"
+
+services:
+  pingaccess:
+    image: pingidentity/pingaccess:pingaccess:5.2.3-edge
+    healthcheck: 
+      test: ["CMD", "curl", "-f", "-k", "https://localhost:9000/pa/heartbeat.ping"]
+      interval: 10s
+      timeout: 3s
+    environment:
+      - SERVER_PROFILE_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
+      - SERVER_PROFILE_PATH=pa-clustering/pingaccess
+      # Variables are added to ~/.pingidentity/devops and sourced by .bash_profile when setup.sh
+      # (Getting-started project root directory) is first run to configure your environment.
+      # Used to generate just-in-time evaluation licenses
+      - OPERATIONAL_MODE=CLUSTERED_CONSOLE
+      - PING_IDENTITY_DEVOPS_USER=${PING_IDENTITY_DEVOPS_USER}
+      - PING_IDENTITY_DEVOPS_KEY=${PING_IDENTITY_DEVOPS_KEY}
+      - PA_CONSOLE_HOST=pingaccess
+    deploy:
+      replicas: 1
+    ports:
+      - 9000:9000
+    networks:
+      - pingnet
+    #volumes:
+      #- ${HOME}/<PATH_TO_LOCAL_REPO>/pingaccess-clustered/pingaccess:/opt/in
+
+  pingaccess-engine:
+    image: pingidentity/pingaccess:pingaccess:5.2.3-edge
+    command: ["sh", "-c", "wait-for pingaccess:9000 -t 420 -- entrypoint.sh start-server"]
+    healthcheck: 
+      test: ["CMD", "curl", "-f", "-k", "https://localhost:3000/pa/heartbeat.ping"]
+      interval: 10s
+      timeout: 3s    
+    environment:
+      - SERVER_PROFILE_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
+      - SERVER_PROFILE_PATH=pa-clustering/pingaccess
+      # Variables are added to ~/.pingidentity/devops and sourced by .bash_profile when setup.sh
+      # (Getting-started project root directory) is first run to configure your environment.
+      # Used to generate just-in-time evaluation licenses
+      - OPERATIONAL_MODE=CLUSTERED_ENGINE
+      - PING_IDENTITY_DEVOPS_USER=${PING_IDENTITY_DEVOPS_USER}
+      - PING_IDENTITY_DEVOPS_KEY=${PING_IDENTITY_DEVOPS_KEY}
+      - PA_CONSOLE_HOST=pingaccess
+    deploy:
+      replicas: 1
+    ports:
+      - 3000:3000
+    networks:
+      - pingnet
+    #volumes:
+    #  - ${HOME}/<PATH_TO_LOCAL_REPO>/pingaccess-clustered/pingaccess:/opt/in
+
+networks:
+  pingnet:
+    ipam:
+      config:
+        - subnet: 10.10.10.0/24

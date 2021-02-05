@@ -1,0 +1,18 @@
+# .suppress-container-warning
+#
+# NOTICE: Settings in this file will override values set at the
+#         image or orchestraton layers of the container.  Examples
+#         include variables that are specific to this server profile.
+#         Options include:
+#
+# ALWAYS OVERRIDE the value in the container
+#   NAME=VAL        
+#
+# SET TO DEFAULT VALUE if not already set       
+#   export NAME=${NAME:=myDefaultValue}  # Sets to string of "myDefaultValue"
+#   export NAME=${NAME:-OTHER_VAR}       # Sets ot value of OTHER_VAR variable
+# 
+
+export PA_LOG_LEVEL=${PA_LOG_LEVEL:=INFO}
+export PA_CONSOLE_HOST=${PA_CONSOLE_HOST:=pingaccess-admin}
+export PING_IDENTITY_PASSWORD=${PING_IDENTITY_PASSWORD:=2FederateM0re}
