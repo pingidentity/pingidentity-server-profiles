@@ -16,7 +16,7 @@ function hash(text, _prime, _modulo, _ax, _chars, _i)
     {
         _ax = (_ax * _prime + ord[_chars[_i]]) % _modulo;
     }
-    return sprintf("%07x", _ax);
+    return sprintf("%05x", _ax);
 }
 
 {
