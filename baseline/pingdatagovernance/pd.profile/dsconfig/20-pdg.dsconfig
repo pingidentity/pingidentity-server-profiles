@@ -21,7 +21,7 @@ dsconfig create-external-server \
 dsconfig create-external-server \
     --server-name pingdirectory-http  \
     --type api  \
-    --set base-url:https://${PD_ENGINE_PRIVATE_HOSTNAME}:${PD_ENGINE_PRIVATE_PORT_HTT}  \
+    --set base-url:https://${PD_ENGINE_PRIVATE_HOSTNAME}:${PD_ENGINE_PRIVATE_PORT_HTTPS}  \
     --set hostname-verification-method:allow-all  \
     --set 'trust-manager-provider:Blind Trust'
 
@@ -36,7 +36,6 @@ dsconfig set-connection-handler-prop \
     --set enabled:true \
     --set key-manager-provider:JKS \
     --set 'trust-manager-provider:Blind Trust'
-
 
 #
 # Status:Configuring Store Adapters
