@@ -10,7 +10,7 @@ dsconfig create-external-server \
     --set server-host-name:${PD_ENGINE_PRIVATE_HOSTNAME} \
     --set server-port:${LDAPS_PORT} \
     --type ping-identity-ds \
-    --set "bind-dn:cn=pingdatagovernance,cn=Root DNs,cn=config" \
+    --set "bind-dn:cn=pingauthorize,cn=Root DNs,cn=config" \
     --set password<${ROOT_USER_PASSWORD_FILE} \
     --set authorization-method:none \
     --set location:${LOCATION} \
