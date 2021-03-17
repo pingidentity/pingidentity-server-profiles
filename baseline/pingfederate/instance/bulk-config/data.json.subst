@@ -302,7 +302,7 @@
                 {
                     "hostnamesTags": [{
                         "defaultSource": true,
-                        "hostnames": ["${PD_ENGINE_PRIVATE_HOSTNAME}"]
+                        "hostnames": ["${PD_ENGINE_PRIVATE_HOSTNAME}:${PD_ENGINE_PRIVATE_PORT_LDAP}"]
                     }],
                     "timeBetweenEvictions": 60000,
                     "binaryAttributes": [],
@@ -320,7 +320,7 @@
                     "bindAnonymously": false,
                     "maxWait": -1,
                     "verifyHost": true,
-                    "hostnames": ["${PD_ENGINE_PRIVATE_HOSTNAME}"],
+                    "hostnames": ["${PD_ENGINE_PRIVATE_HOSTNAME}:${PD_ENGINE_PRIVATE_PORT_LDAP}"],
                     "dnsTtl": 60000,
                     "useSsl": false,
                     "maskAttributeValues": false,
