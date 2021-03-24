@@ -59,7 +59,7 @@ dsconfig set-store-adapter-prop \
 
 #
 # This dsconfig batch file creates a pass-through SCIM resource type within the
-# Data Governance Server. A pass-through SCIM resource type automatically maps
+# PingAuthorize Server. A pass-through SCIM resource type automatically maps
 # the schema of a particular LDAP objectclass to a SCIM schema. These settings
 # are applied by the create-initial-config tool automatically when the
 # pass-through schema option is selected.

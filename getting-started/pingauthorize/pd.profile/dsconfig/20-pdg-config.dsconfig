@@ -1,0 +1,4 @@
+dsconfig set-policy-decision-service-prop \
+  --set pdp-mode:embedded  \
+  --set trust-framework-version:v2 \
+  --set "deployment-package<${SERVER_ROOT_DIR}/resource/simple.SDP"
