@@ -41,6 +41,10 @@ server.ssl.https.verify-hostname=${PING_CENTRAL_VERIFY_HOSTNAME}
 #pingcentral.sso.oidc.role-claim-value-admin=IAM-Admin
 # The expected value of the role claim which indicates the user is a PingCentral application owner (non-administrator).
 #pingcentral.sso.oidc.role-claim-value-app-owner=Application-Owner
+# Set to false to manage user and group provisioning in PingCentral
+#pingcentral.sso.oidc.groups-claim-enabled=true
+# The name of the claim which identifies the list of comma-separated group names associated with the user.
+#pingcentral.sso.oidc.groups-claim-name=PingCentral-Groups
 #
 # OAuth2 resource server configuration for Admin API access.
 #
@@ -73,3 +77,8 @@ logging.level.com.pingidentity=${PING_CENTRAL_LOG_LEVEL}
 # Prometheus Option
 #management.metrics.export.prometheus.enabled=true
 #management.metrics.export.prometheus.step=5s
+#
+# JPA Second level cache. Set hibernate.cache.use_second_level_cache to true
+# in order to use Groups cache.
+spring.jpa.properties.hibernate.cache.use_second_level_cache=false
+spring.jpa.properties.hibernate.cache.region.factory_class=org.hibernate.cache.ehcache.EhCacheRegionFactory
