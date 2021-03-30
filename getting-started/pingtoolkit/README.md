@@ -84,10 +84,10 @@ docker run \
 # ----- Starting hook: /opt/staging/hooks/50-before-post-start.sh
 # 
 # Starting server in foreground: (ls -l /opt)
-# total 3136
-# drwxr-xrwx    2 root     root          4096 Feb 24 22:02 backup
-# -rwxr-xrwx    1 root     root          3976 Feb 24 22:00 bootstrap.sh
-# -rwxr-xrwx    1 root     root          3652 Feb 24 22:00 entrypoint.sh
+# total 75200
+# drwxrwxrwx    2 root     root          4096 Mar  5 16:50 backup
+# -rwxrwxrwx    1 ping     identity      6175 Mar  3 23:00 bootstrap.sh
+# -rwxrwxrwx    1 ping     identity      4493 Feb  4 16:48 entrypoint.sh
 # ...
 ```
 

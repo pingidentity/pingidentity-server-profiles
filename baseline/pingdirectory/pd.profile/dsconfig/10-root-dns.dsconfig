@@ -49,10 +49,11 @@ dsconfig create-root-dn-user \
     --set password<${ROOT_USER_PASSWORD_FILE}
 
 #
-# Create a user for pingdatagovernance
+# Create a user for pingauthorize
 #
 dsconfig create-root-dn-user \
-    --user-name pingdatagovernance \
+    --user-name pingauthorize \
+    --set alternate-bind-dn:cn=pingauthorize \
     --set alternate-bind-dn:cn=pingdatagovernance \
     --set alternate-bind-dn:cn=datagov \
     --set password<${ROOT_USER_PASSWORD_FILE} \

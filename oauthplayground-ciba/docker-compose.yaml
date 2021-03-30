@@ -3,7 +3,7 @@ version: "3.1"
 services:
   pingfederate:
     image: pingidentity/pingfederate:${PING_IDENTITY_DEVOPS_TAG}
-    command: wait-for pingdirectory:389 -t 300 -- entrypoint.sh start-server
+    command: wait-for pingdirectory:1389 -t 300 -- entrypoint.sh start-server
     environment:
       - SERVER_PROFILE_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
       - SERVER_PROFILE_PATH=oauthplayground-ciba/pingfederate
@@ -41,8 +41,8 @@ services:
     #  - ${HOME}/projects/devops/volumes/full-stack.pingdirectory:/opt/out
     #  - ${HOME}/projects/devops/pingidentity-server-profiles/baseline/pingdirectory:/opt/in
     ports:
-      - 1636:636
-      - 1443:443
+      - 1636:1636
+      - 1443:1443
     networks:
       - pingnet-internal
   
