@@ -445,7 +445,7 @@ pf-oauth-client-jwks: eyAgICAia2V5cyI6WyAgICAgICB7ICAgICAgICAgICJrdHkiOiJSU0EiLC
 pf-oauth-client-enforce-replay-prevention: FALSE
 pf-oauth-client-bypass-approval-page: FALSE
 
-dn: pf-oauth-client-id=dadmin,ou=oauthClients,dc=example,dc=com
+dn: pf-oauth-client-id=dadmin,ou=oauthClients,${USER_BASE_DN}
 objectClass: pf-oauth-client
 pf-oauth-client-name: dadmin
 pf-oauth-client-last-modified: 1555106380376
@@ -478,7 +478,7 @@ pf-oauth-client-authn-type: NONE
 pf-oauth-client-enforce-replay-prevention: FALSE
 pf-oauth-client-bypass-approval-page: TRUE
 
-dn: pf-oauth-client-id=PingDirectory,ou=oauthClients,dc=example,dc=com
+dn: pf-oauth-client-id=PingDirectory,ou=oauthClients,${USER_BASE_DN}
 objectClass: pf-oauth-client
 pf-oauth-client-name: PingDirectory
 pf-oauth-client-last-modified: 1555105760814
