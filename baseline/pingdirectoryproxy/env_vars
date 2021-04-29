@@ -1,0 +1,13 @@
+#
+# NOTICE: the values in this file will override the values provided to the container
+#
+#         if that is not the intent, and a default value should be set instead
+#         use a syntax like:
+#         export MY_ENVIRONMENT_VARIABLE_0=${MY_ENVIRONMENT_VARIABLE_0:=myDefaultValue}
+#                or
+#         export MY_ENVIRONMENT_VARIABLE_1=${MY_ENVIRONMENT_VARIABLE_1:-wasNotSetElsewhere}
+# The location MUST be provided
+export LOCATION=${LOCATION:-Docker}
+
+export PD_ENGINE_PRIVATE_HOSTNAME=${PD_ENGINE_PRIVATE_HOSTNAME:=pingdirectory}
+export PD_ENGINE_PRIVATE_PORT_LDAPS=${PD_ENGINE_PRIVATE_PORT_LDAPS:=1636}
