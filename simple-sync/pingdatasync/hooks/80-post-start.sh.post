@@ -20,10 +20,10 @@ echo "PingDataSync - 127.0.0.1:${LDAPS_PORT} appears available"
 # Wait for PingDirectory before continuing
 #
 while true; do
-    echo "Waiting for PingDirectory - ${PD_ENGINE_PRIVATE_HOSTNAME}:${LDAPS_PORT}..."
-    wait-for "${PD_ENGINE_PRIVATE_HOSTNAME}:${LDAPS_PORT}" -q -t 30 && break
+    echo "Waiting for PingDirectory - ${PD_ENGINE_PRIVATE_HOSTNAME}:${PD_ENGINE_PRIVATE_PORT_LDAPS}..."
+    wait-for "${PD_ENGINE_PRIVATE_HOSTNAME}:${PD_ENGINE_PRIVATE_PORT_LDAPS}" -q -t 30 && break
 done
-echo "PingDirectory - ${PD_ENGINE_PRIVATE_HOSTNAME}:${LDAPS_PORT} appears available"
+echo "PingDirectory - ${PD_ENGINE_PRIVATE_HOSTNAME}:${PD_ENGINE_PRIVATE_PORT_LDAPS} appears available"
 sleep 2
 
 #
