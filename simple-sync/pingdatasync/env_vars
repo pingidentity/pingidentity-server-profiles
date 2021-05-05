@@ -1,7 +1,7 @@
 # .suppress-container-warning
 #
 # NOTICE: Settings in this file will override values set at the
-#         image or orchestraton layers of the container.  Examples
+#         image or orchestration layers of the container.  Examples
 #         include variables that are specific to this server profile.
 #
 # Options include:
@@ -15,3 +15,4 @@
 #
 
 export PD_ENGINE_PRIVATE_HOSTNAME=${PD_ENGINE_PRIVATE_HOSTNAME:=pingdirectory}
+export PD_ENGINE_PRIVATE_PORT_LDAPS=${PD_ENGINE_PRIVATE_PORT_LDAPS:-$LDAPS_PORT}
