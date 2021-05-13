@@ -1486,6 +1486,7 @@
                 "allowedOrigins": [
                     "https://localhost",
                     "https://${PF_ENGINE_PUBLIC_HOSTNAME}:${PF_ENGINE_PUBLIC_PORT_HTTPS}"
+                    "https://${PDA_ENGINE_PUBLIC_HOSTNAME}:${PDA_ENGINE_PUBLIC_PORT_HTTPS}"
                 ],
                 "allowUnidentifiedClientExtensionGrants": false,
                 "devicePollingInterval": 5,
