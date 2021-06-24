@@ -8,6 +8,13 @@ spring.datasource.password=${MYSQL_PASSWORD}
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 server.port=${PING_CENTRAL_SERVER_PORT}
 #pingcentral.proxied=false
+
+# Trusted CA certificates are managed through PingCentral UI or API. CA certificates
+# within a trust store for earlier versions will be imported into PingCentral database
+# during upgrade. If upgrading docker from previous versions to 1.8 and later versions, still specify the path to the trust store below as well as the password.
+# To add additional trusted CA certificates please refer to PingCentral
+# documentation.
+
 server.ssl.trust-any=${PING_CENTRAL_BLIND_TRUST}
 server.ssl.https.verify-hostname=${PING_CENTRAL_VERIFY_HOSTNAME}
 # When a trust store is configured below, by default certificate chain resolution is delegated to the system truststore
