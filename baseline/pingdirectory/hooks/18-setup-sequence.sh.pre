@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+mv ${BASE}/liveness.sh ${BASE}/liveness.sh.orig
+cp ${BASE}/readiness.sh ${BASE}/liveness.sh
