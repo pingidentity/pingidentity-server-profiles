@@ -40,7 +40,7 @@ dsconfig create-topology-admin-user \
   --set "first-name:Consent" \
   --set inherit-default-root-privileges:false \
   --set "last-name:Internal Service Account" \
-  --set password:rootpassword \
+  --set password:ORLEANS-underpay-wether-blend \
   --set privilege:bypass-acl \
   --set privilege:config-read
   
