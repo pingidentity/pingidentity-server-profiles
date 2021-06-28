@@ -18,12 +18,6 @@
     </service-point>
 
     <service-point id="InterRequestStateMgmt" interface="org.sourceid.saml20.service.InterRequestStateMgmt">
-      <!--
-        Supported classes are
-            org.sourceid.saml20.service.impl.proxy.InterRequestStateMgmtProxy
-            org.sourceid.saml20.service.impl.grouprpc.InterRequestStateMgmtGroupRpcImpl
-            org.sourceid.saml20.service.impl.localmemory.InterReqStateMgmtMapImpl
-      -->
       <create-instance class="org.sourceid.saml20.service.impl.proxy.InterRequestStateMgmtProxy" model="primitive"/>
     </service-point>
 
@@ -36,63 +30,28 @@
     </service-point>
 
     <service-point id="AccountLockingService" interface="org.sourceid.saml20.service.impl.proxy.LockingServiceFactory">
-      <!--
-        Supported classes are
-            org.sourceid.saml20.service.impl.proxy.AccountLockingServiceProxy
-            org.sourceid.saml20.service.impl.grouprpc.AccountLockingServiceGroupRpcImpl (should only be used for engine nodes, not the admin console)
-            org.sourceid.saml20.service.impl.localmemory.AccountLockingServiceInMemoryImpl
-      -->
       <create-instance class="org.sourceid.saml20.service.impl.proxy.AccountLockingServiceProxy" model="primitive"/>
     </service-point>
 
-    <!-- Crypto provider -->
     <service-point id="JCEManager" interface="com.pingidentity.crypto.JCEManager">
          <invoke-factory>
-             <!--
-                 Supported classes are
-                     com.pingidentity.crypto.SunJCEManager         : Use this service-point if you are using default certificate storage
-                     com.pingidentity.crypto.LunaJCEManager        : Use this service-point element if you are using the SafeNet Luna SA HSM to store certs
-                     com.pingidentity.crypto.NcipherJCEManager     : Use this service-point element if you are using the Thales nShield Connect HSM to store certs
-                     com.pingidentity.crypto.AWSCloudHSMJCEManager : Use this service-point element if you are using the AWS Cloud HSM (not classic) to store certs
-                     com.pingidentity.crypto.BCFIPSJCEManager      : Use this service-point element if you are using the Bouncy Castle FIPS provider to store certs
-             -->
-             <construct class="com.pingidentity.crypto.SunJCEManager"/>
+             <construct class="com.pingidentity.crypto.BCFIPSJCEManager"/>
          </invoke-factory>
      </service-point>
 
     <service-point id="CertificateService" interface="com.pingidentity.crypto.CertificateService">
          <invoke-factory model="autoreloadable">
-             <!--
-                 Supported classes are
-                     com.pingidentity.crypto.CertificateServiceImpl            : Use this service-point if you are using default certificate storage
-                     com.pingidentity.crypto.LunaCertificateServiceImpl        : Use this service-point element if you are using the SafeNet Luna SA HSM to store certs
-                     com.pingidentity.crypto.NcipherCertificateServiceImpl     : Use this service-point element if you are using the Thales nShield Connect HSM to store certs
-                     com.pingidentity.crypto.AWSCloudHSMCertificateServiceImpl : Use this service-point element if you are using the AWS Cloud HSM (not classic) to store certs
-                     com.pingidentity.crypto.BCFIPSCertificateServiceImpl      : Use this service-point element if you are using the Bouncy Castle FIPS provider to store certs
-             -->
-             <construct class="com.pingidentity.crypto.CertificateServiceImpl"/>
+             <construct class="com.pingidentity.crypto.BCFIPSCertificateServiceImpl"/>
          </invoke-factory>
      </service-point>
 
     <!-- Service/adapter for storage of account linking -->
     <service-point id="AccountLinkingService" interface="org.sourceid.saml20.service.AccountLinkingService">
-        <!--
-                Supported classes are
-                        org.sourceid.saml20.service.impl.AccountLinkingServiceDBImpl    : Use this service-point for a database implementation
-                        org.sourceid.saml20.service.impl.AccountLinkingServiceLDAPImpl  : Use this service-point for an LDAP implementation
-        -->
         <create-instance model="autoreloadable" class="org.sourceid.saml20.service.impl.AccountLinkingServiceLDAPImpl"/>
     </service-point>
 
     <!-- Service for storage of access grants -->
     <service-point id="AccessGrantManager" interface="com.pingidentity.sdk.accessgrant.AccessGrantManager">
-        <!--
-                Supported classes are
-                        org.sourceid.oauth20.token.AccessGrantManagerJdbcImpl               : Use this service-point for a Jdbc implementation
-                        org.sourceid.oauth20.token.AccessGrantManagerLDAPADImpl             : Use this service-point for a Microsoft Active Directory implementation
-                        org.sourceid.oauth20.token.AccessGrantManagerLDAPOracleImpl         : Use this service-point for a Oracle Directory Server Enterprise Edition implementation
-                        org.sourceid.oauth20.token.AccessGrantManagerLDAPPingDirectoryImpl  : Use this service-point for a PingDirectory implementation
-        -->
         <create-instance model="autoreloadable" class="org.sourceid.oauth20.token.AccessGrantManagerLDAPPingDirectoryImpl"/>
     </service-point>
 
@@ -145,13 +104,6 @@
     <!-- Service for storing OAuth client configuration. -->
     <service-point id="ClientManager" interface="org.sourceid.oauth20.domain.ClientManager">
         <invoke-factory model="autoreloadable">
-            <!--
-                Supported classes are
-                        org.sourceid.oauth20.domain.ClientManagerXmlFileImpl            : Use this service-point for a XML implementation.
-                        org.sourceid.oauth20.domain.ClientManagerJdbcImpl               : Use this service-point for a Jdbc implementation.
-                        org.sourceid.oauth20.domain.ClientManagerLdapImpl               : Use this service-point for a LDAP implementation.
-                        org.sourceid.oauth20.domain.ClientManagerGenericImpl            : Use this service-point if you have specified a custom ClientStorageManager implementation above.
-            -->
             <construct class="org.sourceid.oauth20.domain.ClientManagerLdapImpl"/>
         </invoke-factory>
     </service-point>
@@ -159,11 +111,6 @@
     <!-- Service for storing Authentication Sessions. -->
     <service-point id="SessionStorageManager" interface="org.sourceid.saml20.service.session.data.SessionStorageManager">
         <invoke-factory>
-            <!--
-                Supported classes are
-                        org.sourceid.saml20.service.session.data.impl.SessionStorageManagerJdbcImpl : Use this service-point for a Jdbc implementation.
-                        org.sourceid.saml20.service.session.data.impl.SessionStorageManagerLdapImpl : Use this service-point for a LDAP implementation.
-            -->
             <construct class="org.sourceid.saml20.service.session.data.impl.SessionStorageManagerLdapImpl"/>
         </invoke-factory>
     </service-point>
