@@ -1485,8 +1485,8 @@
                 "rollRefreshTokenValues": false,
                 "allowedOrigins": [
                     "https://localhost",
-                    "https://${PF_ENGINE_PUBLIC_HOSTNAME}:${PF_ENGINE_PUBLIC_PORT_HTTPS}",
-                    "https://${PD_DELEGATOR_PUBLIC_HOSTNAME}:${PD_DELEGATOR_PUBLIC_PORT_HTTPS}"
+                    "https://${PF_BASE_URL}",
+                    "https://${PD_DELEGATOR_URL}"
                 ],
                 "allowUnidentifiedClientExtensionGrants": false,
                 "devicePollingInterval": 5,
