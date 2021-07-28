@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-## This works to set PF_BASE_URL for local/remote environments. 
+## This works to set PF_ENGINE_BASE_URL for local/remote environments. 
 # shellcheck source=./pingcommon.lib.sh
 . "${HOOKS_DIR}/pingcommon.lib.sh"
 
@@ -8,16 +8,20 @@
 #   If NOT Found, then we are STARTing for the first time
 #   If Found,     then we are RESTARTing
 #
-if test -z "${PF_BASE_URL}"; then
-  PF_BASE_URL="${PF_ENGINE_PUBLIC_HOSTNAME}:${PF_ENGINE_PUBLIC_PORT_HTTPS}"
-  PF_BASE_URL="${PF_BASE_URL%%:443}"
+if test -z "${PF_ENGINE_BASE_URL}"; then
+  PF_ENGINE_BASE_URL="${PF_ENGINE_PUBLIC_HOSTNAME}:${PF_ENGINE_PUBLIC_PORT_HTTPS}"
+  PF_ENGINE_BASE_URL="${PF_ENGINE_BASE_URL%%:443}"
 fi
 if test -z "${PD_DELEGATOR_URL}"; then
   PD_DELEGATOR_URL="${PD_DELEGATOR_PUBLIC_HOSTNAME}:${PD_DELEGATOR_PUBLIC_PORT_HTTPS}"
   PD_DELEGATOR_URL="${PD_DELEGATOR_URL%%:443}"
 fi
+if test -z "${PF_ADMIN_PUBLIC_BASEURL}"; then
+  PF_ADMIN_PUBLIC_BASEURL="${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}"
+  PF_ADMIN_PUBLIC_BASEURL="${PF_ADMIN_PUBLIC_BASEURL%%:443}"
+fi
 
-echo_vars PF_BASE_URL PD_DELEGATOR_URL
+echo_vars PF_ENGINE_BASE_URL PD_DELEGATOR_URL PF_ADMIN_PUBLIC_BASEURL
 echo_bar
 
-export_container_env PF_BASE_URL PD_DELEGATOR_URL
+export_container_env PF_ENGINE_BASE_URL PD_DELEGATOR_URL
