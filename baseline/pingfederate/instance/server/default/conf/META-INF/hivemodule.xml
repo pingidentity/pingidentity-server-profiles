@@ -46,7 +46,7 @@
     </service-point>
 
     <!-- Crypto provider -->
-    <service-point id="JCEManager" interface="com.pingidentity.crypto.BCFIPSJCEManager">
+    <service-point id="JCEManager" interface="com.pingidentity.crypto.JCEManager">
          <invoke-factory>
              <!--
                  Supported classes are
@@ -61,7 +61,7 @@
          </invoke-factory>
      </service-point>
 
-    <service-point id="CertificateService" interface="com.pingidentity.crypto.BCFIPSCertificateServiceImpl">
+    <service-point id="CertificateService" interface="com.pingidentity.crypto.CertificateService">
          <invoke-factory model="autoreloadable">
              <!--
                  Supported classes are
