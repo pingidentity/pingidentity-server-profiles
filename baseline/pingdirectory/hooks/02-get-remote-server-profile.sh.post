@@ -8,7 +8,6 @@ _localIp="$(hostname -i)"
 echo "INFO: var K8S_POD_HOSTNAME_SUFFIX found, waiting for ${_HOSTNAME}${K8S_POD_HOSTNAME_SUFFIX} dns propagation"
 count=0
 while test $count -lt 3 ; do
-  # get just ip address from route53
   _remoteIp="$(getent ahosts "${_HOSTNAME}${K8S_POD_HOSTNAME_SUFFIX}" | cut -d" " -f1 | sort -u)"
   if test $? -eq 0 ; then
     test "${_remoteIp}" = "${_localIp}" && count=$(( count+1 ))
