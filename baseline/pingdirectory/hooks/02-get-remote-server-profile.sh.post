@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+${VERBOSE} && set -x
+
+test -z "${K8S_POD_HOSTNAME_SUFFIX}" && exit 0
+_HOSTNAME="$(hostname)"
+_localIp="$(hostname -i)"
+echo "INFO: var K8S_POD_HOSTNAME_SUFFIX found, waiting for ${_HOSTNAME}${K8S_POD_HOSTNAME_SUFFIX} dns propagation"
+count=0
+while test $count -lt 3 ; do
+  _remoteIp="$(getent ahosts "${_HOSTNAME}${K8S_POD_HOSTNAME_SUFFIX}" | cut -d" " -f1 | sort -u)"
+  if test $? -eq 0 ; then
+    test "${_remoteIp}" = "${_localIp}" && count=$(( count+1 ))
+  else
+    count=0
+  fi
+  sleep 2
+done 
+echo "INFO: successfully verified ${_HOSTNAME}${K8S_POD_HOSTNAME_SUFFIX} matches pod ip - ${_localIp} "
