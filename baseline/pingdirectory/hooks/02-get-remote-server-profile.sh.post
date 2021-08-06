@@ -1,10 +1,12 @@
 #!/usr/bin/env sh
 
+${VERBOSE} && set -x
+
 test -z "${K8S_POD_HOSTNAME_SUFFIX}" && exit 0
-echo "INFO: var K8S_POD_HOSTNAME_SUFFIX found, waiting for ${_HOSTNAME}${K8S_POD_HOSTNAME_SUFFIX} dns propagation"
 _HOSTNAME="$(hostname)"
-count=0
 _localIp="$(hostname -i)"
+echo "INFO: var K8S_POD_HOSTNAME_SUFFIX found, waiting for ${_HOSTNAME}${K8S_POD_HOSTNAME_SUFFIX} dns propagation"
+count=0
 while test $count -lt 3 ; do
   # get just ip address from route53
   _remoteIp="$(getent ahosts "${_HOSTNAME}${K8S_POD_HOSTNAME_SUFFIX}" | cut -d" " -f1 | sort -u)"
