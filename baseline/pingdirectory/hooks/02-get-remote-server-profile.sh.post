@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+
+test -z "${K8S_POD_HOSTNAME_SUFFIX}" && exit 0
+echo "INFO: var K8S_POD_HOSTNAME_SUFFIX found, waiting for ${_HOSTNAME}${K8S_POD_HOSTNAME_SUFFIX} dns propagation"
+_HOSTNAME="$(hostname)"
+count=0
+_localIp="$(hostname -i)"
+while test $count -lt 3 ; do
+  # get just ip address from route53
+  _remoteIp="$(getent ahosts "${_HOSTNAME}${K8S_POD_HOSTNAME_SUFFIX}" | cut -d" " -f1 | sort -u)"
+  if test $? -eq 0 ; then
+    test "${_remoteIp}" = "${_localIp}" && count=$(( count+1 ))
+  else
+    count=0
+  fi
+  sleep 2
+done 
+echo "INFO: successfully verified ${_HOSTNAME}${K8S_POD_HOSTNAME_SUFFIX} matches pod ip"
