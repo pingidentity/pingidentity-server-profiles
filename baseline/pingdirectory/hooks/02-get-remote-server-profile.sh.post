@@ -17,4 +17,4 @@ while test $count -lt 3 ; do
   fi
   sleep 2
 done 
-echo "INFO: successfully verified ${_HOSTNAME}${K8S_POD_HOSTNAME_SUFFIX} matches pod ip"
+echo "INFO: successfully verified ${_HOSTNAME}${K8S_POD_HOSTNAME_SUFFIX} matches pod ip - ${_localIp} "
