@@ -57,7 +57,7 @@
       "sessionTimeoutInMinutes": 240
     },
     "adminConfig": {
-      "hostPort": "pingaccess-admin:9090",
+      "hostPort": "pingaccess:9090",
       "httpProxyId": 0,
       "httpsProxyId": 0
     },
@@ -324,7 +324,7 @@
       "useProxy": false,
       "auditLevel": "OFF",
       "basePath": "",
-      "host": "tim-pingfederate-admin",
+      "host": "pingfederate-admin",
       "port": 9999
     },
     "pingFederateOAuth": {
@@ -545,20 +545,18 @@
         "id": 3,
         "name": "pingdirectory_rest_api",
         "targets": [
-          "pingdirectory:443"
+          "pingdirectory:1443"
         ],
         "secure": true,
         "trustedCertificateGroupId": 2,
-        "sendPaCookie": false,
-        "useTargetHostHeader": true,
+        "sendPaCookie": true,
+        "useTargetHostHeader": false,
         "keepAliveTimeout": 0,
         "maxConnections": -1,
         "maxWebSocketConnections": -1,
-        "siteAuthenticatorIds": [
-          1
-        ],
-        "skipHostnameVerification": true,
-        "expectedHostname": null,
+        "siteAuthenticatorIds": [],
+        "skipHostnameVerification": false,
+        "expectedHostname": "",
         "availabilityProfileId": 1,
         "loadBalancingStrategyId": 0,
         "useProxy": false
