@@ -375,7 +375,7 @@
     },
     "pingFederateRuntime": {
       "description": null,
-      "issuer": "https://pingfederate-engine:9031",
+      "issuer": "https://pingfederate:9031",
       "trustedCertificateGroupId": 2,
       "useProxy": false,
       "useSlo": false,
@@ -550,7 +550,7 @@
         "id": 2,
         "name": "pingfederate_docker",
         "targets": [
-          "pingfederate-engine:9031"
+          "pingfederate:9031"
         ],
         "secure": true,
         "trustedCertificateGroupId": 2,
