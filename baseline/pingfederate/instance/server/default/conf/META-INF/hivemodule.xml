@@ -62,7 +62,7 @@
      </service-point>
 
     <service-point id="CertificateService" interface="com.pingidentity.crypto.CertificateService">
-         <invoke-factory model="autoreloadable">
+         <invoke-factory>
              <!--
                  Supported classes are
                      com.pingidentity.crypto.CertificateServiceImpl            : Use this service-point if you are using default certificate storage
