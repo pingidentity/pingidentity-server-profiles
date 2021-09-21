@@ -1061,7 +1061,6 @@
             "exclusiveScopeGroups": [],
             "authorizationCodeTimeout": 60,
             "authorizationCodeEntropy": 30,
-            "disallowPlainPKCE": false,
             "persistentGrantLifetime": -1,
             "persistentGrantLifetimeUnit": "DAYS",
             "persistentGrantIdleTimeout": 30,
