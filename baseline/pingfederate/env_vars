@@ -13,8 +13,6 @@
 #   export NAME=${NAME:-OTHER_VAR}       # Sets ot value of OTHER_VAR variable
 # 
 
-export PF_LOG_LEVEL=${PF_LOG_LEVEL:=INFO}
-
 ## Hostnames used in this profile and to be aware of
 export PF_ADMIN_PUBLIC_HOSTNAME=${PF_ADMIN_PUBLIC_HOSTNAME:=localhost}
 # PF_ADMIN_PUBLIC_BASEURL - set in 03-build-run-plan.sh.post
