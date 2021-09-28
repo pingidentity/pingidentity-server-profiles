@@ -12,5 +12,3 @@
 #   export NAME=${NAME:=myDefaultValue}  # Sets to string of "myDefaultValue"
 #   export NAME=${NAME:-OTHER_VAR}       # Sets ot value of OTHER_VAR variable
 # 
-
-export PF_LOG_LEVEL=${PF_LOG_LEVEL:=INFO}
