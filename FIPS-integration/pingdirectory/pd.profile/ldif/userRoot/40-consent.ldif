@@ -1,0 +1,11 @@
+
+dn: uid=Consent Admin,ou=people,${USER_BASE_DN}
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+uid: Consent Admin
+userPassword: password
+cn: Consent Admin
+sn: Admin
+givenName: Consent

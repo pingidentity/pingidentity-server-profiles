@@ -1,0 +1,58 @@
+
+dsconfig create-consent-definition \
+    --definition-name email  \
+    --set 'display-name:Email Address'  \
+    --set 'description:Share your email address' 
+
+dsconfig create-consent-definition-localization \
+    --definition-name email  \
+    --localization-name en-US  \
+    --set version:1.0  \
+    --set 'title-text:Share your email address'  \
+    --set 'data-text:Your email address'  \
+    --set 'purpose-text:Join Mailing List' 
+
+dsconfig set-http-servlet-extension-prop \
+    --extension-name 'Directory REST API'  \
+    --set access-token-scope:ds 
+
+dsconfig create-identity-mapper \
+    --mapper-name user-id-identity-mapper  \
+    --type exact-match  \
+    --set enabled:true  \
+    --set match-attribute:cn  \
+    --set match-attribute:entryUUID  \
+    --set match-attribute:uid  \
+    --set match-base-dn:cn=config  \
+    --set match-base-dn:ou=people,${USER_BASE_DN} 
+
+dsconfig create-access-token-validator \
+    --validator-name mock-access-token-validator  \
+    --type mock  \
+    --set identity-mapper:user-id-identity-mapper  \
+    --set enabled:true  \
+    --set evaluation-order-index:1 
+
+dsconfig create-topology-admin-user \
+  --user-name "Consent Internal Service Account" \
+  --set "description:Consent API internal service account" \
+  --set "alternate-bind-dn:cn=consent service account" \
+  --set "first-name:Consent" \
+  --set inherit-default-root-privileges:false \
+  --set "last-name:Internal Service Account" \
+  --set password:ORLEANS-underpay-wether-blend \
+  --set privilege:bypass-acl \
+  --set privilege:config-read
+  
+dsconfig set-consent-service-prop \
+    --set enabled:true  \
+    --set base-dn:ou=Consents,${USER_BASE_DN}  \
+    --set 'bind-dn:cn=consent service account'  \
+    --set consent-record-identity-mapper:user-id-identity-mapper  \
+    --set 'service-account-dn:uid=Consent Admin,ou=people,${USER_BASE_DN}'  \
+    --set unprivileged-consent-scope:consent  \
+    --set privileged-consent-scope:consent_admin 
+
+dsconfig set-http-servlet-extension-prop \
+    --extension-name Consent  \
+    --set identity-mapper:user-id-identity-mapper 
