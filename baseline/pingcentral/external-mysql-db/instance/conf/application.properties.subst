@@ -25,6 +25,13 @@ server.ssl.https.verify-hostname=${PING_CENTRAL_VERIFY_HOSTNAME}
 # The password required to access the keystore file.
 #server.ssl.trust-store-password=<TRUSTSTORE_PASSWORD>
 #
+
+# Enable the following property to add support for OGNL expressions for SAML applications that are managed within PingCentral.
+# This will require that OGNL expression support is enabled in PingFederate. This is only advised if you fully understand the security
+# implications of allowing OGNL within PingCentral and PingFederate and accept the risk that it brings.
+# To mitigate the risk, only Administrators will be permitted to write and manage OGNL statements for Application Owners.
+#pingcentral.expressions.enabled=true
+
 # PingCentral SSO Configuration properties.
 # The following are required properties when enabling OpenID Connect (OIDC).
 #
