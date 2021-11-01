@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:OAuthConfig enableOAuth="true" authzCodeLength="30" authzCodeTimeout="60" rollRefreshTokens="false" rollingInterval="0" refreshTokenLength="42" atmIdForOAuthGrantManagement="" scopeForOAuthGrantManagement="" globalPersistentGrantExpirationTime="-1" globalPersistentGrantExpirationTimeUnit="d" globalPersistentGrantIdleTimeout="30" globalPersistentGrantIdleTimeoutTimeUnit="d" tokenEndpointBaseUrl="" userAuthzUrl="" registeredAuthzPath="" pendingAuthzTimeout="600" bypassActivationCodeConfirmation="false" devicePollingInterval="5" authzConsentSetting="INTERNAL" xmlns:urn="urn:pingidentity.com:pf:oauth:conf">
+    <urn:ReuseExistingPersistentGrantForGrant>implicit</urn:ReuseExistingPersistentGrantForGrant>
+    <urn:AllowAutoAuthzForExistingPersistentGrant>implicit</urn:AllowAutoAuthzForExistingPersistentGrant>
+</urn:OAuthConfig>
