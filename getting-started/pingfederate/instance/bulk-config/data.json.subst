@@ -218,7 +218,6 @@
             "items": [{
                 "password": "${keyPairs_sslServer_items_vtcm75en83g6v1r87ytm7lihi_vtcm75en83g6v1r87ytm7lihi_password}",
                 "fileData": "${keyPairs_sslServer_items_vtcm75en83g6v1r87ytm7lihi_vtcm75en83g6v1r87ytm7lihi_fileData}",
-                "format": "PKCS12",
                 "id": "vtcm75en83g6v1r87ytm7lihi"
             }],
             "resourceType": "/keyPairs/sslServer"
