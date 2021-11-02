@@ -1,0 +1,567 @@
+{
+    "metadata": {"pfVersion": "10.1.2.0"},
+    "operations": [
+        {
+            "operationType": "SAVE",
+            "subResource": "com.pingidentity.crypto.LunaJCEManager",
+            "items": [{
+                "mapValue": {
+                    "TLS_RSA_WITH_AES_128_CBC_SHA256": "",
+                    "TLS_RSA_WITH_AES_256_CBC_SHA256": "",
+                    "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384": "",
+                    "TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA": "",
+                    "TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384": "",
+                    "TLS_RSA_WITH_AES_128_GCM_SHA256": "",
+                    "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256": "",
+                    "TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256": "",
+                    "TLS_EMPTY_RENEGOTIATION_INFO_SCSV": "",
+                    "TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384": "",
+                    "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA": "",
+                    "TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256": "",
+                    "TLS_RSA_WITH_AES_256_CBC_SHA": "",
+                    "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256": "",
+                    "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384": "",
+                    "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256": "",
+                    "TLS_ECDH_RSA_WITH_AES_128_CBC_SHA": "",
+                    "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256": "",
+                    "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA": "",
+                    "TLS_ECDH_RSA_WITH_AES_256_CBC_SHA": "",
+                    "TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA": "",
+                    "TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256": "",
+                    "TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256": "",
+                    "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA": ""
+                },
+                "id": "enabled-cipher-suites",
+                "type": "MAP"
+            }],
+            "resourceType": "/configStore"
+        },
+        {
+            "operationType": "SAVE",
+            "subResource": "com.pingidentity.crypto.NcipherJCEManager",
+            "items": [{
+                "mapValue": {
+                    "TLS_RSA_WITH_AES_128_CBC_SHA256": "",
+                    "TLS_RSA_WITH_AES_256_CBC_SHA256": "",
+                    "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384": "",
+                    "TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA": "",
+                    "TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384": "",
+                    "TLS_RSA_WITH_AES_128_GCM_SHA256": "",
+                    "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256": "",
+                    "TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256": "",
+                    "TLS_EMPTY_RENEGOTIATION_INFO_SCSV": "",
+                    "TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384": "",
+                    "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA": "",
+                    "TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256": "",
+                    "TLS_RSA_WITH_AES_256_CBC_SHA": "",
+                    "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256": "",
+                    "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384": "",
+                    "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256": "",
+                    "TLS_ECDH_RSA_WITH_AES_128_CBC_SHA": "",
+                    "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256": "",
+                    "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA": "",
+                    "TLS_ECDH_RSA_WITH_AES_256_CBC_SHA": "",
+                    "TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA": "",
+                    "TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256": "",
+                    "TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256": "",
+                    "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA": ""
+                },
+                "id": "enabled-cipher-suites",
+                "type": "MAP"
+            }],
+            "resourceType": "/configStore"
+        },
+        {
+            "operationType": "SAVE",
+            "subResource": "com.pingidentity.crypto.SunJCEManager",
+            "items": [{
+                "mapValue": {
+                    "TLS_RSA_WITH_AES_128_CBC_SHA256": "",
+                    "TLS_AES_128_GCM_SHA256": "",
+                    "TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA": "",
+                    "TLS_RSA_WITH_AES_128_GCM_SHA256": "",
+                    "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256": "",
+                    "TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256": "",
+                    "TLS_AES_256_GCM_SHA384": "",
+                    "TLS_EMPTY_RENEGOTIATION_INFO_SCSV": "",
+                    "TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256": "",
+                    "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256": "",
+                    "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256": "",
+                    "TLS_ECDH_RSA_WITH_AES_128_CBC_SHA": "",
+                    "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256": "",
+                    "TLS_CHACHA20_POLY1305_SHA256": "",
+                    "TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256": "",
+                    "TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256": "",
+                    "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA": ""
+                },
+                "id": "enabled-cipher-suites",
+                "type": "MAP"
+            }],
+            "resourceType": "/configStore"
+        },
+        {
+            "itemIds": ["client_id"],
+            "operationType": "DELETE",
+            "subResource": "http-request-parameter-validation",
+            "resourceType": "/configStore"
+        },
+        {
+            "operationType": "SAVE",
+            "subResource": "org.sourceid.common.ExpressionManager",
+            "items": [{
+                "stringValue": "",
+                "id": "evaluateExpressions",
+                "type": "STRING"
+            }],
+            "resourceType": "/configStore"
+        },
+        {
+            "operationType": "SAVE",
+            "subResource": "org.sourceid.oauth20.domain.ClientManagerXmlFileImpl",
+            "items": [{
+                "stringValue": "true",
+                "id": "MigrationComplete8.4",
+                "type": "STRING"
+            }],
+            "resourceType": "/configStore"
+        },
+        {
+            "operationType": "SAVE",
+            "subResource": "org.sourceid.saml20.domain.mgmt.AdminUserManager",
+            "items": [{
+                "stringValue": "true",
+                "id": "isEaRoleUpdated",
+                "type": "STRING"
+            }],
+            "resourceType": "/configStore"
+        },
+        {
+            "operationType": "SAVE",
+            "subResource": "org.sourceid.saml20.domain.mgmt.impl.PartnerCertMigrator",
+            "items": [{
+                "stringValue": "true",
+                "id": "partner.cert.migration.complete",
+                "type": "STRING"
+            }],
+            "resourceType": "/configStore"
+        },
+        {
+            "operationType": "SAVE",
+            "subResource": "org.sourceid.saml20.metadata.partner.impl.MetadataDirectoryHybridDbImpl",
+            "items": [{
+                "stringValue": "true",
+                "id": "MigrationComplete8.4",
+                "type": "STRING"
+            }],
+            "resourceType": "/configStore"
+        },
+        {
+            "operationType": "SAVE",
+            "subResource": "org.sourceid.saml20.service.impl.PseudonymServiceSha1Impl",
+            "items": [{
+                "stringValue": "VXBlGWDvv70=",
+                "id": "entropy",
+                "type": "STRING"
+            }],
+            "resourceType": "/configStore"
+        },
+        {
+            "itemIds": ["EmptySessionReplayRetentionSecs"],
+            "operationType": "DELETE",
+            "subResource": "org.sourceid.saml20.service.session.StoredSessionServiceImpl",
+            "resourceType": "/configStore"
+        },
+        {
+            "itemIds": [
+                "browser-id-cookie-httponly-flag",
+                "browser-id-cookie-secure-flag"
+            ],
+            "operationType": "DELETE",
+            "subResource": "org.sourceid.servlet.filter.SimultaneousAuthnRequestCheckingFilter",
+            "resourceType": "/configStore"
+        },
+        {
+            "itemIds": ["AddApplicationUrl"],
+            "operationType": "DELETE",
+            "subResource": "p1-admin-service-config",
+            "resourceType": "/configStore"
+        },
+        {
+            "itemIds": ["cookie-format"],
+            "operationType": "DELETE",
+            "subResource": "persistent-session-cookie-config",
+            "resourceType": "/configStore"
+        },
+        {
+            "operationType": "SAVE",
+            "subResource": "response-header-admin-config",
+            "items": [{
+                "mapValue": {
+                    "include-patterns": "*",
+                    "value": "DENY"
+                },
+                "id": "X-Frame-Options",
+                "type": "MAP"
+            }],
+            "resourceType": "/configStore"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{
+                "accepted": true,
+                "licenseAgreementUrl": "https://${PF_ADMIN_PUBLIC_HOSTNAME}/pf-admin-api/license-agreement"
+            }],
+            "resourceType": "/license/agreement"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{
+                "password": "${keyPairs_sslServer_items_vtcm75en83g6v1r87ytm7lihi_vtcm75en83g6v1r87ytm7lihi_password}",
+                "fileData": "${keyPairs_sslServer_items_vtcm75en83g6v1r87ytm7lihi_vtcm75en83g6v1r87ytm7lihi_fileData}",
+                "id": "vtcm75en83g6v1r87ytm7lihi"
+            }],
+            "resourceType": "/keyPairs/sslServer"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{
+                "activeRuntimeServerCerts": [{
+                    "location": "https://localhost:-1/pf-admin-api/v1/keyPairs/sslServer/vtcm75en83g6v1r87ytm7lihi",
+                    "id": "vtcm75en83g6v1r87ytm7lihi"
+                }],
+                "activeAdminConsoleCerts": [{
+                    "location": "https://localhost:-1/pf-admin-api/v1/keyPairs/sslServer/vtcm75en83g6v1r87ytm7lihi",
+                    "id": "vtcm75en83g6v1r87ytm7lihi"
+                }],
+                "adminConsoleCertRef": {
+                    "location": "https://localhost:-1/pf-admin-api/v1/keyPairs/sslServer/vtcm75en83g6v1r87ytm7lihi",
+                    "id": "vtcm75en83g6v1r87ytm7lihi"
+                },
+                "runtimeServerCertRef": {
+                    "location": "https://localhost:-1/pf-admin-api/v1/keyPairs/sslServer/vtcm75en83g6v1r87ytm7lihi",
+                    "id": "vtcm75en83g6v1r87ytm7lihi"
+                }
+            }],
+            "resourceType": "/keyPairs/sslServer/settings"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{"staticJwksEnabled": false}],
+            "resourceType": "/keyPairs/oauthOpenIdConnect"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{
+                "maskAttributeValues": false,
+                "connectionUrlTags": [{
+                    "connectionUrl": "jdbc:hsqldb:${pf.server.data.dir}${/}hypersonic${/}ProvisionerDefaultDB;hsqldb.lock_file=false",
+                    "defaultSource": true
+                }],
+                "password": "${dataStores_items_ProvisionerDS_ProvisionerDS_password}",
+                "allowMultiValueAttributes": false,
+                "driverClass": "org.hsqldb.jdbcDriver",
+                "name": "ProvisionerDS (sa)",
+                "connectionUrl": "jdbc:hsqldb:${pf.server.data.dir}${/}hypersonic${/}ProvisionerDefaultDB;hsqldb.lock_file=false",
+                "id": "ProvisionerDS",
+                "type": "JDBC",
+                "userName": "sa"
+            }],
+            "resourceType": "/dataStores"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{}],
+            "resourceType": "/notificationPublishers/settings"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{
+                "federationInfo": {
+                    "saml2EntityId": "evaluation",
+                    "saml1xIssuerId": "",
+                    "wsfedRealm": "",
+                    "baseUrl": "https://localhost:9031",
+                    "saml1xSourceId": ""
+                },
+                "contactInfo": {},
+                "rolesAndProtocols": {
+                    "oauthRole": {
+                        "enableOpenIdConnect": true,
+                        "enableOauth": true
+                    },
+                    "enableIdpDiscovery": true,
+                    "spRole": {
+                        "enableSaml11": true,
+                        "enableWsFed": true,
+                        "enable": true,
+                        "enableWsTrust": true,
+                        "saml20Profile": {
+                            "enableXASP": true,
+                            "enable": true
+                        },
+                        "enableInboundProvisioning": true,
+                        "enableOpenIDConnect": true,
+                        "enableSaml10": true
+                    },
+                    "idpRole": {
+                        "enableSaml11": true,
+                        "enableWsFed": true,
+                        "enable": true,
+                        "enableWsTrust": true,
+                        "saml20Profile": {"enable": true},
+                        "enableOutboundProvisioning": true,
+                        "enableSaml10": true
+                    }
+                },
+                "notifications": {"notifyAdminUserPasswordChanges": false}
+            }],
+            "resourceType": "/serverSettings"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{
+                "current": {
+                    "keyData": "${serverSettings_systemKeys_items_current_keyData}",
+                    "creationDate": "2019-03-01T21:13:15.312Z"
+                },
+                "pending": {
+                    "keyData": "${serverSettings_systemKeys_items_pending_keyData}",
+                    "creationDate": "2019-03-01T21:13:15.314Z"
+                }
+            }],
+            "resourceType": "/serverSettings/systemKeys"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{
+                "dataStoreRef": {
+                    "location": "https://localhost:-1/pf-admin-api/v1/dataStores/ProvisionerDS",
+                    "id": "ProvisionerDS"
+                },
+                "synchronizationFrequency": 60
+            }],
+            "resourceType": "/serverSettings/outboundProvisioning"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{
+                "password": "${PING_IDENTITY_PASSWORD}",
+                "roles": [
+                    "EXPRESSION_ADMINISTRATOR",
+                    "USER_ADMINISTRATOR",
+                    "ADMINISTRATOR",
+                    "CRYPTO_ADMINISTRATOR"
+                ],
+                "auditor": false,
+                "description": "Initial administrator user.",
+                "active": true,
+                "username": "Administrator"
+            }],
+            "resourceType": "/administrativeAccounts"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{"crlSettings": {
+                "nextRetryMinsWhenNextUpdateInPast": 60,
+                "verifyCrlSignature": true,
+                "nextRetryMinsWhenResolveFailed": 1440,
+                "treatNonRetrievableCrlAsRevoked": false
+            }}],
+            "resourceType": "/certificates/revocation/settings"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{"virtualHostNames": []}],
+            "resourceType": "/virtualHostNames"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{
+                "redirectValidationLocalSettings": {
+                    "enableTargetResourceValidationForSLO": true,
+                    "enableInErrorResourceValidation": true,
+                    "whiteList": [],
+                    "enableTargetResourceValidationForSSO": true,
+                    "enableTargetResourceValidationForIdpDiscovery": true
+                },
+                "redirectValidationPartnerSettings": {"enableWreplyValidationSLO": true}
+            }],
+            "resourceType": "/redirectValidation"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{"proxyTerminatesHttpsConns": false}],
+            "resourceType": "/incomingProxySettings"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{
+                "cacheDuration": 1440,
+                "reloadDelay": 1440
+            }],
+            "resourceType": "/protocolMetadata/lifetimeSettings"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{}],
+            "resourceType": "/protocolMetadata/signingSettings"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{}],
+            "resourceType": "/serviceAuthentication"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{}],
+            "resourceType": "/oauth/accessTokenManagers/settings"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{
+                "forceTcp": false,
+                "debugLogOutput": false
+            }],
+            "resourceType": "/kerberos/realms/settings"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{
+                "idpErrorMsg": "errorDetail.idpSsoFailure",
+                "confirmIdpSlo": false
+            }],
+            "resourceType": "/idp/defaultUrls"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{"confirmSlo": false}],
+            "resourceType": "/sp/defaultUrls"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{
+                "trackAdapterSessionsForLogout": false,
+                "sessionRevocationLifetime": 490,
+                "revokeUserSessionOnLogout": true
+            }],
+            "resourceType": "/session/settings"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{
+                "maxTimeoutMins": 480,
+                "idleTimeoutMins": 60
+            }],
+            "resourceType": "/session/applicationSessionPolicy"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{
+                "persistentSessions": false,
+                "maxTimeoutMins": 480,
+                "maxTimeoutDisplayUnit": "MINUTES",
+                "idleTimeoutMins": 60,
+                "idleTimeoutDisplayUnit": "MINUTES",
+                "enableSessions": false
+            }],
+            "resourceType": "/session/authenticationSessionPolicies/global"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{
+                "persistentGrantContract": {
+                    "coreAttributes": [
+                        {"name": "USER_KEY"},
+                        {"name": "USER_NAME"}
+                    ],
+                    "extendedAttributes": []
+                },
+                "scopeGroups": [],
+                "atmIdForOAuthGrantManagement": "",
+                "refreshRollingInterval": 0,
+                "tokenEndpointBaseUrl": "",
+                "trackUserSessionsForLogout": false,
+                "defaultScopeDescription": "",
+                "authorizationCodeEntropy": 30,
+                "persistentGrantIdleTimeout": 30,
+                "rollRefreshTokenValues": false,
+                "allowedOrigins": [],
+                "allowUnidentifiedClientExtensionGrants": false,
+                "devicePollingInterval": 5,
+                "persistentGrantIdleTimeoutTimeUnit": "DAYS",
+                "userAuthorizationUrl": "",
+                "pendingAuthorizationTimeout": 600,
+                "exclusiveScopeGroups": [],
+                "userAuthorizationConsentPageSetting": "INTERNAL",
+                "bypassActivationCodeConfirmation": false,
+                "persistentGrantReuseGrantTypes": ["IMPLICIT"],
+                "registeredAuthorizationPath": "",
+                "persistentGrantLifetime": -1,
+                "refreshTokenLength": 42,
+                "allowUnidentifiedClientROCreds": false,
+                "authorizationCodeTimeout": 60,
+                "persistentGrantLifetimeUnit": "DAYS",
+                "scopes": [],
+                "scopeForOAuthGrantManagement": "",
+                "exclusiveScopes": [],
+                "bypassAuthorizationForApprovedGrants": false
+            }],
+            "resourceType": "/oauth/authServerSettings"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{}],
+            "resourceType": "/oauth/cibaServerPolicy/settings"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{"sessionSettings": {
+                "sessionRevocationLifetime": 490,
+                "trackUserSessionsForLogout": false,
+                "revokeUserSessionOnLogout": true
+            }}],
+            "resourceType": "/oauth/openIdConnect/settings"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{}],
+            "resourceType": "/oauth/tokenExchange/processor/settings"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{}],
+            "resourceType": "/oauth/tokenExchange/generator/settings"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{"clientMetadata": []}],
+            "resourceType": "/oauth/clientSettings"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{
+                "apiEnabled": false,
+                "enableApiDescriptions": true
+            }],
+            "resourceType": "/authenticationApi/settings"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{
+                "defaultAuthenticationSources": [],
+                "failIfNoSelection": false,
+                "authnSelectionTrees": [],
+                "trackedHttpParameters": []
+            }],
+            "resourceType": "/authenticationPolicies/default"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{
+                "enableSpAuthnSelection": false,
+                "enableIdpAuthnSelection": false
+            }],
+            "resourceType": "/authenticationPolicies/settings"
+        }
+    ]
+}
