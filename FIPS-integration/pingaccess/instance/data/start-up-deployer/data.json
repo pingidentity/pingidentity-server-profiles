@@ -298,7 +298,7 @@
     },
     "pingFederateRuntime": {
       "description": null,
-      "issuer": "https://pingfederate-engine:9031",
+      "issuer": "https://pingfederate:9031",
       "trustedCertificateGroupId": 2,
       "useProxy": false,
       "useSlo": false,
