@@ -57,7 +57,7 @@
       "sessionTimeoutInMinutes": 240
     },
     "adminConfig": {
-      "hostPort": "pingaccess-admin:9090",
+      "hostPort": "dbt-pa-pf-pd-fips-pingaccess-admin:9090",
       "httpProxyId": 0,
       "httpsProxyId": 0
     },
@@ -337,6 +337,21 @@
         }
       }
     ],
+    "replicaAdmin": {
+      "id": 1,
+      "name": "replica1",
+      "description": null,
+      "configReplicationEnabled": true,
+      "keys": [],
+      "httpProxyId": 0,
+      "httpsProxyId": 0,
+      "hostPort": "dbt-pa-pf-pd-fips-pingaccess-admin:9090",
+      "selectedCertificateId": 1,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "eecbb795373470167f0c78f6dcfcbca9827fa728"
+      }
+    },
     "reservedApplication": {
       "contextRoot": "/pa"
     },
