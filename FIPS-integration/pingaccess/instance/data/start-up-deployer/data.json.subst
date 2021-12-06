@@ -57,7 +57,7 @@
       "sessionTimeoutInMinutes": 240
     },
     "adminConfig": {
-      "hostPort": "pingaccess-admin:9090",
+      "hostPort": "${PA_ADMIN_PRIVATE_HOSTNAME}:9090",
       "httpProxyId": 0,
       "httpsProxyId": 0
     },
@@ -298,7 +298,7 @@
     },
     "pingFederateRuntime": {
       "description": null,
-      "issuer": "https://dbt-pa-pf-pd-fips-pingfederate-engine:9031",
+      "issuer": "https://${PF_ENGINE_PRIVATE_HOSTNAME}:${PF_ENGINE_PRIVATE_PORT_HTTPS}",
       "trustedCertificateGroupId": 2,
       "useProxy": false,
       "useSlo": false,
