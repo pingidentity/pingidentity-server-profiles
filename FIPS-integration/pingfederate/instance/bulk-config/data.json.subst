@@ -242,7 +242,7 @@
             "enableIdpDiscovery": true
           },
           "federationInfo": {
-            "baseUrl": "https://localhost:9031",
+            "baseUrl": "https://${PF_ENGINE_PRIVATE_HOSTNAME}:9031",
             "saml2EntityId": "docker",
             "saml1xIssuerId": "",
             "saml1xSourceId": "",
