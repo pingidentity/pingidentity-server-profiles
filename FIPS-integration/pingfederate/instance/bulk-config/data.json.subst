@@ -1217,7 +1217,7 @@
           "clientId": "ac_client",
           "enabled": true,
           "redirectUris": [
-            "https://localhost:9031/OAuthPlayground/authorization_code/callback"
+            "https://${PF_ENGINE_PRIVATE_HOSTNAME}:9031/OAuthPlayground/authorization_code/callback"
           ],
           "grantTypes": [
             "AUTHORIZATION_CODE"
