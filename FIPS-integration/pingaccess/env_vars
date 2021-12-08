@@ -20,7 +20,7 @@ export PF_ADMIN_PRIVATE_HOSTNAME=${PF_ADMIN_PRIVATE_HOSTNAME:=pingfederate}
 export PF_ADMIN_PORT=${PF_ADMIN_PORT:=9999}
 export PF_ADMIN_PRIVATE_PORT_HTTPS=${PF_ADMIN_PRIVATE_PORT_HTTPS:=9999}
 export PD_ENGINE_PRIVATE_HOSTNAME=${PD_ENGINE_PRIVATE_HOSTNAME:=pingdirectory}
-export PING_IDENTITY_PASSWORD=${PING_IDENTITY_PASSWORD:=2FederateM0re}
+export PING_IDENTITY_PASSWORD=${PING_IDENTITY_PASSWORD:=seraglio-door-GODH00D-gloat}
 
 # PA_CONSOLE_HOST represents a variable that should be manually set if not using
 # ping-devops helm charts.  This should eventually go away.

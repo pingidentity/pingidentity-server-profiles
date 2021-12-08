@@ -438,15 +438,15 @@
     ],
     "siteAuthenticators": [
       {
-        "className": "com.pingidentity.pa.siteauthenticators.BasicAuthTargetSiteAuthenticator",
-        "id": 1,
-        "name": "pingdirectory_rest_api_authn",
-        "configuration": {
-          "username": "cn=administrator",
-          "password": {
-            "encryptedValue": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoieUdmMElxTG03MmhJQTF1UCJ9..kuzA1T1tBG--E_R6W6Ii9g.x8TKpf1523v82ltryxzL7FZ5XdsePcndxqd0IBpEidk.O4tPuFLIXiSL_TOFyfQCAw"
+          "className": "com.pingidentity.pa.siteauthenticators.BasicAuthTargetSiteAuthenticator",
+          "id": 1,
+          "name": "pingdirectory_rest_api_authn",
+          "configuration": {
+              "username": "${ROOT_USER_DN}",
+              "password": {
+                  "value": "${PING_IDENTITY_PASSWORD}"
+              }
           }
-        }
       }
     ],
     "sites": [
@@ -566,10 +566,8 @@
         "clientCredentials": {
           "clientId": "PingAccess",
           "clientSecret": {
-            "encryptedValue": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoieUdmMElxTG03MmhJQTF1UCJ9..uxaRmWDam1_cF5h15MFIvg.3MQfOs3T9XIl-wjJd6jqVg.f3AdYwMjIZ1d2K15R1ROug"
-          },
-          "keyPairId": 0,
-          "credentialsType": "SECRET"
+              "value": "${PING_IDENTITY_PASSWORD}"
+          }
         },
         "audience": "PingAccess",
         "cookieDomain": "",
