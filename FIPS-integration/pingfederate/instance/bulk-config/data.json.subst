@@ -1352,32 +1352,6 @@
             "id": "default",
             "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:9999/pf-admin-api/v1/oauth/accessTokenManagers/default"
           }
-        },
-        {
-            "context": {
-                "contextRef": {
-                    "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/passwordCredentialValidators/pingdirectory",
-                    "id": "pingdirectory"
-                },
-                "type": "PCV"
-            },
-            "attributeContractFulfillment": {
-                "Username": {
-                    "source": {"type": "PASSWORD_CREDENTIAL_VALIDATOR"},
-                    "value": "mail"
-                },
-                "OrgName": {
-                    "source": {"type": "TEXT"},
-                    "value": "PingIdentity"
-                }
-            },
-            "id": "pingdirectory|default",
-            "attributeSources": [],
-            "issuanceCriteria": {"conditionalCriteria": []},
-            "accessTokenManagerRef": {
-                "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/oauth/accessTokenManagers/default",
-                "id": "default"
-            }
         }
       ]
     },
