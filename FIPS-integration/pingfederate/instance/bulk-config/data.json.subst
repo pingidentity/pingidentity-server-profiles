@@ -921,6 +921,37 @@
           ]
         },
         {
+          "resourceType": "/oauth/idpAdapterMappings",
+          "operationType": "SAVE",
+          "items": [
+            {
+              "attributeSources": [],
+              "attributeContractFulfillment": {
+                "USER_NAME": {
+                  "source": {
+                    "type": "ADAPTER"
+                  },
+                  "value": "username"
+                },
+                "USER_KEY": {
+                  "source": {
+                    "type": "ADAPTER"
+                  },
+                  "value": "username"
+                }
+              },
+              "issuanceCriteria": {
+                "conditionalCriteria": []
+              },
+              "id": "html",
+              "idpAdapterRef": {
+                "id": "html",
+                "location": "https://${PF_ADMIN_PRIVATE_HOSTNAME}:9999/pf-admin-api/v1/idp/adapters/html"
+              }
+            }
+          ]
+        },
+        {
           "resourceType": "/oauth/accessTokenManagers/settings",
           "operationType": "SAVE",
           "items": [
