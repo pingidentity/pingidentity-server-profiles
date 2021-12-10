@@ -145,7 +145,7 @@
           "id": "LDAP-201A8CDE130172B88F160E8DE63A2181101984CF",
           "maskAttributeValues": false,
           "hostnames": [
-            "{PD_ENGINE_PRIVATE_HOSTNAME}:${PD_ENGINE_PRIVATE_PORT_LDAP}"
+            "${PD_ENGINE_PRIVATE_HOSTNAME}:${PD_ENGINE_PRIVATE_PORT_LDAP}"
           ],
           "ldapType": "PING_DIRECTORY",
           "bindAnonymously": false,
@@ -157,7 +157,7 @@
           "hostnamesTags": [
             {
               "hostnames": [
-                "{PD_ENGINE_PRIVATE_HOSTNAME}:${PD_ENGINE_PRIVATE_PORT_LDAP}"
+                "${PD_ENGINE_PRIVATE_HOSTNAME}:${PD_ENGINE_PRIVATE_PORT_LDAP}"
               ],
               "tags": "docker",
               "defaultSource": true
