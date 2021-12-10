@@ -67,7 +67,7 @@
         "operationType": "SAVE",
         "items": [{
             "accepted": true,
-            "licenseAgreementUrl": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/license-agreement"
+            "licenseAgreementUrl": "https://${PF_ADMIN_PRIVATE_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/license-agreement"
         }],
         "resourceType": "/license/agreement"
     },
@@ -104,22 +104,22 @@
         {
           "runtimeServerCertRef": {
             "id": "qbvc3kdr51hassxt9tdi4eztq",
-            "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:9999/pf-admin-api/v1/keyPairs/sslServer/qbvc3kdr51hassxt9tdi4eztq"
+            "location": "https://${PF_ADMIN_PRIVATE_HOSTNAME}:9999/pf-admin-api/v1/keyPairs/sslServer/qbvc3kdr51hassxt9tdi4eztq"
           },
           "adminConsoleCertRef": {
             "id": "qbvc3kdr51hassxt9tdi4eztq",
-            "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:9999/pf-admin-api/v1/keyPairs/sslServer/qbvc3kdr51hassxt9tdi4eztq"
+            "location": "https://${PF_ADMIN_PRIVATE_HOSTNAME}:9999/pf-admin-api/v1/keyPairs/sslServer/qbvc3kdr51hassxt9tdi4eztq"
           },
           "activeRuntimeServerCerts": [
             {
               "id": "qbvc3kdr51hassxt9tdi4eztq",
-              "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:9999/pf-admin-api/v1/keyPairs/sslServer/qbvc3kdr51hassxt9tdi4eztq"
+              "location": "https://${PF_ADMIN_PRIVATE_HOSTNAME}:9999/pf-admin-api/v1/keyPairs/sslServer/qbvc3kdr51hassxt9tdi4eztq"
             }
           ],
           "activeAdminConsoleCerts": [
             {
               "id": "qbvc3kdr51hassxt9tdi4eztq",
-              "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:9999/pf-admin-api/v1/keyPairs/sslServer/qbvc3kdr51hassxt9tdi4eztq"
+              "location": "https://${PF_ADMIN_PRIVATE_HOSTNAME}:9999/pf-admin-api/v1/keyPairs/sslServer/qbvc3kdr51hassxt9tdi4eztq"
             }
           ]
         }
@@ -275,7 +275,7 @@
         {
           "dataStoreRef": {
             "id": "ProvisionerDS",
-            "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:9999/pf-admin-api/v1/dataStores/ProvisionerDS"
+            "location": "https://${PF_ADMIN_PRIVATE_HOSTNAME}:9999/pf-admin-api/v1/dataStores/ProvisionerDS"
           },
           "synchronizationFrequency": 60
         }
@@ -385,7 +385,7 @@
           "name": "pingdirectory",
           "pluginDescriptorRef": {
             "id": "org.sourceid.saml20.domain.LDAPUsernamePasswordCredentialValidator",
-            "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:9999/pf-admin-api/v1/passwordCredentialValidators/descriptors/org.sourceid.saml20.domain.LDAPUsernamePasswordCredentialValidator"
+            "location": "https://${PF_ADMIN_PRIVATE_HOSTNAME}:9999/pf-admin-api/v1/passwordCredentialValidators/descriptors/org.sourceid.saml20.domain.LDAPUsernamePasswordCredentialValidator"
           },
           "configuration": {
             "tables": [
@@ -487,7 +487,7 @@
         "operationType": "SAVE",
         "items": [{
             "passwordValidatorRef": {
-                "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/passwordCredentialValidators/pingdirectory",
+                "location": "https://${PF_ADMIN_PRIVATE_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/passwordCredentialValidators/pingdirectory",
                 "id": "pingdirectory"
             },
             "attributeContractFulfillment": {"USER_KEY": {
@@ -509,7 +509,7 @@
           "name": "default",
           "pluginDescriptorRef": {
             "id": "com.pingidentity.pf.access.token.management.plugins.JwtBearerAccessTokenManagementPlugin",
-            "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:9999/pf-admin-api/v1/oauth/accessTokenManagers/descriptors/com.pingidentity.pf.access.token.management.plugins.JwtBearerAccessTokenManagementPlugin"
+            "location": "https://${PF_ADMIN_PRIVATE_HOSTNAME}:9999/pf-admin-api/v1/oauth/accessTokenManagers/descriptors/com.pingidentity.pf.access.token.management.plugins.JwtBearerAccessTokenManagementPlugin"
           },
           "configuration": {
             "tables": [
@@ -668,7 +668,7 @@
         {
           "defaultAccessTokenManagerRef": {
             "id": "default",
-            "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:9999/pf-admin-api/v1/oauth/accessTokenManagers/default"
+            "location": "https://${PF_ADMIN_PRIVATE_HOSTNAME}:9999/pf-admin-api/v1/oauth/accessTokenManagers/default"
           }
         }
       ]
@@ -692,7 +692,7 @@
           "name": "html",
           "pluginDescriptorRef": {
             "id": "com.pingidentity.adapters.htmlform.idp.HtmlFormIdpAuthnAdapter",
-            "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:9999/pf-admin-api/v1/idp/adapters/descriptors/com.pingidentity.adapters.htmlform.idp.HtmlFormIdpAuthnAdapter"
+            "location": "https://${PF_ADMIN_PRIVATE_HOSTNAME}:9999/pf-admin-api/v1/idp/adapters/descriptors/com.pingidentity.adapters.htmlform.idp.HtmlFormIdpAuthnAdapter"
           },
           "configuration": {
             "tables": [
@@ -1144,7 +1144,7 @@
           "id": "html",
           "idpAdapterRef": {
             "id": "html",
-            "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:9999/pf-admin-api/v1/idp/adapters/html"
+            "location": "https://${PF_ADMIN_PRIVATE_HOSTNAME}:9999/pf-admin-api/v1/idp/adapters/html"
           }
         }
       ]
@@ -1345,12 +1345,12 @@
             "type": "IDP_ADAPTER",
             "contextRef": {
               "id": "html",
-              "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:9999/pf-admin-api/v1/idp/adapters/html"
+              "location": "https://${PF_ADMIN_PRIVATE_HOSTNAME}:9999/pf-admin-api/v1/idp/adapters/html"
             }
           },
           "accessTokenManagerRef": {
             "id": "default",
-            "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:9999/pf-admin-api/v1/oauth/accessTokenManagers/default"
+            "location": "https://${PF_ADMIN_PRIVATE_HOSTNAME}:9999/pf-admin-api/v1/oauth/accessTokenManagers/default"
           }
         }
       ]
@@ -1380,7 +1380,7 @@
                     "type": "IDP_ADAPTER",
                     "sourceRef": {
                       "id": "html",
-                      "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:9999/pf-admin-api/v1/idp/adapters/html"
+                      "location": "https://${PF_ADMIN_PRIVATE_HOSTNAME}:9999/pf-admin-api/v1/idp/adapters/html"
                     }
                   }
                 },
