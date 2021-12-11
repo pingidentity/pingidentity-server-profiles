@@ -1517,7 +1517,7 @@
         {
           "attributeSources": [],
           "attributeContractFulfillment": {
-            "Username": {
+            "User": {
                 "source": {"type": "PASSWORD_CREDENTIAL_VALIDATOR"},
                 "value": "mail"
             },
