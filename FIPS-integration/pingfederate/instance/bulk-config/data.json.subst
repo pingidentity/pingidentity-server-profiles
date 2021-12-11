@@ -1411,6 +1411,137 @@
             "resourceType": "/oauth/clientSettings"
         },
         {
+          "resourceType": "/oauth/clients",
+          "operationType": "SAVE",
+          "items": [
+            {
+              "clientId": "PingAccess",
+              "enabled": true,
+              "redirectUris": [],
+              "grantTypes": [
+                "ACCESS_TOKEN_VALIDATION"
+              ],
+              "name": "PingAccess",
+              "description": "",
+              "logoUrl": "",
+              "refreshRolling": "SERVER_DEFAULT",
+              "refreshTokenRollingIntervalType": "SERVER_DEFAULT",
+              "persistentGrantExpirationType": "SERVER_DEFAULT",
+              "persistentGrantExpirationTime": 0,
+              "persistentGrantExpirationTimeUnit": "DAYS",
+              "persistentGrantIdleTimeoutType": "SERVER_DEFAULT",
+              "persistentGrantIdleTimeout": 0,
+              "persistentGrantIdleTimeoutTimeUnit": "DAYS",
+              "allowAuthenticationApiInit": false,
+              "bypassApprovalPage": true,
+              "restrictScopes": false,
+              "requirePushedAuthorizationRequests": false,
+              "restrictedScopes": [],
+              "exclusiveScopes": [],
+              "restrictedResponseTypes": [],
+              "restrictToDefaultAccessTokenManager": false,
+              "validateUsingAllEligibleAtms": false,
+              "oidcPolicy": {
+                "grantAccessSessionRevocationApi": false,
+                "grantAccessSessionSessionManagementApi": false,
+                "pingAccessLogoutCapable": false,
+                "pairwiseIdentifierUserType": false
+              },
+              "clientAuth": {
+                "type": "SECRET",
+                "encryptedSecret": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiRW1JY1UxOVdueSIsInZlcnNpb24iOiIxMC4zLjEuMCJ9..pBOt6gwojOJ5ndF4z1woHw.ge68DHSqzAi_ZKUFk-2Sk0BtIFn8s9qNpAmi3WlR56WIB-k7l1ZgNWVZvBiH92q23V7uljcztPM60eTP5Ee5xTQ_xt-h8c72bBa8r1jIKwo.41uuqQCB-rq8hJvudb7Xpg"
+              },
+              "deviceFlowSettingType": "SERVER_DEFAULT",
+              "requireProofKeyForCodeExchange": false,
+              "requireSignedRequests": false
+            },
+            {
+              "clientId": "ac_client",
+              "enabled": true,
+              "redirectUris": [
+                "https://${PF_ENGINE_PUBLIC_HOSTNAME}:9031/OAuthPlayground/authorization_code/callback"
+              ],
+              "grantTypes": [
+                "AUTHORIZATION_CODE"
+              ],
+              "name": "ac_client",
+              "refreshRolling": "SERVER_DEFAULT",
+              "refreshTokenRollingIntervalType": "SERVER_DEFAULT",
+              "persistentGrantExpirationType": "SERVER_DEFAULT",
+              "persistentGrantExpirationTime": 0,
+              "persistentGrantExpirationTimeUnit": "DAYS",
+              "persistentGrantIdleTimeoutType": "SERVER_DEFAULT",
+              "persistentGrantIdleTimeout": 0,
+              "persistentGrantIdleTimeoutTimeUnit": "DAYS",
+              "allowAuthenticationApiInit": false,
+              "bypassApprovalPage": true,
+              "restrictScopes": false,
+              "requirePushedAuthorizationRequests": false,
+              "restrictedScopes": [],
+              "exclusiveScopes": [],
+              "restrictedResponseTypes": [],
+              "restrictToDefaultAccessTokenManager": false,
+              "validateUsingAllEligibleAtms": false,
+              "oidcPolicy": {
+                "grantAccessSessionRevocationApi": false,
+                "grantAccessSessionSessionManagementApi": false,
+                "pingAccessLogoutCapable": false,
+                "pairwiseIdentifierUserType": false
+              },
+              "clientAuth": {
+                "type": "NONE",
+                "encryptedSecret": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiRW1JY1UxOVdueSIsInZlcnNpb24iOiIxMC4zLjEuMCJ9..3zs9CFW92bHkONgrpMm35w.B4y8aAvjyWlrISE-tqTT3f6nLQChgTSRAOAk7DSWsIFc5fsKeL4CHVzSjCuKUYEsgv37VBrbbzcWK7Vq43zpaeoW5v1dCUxOKRUvfr3T1P0.6OeMx8ohUneszzt1-5uFew"
+              },
+              "deviceFlowSettingType": "SERVER_DEFAULT",
+              "requireProofKeyForCodeExchange": false,
+              "requireSignedRequests": false
+            },
+            {
+              "clientId": "pingdirectory",
+              "enabled": true,
+              "redirectUris": [
+                "https://bad"
+              ],
+              "grantTypes": [
+                "IMPLICIT",
+                "CLIENT_CREDENTIALS",
+                "ACCESS_TOKEN_VALIDATION"
+              ],
+              "name": "pingdirectory",
+              "refreshRolling": "SERVER_DEFAULT",
+              "refreshTokenRollingIntervalType": "SERVER_DEFAULT",
+              "persistentGrantExpirationType": "SERVER_DEFAULT",
+              "persistentGrantExpirationTime": 0,
+              "persistentGrantExpirationTimeUnit": "DAYS",
+              "persistentGrantIdleTimeoutType": "SERVER_DEFAULT",
+              "persistentGrantIdleTimeout": 0,
+              "persistentGrantIdleTimeoutTimeUnit": "DAYS",
+              "allowAuthenticationApiInit": false,
+              "bypassApprovalPage": false,
+              "restrictScopes": false,
+              "requirePushedAuthorizationRequests": false,
+              "restrictedScopes": [],
+              "exclusiveScopes": [],
+              "restrictedResponseTypes": [],
+              "restrictToDefaultAccessTokenManager": false,
+              "validateUsingAllEligibleAtms": false,
+              "oidcPolicy": {
+                "grantAccessSessionRevocationApi": false,
+                "grantAccessSessionSessionManagementApi": false,
+                "pingAccessLogoutCapable": false,
+                "pairwiseIdentifierUserType": false
+              },
+              "clientAuth": {
+                "type": "SECRET",
+                "encryptedSecret": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiRW1JY1UxOVdueSIsInZlcnNpb24iOiIxMC4zLjEuMCJ9..1pE0C1KRg9BxTcYZWBgAYg.TJt9TZs8UmQtdNsigmmk2tQArC799rrQ7WywuSN1ixOQYViZWefkK4iBNFUtV-LyS5PBE6Rb0MkGBUlyyfTWc5ujDXSzmwNVAbJhjr52O-Y.d35If7khNw3IWaQxSgeNYQ"
+              },
+              "deviceFlowSettingType": "SERVER_DEFAULT",
+              "requireProofKeyForCodeExchange": false,
+              "requireSignedRequests": false
+            }
+          ]
+        },
+        {
             "operationType": "SAVE",
             "items": [{
                 "apiEnabled": false,
