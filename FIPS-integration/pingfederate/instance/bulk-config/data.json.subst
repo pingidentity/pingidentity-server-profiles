@@ -101,7 +101,7 @@
        "subResource": "org.sourceid.oauth20.domain.ClientManagerLdapImpl",
        "items": [
            {
-               "stringValue": "LDAP-D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3",
+               "stringValue": "LDAP-201A8CDE130172B88F160E8DE63A2181101984CF",
                "id": "PingFederateDSJNDIName",
                "type": "STRING"
            },
@@ -131,7 +131,7 @@
        "subResource": "org.sourceid.oauth20.token.AccessGrantManagerLDAPPingDirectoryImpl",
        "items": [
            {
-               "stringValue": "LDAP-D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3",
+               "stringValue": "LDAP-201A8CDE130172B88F160E8DE63A2181101984CF",
                "id": "PingFederateDSJNDIName",
                "type": "STRING"
            },
@@ -153,7 +153,7 @@
                "type": "STRING"
            },
            {
-               "stringValue": "LDAP-D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3",
+               "stringValue": "LDAP-201A8CDE130172B88F160E8DE63A2181101984CF",
                "id": "PingFederateDSJNDIName",
                "type": "STRING"
            },
@@ -191,7 +191,7 @@
        "subResource": "org.sourceid.saml20.service.session.data.impl.SessionStorageManagerLdapImpl",
        "items": [
            {
-               "stringValue": "LDAP-D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3",
+               "stringValue": "LDAP-201A8CDE130172B88F160E8DE63A2181101984CF",
                "id": "PingFederateDSJNDIName",
                "type": "STRING"
            },
@@ -1595,15 +1595,6 @@
     {
         "operationType": "SAVE",
         "items": [{
-            "password": "${keyPairs_signing_items_devsigningcert_devsigningcert_password}",
-            "fileData": "${keyPairs_signing_items_devsigningcert_devsigningcert_fileData}",
-            "id": "devsigningcert"
-        }],
-        "resourceType": "/keyPairs/signing"
-    },
-    {
-        "operationType": "SAVE",
-        "items": [{
             "name": "simplecontract",
             "id": "Zxp6N6W5PH9onACT",
             "coreAttributes": [{"name": "subject"}],
@@ -1712,8 +1703,8 @@
                 "createPattern": "uid=${mail}",
                 "objectClass": "inetOrgPerson",
                 "dataStoreRef": {
-                    "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/dataStores/LDAP-D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3",
-                    "id": "LDAP-D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3"
+                    "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/dataStores/LDAP-201A8CDE130172B88F160E8DE63A2181101984CF",
+                    "id": "LDAP-201A8CDE130172B88F160E8DE63A2181101984CF"
                 },
                 "type": "LDAP",
                 "baseDn": "ou=people,dc=example,dc=com",
@@ -1761,13 +1752,6 @@
                                 "name": "Password Credential Validator Instance",
                                 "value": "pingdirectory"
                             }]
-                        },
-                        {
-                            "defaultRow": false,
-                            "fields": [{
-                                "name": "Password Credential Validator Instance",
-                                "value": "simple"
-                            }]
                         }
                     ]
                 }],
@@ -1796,7 +1780,7 @@
     {
         "operationType": "SAVE",
         "items": [{
-            "baseUrl": "https://${PF_ENGINE_BASE_URL}",
+            "baseUrl": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}",
             "contactInfo": {},
             "virtualEntityIds": [],
             "credentials": {"certs": [{
@@ -1849,7 +1833,7 @@
                     "issuanceCriteria": {"conditionalCriteria": []},
                     "accessTokenManagerRef": {
                         "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/oauth/accessTokenManagers/jwt",
-                        "id": "jwt"
+                        "id": "default"
                     }
                 }]
             },
@@ -1860,134 +1844,6 @@
             "type": "IDP"
         }],
         "resourceType": "/sp/idpConnections"
-    },
-    {
-        "operationType": "SAVE",
-        "items": [
-            {
-                "baseUrl": "https://${PF_ENGINE_BASE_URL}",
-                "contactInfo": {},
-                "wsTrust": {
-                    "generateKey": false,
-                    "defaultTokenType": "SAML20",
-                    "encryptSaml2Assertion": false,
-                    "partnerServiceIds": [
-                        "localhost:default:entityId",
-                        "docker"
-                    ],
-                    "minutesAfter": 30,
-                    "oAuthAssertionProfiles": true,
-                    "tokenProcessorMappings": [{
-                        "restrictedVirtualEntityIds": [],
-                        "attributeContractFulfillment": {"TOKEN_SUBJECT": {
-                            "source": {"type": "TOKEN"},
-                            "value": "username"
-                        }},
-                        "idpTokenProcessorRef": {
-                            "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/idp/tokenProcessors/UsernameTokenProcessor",
-                            "id": "UsernameTokenProcessor"
-                        },
-                        "attributeSources": [],
-                        "issuanceCriteria": {"conditionalCriteria": []}
-                    }],
-                    "minutesBefore": 5,
-                    "attributeContract": {
-                        "coreAttributes": [{"name": "TOKEN_SUBJECT"}],
-                        "extendedAttributes": []
-                    }
-                },
-                "virtualEntityIds": [],
-                "credentials": {
-                    "certs": [],
-                    "signingSettings": {
-                        "signingKeyPairRef": {
-                            "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/keyPairs/signing/devsigningcert",
-                            "id": "devsigningcert"
-                        },
-                        "includeRawKeyInSignature": false,
-                        "includeCertInSignature": false,
-                        "algorithm": "SHA256withRSA"
-                    }
-                },
-                "name": "docker",
-                "active": true,
-                "entityId": "docker",
-                "loggingMode": "STANDARD",
-                "id": "IENFjGICXt3YsBKNxHSzkN28LWg",
-                "type": "SP"
-            },
-            {
-                "contactInfo": {},
-                "virtualEntityIds": [],
-                "credentials": {
-                    "certs": [],
-                    "signingSettings": {
-                        "signingKeyPairRef": {
-                            "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/keyPairs/signing/devsigningcert",
-                            "id": "devsigningcert"
-                        },
-                        "includeRawKeyInSignature": false,
-                        "includeCertInSignature": false,
-                        "algorithm": "SHA256withRSA"
-                    }
-                },
-                "name": "Dummy SP Connection",
-                "active": true,
-                "spBrowserSso": {
-                    "protocol": "SAML20",
-                    "requireSignedAuthnRequests": false,
-                    "spSamlIdentityMapping": "STANDARD",
-                    "signAssertions": false,
-                    "authenticationPolicyContractAssertionMappings": [{
-                        "abortSsoTransactionAsFailSafe": false,
-                        "authenticationPolicyContractRef": {
-                            "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/authenticationPolicyContracts/Zxp6N6W5PH9onACT",
-                            "id": "Zxp6N6W5PH9onACT"
-                        },
-                        "restrictedVirtualEntityIds": [],
-                        "attributeContractFulfillment": {"SAML_SUBJECT": {
-                            "source": {"type": "AUTHENTICATION_POLICY_CONTRACT"},
-                            "value": "subject"
-                        }},
-                        "restrictVirtualEntityIds": false,
-                        "attributeSources": [],
-                        "issuanceCriteria": {"conditionalCriteria": []}
-                    }],
-                    "encryptionPolicy": {
-                        "encryptSloSubjectNameId": false,
-                        "encryptAssertion": false,
-                        "encryptedAttributes": [],
-                        "sloSubjectNameIDEncrypted": false
-                    },
-                    "enabledProfiles": ["IDP_INITIATED_SSO"],
-                    "signResponseAsRequired": true,
-                    "ssoServiceEndpoints": [{
-                        "isDefault": true,
-                        "binding": "POST",
-                        "index": 0,
-                        "url": "https://httpbin.org/anything"
-                    }],
-                    "adapterMappings": [],
-                    "assertionLifetime": {
-                        "minutesAfter": 5,
-                        "minutesBefore": 5
-                    },
-                    "attributeContract": {
-                        "coreAttributes": [{
-                            "nameFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
-                            "name": "SAML_SUBJECT"
-                        }],
-                        "extendedAttributes": []
-                    }
-                },
-                "entityId": "https://httpbin.org",
-                "loggingMode": "STANDARD",
-                "id": "gpFvXmhDHSRUSHWLZLZ_XBIU_YK",
-                "type": "SP",
-                "licenseConnectionGroup": ""
-            }
-        ],
-        "resourceType": "/idp/spConnections"
     },
     {
         "operationType": "SAVE",
@@ -2020,7 +1876,7 @@
                     "attributeContractFulfillment": {
                         "sub": {
                             "source": {"type": "TOKEN"},
-                            "value": "Username"
+                            "value": "entryUUID"
                         },
                         "zoneinfo": {
                             "source": {"type": "TEXT"},
@@ -2161,14 +2017,14 @@
                 },
                 "accessTokenManagerRef": {
                     "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/oauth/accessTokenManagers/jwt",
-                    "id": "jwt"
+                    "id": "default"
                 }
             },
             {
                 "attributeMapping": {
                     "attributeContractFulfillment": {"sub": {
                         "source": {"type": "TOKEN"},
-                        "value": "Username"
+                        "value": "entryUUID"
                     }},
                     "attributeSources": [],
                     "issuanceCriteria": {"conditionalCriteria": []}
@@ -2187,14 +2043,14 @@
                 },
                 "accessTokenManagerRef": {
                     "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/oauth/accessTokenManagers/jwt",
-                    "id": "jwt"
+                    "id": "default"
                 }
             },
             {
                 "attributeMapping": {
                     "attributeContractFulfillment": {"sub": {
                         "source": {"type": "TOKEN"},
-                        "value": "Username"
+                        "value": "entryUUID"
                     }},
                     "attributeSources": [],
                     "issuanceCriteria": {"conditionalCriteria": []}
@@ -2213,7 +2069,7 @@
                 },
                 "accessTokenManagerRef": {
                     "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/oauth/accessTokenManagers/jwt",
-                    "id": "jwt"
+                    "id": "default"
                 }
             }
         ],
