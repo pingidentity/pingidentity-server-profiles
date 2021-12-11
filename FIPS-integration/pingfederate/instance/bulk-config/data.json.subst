@@ -825,7 +825,7 @@
             "coreAttributes": [],
             "extendedAttributes": [
               {
-                "name": "Username"
+                "name": "User"
               },
               {
                 "name": "OrgName"
