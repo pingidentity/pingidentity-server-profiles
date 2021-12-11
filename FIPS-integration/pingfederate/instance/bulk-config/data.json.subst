@@ -1517,11 +1517,13 @@
         {
           "attributeSources": [],
           "attributeContractFulfillment": {
-            "sub": {
-              "source": {
-                "type": "ADAPTER"
-              },
-              "value": "entryUUID"
+            "Username": {
+                "source": {"type": "PASSWORD_CREDENTIAL_VALIDATOR"},
+                "value": "mail"
+            },
+            "OrgName": {
+                "source": {"type": "TEXT"},
+                "value": "PingIdentity"
             }
           },
           "issuanceCriteria": {
