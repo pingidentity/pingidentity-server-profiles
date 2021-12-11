@@ -826,9 +826,6 @@
             "extendedAttributes": [
               {
                 "name": "OrgName"
-              },
-              {
-                "name": "Username"
               }
             ]
           },
@@ -1521,10 +1518,6 @@
                 "source": {"type": "TEXT"},
                 "value": "PingIdentity"
             },
-            "Username": {
-                "source": {"type": "ASSERTION"},
-                "value": "TOKEN_SUBJECT"
-            }
           },
           "issuanceCriteria": {
             "conditionalCriteria": []
@@ -1825,10 +1818,6 @@
                 },
                 "accessTokenManagerMappings": [{
                     "attributeContractFulfillment": {
-                        "Username": {
-                            "source": {"type": "ASSERTION"},
-                            "value": "TOKEN_SUBJECT"
-                        },
                         "OrgName": {
                             "source": {"type": "TEXT"},
                             "value": "Ping Identity Corporation"
