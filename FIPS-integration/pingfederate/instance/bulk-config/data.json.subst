@@ -941,260 +941,330 @@
             "resourceType": "/kerberos/realms/settings"
         },
         {
-            "operationType": "SAVE",
-            "items": [{
-                "attributeMapping": {
-                    "attributeContractFulfillment": {
-                        "entryUUID": {
-                            "source": {"type": "ADAPTER"},
-                            "value": "entryUUID"
-                        },
-                        "policy.action": {
-                            "source": {"type": "ADAPTER"},
-                            "value": "policy.action"
-                        },
-                        "username": {
-                            "source": {"type": "ADAPTER"},
-                            "value": "username"
-                        }
-                    },
-                    "attributeSources": [],
-                    "issuanceCriteria": {"conditionalCriteria": []}
-                },
-                "configuration": {
-                    "tables": [{
-                        "name": "Credential Validators",
-                        "rows": [{
-                            "defaultRow": false,
-                            "fields": [{
-                                "name": "Password Credential Validator Instance",
-                                "value": "pingdirectory"
-                            }]
-                        }]
-                    }],
-                    "fields": [
-                        {
-                            "name": "Challenge Retries",
-                            "value": "3"
-                        },
-                        {
-                            "name": "Session State",
-                            "value": "None"
-                        },
-                        {
-                            "name": "Session Timeout",
-                            "value": "60"
-                        },
-                        {
-                            "name": "Session Max Timeout",
-                            "value": "480"
-                        },
-                        {
-                            "name": "Allow Password Changes",
-                            "value": "false"
-                        },
-                        {
-                            "name": "Password Management System",
-                            "value": ""
-                        },
-                        {
-                            "name": "Enable 'Remember My Username'",
-                            "value": "false"
-                        },
-                        {
-                            "name": "Enable 'This is My Device'",
-                            "value": "false"
-                        },
-                        {
-                            "name": "Change Password Email Notification",
-                            "value": "false"
-                        },
-                        {
-                            "name": "Show Password Expiring Warning",
-                            "value": "false"
-                        },
-                        {
-                            "name": "Password Reset Type",
-                            "value": "NONE"
-                        },
-                        {
-                            "name": "Account Unlock",
-                            "value": "false"
-                        },
-                        {
-                            "name": "Local Identity Profile",
-                            "value": "RBSQIwi5KWYN9ZGK"
-                        },
-                        {
-                            "name": "Enable Username Recovery",
-                            "value": "false"
-                        },
-                        {
-                            "name": "Login Template",
-                            "value": "html.form.login.template.html"
-                        },
-                        {
-                            "name": "Logout Path",
-                            "value": ""
-                        },
-                        {
-                            "name": "Logout Redirect",
-                            "value": ""
-                        },
-                        {
-                            "name": "Logout Template",
-                            "value": "idp.logout.success.page.template.html"
-                        },
-                        {
-                            "name": "Change Password Template",
-                            "value": "html.form.change.password.template.html"
-                        },
-                        {
-                            "name": "Change Password Message Template",
-                            "value": "html.form.message.template.html"
-                        },
-                        {
-                            "name": "Password Management System Message Template",
-                            "value": "html.form.message.template.html"
-                        },
-                        {
-                            "name": "Change Password Email Template",
-                            "value": "message-template-end-user-password-change.html"
-                        },
-                        {
-                            "name": "Expiring Password Warning Template",
-                            "value": "html.form.password.expiring.notification.template.html"
-                        },
-                        {
-                            "name": "Threshold for Expiring Password Warning",
-                            "value": "7"
-                        },
-                        {
-                            "name": "Snooze Interval for Expiring Password Warning",
-                            "value": "24"
-                        },
-                        {
-                            "name": "Login Challenge Template",
-                            "value": "html.form.login.challenge.template.html"
-                        },
-                        {
-                            "name": "'Remember My Username' Lifetime",
-                            "value": "30"
-                        },
-                        {
-                            "name": "'This is My Device' Lifetime",
-                            "value": "30"
-                        },
-                        {
-                            "name": "Allow Username Edits During Chaining",
-                            "value": "false"
-                        },
-                        {
-                            "name": "Track Authentication Time",
-                            "value": "true"
-                        },
-                        {
-                            "name": "Post-Password Change Re-Authentication Delay",
-                            "value": "0"
-                        },
-                        {
-                            "name": "Password Reset Username Template",
-                            "value": "forgot-password.html"
-                        },
-                        {
-                            "name": "Password Reset Code Template",
-                            "value": "forgot-password-resume.html"
-                        },
-                        {
-                            "name": "Password Reset Template",
-                            "value": "forgot-password-change.html"
-                        },
-                        {
-                            "name": "Password Reset Error Template",
-                            "value": "forgot-password-error.html"
-                        },
-                        {
-                            "name": "Password Reset Success Template",
-                            "value": "forgot-password-success.html"
-                        },
-                        {
-                            "name": "Account Unlock Template",
-                            "value": "account-unlock.html"
-                        },
-                        {
-                            "name": "OTP Length",
-                            "value": "8"
-                        },
-                        {
-                            "name": "OTP Time to Live",
-                            "value": "10"
-                        },
-                        {
-                            "name": "PingID Properties",
-                            "value": ""
-                        },
-                        {
-                            "name": "Require Verified Email",
-                            "value": "false"
-                        },
-                        {
-                            "name": "Username Recovery Template",
-                            "value": "username.recovery.template.html"
-                        },
-                        {
-                            "name": "Username Recovery Info Template",
-                            "value": "username.recovery.info.template.html"
-                        },
-                        {
-                            "name": "Username Recovery Email Template",
-                            "value": "message-template-username-recovery.html"
-                        },
-                        {
-                            "name": "CAPTCHA for Authentication",
-                            "value": "false"
-                        },
-                        {
-                            "name": "CAPTCHA for Password change",
-                            "value": "false"
-                        },
-                        {
-                            "name": "CAPTCHA for Password Reset",
-                            "value": "false"
-                        },
-                        {
-                            "name": "CAPTCHA for Username recovery",
-                            "value": "false"
-                        }
+          "resourceType": "/idp/adapters",
+          "operationType": "SAVE",
+          "items": [
+            {
+              "id": "html",
+              "name": "html",
+              "pluginDescriptorRef": {
+                "id": "com.pingidentity.adapters.htmlform.idp.HtmlFormIdpAuthnAdapter",
+                "location": "https://${PF_ADMIN_PRIVATE_HOSTNAME}:9999/pf-admin-api/v1/idp/adapters/descriptors/com.pingidentity.adapters.htmlform.idp.HtmlFormIdpAuthnAdapter"
+              },
+              "configuration": {
+                "tables": [
+                  {
+                    "name": "Credential Validators",
+                    "rows": [
+                      {
+                        "fields": [
+                          {
+                            "name": "Password Credential Validator Instance",
+                            "value": "pingdirectory"
+                          }
+                        ],
+                        "defaultRow": false
+                      }
                     ]
+                  }
+                ],
+                "fields": [
+                  {
+                    "name": "Challenge Retries",
+                    "value": "3"
+                  },
+                  {
+                    "name": "Session State",
+                    "value": "None"
+                  },
+                  {
+                    "name": "Session Timeout",
+                    "value": "60"
+                  },
+                  {
+                    "name": "Session Max Timeout",
+                    "value": "480"
+                  },
+                  {
+                    "name": "Allow Password Changes",
+                    "value": "false"
+                  },
+                  {
+                    "name": "Password Management System",
+                    "value": ""
+                  },
+                  {
+                    "name": "Enable 'Remember My Username'",
+                    "value": "false"
+                  },
+                  {
+                    "name": "Enable 'This is My Device'",
+                    "value": "false"
+                  },
+                  {
+                    "name": "Change Password Policy Contract",
+                    "value": ""
+                  },
+                  {
+                    "name": "Change Password Email Notification",
+                    "value": "false"
+                  },
+                  {
+                    "name": "Show Password Expiring Warning",
+                    "value": "false"
+                  },
+                  {
+                    "name": "Password Reset Type",
+                    "value": "NONE"
+                  },
+                  {
+                    "name": "Password Reset Policy Contract",
+                    "value": ""
+                  },
+                  {
+                    "name": "Revoke Sessions After Password Change Or Reset",
+                    "value": "false"
+                  },
+                  {
+                    "name": "Account Unlock",
+                    "value": "false"
+                  },
+                  {
+                    "name": "Local Identity Profile",
+                    "value": ""
+                  },
+                  {
+                    "name": "Notification Publisher",
+                    "value": ""
+                  },
+                  {
+                    "name": "Enable Username Recovery",
+                    "value": "false"
+                  },
+                  {
+                    "name": "Login Template",
+                    "value": "html.form.login.template.html"
+                  },
+                  {
+                    "name": "Logout Path",
+                    "value": ""
+                  },
+                  {
+                    "name": "Logout Redirect",
+                    "value": ""
+                  },
+                  {
+                    "name": "Logout Template",
+                    "value": "idp.logout.success.page.template.html"
+                  },
+                  {
+                    "name": "Change Password Template",
+                    "value": "html.form.change.password.template.html"
+                  },
+                  {
+                    "name": "Change Password Message Template",
+                    "value": "html.form.message.template.html"
+                  },
+                  {
+                    "name": "Password Management System Message Template",
+                    "value": "html.form.message.template.html"
+                  },
+                  {
+                    "name": "Change Password Email Template",
+                    "value": "message-template-end-user-password-change.html"
+                  },
+                  {
+                    "name": "Expiring Password Warning Template",
+                    "value": "html.form.password.expiring.notification.template.html"
+                  },
+                  {
+                    "name": "Threshold for Expiring Password Warning",
+                    "value": "7"
+                  },
+                  {
+                    "name": "Snooze Interval for Expiring Password Warning",
+                    "value": "24"
+                  },
+                  {
+                    "name": "Login Challenge Template",
+                    "value": "html.form.login.challenge.template.html"
+                  },
+                  {
+                    "name": "'Remember My Username' Lifetime",
+                    "value": "30"
+                  },
+                  {
+                    "name": "'This is My Device' Lifetime",
+                    "value": "30"
+                  },
+                  {
+                    "name": "Allow Username Edits During Chaining",
+                    "value": "false"
+                  },
+                  {
+                    "name": "Track Authentication Time",
+                    "value": "true"
+                  },
+                  {
+                    "name": "Post-Password Change Re-Authentication Delay",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Password Reset One-Time Link Email Template",
+                    "value": "message-template-forgot-password-link.html"
+                  },
+                  {
+                    "name": "Password Reset One-Time Password Email Template",
+                    "value": "message-template-forgot-password-code.html"
+                  },
+                  {
+                    "name": "Password Reset Complete Email Template",
+                    "value": "message-template-forgot-password-complete.html"
+                  },
+                  {
+                    "name": "Password Reset Failed Email Template",
+                    "value": "message-template-forgot-password-failed.html"
+                  },
+                  {
+                    "name": "Password Reset Username Template",
+                    "value": "forgot-password.html"
+                  },
+                  {
+                    "name": "Password Reset Code Template",
+                    "value": "forgot-password-resume.html"
+                  },
+                  {
+                    "name": "Password Reset Template",
+                    "value": "forgot-password-change.html"
+                  },
+                  {
+                    "name": "Password Reset Error Template",
+                    "value": "forgot-password-error.html"
+                  },
+                  {
+                    "name": "Password Reset Success Template",
+                    "value": "forgot-password-success.html"
+                  },
+                  {
+                    "name": "Account Unlock Template",
+                    "value": "account-unlock.html"
+                  },
+                  {
+                    "name": "Account Unlock Email Template",
+                    "value": "message-template-account-unlock-complete.html"
+                  },
+                  {
+                    "name": "OTP Length",
+                    "value": "8"
+                  },
+                  {
+                    "name": "Allowed OTP Character Set",
+                    "value": "23456789BCDFGHJKMNPQRSTVWXZbcdfghjkmnpqrstvwxz"
+                  },
+                  {
+                    "name": "OTP Time to Live",
+                    "value": "10"
+                  },
+                  {
+                    "name": "PingID Properties",
+                    "value": ""
+                  },
+                  {
+                    "name": "Require Verified Email",
+                    "value": "false"
+                  },
+                  {
+                    "name": "Username Recovery Template",
+                    "value": "username.recovery.template.html"
+                  },
+                  {
+                    "name": "Username Recovery Info Template",
+                    "value": "username.recovery.info.template.html"
+                  },
+                  {
+                    "name": "Username Recovery Email Template",
+                    "value": "message-template-username-recovery.html"
+                  },
+                  {
+                    "name": "CAPTCHA for Authentication",
+                    "value": "false"
+                  },
+                  {
+                    "name": "CAPTCHA for Password change",
+                    "value": "false"
+                  },
+                  {
+                    "name": "CAPTCHA for Password Reset",
+                    "value": "false"
+                  },
+                  {
+                    "name": "CAPTCHA for Username recovery",
+                    "value": "false"
+                  }
+                ]
+              },
+              "attributeContract": {
+                "coreAttributes": [
+                  {
+                    "name": "policy.action",
+                    "masked": false,
+                    "pseudonym": false
+                  },
+                  {
+                    "name": "username",
+                    "masked": false,
+                    "pseudonym": true
+                  }
+                ],
+                "extendedAttributes": [
+                  {
+                    "name": "entryUUID",
+                    "masked": false,
+                    "pseudonym": false
+                  },
+                  {
+                    "name": "uid",
+                    "masked": false,
+                    "pseudonym": false
+                  }
+                ],
+                "uniqueUserKeyAttribute": "username",
+                "maskOgnlValues": false
+              },
+              "attributeMapping": {
+                "attributeSources": [],
+                "attributeContractFulfillment": {
+                  "entryUUID": {
+                    "source": {
+                      "type": "ADAPTER"
+                    },
+                    "value": "entryUUID"
+                  },
+                  "uid": {
+                    "source": {
+                      "type": "ADAPTER"
+                    },
+                    "value": "uid"
+                  },
+                  "policy.action": {
+                    "source": {
+                      "type": "ADAPTER"
+                    },
+                    "value": "policy.action"
+                  },
+                  "username": {
+                    "source": {
+                      "type": "ADAPTER"
+                    },
+                    "value": "username"
+                  }
                 },
-                "name": "HTMLFormPD",
-                "id": "HTMLFormPD",
-                "pluginDescriptorRef": {
-                    "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/idp/adapters/descriptors/com.pingidentity.adapters.htmlform.idp.HtmlFormIdpAuthnAdapter",
-                    "id": "com.pingidentity.adapters.htmlform.idp.HtmlFormIdpAuthnAdapter"
-                },
-                "attributeContract": {
-                    "maskOgnlValues": false,
-                    "coreAttributes": [
-                        {
-                            "masked": false,
-                            "name": "policy.action",
-                            "pseudonym": false
-                        },
-                        {
-                            "masked": false,
-                            "name": "username",
-                            "pseudonym": true
-                        }
-                    ],
-                    "extendedAttributes": [{
-                        "masked": false,
-                        "name": "entryUUID",
-                        "pseudonym": false
-                    }]
+                "issuanceCriteria": {
+                  "conditionalCriteria": []
                 }
-            }],
-            "resourceType": "/idp/adapters"
+              }
+            }
+          ]
         },
         {
             "operationType": "SAVE",
@@ -1411,6 +1481,38 @@
             "resourceType": "/oauth/clientSettings"
         },
         {
+          "resourceType": "/oauth/accessTokenMappings",
+          "operationType": "SAVE",
+          "items": [
+            {
+              "attributeSources": [],
+              "attributeContractFulfillment": {
+                "sub": {
+                  "source": {
+                    "type": "ADAPTER"
+                  },
+                  "value": "entryUUID"
+                }
+              },
+              "issuanceCriteria": {
+                "conditionalCriteria": []
+              },
+              "id": "authz_req|html|default",
+              "context": {
+                "type": "IDP_ADAPTER",
+                "contextRef": {
+                  "id": "html",
+                  "location": "https://${PF_ADMIN_PRIVATE_HOSTNAME}:9999/pf-admin-api/v1/idp/adapters/html"
+                }
+              },
+              "accessTokenManagerRef": {
+                "id": "default",
+                "location": "https://${PF_ADMIN_PRIVATE_HOSTNAME}:9999/pf-admin-api/v1/oauth/accessTokenManagers/default"
+              }
+            }
+          ]
+        },
+        {
           "resourceType": "/oauth/clients",
           "operationType": "SAVE",
           "items": [
@@ -1550,74 +1652,78 @@
             "resourceType": "/authenticationApi/settings"
         },
         {
-            "operationType": "SAVE",
-            "items": [{
-                "defaultAuthenticationSources": [],
-                "failIfNoSelection": false,
-                "authnSelectionTrees": [{
-                    "name": "Default AuthN Policy",
-                    "enabled": true,
-                    "rootNode": {
-                        "children": [
-                            {"action": {
-                                "context": "Fail",
-                                "type": "DONE"
-                            }},
-                            {"action": {
-                                "localIdentityRef": {
-                                    "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/localIdentity/identityProfiles/RBSQIwi5KWYN9ZGK",
-                                    "id": "RBSQIwi5KWYN9ZGK"
-                                },
-                                "inboundMapping": {
-                                    "attributeContractFulfillment": {"pf.local.identity.unique.id": {
-                                        "source": {
-                                            "id": "HTMLFormPD",
-                                            "type": "ADAPTER"
-                                        },
-                                        "value": "username"
-                                    }},
-                                    "attributeSources": [],
-                                    "issuanceCriteria": {"conditionalCriteria": []}
-                                },
-                                "context": "Success",
-                                "outboundAttributeMapping": {
-                                    "attributeContractFulfillment": {
-                                        "mail": {
-                                            "source": {
-                                                "id": "RBSQIwi5KWYN9ZGK",
-                                                "type": "LOCAL_IDENTITY_PROFILE"
-                                            },
-                                            "value": "mail"
-                                        },
-                                        "subject": {
-                                            "source": {
-                                                "id": "RBSQIwi5KWYN9ZGK",
-                                                "type": "LOCAL_IDENTITY_PROFILE"
-                                            },
-                                            "value": "entryUUID"
-                                        }
-                                    },
-                                    "attributeSources": [],
-                                    "issuanceCriteria": {"conditionalCriteria": []}
-                                },
-                                "type": "LOCAL_IDENTITY_MAPPING"
-                            }}
-                        ],
-                        "action": {
-                            "authenticationSource": {
-                                "type": "IDP_ADAPTER",
-                                "sourceRef": {
-                                    "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/idp/adapters/HTMLFormPD",
-                                    "id": "HTMLFormPD"
-                                }
-                            },
-                            "type": "AUTHN_SOURCE"
+          "resourceType": "/oauth/idpAdapterMappings",
+          "operationType": "SAVE",
+          "items": [
+            {
+              "attributeSources": [],
+              "attributeContractFulfillment": {
+                "USER_NAME": {
+                  "source": {
+                    "type": "ADAPTER"
+                  },
+                  "value": "username"
+                },
+                "USER_KEY": {
+                  "source": {
+                    "type": "ADAPTER"
+                  },
+                  "value": "username"
+                }
+              },
+              "issuanceCriteria": {
+                "conditionalCriteria": []
+              },
+              "id": "html",
+              "idpAdapterRef": {
+                "id": "html",
+                "location": "https://${PF_ADMIN_PRIVATE_HOSTNAME}:9999/pf-admin-api/v1/idp/adapters/html"
+              }
+            }
+          ]
+        },
+        {
+          "resourceType": "/authenticationPolicies/default",
+          "operationType": "SAVE",
+          "items": [
+            {
+              "failIfNoSelection": false,
+              "authnSelectionTrees": [
+                {
+                  "rootNode": {
+                    "action": {
+                      "type": "AUTHN_SOURCE",
+                      "authenticationSource": {
+                        "type": "IDP_ADAPTER",
+                        "sourceRef": {
+                          "id": "html",
+                          "location": "https://${PF_ADMIN_PRIVATE_HOSTNAME}:9999/pf-admin-api/v1/idp/adapters/html"
                         }
-                    }
-                }],
-                "trackedHttpParameters": []
-            }],
-            "resourceType": "/authenticationPolicies/default"
+                      }
+                    },
+                    "children": [
+                      {
+                        "action": {
+                          "type": "RESTART",
+                          "context": "Fail"
+                        }
+                      },
+                      {
+                        "action": {
+                          "type": "DONE",
+                          "context": "Success"
+                        }
+                      }
+                    ]
+                  },
+                  "name": "simple",
+                  "enabled": true
+                }
+              ],
+              "defaultAuthenticationSources": [],
+              "trackedHttpParameters": []
+            }
+          ]
         },
         {
             "operationType": "SAVE",
