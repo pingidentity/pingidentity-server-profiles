@@ -1517,7 +1517,7 @@
             "OrgName": {
                 "source": {"type": "TEXT"},
                 "value": "PingIdentity"
-            },
+            }
           },
           "issuanceCriteria": {
             "conditionalCriteria": []
