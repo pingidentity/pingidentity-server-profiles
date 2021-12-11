@@ -825,7 +825,10 @@
             "coreAttributes": [],
             "extendedAttributes": [
               {
-                "name": "sub"
+                "name": "Username"
+              },
+              {
+                "name": "OrgName"
               }
             ]
           },
@@ -1876,7 +1879,7 @@
                     "attributeContractFulfillment": {
                         "sub": {
                             "source": {"type": "TOKEN"},
-                            "value": "entryUUID"
+                            "value": "Username"
                         },
                         "zoneinfo": {
                             "source": {"type": "TEXT"},
@@ -2024,7 +2027,7 @@
                 "attributeMapping": {
                     "attributeContractFulfillment": {"sub": {
                         "source": {"type": "TOKEN"},
-                        "value": "entryUUID"
+                        "value": "Username"
                     }},
                     "attributeSources": [],
                     "issuanceCriteria": {"conditionalCriteria": []}
@@ -2050,7 +2053,7 @@
                 "attributeMapping": {
                     "attributeContractFulfillment": {"sub": {
                         "source": {"type": "TOKEN"},
-                        "value": "entryUUID"
+                        "value": "Username"
                     }},
                     "attributeSources": [],
                     "issuanceCriteria": {"conditionalCriteria": []}
