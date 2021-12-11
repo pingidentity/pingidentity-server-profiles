@@ -828,7 +828,7 @@
                 "name": "OrgName"
               },
               {
-                "name": "sub"
+                "name": "Username"
               }
             ]
           },
@@ -1521,9 +1521,9 @@
                 "source": {"type": "TEXT"},
                 "value": "PingIdentity"
             },
-            "sub": {
-              "source": {"type": "ADAPTER"},
-              "value": "entryUUID"
+            "Username": {
+                "source": {"type": "ASSERTION"},
+                "value": "TOKEN_SUBJECT"
             }
           },
           "issuanceCriteria": {
