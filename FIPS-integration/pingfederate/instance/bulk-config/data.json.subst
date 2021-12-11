@@ -825,10 +825,10 @@
             "coreAttributes": [],
             "extendedAttributes": [
               {
-                "name": "User"
+                "name": "OrgName"
               },
               {
-                "name": "OrgName"
+                "name": "sub"
               }
             ]
           },
@@ -1517,13 +1517,13 @@
         {
           "attributeSources": [],
           "attributeContractFulfillment": {
-            "User": {
-                "source": {"type": "PASSWORD_CREDENTIAL_VALIDATOR"},
-                "value": "mail"
-            },
             "OrgName": {
                 "source": {"type": "TEXT"},
                 "value": "PingIdentity"
+            },
+            "sub": {
+              "source": {"type": "ADAPTER"},
+              "value": "entryUUID"
             }
           },
           "issuanceCriteria": {
@@ -1551,9 +1551,9 @@
                 "type": "PCV"
             },
             "attributeContractFulfillment": {
-                "Username": {
-                    "source": {"type": "PASSWORD_CREDENTIAL_VALIDATOR"},
-                    "value": "mail"
+                "sub": {
+                  "source": {"type": "ADAPTER"},
+                  "value": "entryUUID"
                 },
                 "OrgName": {
                     "source": {"type": "TEXT"},
@@ -1851,9 +1851,9 @@
                 },
                 "accessTokenManagerMappings": [{
                     "attributeContractFulfillment": {
-                        "Username": {
-                            "source": {"type": "ASSERTION"},
-                            "value": "TOKEN_SUBJECT"
+                        "sub": {
+                          "source": {"type": "ADAPTER"},
+                          "value": "entryUUID"
                         },
                         "OrgName": {
                             "source": {"type": "TEXT"},
@@ -1907,7 +1907,7 @@
                     "attributeContractFulfillment": {
                         "sub": {
                             "source": {"type": "TOKEN"},
-                            "value": "Username"
+                            "value": "entryUUID"
                         },
                         "zoneinfo": {
                             "source": {"type": "TEXT"},
@@ -2055,7 +2055,7 @@
                 "attributeMapping": {
                     "attributeContractFulfillment": {"sub": {
                         "source": {"type": "TOKEN"},
-                        "value": "Username"
+                        "value": "entryUUID"
                     }},
                     "attributeSources": [],
                     "issuanceCriteria": {"conditionalCriteria": []}
@@ -2081,7 +2081,7 @@
                 "attributeMapping": {
                     "attributeContractFulfillment": {"sub": {
                         "source": {"type": "TOKEN"},
-                        "value": "Username"
+                        "value": "entryUUID"
                     }},
                     "attributeSources": [],
                     "issuanceCriteria": {"conditionalCriteria": []}
