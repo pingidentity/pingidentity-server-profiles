@@ -1497,12 +1497,12 @@
               "issuanceCriteria": {
                 "conditionalCriteria": []
               },
-              "id": "authz_req|html|default",
+              "id": "authz_req|pingdirectory|default",
               "context": {
                 "type": "IDP_ADAPTER",
                 "contextRef": {
-                  "id": "html",
-                  "location": "https://${PF_ADMIN_PRIVATE_HOSTNAME}:9999/pf-admin-api/v1/idp/adapters/html"
+                  "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/passwordCredentialValidators/pingdirectory",
+                  "id": "pingdirectory"
                 }
               },
               "accessTokenManagerRef": {
