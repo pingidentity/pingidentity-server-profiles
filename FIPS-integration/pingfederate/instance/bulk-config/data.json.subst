@@ -1818,14 +1818,10 @@
                 },
                 "accessTokenManagerMappings": [{
                     "attributeContractFulfillment": {
-                        "Username": {
-                            "source": {"type": "ASSERTION"},
-                            "value": "TOKEN_SUBJECT"
-                        },
-                        "OrgName": {
-                            "source": {"type": "TEXT"},
-                            "value": "Ping Identity Corporation"
-                        }
+                          "sub": {
+                              "source": {"type": "ASSERTION"},
+                              "value": "TOKEN_SUBJECT"
+                            }
                     },
                     "attributeSources": [],
                     "issuanceCriteria": {"conditionalCriteria": []},
