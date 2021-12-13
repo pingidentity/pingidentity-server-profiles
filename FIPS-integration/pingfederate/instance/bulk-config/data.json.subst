@@ -826,9 +826,6 @@
             "extendedAttributes": [
               {
                 "name": "OrgName"
-              },
-              {
-                "name": "sub"
               }
             ]
           },
@@ -1520,11 +1517,7 @@
             "OrgName": {
                 "source": {"type": "TEXT"},
                 "value": "PingIdentity"
-            },
-             "sub": {
-               "source": {"type": "IDP_ADAPTER"},
-               "value": "entryUUID"
-             }
+            }
           },
           "issuanceCriteria": {
             "conditionalCriteria": []
@@ -1828,11 +1821,7 @@
                         "OrgName": {
                             "source": {"type": "TEXT"},
                             "value": "Ping Identity Corporation"
-                        },
-                          "sub": {
-                            "source": {"type": "IDP_ADAPTER"},
-                            "value": "entryUUID"
-                          }
+                        }
                     },
                     "attributeSources": [],
                     "issuanceCriteria": {"conditionalCriteria": []},
