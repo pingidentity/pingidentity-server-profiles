@@ -826,6 +826,12 @@
             "extendedAttributes": [
               {
                 "name": "OrgName"
+              },
+              {
+                "name": "sub"
+              },
+              {
+                "name": "Username"
               }
             ]
           },
@@ -1517,7 +1523,15 @@
             "OrgName": {
                 "source": {"type": "TEXT"},
                 "value": "PingIdentity"
-            }
+            },
+             "sub": {
+               "source": {"type": "ADAPTER"},
+               "value": "entryUUID"
+             },
+             "Username": {
+              "source": {"type": "AUTHENTICATION_POLICY_CONTRACT"},
+              "value": "subject"
+             }
           },
           "issuanceCriteria": {
             "conditionalCriteria": []
@@ -1821,7 +1835,15 @@
                         "OrgName": {
                             "source": {"type": "TEXT"},
                             "value": "Ping Identity Corporation"
-                        }
+                        },
+                          "sub": {
+                            "source": {"type": "ADAPTER"},
+                            "value": "entryUUID"
+                          },
+                          "Username": {
+                           "source": {"type": "AUTHENTICATION_POLICY_CONTRACT"},
+                           "value": "subject"
+                          }
                     },
                     "attributeSources": [],
                     "issuanceCriteria": {"conditionalCriteria": []},
