@@ -1818,10 +1818,14 @@
                 },
                 "accessTokenManagerMappings": [{
                     "attributeContractFulfillment": {
-                          "sub": {
-                              "source": {"type": "ADAPTER"},
-                              "value": "entryUUID"
-                            }
+                        "Username": {
+                            "source": {"type": "ASSERTION"},
+                            "value": "TOKEN_SUBJECT"
+                        },
+                        "OrgName": {
+                            "source": {"type": "TEXT"},
+                            "value": "Ping Identity Corporation"
+                        }
                     },
                     "attributeSources": [],
                     "issuanceCriteria": {"conditionalCriteria": []},
