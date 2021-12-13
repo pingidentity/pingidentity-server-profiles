@@ -1522,7 +1522,7 @@
                 "value": "PingIdentity"
             },
              "sub": {
-               "source": {"type": "IDP_ADAPTER"},
+               "source": {"type": "ADAPTER"},
                "value": "entryUUID"
              }
           },
@@ -1531,7 +1531,7 @@
           },
           "id": "authz_req|html|default",
           "context": {
-            "type": "IDP_ADAPTER",
+            "type": "ADAPTER",
             "contextRef": {
               "id": "html",
               "location": "https://${PF_ADMIN_PRIVATE_HOSTNAME}:9999/pf-admin-api/v1/idp/adapters/html"
@@ -1566,7 +1566,7 @@
                 "action": {
                   "type": "AUTHN_SOURCE",
                   "authenticationSource": {
-                    "type": "IDP_ADAPTER",
+                    "type": "ADAPTER",
                     "sourceRef": {
                       "id": "html",
                       "location": "https://${PF_ADMIN_PRIVATE_HOSTNAME}:9999/pf-admin-api/v1/idp/adapters/html"
@@ -1830,7 +1830,7 @@
                             "value": "Ping Identity Corporation"
                         },
                           "sub": {
-                            "source": {"type": "IDP_ADAPTER"},
+                            "source": {"type": "ADAPTER"},
                             "value": "entryUUID"
                           }
                     },
