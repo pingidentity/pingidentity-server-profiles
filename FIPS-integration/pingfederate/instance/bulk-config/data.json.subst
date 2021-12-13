@@ -829,9 +829,6 @@
               },
               {
                 "name": "sub"
-              },
-              {
-                "name": "Username"
               }
             ]
           },
@@ -1525,12 +1522,8 @@
                 "value": "PingIdentity"
             },
              "sub": {
-               "source": {"type": "ADAPTER"},
+               "source": {"type": "IDP_ADAPTER"},
                "value": "entryUUID"
-             },
-             "Username": {
-              "source": {"type": "AUTHENTICATION_POLICY_CONTRACT"},
-              "value": "subject"
              }
           },
           "issuanceCriteria": {
@@ -1837,12 +1830,8 @@
                             "value": "Ping Identity Corporation"
                         },
                           "sub": {
-                            "source": {"type": "ADAPTER"},
+                            "source": {"type": "IDP_ADAPTER"},
                             "value": "entryUUID"
-                          },
-                          "Username": {
-                           "source": {"type": "AUTHENTICATION_POLICY_CONTRACT"},
-                           "value": "subject"
                           }
                     },
                     "attributeSources": [],
