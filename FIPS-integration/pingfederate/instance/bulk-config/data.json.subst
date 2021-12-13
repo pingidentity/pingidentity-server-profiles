@@ -825,7 +825,7 @@
             "coreAttributes": [],
             "extendedAttributes": [
               {
-                "name": "OrgName"
+                "name": "sub"
               }
             ]
           },
@@ -1514,10 +1514,10 @@
         {
           "attributeSources": [],
           "attributeContractFulfillment": {
-            "OrgName": {
-                "source": {"type": "TEXT"},
-                "value": "PingIdentity"
-            }
+              "sub": {
+                  "source": {"type": "ADAPTER"},
+                  "value": "entryUUID"
+                }
           },
           "issuanceCriteria": {
             "conditionalCriteria": []
@@ -1818,10 +1818,10 @@
                 },
                 "accessTokenManagerMappings": [{
                     "attributeContractFulfillment": {
-                        "OrgName": {
-                            "source": {"type": "TEXT"},
-                            "value": "Ping Identity Corporation"
-                        }
+                          "sub": {
+                              "source": {"type": "ADAPTER"},
+                              "value": "entryUUID"
+                            }
                     },
                     "attributeSources": [],
                     "issuanceCriteria": {"conditionalCriteria": []},
