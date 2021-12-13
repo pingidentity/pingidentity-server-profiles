@@ -826,6 +826,9 @@
             "extendedAttributes": [
               {
                 "name": "sub"
+              },
+              {
+                "name": "uid"
               }
             ]
           },
@@ -1517,6 +1520,10 @@
               "sub": {
                   "source": {"type": "ADAPTER"},
                   "value": "entryUUID"
+                },
+            "uid": {
+                  "source": {"type": "ADAPTER"},
+                  "value": "uid"
                 }
           },
           "issuanceCriteria": {
@@ -1821,6 +1828,10 @@
                           "sub": {
                               "source": {"type": "ASSERTION"},
                               "value": "TOKEN_SUBJECT"
+                            },
+                        "uid": {
+                              "source": {"type": "TEXT"},
+                              "value": "postman.user.0"
                             }
                     },
                     "attributeSources": [],
