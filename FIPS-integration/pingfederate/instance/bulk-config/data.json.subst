@@ -143,7 +143,7 @@
           "id": "LDAP-201A8CDE130172B88F160E8DE63A2181101984CF",
           "maskAttributeValues": false,
           "hostnames": [
-            "dbt-pa-pf-pd-fips-pingdirectory-cluster:1636"
+            "dbt-pa-pf-pd-fips-pingdirectory:1636"
           ],
           "ldapType": "PING_DIRECTORY",
           "bindAnonymously": false,
@@ -155,7 +155,7 @@
           "hostnamesTags": [
             {
               "hostnames": [
-                "dbt-pa-pf-pd-fips-pingdirectory-cluster:1636"
+                "dbt-pa-pf-pd-fips-pingdirectory:1636"
               ],
               "tags": "docker",
               "defaultSource": true
