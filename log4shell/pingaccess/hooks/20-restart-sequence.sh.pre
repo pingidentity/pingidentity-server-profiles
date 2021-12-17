@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+#
+# Patch the log4j libraries of an installed instance of PingAccess upon restart
+#
+
+${VERBOSE} && set -x
+
+# shellcheck source=/dev/null
+test -f "${HOOKS_DIR}/pingcommon.lib.sh" && . "${HOOKS_DIR}/pingcommon.lib.sh"
+
+_from="${SERVER_BITS_DIR}/lib"
+_toMain="${SERVER_ROOT_DIR}/lib"
+_toUpgrade="${SERVER_ROOT_DIR}/upgrade/lib"
+for _to in ${_toMain} ${_toUpgrade} ; do 
+  for _prefx in log4j-api log4j-slf4j-impl log4j-core log4j-jcl log4j-jul disruptor ; do
+    rm "${_to}"/${_prefx}*.jar
+    cp "${_from}"/${_prefx}*.jar "${_to}"
+  done
+done
