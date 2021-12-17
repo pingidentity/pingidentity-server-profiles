@@ -7,7 +7,7 @@ ${VERBOSE} && set -x
 # shellcheck source=/dev/null
 test -f "${HOOKS_DIR}/pingcommon.lib.sh" && . "${HOOKS_DIR}/pingcommon.lib.sh"
 
-_from="${SERVER_BITS_DIR}/lib"
+_from="${SERVER_BITS_DIR}/server/default/lib"
 _toMain="${SERVER_ROOT_DIR}/server/default/lib"
 _toUpgrade="${SERVER_ROOT_DIR}/upgrade/lib"
 for _to in ${_toMain} ${_toUpgrade} ; do 
