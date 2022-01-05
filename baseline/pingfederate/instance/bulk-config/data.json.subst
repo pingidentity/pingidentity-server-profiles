@@ -302,7 +302,7 @@
                 {
                     "hostnamesTags": [{
                         "defaultSource": true,
-                        "hostnames": ["${PD_ENGINE_PRIVATE_HOSTNAME}"]
+                        "hostnames": ["${PD_ENGINE_PRIVATE_HOSTNAME}:${PD_ENGINE_PRIVATE_PORT_LDAP}"]
                     }],
                     "timeBetweenEvictions": 60000,
                     "binaryAttributes": [],
@@ -320,7 +320,7 @@
                     "bindAnonymously": false,
                     "maxWait": -1,
                     "verifyHost": true,
-                    "hostnames": ["${PD_ENGINE_PRIVATE_HOSTNAME}"],
+                    "hostnames": ["${PD_ENGINE_PRIVATE_HOSTNAME}:${PD_ENGINE_PRIVATE_PORT_LDAP}"],
                     "dnsTtl": 60000,
                     "useSsl": false,
                     "maskAttributeValues": false,
@@ -357,10 +357,10 @@
             "operationType": "SAVE",
             "items": [{
                 "federationInfo": {
-                    "saml2EntityId": "https://${PF_ENGINE_PUBLIC_HOSTNAME}:${PF_ENGINE_PUBLIC_PORT_HTTPS}",
+                    "saml2EntityId": "https://${PF_ENGINE_BASE_URL}",
                     "saml1xIssuerId": "localhost:default:entityId",
                     "wsfedRealm": "",
-                    "baseUrl": "https://${PF_ENGINE_PUBLIC_HOSTNAME}:${PF_ENGINE_PUBLIC_PORT_HTTPS}",
+                    "baseUrl": "https://${PF_ENGINE_BASE_URL}",
                     "saml1xSourceId": ""
                 },
                 "contactInfo": {},
@@ -1242,7 +1242,7 @@
         {
             "operationType": "SAVE",
             "items": [{
-                "baseUrl": "https://${PF_ENGINE_PUBLIC_HOSTNAME}:${PF_ENGINE_PUBLIC_PORT_HTTPS}",
+                "baseUrl": "https://${PF_ENGINE_BASE_URL}",
                 "contactInfo": {},
                 "virtualEntityIds": [],
                 "credentials": {"certs": [{
@@ -1311,7 +1311,7 @@
             "operationType": "SAVE",
             "items": [
                 {
-                    "baseUrl": "https://${PF_ENGINE_PUBLIC_HOSTNAME}:${PF_ENGINE_PUBLIC_PORT_HTTPS}",
+                    "baseUrl": "https://${PF_ENGINE_BASE_URL}",
                     "contactInfo": {},
                     "wsTrust": {
                         "generateKey": false,
@@ -1485,7 +1485,8 @@
                 "rollRefreshTokenValues": false,
                 "allowedOrigins": [
                     "https://localhost",
-                    "https://${PF_ENGINE_PUBLIC_HOSTNAME}:${PF_ENGINE_PUBLIC_PORT_HTTPS}"
+                    "https://${PF_ENGINE_BASE_URL}",
+                    "https://${PD_DELEGATOR_URL}"
                 ],
                 "allowUnidentifiedClientExtensionGrants": false,
                 "devicePollingInterval": 5,

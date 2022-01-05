@@ -433,7 +433,7 @@
                 "id": 3,
                 "name": "pingdirectory_rest_api",
                 "targets": [
-                    "${PD_ENGINE_PRIVATE_HOSTNAME}:${HTTPS_PORT}"
+                    "${PD_ENGINE_PRIVATE_HOSTNAME}:${PD_ENGINE_PRIVATE_PORT_HTTPS}"
                 ],
                 "secure": true,
                 "trustedCertificateGroupId": 2,

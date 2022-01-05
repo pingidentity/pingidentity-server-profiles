@@ -8,6 +8,13 @@ spring.datasource.password=${MYSQL_PASSWORD}
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 server.port=${PING_CENTRAL_SERVER_PORT}
 #pingcentral.proxied=false
+
+# Trusted CA certificates are managed through PingCentral UI or API. CA certificates
+# within a trust store for earlier versions will be imported into PingCentral database
+# during upgrade. If upgrading docker from previous versions to 1.8 and later versions, still specify the path to the trust store below as well as the password.
+# To add additional trusted CA certificates please refer to PingCentral
+# documentation.
+
 server.ssl.trust-any=${PING_CENTRAL_BLIND_TRUST}
 server.ssl.https.verify-hostname=${PING_CENTRAL_VERIFY_HOSTNAME}
 # When a trust store is configured below, by default certificate chain resolution is delegated to the system truststore
@@ -18,6 +25,13 @@ server.ssl.https.verify-hostname=${PING_CENTRAL_VERIFY_HOSTNAME}
 # The password required to access the keystore file.
 #server.ssl.trust-store-password=<TRUSTSTORE_PASSWORD>
 #
+
+# Enable the following property to add support for OGNL expressions for SAML applications that are managed within PingCentral.
+# This will require that OGNL expression support is enabled in PingFederate. This is only advised if you fully understand the security
+# implications of allowing OGNL within PingCentral and PingFederate and accept the risk that it brings.
+# To mitigate the risk, only Administrators will be permitted to write and manage OGNL statements for Application Owners.
+#pingcentral.expressions.enabled=true
+
 # PingCentral SSO Configuration properties.
 # The following are required properties when enabling OpenID Connect (OIDC).
 #
@@ -41,6 +55,10 @@ server.ssl.https.verify-hostname=${PING_CENTRAL_VERIFY_HOSTNAME}
 #pingcentral.sso.oidc.role-claim-value-admin=IAM-Admin
 # The expected value of the role claim which indicates the user is a PingCentral application owner (non-administrator).
 #pingcentral.sso.oidc.role-claim-value-app-owner=Application-Owner
+# Set to false to manage user and group provisioning in PingCentral
+#pingcentral.sso.oidc.groups-claim-enabled=true
+# The name of the claim which identifies the list of comma-separated group names associated with the user.
+#pingcentral.sso.oidc.groups-claim-name=PingCentral-Groups
 #
 # OAuth2 resource server configuration for Admin API access.
 #
@@ -73,3 +91,8 @@ logging.level.com.pingidentity=${PING_CENTRAL_LOG_LEVEL}
 # Prometheus Option
 #management.metrics.export.prometheus.enabled=true
 #management.metrics.export.prometheus.step=5s
+#
+# JPA Second level cache. Set hibernate.cache.use_second_level_cache to true
+# in order to use Groups cache.
+spring.jpa.properties.hibernate.cache.use_second_level_cache=false
+spring.jpa.properties.hibernate.cache.region.factory_class=org.hibernate.cache.ehcache.EhCacheRegionFactory
