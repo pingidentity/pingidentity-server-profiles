@@ -36,7 +36,6 @@ dsconfig set-connection-handler-prop \
     --set enabled:true \
     --set 'trust-manager-provider:Blind Trust'
 
-
 #
 # Status:Configuring Store Adapters
 #
