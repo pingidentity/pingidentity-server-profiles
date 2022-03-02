@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:AdapterConfiguration authnCtxClassRef="" isInheritAttributeSettings="false" isInheritAttributeMapping="false" maskOgnlValues="false" uniqueUserKeyField="pf_none" isInheritExtendedContractAttributes="false" name="adapFacebook" xmlns:urn="urn:sourceid.org:saml2:adapter:conf">
+    <urn:Fields>
+        <urn:Field name="Application ID">eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiUWVzOVR5eTV5WiIsInZlcnNpb24iOiIxMS4wLjEuMSJ9..mOr30g9tmho2k_hJpIU9IQ.-tiTRhShqsSJVQNXE_v28g.u_THQgS5GEHKD5eoDO0LWQ</urn:Field>
+        <urn:Field name="Application Secret">eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiUWVzOVR5eTV5WiIsInZlcnNpb24iOiIxMS4wLjEuMSJ9..6DJwP13k1y11urG603B4-g.jt5eLYnM7fDKS-YTFnPfT1qo72RUIUBLphOxsr15VmuyG7-O3eacgvIvssIggVvE.6Z4FO21utTv5Iq1Tleu2-Q</urn:Field>
+        <urn:Field name="Site URL">https://pingfederate-engine.training.raidiam.io:443/ext/facebook-authn/</urn:Field>
+        <urn:Field name="Error Redirect URL"/>
+        <urn:Field name="Logout URL">https://www.facebook.com/logout.php</urn:Field>
+        <urn:Field name="Unauthorized Redirect URL"/>
+        <urn:Field name="Facebook Authentication URL">https://www.facebook.com/dialog/oauth</urn:Field>
+        <urn:Field name="Facebook Access Token URL">https://graph.facebook.com/oauth/access_token</urn:Field>
+        <urn:Field name="Facebook User Data URL">https://graph.facebook.com/me</urn:Field>
+        <urn:Field name="Facebook sign-on presentation">redirectToFbFlow</urn:Field>
+        <urn:Field name="Facebook Pop-up Template">facebook-pop-up-template.html</urn:Field>
+        <urn:Field name="Facebook Post Auth Template">facebook-post-auth-template.html</urn:Field>
+        <urn:Field name="Facebook Messages File">pingfederate-facebook-adapter-messages</urn:Field>
+        <urn:Field name="Retry Request">false</urn:Field>
+        <urn:Field name="Maximum Retries Limit">5</urn:Field>
+        <urn:Field name="Retry Error Codes">4, 7, 341</urn:Field>
+        <urn:Field name="API Request Timeout">5000</urn:Field>
+        <urn:Field name="Connection Timeout">5000</urn:Field>
+        <urn:Field name="Proxy Settings">systemDefault</urn:Field>
+        <urn:Field name="Custom Proxy Host"/>
+        <urn:Field name="Custom Proxy Port"/>
+    </urn:Fields>
+    <urn:AdvancedFields>
+        <urn:Field name="Facebook Authentication URL">https://www.facebook.com/dialog/oauth</urn:Field>
+        <urn:Field name="Facebook Access Token URL">https://graph.facebook.com/oauth/access_token</urn:Field>
+        <urn:Field name="Facebook User Data URL">https://graph.facebook.com/me</urn:Field>
+        <urn:Field name="Facebook sign-on presentation">redirectToFbFlow</urn:Field>
+        <urn:Field name="Facebook Pop-up Template">facebook-pop-up-template.html</urn:Field>
+        <urn:Field name="Facebook Post Auth Template">facebook-post-auth-template.html</urn:Field>
+        <urn:Field name="Facebook Messages File">pingfederate-facebook-adapter-messages</urn:Field>
+        <urn:Field name="Retry Request">false</urn:Field>
+        <urn:Field name="Maximum Retries Limit">5</urn:Field>
+        <urn:Field name="Retry Error Codes">4, 7, 341</urn:Field>
+        <urn:Field name="API Request Timeout">5000</urn:Field>
+        <urn:Field name="Connection Timeout">5000</urn:Field>
+        <urn:Field name="Proxy Settings">systemDefault</urn:Field>
+        <urn:Field name="Custom Proxy Host"/>
+        <urn:Field name="Custom Proxy Port"/>
+    </urn:AdvancedFields>
+    <urn:Tables>
+        <urn:Table name="Scope Permissions"/>
+    </urn:Tables>
+    <urn:ExtendedContractAttributes/>
+    <urn:ExtendedAttributesAdditionalProperties/>
+    <urn:UniqueKeyField>name</urn:UniqueKeyField>
+    <urn:AttributeMapping>
+        <urn1:AttributeMap Name="access_token" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>access_token</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="name" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>name</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="last_name" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>last_name</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="name_format" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>name_format</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="short_name" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>short_name</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="id" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>id</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="middle_name" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>middle_name</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="first_name" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>first_name</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="token_expires" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>token_expires</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="picture" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>picture</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+    </urn:AttributeMapping>
+</urn:AdapterConfiguration>

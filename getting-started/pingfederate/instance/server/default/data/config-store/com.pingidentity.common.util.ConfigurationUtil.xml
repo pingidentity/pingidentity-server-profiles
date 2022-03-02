@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ ***************************************************
+  ~  Copyright (C) 2021 Ping Identity Corporation
+  ~  All rights reserved.
+  ~
+  ~  The contents of this file are the property of Ping Identity Corporation.
+  ~  You may not copy or use this file, in either source code or executable
+  ~  form, except in compliance with terms set by Ping Identity Corporation.
+  ~  For further information please contact:
+  ~
+  ~  Ping Identity Corporation
+  ~  1001 17th St Suite 100
+  ~  Denver, CO 80202
+  ~  303.468.2900
+  ~  http://www.pingidentity.com
+  ~ *****************************************************
+  ~
+  -->
+
+<c:config xmlns:c="http://www.sourceid.org/2004/05/config">
+    <c:item name="applyFieldDefaultsAtRuntime" preserveOnUpgrade="true">true</c:item>
+</c:config>

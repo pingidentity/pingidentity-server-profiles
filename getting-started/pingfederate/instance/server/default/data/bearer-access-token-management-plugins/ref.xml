@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:AccessTokenManagerConfiguration inheritAccessControlSettings="false" inheritSelectionSettings="false" inheritSessionValidationSettings="false" restrictClients="false" includeSessionIdentifier="false" checkSessionRevocationStatus="false" checkValidAuthnSession="false" updateAuthnSessionActivity="false" defaultSubjectAttribute="" isInheritExtendedContractAttributes="false" name="Internally Managed Reference Tokens" xmlns:urn="urn:sourceid.org:saml2:adapter:conf">
+    <urn:Fields>
+        <urn:Field name="Token Length">28</urn:Field>
+        <urn:Field name="Token Lifetime">120</urn:Field>
+        <urn:Field name="Lifetime Extension Policy">NONE</urn:Field>
+        <urn:Field name="Maximum Token Lifetime"/>
+        <urn:Field name="Lifetime Extension Threshold Percentage">30</urn:Field>
+        <urn:Field name="Mode for Synchronous RPC">3</urn:Field>
+        <urn:Field name="RPC Timeout">500</urn:Field>
+        <urn:Field name="Expand Scope Groups">false</urn:Field>
+    </urn:Fields>
+    <urn:AdvancedFields>
+        <urn:Field name="com.pingidentity.plugin.instanceid">ref</urn:Field>
+        <urn:Field name="Mode for Synchronous RPC">3</urn:Field>
+        <urn:Field name="RPC Timeout">500</urn:Field>
+        <urn:Field name="Expand Scope Groups">false</urn:Field>
+    </urn:AdvancedFields>
+    <urn:Tables/>
+    <urn:ExtendedContractAttributes>
+        <urn:AttributeName>Username</urn:AttributeName>
+        <urn:AttributeName>OrgName</urn:AttributeName>
+    </urn:ExtendedContractAttributes>
+</urn:AccessTokenManagerConfiguration>

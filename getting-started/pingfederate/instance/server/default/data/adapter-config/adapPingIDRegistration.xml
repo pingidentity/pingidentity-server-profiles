@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:AdapterConfiguration authnCtxClassRef="" isInheritAttributeSettings="true" isInheritAttributeMapping="true" isInheritExtendedContractAttributes="true" name="adapPingIDRegistration" xmlns:urn="urn:sourceid.org:saml2:adapter:conf">
+    <urn:Fields>
+        <urn:Field name="PingID Properties">I0F1dG8tR2VuZXJhdGVkIGZyb20gUGluZ09uZSwgZG93bmxvYWRlZCBieSBpZD1bMTQ3OTMzOF0gZW1haWw9W2FuZHJldy5oaWxsLmxiZ0ByYWlkaWFtLmNvbV0KI01vbiBOb3YgMjkgMTA6NTQ6MzkgTVNUIDIwMjEKdXNlX2Jhc2U2NF9rZXk9ZVJueXI1UStKTHIvbzdRK2tKOGhObXVYK3RkZnIySlNuckl6WjJacGZ0QT0KdXNlX3NpZ25hdHVyZT10cnVlCnRva2VuPWNkODY3Zjk3OTNjMGFiODNiOWM5NGQwYmViNTNjYzBmCmlkcF91cmw9aHR0cHM6Ly9pZHB4bnlsM20ucGluZ2lkZW50aXR5LmV1L3BpbmdpZApvcmdfYWxpYXM9OWE5ZTQwNTgtNTNhNy00MDUwLThlYTEtZGNmNTkzYzBjMWEwCmFkbWluX3VybD1odHRwczovL2lkcHhueWwzbS5waW5naWRlbnRpdHkuZXUvcGluZ2lkCmF1dGhlbnRpY2F0b3JfdXJsPWh0dHBzOi8vYXV0aGVudGljYXRvci5waW5nb25lLmV1L3BpbmdpZC9wcG0K</urn:Field>
+        <urn:Field name="Require PingID Registration">false</urn:Field>
+    </urn:Fields>
+    <urn:AdvancedFields>
+        <urn:Field name="Require PingID Registration">false</urn:Field>
+    </urn:AdvancedFields>
+    <urn:Tables/>
+</urn:AdapterConfiguration>

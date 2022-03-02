@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:AuthnSelectionConfig lastModifiedMillis="1645114502987" enableAuthnSelection="true" enableSpAuthnSelection="true" failIfNoSelection="false" xmlns:urn="urn:pingidentity.com:pf:authn-selection">
+    <urn:AuthnSelectionTrees>
+        <urn:AuthnSelectionTree treeId="wk1EredL6jaOy1NALsOOrUUFY" treeName="DefaultPolicy" disabled="true" authnApiApp="">
+            <urn:AstRoot context="">
+                <urn:AstAction xsi:type="urn:AuthnSourceActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <urn:AuthnSourceKey type="ADAPTER">adapKerb</urn:AuthnSourceKey>
+                    <urn:fallbackToSuccess>true</urn:fallbackToSuccess>
+                    <urn:userIdAuthenticated>false</urn:userIdAuthenticated>
+                </urn:AstAction>
+                <urn:AstChild context="Fail">
+                    <urn:AstAction xsi:type="urn:AuthnSourceActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                        <urn:AuthnSourceKey type="ADAPTER">adapIdentifierFirst</urn:AuthnSourceKey>
+                        <urn:fallbackToSuccess>true</urn:fallbackToSuccess>
+                        <urn:userIdAuthenticated>false</urn:userIdAuthenticated>
+                    </urn:AstAction>
+                    <urn:AstChild context="Fail">
+                        <urn:AstAction noOpType="DONE" xsi:type="urn:NoOpActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </urn:AstChild>
+                    <urn:AstChild context="Success">
+                        <urn:AstAction xsi:type="urn:AuthnSourceActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <urn:AuthnSourceKey type="ADAPTER">adapPingIDNoRegistration</urn:AuthnSourceKey>
+                            <urn:fallbackToSuccess>true</urn:fallbackToSuccess>
+                            <urn:InputIdMapping Type="Adapter" AttributeSourceId="adapIdentifierFirst">
+                                <urn1:ValueText xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">subject</urn1:ValueText>
+                            </urn:InputIdMapping>
+                            <urn:userIdAuthenticated>false</urn:userIdAuthenticated>
+                        </urn:AstAction>
+                        <urn:AstChild context="Fail">
+                            <urn:AstAction xsi:type="urn:AuthnSourceActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                <urn:AuthnSourceKey type="ADAPTER">PingOneHTMLFormAdapter1</urn:AuthnSourceKey>
+                                <urn:fallbackToSuccess>true</urn:fallbackToSuccess>
+                                <urn:InputIdMapping Type="Adapter" AttributeSourceId="adapIdentifierFirst">
+                                    <urn1:ValueText xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">subject</urn1:ValueText>
+                                </urn:InputIdMapping>
+                                <urn:userIdAuthenticated>false</urn:userIdAuthenticated>
+                            </urn:AstAction>
+                            <urn:AstChild context="Fail">
+                                <urn:AstAction noOpType="DONE" xsi:type="urn:NoOpActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                            </urn:AstChild>
+                            <urn:AstChild context="Success">
+                                <urn:AstAction xsi:type="urn:AuthnSourceActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                    <urn:AuthnSourceKey type="ADAPTER">adapPingIDRegistration</urn:AuthnSourceKey>
+                                    <urn:fallbackToSuccess>true</urn:fallbackToSuccess>
+                                    <urn:InputIdMapping Type="Adapter" AttributeSourceId="PingOneHTMLFormAdapter1">
+                                        <urn1:ValueText xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">username</urn1:ValueText>
+                                    </urn:InputIdMapping>
+                                    <urn:userIdAuthenticated>true</urn:userIdAuthenticated>
+                                </urn:AstAction>
+                                <urn:AstChild context="Fail">
+                                    <urn:AstAction noOpType="DONE" xsi:type="urn:NoOpActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                                </urn:AstChild>
+                                <urn:AstChild context="Success">
+                                    <urn:AstAction apcId="Cg3lM0SePqntWZ0o" xsi:type="urn:ApcMappingActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                        <urn:AttributeMapping>
+                                            <urn1:AttributeMap Name="subject" Type="Adapter" AttributeSourceId="PingOneHTMLFormAdapter1" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                                                <urn1:ValueText>username</urn1:ValueText>
+                                            </urn1:AttributeMap>
+                                            <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+                                        </urn:AttributeMapping>
+                                    </urn:AstAction>
+                                </urn:AstChild>
+                            </urn:AstChild>
+                        </urn:AstChild>
+                        <urn:AstChild context="Success">
+                            <urn:AstAction apcId="Cg3lM0SePqntWZ0o" xsi:type="urn:ApcMappingActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                <urn:AttributeMapping>
+                                    <urn1:AttributeMap Name="subject" Type="Adapter" AttributeSourceId="adapPingIDNoRegistration" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                                        <urn1:ValueText>subject</urn1:ValueText>
+                                    </urn1:AttributeMap>
+                                    <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+                                </urn:AttributeMapping>
+                            </urn:AstAction>
+                        </urn:AstChild>
+                    </urn:AstChild>
+                </urn:AstChild>
+                <urn:AstChild context="Success">
+                    <urn:AstAction xsi:type="urn:AuthnSourceActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                        <urn:AuthnSourceKey type="ADAPTER">adapPingIDRegistration</urn:AuthnSourceKey>
+                        <urn:fallbackToSuccess>true</urn:fallbackToSuccess>
+                        <urn:InputIdMapping Type="Adapter" AttributeSourceId="adapKerb">
+                            <urn1:ValueText xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">Username</urn1:ValueText>
+                        </urn:InputIdMapping>
+                        <urn:userIdAuthenticated>false</urn:userIdAuthenticated>
+                    </urn:AstAction>
+                    <urn:AstChild context="Fail">
+                        <urn:AstAction noOpType="DONE" xsi:type="urn:NoOpActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </urn:AstChild>
+                    <urn:AstChild context="Success">
+                        <urn:AstAction apcId="Cg3lM0SePqntWZ0o" xsi:type="urn:ApcMappingActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <urn:AttributeMapping>
+                                <urn1:AttributeMap Name="subject" Type="Adapter" AttributeSourceId="adapKerb" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                                    <urn1:ValueText>Username</urn1:ValueText>
+                                </urn1:AttributeMap>
+                                <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+                            </urn:AttributeMapping>
+                        </urn:AstAction>
+                    </urn:AstChild>
+                </urn:AstChild>
+            </urn:AstRoot>
+            <urn:treeDescription>Default Policy</urn:treeDescription>
+        </urn:AuthnSelectionTree>
+        <urn:AuthnSelectionTree treeId="4Hd1P64879GMLtxRk3WaPaBL2" treeName="HTMLFormAdap" disabled="true" authnApiApp="">
+            <urn:AstRoot context="">
+                <urn:AstAction xsi:type="urn:AuthnSourceActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <urn:AuthnSourceKey type="ADAPTER">AdapHTMLForm</urn:AuthnSourceKey>
+                    <urn:fallbackToSuccess>true</urn:fallbackToSuccess>
+                    <urn:userIdAuthenticated>false</urn:userIdAuthenticated>
+                </urn:AstAction>
+                <urn:AstChild context="Fail">
+                    <urn:AstAction noOpType="DONE" xsi:type="urn:NoOpActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                </urn:AstChild>
+                <urn:AstChild context="Success">
+                    <urn:AstAction apcId="Cg3lM0SePqntWZ0o" xsi:type="urn:ApcMappingActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                        <urn:AttributeMapping>
+                            <urn1:AttributeMap Name="subject" Type="Adapter" AttributeSourceId="AdapHTMLForm" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                                <urn1:ValueText>username</urn1:ValueText>
+                            </urn1:AttributeMap>
+                            <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+                        </urn:AttributeMapping>
+                    </urn:AstAction>
+                </urn:AstChild>
+            </urn:AstRoot>
+        </urn:AuthnSelectionTree>
+        <urn:AuthnSelectionTree treeId="odCW8HUGC5XFu3cuft8AwT1Ju" treeName="ThirdPartyAuthPolicy" disabled="false" authnApiApp="">
+            <urn:AstRoot context="">
+                <urn:AstAction xsi:type="urn:AuthnSourceActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <urn:AuthnSourceKey type="ADAPTER">AdapHTMLFormThirdParty</urn:AuthnSourceKey>
+                    <urn:fallbackToSuccess>true</urn:fallbackToSuccess>
+                    <urn:attributeRule>
+                        <urn:IncomingAttr>policy.action</urn:IncomingAttr>
+                        <urn:Operand>EQUALS_CASE_INSENSITIVE</urn:Operand>
+                        <urn:ExpectedValue>Security Key</urn:ExpectedValue>
+                        <urn:Result>Security Key</urn:Result>
+                    </urn:attributeRule>
+                    <urn:attributeRule>
+                        <urn:IncomingAttr>policy.action</urn:IncomingAttr>
+                        <urn:Operand>EQUALS_CASE_INSENSITIVE</urn:Operand>
+                        <urn:ExpectedValue>FIDO</urn:ExpectedValue>
+                        <urn:Result>FIDO</urn:Result>
+                    </urn:attributeRule>
+                    <urn:attributeRule>
+                        <urn:IncomingAttr>policy.action</urn:IncomingAttr>
+                        <urn:Operand>EQUALS_CASE_INSENSITIVE</urn:Operand>
+                        <urn:ExpectedValue>Google</urn:ExpectedValue>
+                        <urn:Result>Google</urn:Result>
+                    </urn:attributeRule>
+                    <urn:attributeRule>
+                        <urn:IncomingAttr>policy.action</urn:IncomingAttr>
+                        <urn:Operand>EQUALS_CASE_INSENSITIVE</urn:Operand>
+                        <urn:ExpectedValue>Facebook</urn:ExpectedValue>
+                        <urn:Result>Facebook</urn:Result>
+                    </urn:attributeRule>
+                    <urn:attributeRule>
+                        <urn:IncomingAttr>policy.action</urn:IncomingAttr>
+                        <urn:Operand>EQUALS_CASE_INSENSITIVE</urn:Operand>
+                        <urn:ExpectedValue>LinkedIn</urn:ExpectedValue>
+                        <urn:Result>LinkedIn</urn:Result>
+                    </urn:attributeRule>
+                    <urn:attributeRule>
+                        <urn:IncomingAttr>policy.action</urn:IncomingAttr>
+                        <urn:Operand>EQUALS_CASE_INSENSITIVE</urn:Operand>
+                        <urn:ExpectedValue>Amazon</urn:ExpectedValue>
+                        <urn:Result>Amazon</urn:Result>
+                    </urn:attributeRule>
+                    <urn:userIdAuthenticated>false</urn:userIdAuthenticated>
+                </urn:AstAction>
+                <urn:AstChild context="Fail">
+                    <urn:AstAction noOpType="DONE" xsi:type="urn:NoOpActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                </urn:AstChild>
+                <urn:AstChild context="Security Key">
+                    <urn:AstAction xsi:type="urn:AuthnSourceActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                        <urn:AuthnSourceKey type="ADAPTER">PingID</urn:AuthnSourceKey>
+                        <urn:fallbackToSuccess>true</urn:fallbackToSuccess>
+                        <urn:userIdAuthenticated>false</urn:userIdAuthenticated>
+                    </urn:AstAction>
+                    <urn:AstChild context="Fail">
+                        <urn:AstAction noOpType="DONE" xsi:type="urn:NoOpActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </urn:AstChild>
+                    <urn:AstChild context="Success">
+                        <urn:AstAction apcId="Cg3lM0SePqntWZ0o" xsi:type="urn:ApcMappingActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <urn:AttributeMapping>
+                                <urn1:AttributeMap Name="subject" Type="Adapter" AttributeSourceId="PingID" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                                    <urn1:ValueText>subject</urn1:ValueText>
+                                </urn1:AttributeMap>
+                                <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+                            </urn:AttributeMapping>
+                        </urn:AstAction>
+                    </urn:AstChild>
+                </urn:AstChild>
+                <urn:AstChild context="FIDO">
+                    <urn:AstAction xsi:type="urn:AuthnSourceActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                        <urn:AuthnSourceKey type="ADAPTER">PingID</urn:AuthnSourceKey>
+                        <urn:fallbackToSuccess>true</urn:fallbackToSuccess>
+                        <urn:userIdAuthenticated>false</urn:userIdAuthenticated>
+                    </urn:AstAction>
+                    <urn:AstChild context="Fail">
+                        <urn:AstAction noOpType="DONE" xsi:type="urn:NoOpActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </urn:AstChild>
+                    <urn:AstChild context="Success">
+                        <urn:AstAction apcId="Cg3lM0SePqntWZ0o" xsi:type="urn:ApcMappingActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <urn:AttributeMapping>
+                                <urn1:AttributeMap Name="subject" Type="Adapter" AttributeSourceId="PingID" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                                    <urn1:ValueText>subject</urn1:ValueText>
+                                </urn1:AttributeMap>
+                                <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+                            </urn:AttributeMapping>
+                        </urn:AstAction>
+                    </urn:AstChild>
+                </urn:AstChild>
+                <urn:AstChild context="Google">
+                    <urn:AstAction xsi:type="urn:AuthnSourceActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                        <urn:AuthnSourceKey type="ADAPTER">adapGoogle</urn:AuthnSourceKey>
+                        <urn:fallbackToSuccess>true</urn:fallbackToSuccess>
+                        <urn:userIdAuthenticated>false</urn:userIdAuthenticated>
+                    </urn:AstAction>
+                    <urn:AstChild context="Fail">
+                        <urn:AstAction noOpType="DONE" xsi:type="urn:NoOpActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </urn:AstChild>
+                    <urn:AstChild context="Success">
+                        <urn:AstAction apcId="Cg3lM0SePqntWZ0o" xsi:type="urn:ApcMappingActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <urn:AttributeMapping>
+                                <urn1:AttributeMap Name="subject" Type="Adapter" AttributeSourceId="adapGoogle" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                                    <urn1:ValueText>email</urn1:ValueText>
+                                </urn1:AttributeMap>
+                                <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+                            </urn:AttributeMapping>
+                        </urn:AstAction>
+                    </urn:AstChild>
+                </urn:AstChild>
+                <urn:AstChild context="Facebook">
+                    <urn:AstAction xsi:type="urn:AuthnSourceActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                        <urn:AuthnSourceKey type="ADAPTER">adapFacebook</urn:AuthnSourceKey>
+                        <urn:fallbackToSuccess>true</urn:fallbackToSuccess>
+                        <urn:userIdAuthenticated>false</urn:userIdAuthenticated>
+                    </urn:AstAction>
+                    <urn:AstChild context="Fail">
+                        <urn:AstAction noOpType="DONE" xsi:type="urn:NoOpActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </urn:AstChild>
+                    <urn:AstChild context="Success">
+                        <urn:AstAction apcId="Cg3lM0SePqntWZ0o" xsi:type="urn:ApcMappingActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <urn:AttributeMapping>
+                                <urn1:AttributeMap Name="subject" Type="Adapter" AttributeSourceId="adapFacebook" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                                    <urn1:ValueText>name</urn1:ValueText>
+                                </urn1:AttributeMap>
+                                <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+                            </urn:AttributeMapping>
+                        </urn:AstAction>
+                    </urn:AstChild>
+                </urn:AstChild>
+                <urn:AstChild context="LinkedIn">
+                    <urn:AstAction xsi:type="urn:AuthnSourceActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                        <urn:AuthnSourceKey type="ADAPTER">adapLinkedIn</urn:AuthnSourceKey>
+                        <urn:fallbackToSuccess>true</urn:fallbackToSuccess>
+                        <urn:userIdAuthenticated>false</urn:userIdAuthenticated>
+                    </urn:AstAction>
+                    <urn:AstChild context="Fail">
+                        <urn:AstAction noOpType="DONE" xsi:type="urn:NoOpActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </urn:AstChild>
+                    <urn:AstChild context="Success">
+                        <urn:AstAction apcId="Cg3lM0SePqntWZ0o" xsi:type="urn:ApcMappingActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <urn:AttributeMapping>
+                                <urn1:AttributeMap Name="subject" Type="Adapter" AttributeSourceId="adapLinkedIn" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                                    <urn1:ValueText>id</urn1:ValueText>
+                                </urn1:AttributeMap>
+                                <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+                            </urn:AttributeMapping>
+                        </urn:AstAction>
+                    </urn:AstChild>
+                </urn:AstChild>
+                <urn:AstChild context="Amazon">
+                    <urn:AstAction xsi:type="urn:AuthnSourceActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                        <urn:AuthnSourceKey type="ADAPTER">adapAmazon</urn:AuthnSourceKey>
+                        <urn:fallbackToSuccess>true</urn:fallbackToSuccess>
+                        <urn:userIdAuthenticated>false</urn:userIdAuthenticated>
+                    </urn:AstAction>
+                    <urn:AstChild context="Fail">
+                        <urn:AstAction noOpType="DONE" xsi:type="urn:NoOpActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </urn:AstChild>
+                    <urn:AstChild context="Success">
+                        <urn:AstAction apcId="Cg3lM0SePqntWZ0o" xsi:type="urn:ApcMappingActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <urn:AttributeMapping>
+                                <urn1:AttributeMap Name="subject" Type="Adapter" AttributeSourceId="adapAmazon" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                                    <urn1:ValueText>name</urn1:ValueText>
+                                </urn1:AttributeMap>
+                                <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+                            </urn:AttributeMapping>
+                        </urn:AstAction>
+                    </urn:AstChild>
+                </urn:AstChild>
+                <urn:AstChild context="Success">
+                    <urn:AstAction xsi:type="urn:AuthnSourceActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                        <urn:AuthnSourceKey type="ADAPTER">adapPingIDRegistration</urn:AuthnSourceKey>
+                        <urn:fallbackToSuccess>true</urn:fallbackToSuccess>
+                        <urn:InputIdMapping Type="Adapter" AttributeSourceId="AdapHTMLFormThirdParty">
+                            <urn1:ValueText xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">username</urn1:ValueText>
+                        </urn:InputIdMapping>
+                        <urn:userIdAuthenticated>true</urn:userIdAuthenticated>
+                    </urn:AstAction>
+                    <urn:AstChild context="Fail">
+                        <urn:AstAction noOpType="DONE" xsi:type="urn:NoOpActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </urn:AstChild>
+                    <urn:AstChild context="Success">
+                        <urn:AstAction apcId="Cg3lM0SePqntWZ0o" xsi:type="urn:ApcMappingActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <urn:AttributeMapping>
+                                <urn1:AttributeMap Name="subject" Type="Adapter" AttributeSourceId="AdapHTMLFormThirdParty" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                                    <urn1:ValueText>username</urn1:ValueText>
+                                </urn1:AttributeMap>
+                                <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+                            </urn:AttributeMapping>
+                        </urn:AstAction>
+                    </urn:AstChild>
+                </urn:AstChild>
+            </urn:AstRoot>
+            <urn:treeDescription>Testing Multi Local Identity Profiles and Third Party integrations</urn:treeDescription>
+        </urn:AuthnSelectionTree>
+    </urn:AuthnSelectionTrees>
+    <urn:DefaultAuthnSources/>
+</urn:AuthnSelectionConfig>

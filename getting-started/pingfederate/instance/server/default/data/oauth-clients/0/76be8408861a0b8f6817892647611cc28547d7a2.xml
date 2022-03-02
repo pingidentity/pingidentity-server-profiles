@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:Clients xmlns:urn="urn:pingidentity.com:pf:oauth:client">
+    <urn:Client client_id="ac_oic_client" name="OpenID Connect Basic Client Profile" secret="_jgDprZduQwf1i_0cKPBaU2J2bXZV2oVrjaQedVLKag.U6ZqYjUB.2" persistentGrantExpirationTime="0" enabled="true" lastModified="2021-10-28T16:59:51.252Z" bypassApprovalPage="false" restrictScopes="false" jwks="{    &quot;keys&quot;:[       {          &quot;kty&quot;:&quot;RSA&quot;,          &quot;kid&quot;:&quot;k1&quot;,          &quot;use&quot;:&quot;sig&quot;,          &quot;n&quot;:&quot;hKMS39B1eoy3FRWI6xCfl3U9xnQCNgeg3LLtKEtLglKMtYB6fniXLsLfDqxZp-1zUN1Wmerhr86DL8tpGnr_Pft7wUWsZqCIg6wg7xIenV86kSasb7r9gYLFCuLmyHUJyyNVdWPdAecJ2AsJ82IZ8eXHkzmX3oxBQCPZ062y-m1Cptpqg3-NJtp12s_3MeBEnTsja29W7OxSpabExp860ZEbE1SRrac8naLS-g68G4AmhZ1Ui5Pdf757gosk5filkA8NjtPAKhoSRxzxgTSyOXKwPCx-pwDURF1P3P5bt2jy7cLwETWntUqQmtjYbfqGuSyoLGQlfzHht_Yu04w1cQ&quot;,          &quot;e&quot;:&quot;AQAB&quot;       }, {    &quot;kty&quot;:&quot;RSA&quot;,          &quot;kid&quot;:&quot;k2&quot;,          &quot;use&quot;:&quot;enc&quot;,    &quot;n&quot;:&quot;qm91fCVYwVayd07K7PuiHOuJPpyGH7A8HiZ0pPa6Enri3-zW7wns9UCRlMX77n5_fkxFG612yKa8JbMrWToUq2GZFVNrfKdOhgVJcHMRfYcjvZPZjVXbDz7nQqfUCvvljBUxlQlKNwH2jYPtoVeCBG1Esv7UJ9RnNGYE-osnKYhdIgxjNjk-w2oGevJK5aoXAE7bQySWPbpV0nqF4Itd8ojbDHmuu3VOyIsEsHw9nj1OBK9Fk3FqFVe-GoMcDOAKosbQa14t0z2WFHy7FLxnLw9WTvYLKJWAVgNaPpdZziujZ_mzvcQL0110Z4JqrJ1bVz5pXL_-hklu-RhjGd0msQ&quot;,    &quot;e&quot;:&quot;AQAB&quot; },       {          &quot;kty&quot;:&quot;EC&quot;,          &quot;kid&quot;:&quot;k3&quot;,          &quot;use&quot;:&quot;enc&quot;,          &quot;x&quot;:&quot;rfaXFAv-jUHAfzZdYTxZcCufhHvfiKMp3ICASLIKxYU&quot;,          &quot;y&quot;:&quot;rZ0v4XIpQ-I_sy24CQ12cH_FJWxx8RJ50Kg4qTFJKnQ&quot;,          &quot;crv&quot;:&quot;P-256&quot;       }    ] }" clientAuthnType="SECRET" enforceOneTimeJWT="false" isRequireSignedRequest="false">
+        <urn:Grant type="refresh_token"/>
+        <urn:Grant type="authorization_code"/>
+        <urn:RedirectUri>https://pingfederate-engine.training.raidiam.io/OAuthPlayground/authorization_code/oidc/callback</urn:RedirectUri>
+        <urn:SupplementalInfo key="DEVICE_FLOW_SETTING" value="SERVER_DEFAULT"/>
+        <urn:SupplementalInfo key="PAIRWISE_USER_TYPE" value="false"/>
+        <urn:SupplementalInfo key="DEFAULT_ATM_ID" value="jwt"/>
+        <urn:SupplementalInfo key="RESTRICT_RESPONSE_TYPES" value="false"/>
+        <urn:SupplementalInfo key="REVERSIBLE_SECRET" value="eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiUWVzOVR5eTV5WiIsInZlcnNpb24iOiIxMC4zLjIuMCJ9..M0YaPrS-mJg71r7RftStMQ.a-Bxeqy2brIMwz2XA0oQZ6MVjfntpIfANPEe0ZNbQCVzCDqWDVjv_MyUqyYuEUBxusnVsYThGmSy2kwTw71nxjMZ11V-v5FS88iNvZ9vv0o.n_5UnzLDberG286t-gmqTg"/>
+        <urn:SupplementalInfo key="ACCESS_SESSION_MANAGEMENT_API" value="false"/>
+        <urn:SupplementalInfo key="id_token_signed_response_alg" value="HS256"/>
+        <urn:SupplementalInfo key="PING_ACCESS_LOGOUT_CAPABLE" value="false"/>
+        <urn:SupplementalInfo key="ALLOW_AUTHENTICATION_API_INIT" value="false"/>
+        <urn:SupplementalInfo key="REQUIRE_PROOF_KEY_FOR_CODE_EXCHANGE" value="false"/>
+        <urn:SupplementalInfo key="ACCESS_SESSION_REVOCATION_API" value="false"/>
+        <urn:SupplementalInfo key="RESTRICT_TO_DEFAULT_ATM" value="false"/>
+        <urn:SupplementalInfo key="PERSISTENT_GRANT_IDLE_TIMEOUT_TYPE" value="SERVER_DEFAULT"/>
+        <urn:SupplementalInfo key="VALIDATE_USING_ALL_ELIGIBLE_ATMS" value="false"/>
+        <urn:SupplementalInfo key="ENABLED" value="true"/>
+        <urn:SupplementalInfo key="vnd.ping.policy_group_id" value="OAuthPlayground"/>
+    </urn:Client>
+</urn:Clients>

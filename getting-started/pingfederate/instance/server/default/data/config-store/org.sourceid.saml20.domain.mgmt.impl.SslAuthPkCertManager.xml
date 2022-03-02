@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:config xmlns:con="http://www.sourceid.org/2004/05/config">
+    <con:map name="evaluation"/>
+    <con:map name="http://pingone.com/9a9e4058-53a7-4050-8ea1-dcf593c0c1a0"/>
+    <con:map name="IAMShowcase"/>
+    <con:map name="https://samltest.id/saml/sp"/>
+</con:config>

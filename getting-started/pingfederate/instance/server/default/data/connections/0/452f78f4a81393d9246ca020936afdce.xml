@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<md:EntityDescriptor entityID="http://pingone.com/9a9e4058-53a7-4050-8ea1-dcf593c0c1a0" urn:name="PingOne" ID="ep4IeNhwu_Ud1rj6l-pxvn9-fxf" urn:baseUrl="https://sso.connect.pingidentity.com" urn:LogLevel="STANDARD" urn:isActive="true" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:urn="urn:sourceid.org:saml2:metadata-extension:v2">
+    <md:Extensions>
+        <urn:EntityExtension PFVersion="11.0.0.11">
+            <urn:VirtualIdentity EntityID="urn:saml2:HiNcxe41cVhJAav:andrewhilllbgraidiamcom"/>
+            <urn:DefaultVirtualIdentity EntityID="urn:saml2:HiNcxe41cVhJAav:andrewhilllbgraidiamcom"/>
+            <urn:DigitialSignatureAliases SigningKeyAlias="fzzmzp9vf0mv9go78c353pfrm" includeX509inXmlSig="false" includeRawKeyInXmlSig="false" SigningAlgorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256">
+                <urn:ActiveVerificationCertAlias>b6svi2jcyrx25bi1phtnh6ep1</urn:ActiveVerificationCertAlias>
+            </urn:DigitialSignatureAliases>
+            <urn:Encryption>
+                <urn:EncryptionPolicy EncryptionAlgorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc" KeyTransportAlgorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p" EncryptAssertion="false" EncryptSubjectNameID="false" SLOEncryptSubjectNameID="false"/>
+                <urn:DecryptionPolicy AssertionEncrypted="false" SubjectNameIDEncrypted="false" AttributeEncrypted="false" SLOSubjectNameIDEncrypted="false"/>
+            </urn:Encryption>
+            <urn:ConnectionTemplateProperties/>
+            <urn:MetadataUrlId xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+            <urn:enableAutoMetadataUpdate>false</urn:enableAutoMetadataUpdate>
+            <urn:alwaysSignArtifactResponse>false</urn:alwaysSignArtifactResponse>
+            <urn:AdditionalAllowedEntitiesConfiguration>
+                <urn:AllowAdditionalEntities>false</urn:AllowAdditionalEntities>
+                <urn:AllowAllEntities>false</urn:AllowAllEntities>
+                <urn:AdditionalAllowedEntities/>
+            </urn:AdditionalAllowedEntitiesConfiguration>
+        </urn:EntityExtension>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" AuthnRequestsSigned="false" WantAssertionsSigned="false" SignResponseAsRequired="true">
+        <md:Extensions>
+            <urn:RoleExtension ArtifactTimeoutSeconds="60" LastModified="2021-12-21T13:46:30.322Z">
+                <urn:IncomingBindings Artifact="false" POST="true" Redirect="false" SOAP="false"/>
+                <urn:EnabledProfiles IDPInitiatedSSO="true" IDPInitiatedSLO="false" SPInitiatedSSO="true" SPInitiatedSLO="false"/>
+                <urn:SP AssertionValidityAfterMinutes="5" AssertionValidityBeforeMinutes="5" ConnectionTargetType="PingOneSCIM11" EnableCDCDuringSSO="false">
+                    <urn:AdapterToAssertionMapping AbortIfNotFoundInAnyDataSources="false" RestrictVirtualServerIds="false" AdapterInstanceId="PingOneHTMLFormAdapter1">
+                        <urn:DefaultAttributeMapping>
+                            <urn:AttributeMap Name="fname" Type="Adapter">
+                                <urn:ValueText>givenName</urn:ValueText>
+                            </urn:AttributeMap>
+                            <urn:AttributeMap Name="lname" Type="Adapter">
+                                <urn:ValueText>sn</urn:ValueText>
+                            </urn:AttributeMap>
+                            <urn:AttributeMap Name="memberOf" Type="Adapter">
+                                <urn:ValueText>isMemberOf</urn:ValueText>
+                            </urn:AttributeMap>
+                            <urn:AttributeMap Name="SAML_SUBJECT" Type="Adapter">
+                                <urn:ValueText>username</urn:ValueText>
+                            </urn:AttributeMap>
+                            <urn:AttributeMap Name="email" Type="Adapter">
+                                <urn:ValueText>mail</urn:ValueText>
+                            </urn:AttributeMap>
+                            <urn:TokenAuthorizationIssuanceCriteria/>
+                        </urn:DefaultAttributeMapping>
+                    </urn:AdapterToAssertionMapping>
+                    <urn:NameIdentifierMappingType IncludeAdditionalAttributes="false" IncludeAdditionalTransientAttributes="false"/>
+                </urn:SP>
+            </urn:RoleExtension>
+        </md:Extensions>
+        <md:AssertionConsumerService index="0" Location="/sso/sp/ACS.saml2" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" isDefault="true"/>
+        <md:AttributeConsumingService index="0">
+            <md:ServiceName xml:lang="en">AttributeContract</md:ServiceName>
+            <md:RequestedAttribute Name="fname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic"/>
+            <md:RequestedAttribute Name="lname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic"/>
+            <md:RequestedAttribute Name="memberOf" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic"/>
+            <md:RequestedAttribute Name="email" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic"/>
+        </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:RoleDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" xsi:type="urn:PFAvailableCertsRoleDescriptorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <urn:availableCert>
+            <urn:Base64EncodedCert>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</urn:Base64EncodedCert>
+            <urn:alias>q9z30wqjj5a6lgybhx3ilk4ag</urn:alias>
+        </urn:availableCert>
+        <urn:availableCert>
+            <urn:Base64EncodedCert>MIIDdjCCAl6gAwIBAgIGAXnWmUjXMA0GCSqGSIb3DQEBCwUAMHwxCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDTzEPMA0GA1UEBxMGRGVudmVyMRYwFAYDVQQKEw1QaW5nIElkZW50aXR5MTcwNQYDVQQDEy5QaW5nT25lIEFjY291bnQgT3JpZ2luYXRpb24gQ2VydGlmaWNhdGUgKDIwMjEpMB4XDTIxMDYwNDEwMzcyMFoXDTI0MDYwMzEwMzcyMFowfDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNPMQ8wDQYDVQQHEwZEZW52ZXIxFjAUBgNVBAoTDVBpbmcgSWRlbnRpdHkxNzA1BgNVBAMTLlBpbmdPbmUgQWNjb3VudCBPcmlnaW5hdGlvbiBDZXJ0aWZpY2F0ZSAoMjAyMSkwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCvUDjOPdp6qJRxDkqIrB+1QOfGNItsJmSXcdoBIuQddo1jBFTE3qjWBrwz5LIEMIYv59zlIfqQRfIwv2CJZTpaNN2hvfk1LvylWCAcZEVPfIifOGAdyXbXK7ej3t1mtM8s9db5rMtGwRGSUtPNRuJb9VHZX0PngUlg0pLl1j4CXrViuO1yrwhW1sr0oNlaYbO+HMA1mHEJ/fMWWvlBUjdC0FhvOyU8FFcI8Wri2u4a4DkBHIzGnkSG3Usj8kyGKAJfqQae2KEp+EhuElmTEvdK7/97BpHaesc0lUz8D7yngRQU0zY4EVTw2QgP+fwOTkHiR/1vOjTjL4cqvLAxg+aNAgMBAAEwDQYJKoZIhvcNAQELBQADggEBADfQ7j+eHEV22oY7skIY6fo5PPr3E3z1Z9+m/XDfSpKyPznJU8syaM27m7yJ1Ol4xxq12gXNIVakXvOSQjS95iGiGDWH3M1+ert5XTfWIARsYnJp/ATu89HF7dYLpJdShzzGEftqKU0yejie4rnVKDml7I3pq0cw5L0Jduotm6oTc1r60GFJuZWGhXvgFRfgr1r9MY+I2rt+baJGeLVzmBltGsQoij6rlgQ4T95xKIBluf9C/NkJzyWVrZAFILmrr4TkB85qKve/msQDkqnykOniWCrffR0PsrDEi2YYfITMd0g2cYWpQ+BEYBIhEphyFg0SCX4eprX9cSYpCpDEd4I=</urn:Base64EncodedCert>
+            <urn:alias>b6svi2jcyrx25bi1phtnh6ep1</urn:alias>
+        </urn:availableCert>
+    </md:RoleDescriptor>
+    <md:ContactPerson contactType="administrative"/>
+</md:EntityDescriptor>

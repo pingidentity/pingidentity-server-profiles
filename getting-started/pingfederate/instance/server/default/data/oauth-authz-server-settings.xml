@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:OAuthConfig enableOAuth="true" authzCodeLength="30" authzCodeTimeout="60" restrictPlainPKCE="false" includeIssuerInAuthzResponse="false" rollRefreshTokens="false" refreshTokenRollingGracePeriod="0" rollingInterval="0" refreshTokenLength="42" atmIdForOAuthGrantManagement="" scopeForOAuthGrantManagement="" globalPersistentGrantExpirationTime="-1" globalPersistentGrantExpirationTimeUnit="d" globalPersistentGrantIdleTimeout="30" globalPersistentGrantIdleTimeoutTimeUnit="d" tokenEndpointBaseUrl="" userAuthzUrl="" registeredAuthzPath="" pendingAuthzTimeout="600" bypassActivationCodeConfirmation="false" devicePollingInterval="5" authzConsentSetting="INTERNAL" parTimeout="60" parRefLength="24" parStatus="ENABLED" xmlns:urn="urn:pingidentity.com:pf:oauth:conf">
+    <urn:UserKeyToAccessTokenMapping contextId="authz_req|apc.G3zzWddwfb8EBeoo" tokenManagerId="jwt">
+        <urn1:AttributeMap Name="Username" Type="Authentication Policy Contract" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>apc.subject</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="OrgName" Type="Authentication Policy Contract" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>apc.subject</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+    </urn:UserKeyToAccessTokenMapping>
+    <urn:UserKeyToAccessTokenMapping contextId="default" tokenManagerId="jwt">
+        <urn1:AttributeMap Name="Username" Type="Persistent Grant" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>USER_KEY</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="OrgName" Type="Text" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>Ping Identity Corporation</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+    </urn:UserKeyToAccessTokenMapping>
+    <urn:UserKeyToAccessTokenMapping contextId="default" tokenManagerId="ref">
+        <urn1:AttributeMap Name="Username" Type="Persistent Grant" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>USER_KEY</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="OrgName" Type="Text" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>Ping Identity Corporation</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+    </urn:UserKeyToAccessTokenMapping>
+    <urn:UserKeyToAccessTokenMapping contextId="authz_req|apc.G3zzWddwfb8EBeoo" tokenManagerId="ref">
+        <urn1:AttributeMap Name="Username" Type="Authentication Policy Contract" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>apc.subject</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="OrgName" Type="Authentication Policy Contract" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>apc.subject</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+    </urn:UserKeyToAccessTokenMapping>
+    <urn:AdapterToUserKeyMapping sourcePluginId="adapGoogle">
+        <urn1:AttributeMap Name="USER_NAME" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>email</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="USER_KEY" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>email</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+    </urn:AdapterToUserKeyMapping>
+    <urn:ApcToUserKeyMapping sourcePluginId="G3zzWddwfb8EBeoo">
+        <urn1:AttributeMap Name="USER_NAME" Type="Authentication Policy Contract" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>subject</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="USER_KEY" Type="Authentication Policy Contract" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>subject</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+    </urn:ApcToUserKeyMapping>
+    <urn:ReuseExistingPersistentGrantForGrant>implicit</urn:ReuseExistingPersistentGrantForGrant>
+    <urn:allowedOrigins>https://pingfederate-engine.training.raidiam.io</urn:allowedOrigins>
+</urn:OAuthConfig>

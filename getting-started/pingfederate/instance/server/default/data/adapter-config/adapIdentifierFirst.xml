@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:AdapterConfiguration authnCtxClassRef="" isInheritAttributeSettings="false" isInheritAttributeMapping="false" maskOgnlValues="false" uniqueUserKeyField="pf_none" isInheritExtendedContractAttributes="false" name="adapIdentifierFirst" xmlns:urn="urn:sourceid.org:saml2:adapter:conf">
+    <urn:Fields>
+        <urn:Field name="Identifier Cookie Lifetime">30</urn:Field>
+        <urn:Field name="Allow Cancelling Identifier Selection">false</urn:Field>
+        <urn:Field name="Maximum Identifiers Count">5</urn:Field>
+        <urn:Field name="Identifier Selection Template">identifier.first.template.html</urn:Field>
+    </urn:Fields>
+    <urn:AdvancedFields>
+        <urn:Field name="Maximum Identifiers Count">5</urn:Field>
+        <urn:Field name="Identifier Selection Template">identifier.first.template.html</urn:Field>
+    </urn:AdvancedFields>
+    <urn:Tables/>
+    <urn:ExtendedContractAttributes/>
+    <urn:UniqueKeyField>subject</urn:UniqueKeyField>
+    <urn:AttributeMapping>
+        <urn1:AttributeMap Name="subject" Type="Adapter" Value="subject" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="domain" Type="Adapter" Value="domain" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+    </urn:AttributeMapping>
+</urn:AdapterConfiguration>

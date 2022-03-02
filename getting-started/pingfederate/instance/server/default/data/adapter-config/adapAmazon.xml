@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:AdapterConfiguration authnCtxClassRef="" isInheritAttributeSettings="false" isInheritAttributeMapping="false" maskOgnlValues="false" uniqueUserKeyField="pf_none" isInheritExtendedContractAttributes="false" name="adapAmazon" xmlns:urn="urn:sourceid.org:saml2:adapter:conf">
+    <urn:Fields>
+        <urn:Field name="Client ID">amzn1.application-oa2-client.3bc8c918b17942afb29f442a0b549fd5</urn:Field>
+        <urn:Field name="Client Secret">eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiUWVzOVR5eTV5WiIsInZlcnNpb24iOiIxMS4wLjEuMSJ9..1QWjj2WySxrkiS9xyA234g.rq3AL-H4J2L54daLO0w7SZEsp17Z0b2DW-E2lB25poru13Q_ayFNgh7DH2QOPMBxB-qsAKM490EspB_E2gvZTS9W4GUKra2wXs7Ce2hl8gk._qONOI0PKBuVCd9VmsVO-Q</urn:Field>
+        <urn:Field name="Error Redirect URL"/>
+        <urn:Field name="Unauthorized Redirect URL">https://pingfederate-engine.training.raidiam.io/ext</urn:Field>
+        <urn:Field name="Authorization Callback Endpoint">/amazon-authn</urn:Field>
+        <urn:Field name="Amazon Authorization URL">https://www.amazon.com/ap/oa</urn:Field>
+        <urn:Field name="Amazon Access Token URL">https://api.amazon.com/auth/o2/token</urn:Field>
+        <urn:Field name="Amazon User Info URL">https://api.amazon.com/user/profile</urn:Field>
+        <urn:Field name="Scopes">profile</urn:Field>
+        <urn:Field name="Amazon Sign-On Presentation">Redirect</urn:Field>
+        <urn:Field name="Amazon Pop-up Template">amazon-pop-up-template.html</urn:Field>
+        <urn:Field name="Amazon Post Auth Template">amazon-post-auth-template.html</urn:Field>
+        <urn:Field name="Amazon Messages File">pingfederate-amazon-adapter-messages</urn:Field>
+        <urn:Field name="Retry Request">false</urn:Field>
+        <urn:Field name="Maximum Retries Limit">5</urn:Field>
+        <urn:Field name="Retry Error Codes">403</urn:Field>
+        <urn:Field name="API Request Timeout">5000</urn:Field>
+        <urn:Field name="Connection Timeout">5000</urn:Field>
+        <urn:Field name="Proxy Settings">System Defaults</urn:Field>
+        <urn:Field name="Custom Proxy Host"/>
+        <urn:Field name="Custom Proxy Port"/>
+    </urn:Fields>
+    <urn:AdvancedFields>
+        <urn:Field name="Amazon Authorization URL">https://www.amazon.com/ap/oa</urn:Field>
+        <urn:Field name="Amazon Access Token URL">https://api.amazon.com/auth/o2/token</urn:Field>
+        <urn:Field name="Amazon User Info URL">https://api.amazon.com/user/profile</urn:Field>
+        <urn:Field name="Scopes">profile</urn:Field>
+        <urn:Field name="Amazon Sign-On Presentation">Redirect</urn:Field>
+        <urn:Field name="Amazon Pop-up Template">amazon-pop-up-template.html</urn:Field>
+        <urn:Field name="Amazon Post Auth Template">amazon-post-auth-template.html</urn:Field>
+        <urn:Field name="Amazon Messages File">pingfederate-amazon-adapter-messages</urn:Field>
+        <urn:Field name="Retry Request">false</urn:Field>
+        <urn:Field name="Maximum Retries Limit">5</urn:Field>
+        <urn:Field name="Retry Error Codes">403</urn:Field>
+        <urn:Field name="API Request Timeout">5000</urn:Field>
+        <urn:Field name="Connection Timeout">5000</urn:Field>
+        <urn:Field name="Proxy Settings">System Defaults</urn:Field>
+        <urn:Field name="Custom Proxy Host"/>
+        <urn:Field name="Custom Proxy Port"/>
+    </urn:AdvancedFields>
+    <urn:Tables/>
+    <urn:ExtendedContractAttributes/>
+    <urn:ExtendedAttributesAdditionalProperties/>
+    <urn:UniqueKeyField>name</urn:UniqueKeyField>
+    <urn:AttributeMapping>
+        <urn1:AttributeMap Name="access_token" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>access_token</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="user_id" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>user_id</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="name" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>name</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="postal_code" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>postal_code</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="email" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>email</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+    </urn:AttributeMapping>
+</urn:AdapterConfiguration>

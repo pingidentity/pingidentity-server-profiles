@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:AdapterConfiguration authnCtxClassRef="" isInheritAttributeSettings="false" isInheritAttributeMapping="false" maskOgnlValues="false" uniqueUserKeyField="pf_none" isInheritExtendedContractAttributes="false" name="adapLinkedIn" xmlns:urn="urn:sourceid.org:saml2:adapter:conf">
+    <urn:Fields>
+        <urn:Field name="API Key">eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiUWVzOVR5eTV5WiIsInZlcnNpb24iOiIxMS4wLjEuMSJ9..S6eqjQBaES-zMcv7shM2nQ.Y64p55gYEHHWpMJbcipGuw.EysngV86xh5oaaB7c_kEQw</urn:Field>
+        <urn:Field name="Secret Key">eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiUWVzOVR5eTV5WiIsInZlcnNpb24iOiIxMS4wLjEuMSJ9..m8NDzf-SDu0sJWZsknkRbg.l38jpw4BAYkWwZXgA5HdhQGug3hvk7WOZCPV5LFsoOY.WU5fn6efFsOtYXvudnJ_Qw</urn:Field>
+        <urn:Field name="Permissions">r_liteprofile</urn:Field>
+        <urn:Field name="Error Redirect URL"/>
+        <urn:Field name="Unauthorized Redirect URL"/>
+        <urn:Field name="Callback Endpoint">/linkedin-authn</urn:Field>
+        <urn:Field name="PingFederate Base URL"/>
+        <urn:Field name="LinkedIn Authentication V2 URL">https://www.linkedin.com/oauth/v2/authorization</urn:Field>
+        <urn:Field name="LinkedIn Access Token V2 URL">https://www.linkedin.com/oauth/v2/accessToken</urn:Field>
+        <urn:Field name="Retrieve Email">false</urn:Field>
+        <urn:Field name="LinkedIn User Email V2 URL">https://api.linkedin.com/v2/emailAddress?q=members&amp;projection=(elements*(handle~))</urn:Field>
+        <urn:Field name="LinkedIn User Data V2 URL">https://api.linkedin.com/v2/me</urn:Field>
+        <urn:Field name="LinkedIn Sign-On Presentation">Redirect</urn:Field>
+        <urn:Field name="LinkedIn Pop-up Template">linkedin-pop-up-template.html</urn:Field>
+        <urn:Field name="LinkedIn Post Auth Template">linkedin-post-auth-template.html</urn:Field>
+        <urn:Field name="LinkedIn Messages File">pingfederate-linkedin-adapter-messages</urn:Field>
+        <urn:Field name="Retry Request">true</urn:Field>
+        <urn:Field name="Maximum Retries Limit">5</urn:Field>
+        <urn:Field name="Retry Error Codes">429</urn:Field>
+        <urn:Field name="API Request Timeout">5000</urn:Field>
+        <urn:Field name="Proxy Settings">System Defaults</urn:Field>
+        <urn:Field name="Custom Proxy Host"/>
+        <urn:Field name="Custom Proxy Port"/>
+    </urn:Fields>
+    <urn:AdvancedFields>
+        <urn:Field name="PingFederate Base URL"/>
+        <urn:Field name="LinkedIn Authentication V2 URL">https://www.linkedin.com/oauth/v2/authorization</urn:Field>
+        <urn:Field name="LinkedIn Access Token V2 URL">https://www.linkedin.com/oauth/v2/accessToken</urn:Field>
+        <urn:Field name="Retrieve Email">false</urn:Field>
+        <urn:Field name="LinkedIn User Email V2 URL">https://api.linkedin.com/v2/emailAddress?q=members&amp;projection=(elements*(handle~))</urn:Field>
+        <urn:Field name="LinkedIn User Data V2 URL">https://api.linkedin.com/v2/me</urn:Field>
+        <urn:Field name="LinkedIn Sign-On Presentation">Redirect</urn:Field>
+        <urn:Field name="LinkedIn Pop-up Template">linkedin-pop-up-template.html</urn:Field>
+        <urn:Field name="LinkedIn Post Auth Template">linkedin-post-auth-template.html</urn:Field>
+        <urn:Field name="LinkedIn Messages File">pingfederate-linkedin-adapter-messages</urn:Field>
+        <urn:Field name="Retry Request">true</urn:Field>
+        <urn:Field name="Maximum Retries Limit">5</urn:Field>
+        <urn:Field name="Retry Error Codes">429</urn:Field>
+        <urn:Field name="API Request Timeout">5000</urn:Field>
+        <urn:Field name="Proxy Settings">System Defaults</urn:Field>
+        <urn:Field name="Custom Proxy Host"/>
+        <urn:Field name="Custom Proxy Port"/>
+    </urn:AdvancedFields>
+    <urn:Tables>
+        <urn:Table name="Attributes"/>
+    </urn:Tables>
+    <urn:ExtendedContractAttributes/>
+    <urn:ExtendedAttributesAdditionalProperties/>
+    <urn:UniqueKeyField>id</urn:UniqueKeyField>
+    <urn:AttributeMapping>
+        <urn1:AttributeMap Name="access_token" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>access_token</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="refresh_token_expires_in" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>refresh_token_expires_in</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="refresh_token" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>refresh_token</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="id" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>id</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="access_token_expires_in" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>access_token_expires_in</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+    </urn:AttributeMapping>
+</urn:AdapterConfiguration>

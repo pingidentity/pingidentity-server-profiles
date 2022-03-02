@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:AdapterConfiguration authnCtxClassRef="" isInheritAttributeSettings="false" isInheritAttributeMapping="false" maskOgnlValues="false" uniqueUserKeyField="pf_none" isInheritExtendedContractAttributes="false" name="PingID" xmlns:urn="urn:sourceid.org:saml2:adapter:conf">
+    <urn:Fields>
+        <urn:Field name="PingID Properties">I0F1dG8tR2VuZXJhdGVkIGZyb20gUGluZ09uZSwgZG93bmxvYWRlZCBieSBpZD1bMTQ3OTMzOF0gZW1haWw9W2FuZHJldy5oaWxsLmxiZ0ByYWlkaWFtLmNvbV0KI1dlZCBKYW4gMDUgMDU6MjQ6NTQgTVNUIDIwMjIKdXNlX2Jhc2U2NF9rZXk9YlFEdksxcTV6ZjR5YjUxeTN6VjZRQlk5MWt5THBmK25LOWlETjRrd1pZbz0KdXNlX3NpZ25hdHVyZT10cnVlCnRva2VuPWJmOTU2NmQwNjMyNGVkZDY4ZmQ0OTllODQ2MmY3YmRmCmlkcF91cmw9aHR0cHM6Ly9pZHB4bnlsM20ucGluZ2lkZW50aXR5LmV1L3BpbmdpZApvcmdfYWxpYXM9OWE5ZTQwNTgtNTNhNy00MDUwLThlYTEtZGNmNTkzYzBjMWEwCmFkbWluX3VybD1odHRwczovL2lkcHhueWwzbS5waW5naWRlbnRpdHkuZXUvcGluZ2lkCmF1dGhlbnRpY2F0b3JfdXJsPWh0dHBzOi8vYXV0aGVudGljYXRvci5waW5nb25lLmV1L3BpbmdpZC9wcG0K</urn:Field>
+        <urn:Field name="LDAP Data source"/>
+        <urn:Field name="Query Directory">false</urn:Field>
+        <urn:Field name="Base Domain"/>
+        <urn:Field name="Filter"/>
+        <urn:Field name="LDAP Search Scope">3</urn:Field>
+        <urn:Field name="fname attribute"/>
+        <urn:Field name="lname attribute"/>
+        <urn:Field name="PingID user attribute"/>
+        <urn:Field name="email attribute"/>
+        <urn:Field name="group attribute"/>
+        <urn:Field name="phone attribute"/>
+        <urn:Field name="YubiKey attribute"/>
+        <urn:Field name="Secondary email attribute"/>
+        <urn:Field name="Voice number attribute"/>
+        <urn:Field name="State attribute"/>
+        <urn:Field name="PingID Heartbeat Timeout"/>
+        <urn:Field name="Authentication During Errors">REJECT</urn:Field>
+        <urn:Field name="Users without a paired device">block</urn:Field>
+        <urn:Field name="LDAP Data Source For Devices"/>
+        <urn:Field name="Create entry for devices"/>
+        <urn:Field name="Encryption Key For Devices"/>
+        <urn:Field name="Distinguished Name Pattern"/>
+        <urn:Field name="HTML Template">pingid.offline.auth.login.template.html</urn:Field>
+        <urn:Field name="Cookie Duration">1</urn:Field>
+        <urn:Field name="PingID Properties File Name">pingid.properties.3</urn:Field>
+        <urn:Field name="Keep Cookies at Sign-off">false</urn:Field>
+        <urn:Field name="Refresh UserId Cookie">false</urn:Field>
+        <urn:Field name="Require PingID Registration">false</urn:Field>
+        <urn:Field name="RISK LEVEL"/>
+        <urn:Field name="RESOURCE ID"/>
+    </urn:Fields>
+    <urn:AdvancedFields>
+        <urn:Field name="LDAP Data source"/>
+        <urn:Field name="Query Directory">false</urn:Field>
+        <urn:Field name="Base Domain"/>
+        <urn:Field name="Filter"/>
+        <urn:Field name="LDAP Search Scope">3</urn:Field>
+        <urn:Field name="fname attribute"/>
+        <urn:Field name="lname attribute"/>
+        <urn:Field name="PingID user attribute"/>
+        <urn:Field name="email attribute"/>
+        <urn:Field name="group attribute"/>
+        <urn:Field name="phone attribute"/>
+        <urn:Field name="YubiKey attribute"/>
+        <urn:Field name="Secondary email attribute"/>
+        <urn:Field name="Voice number attribute"/>
+        <urn:Field name="State attribute"/>
+        <urn:Field name="PingID Heartbeat Timeout"/>
+        <urn:Field name="Authentication During Errors">REJECT</urn:Field>
+        <urn:Field name="Users without a paired device">block</urn:Field>
+        <urn:Field name="LDAP Data Source For Devices"/>
+        <urn:Field name="Create entry for devices"/>
+        <urn:Field name="Encryption Key For Devices"/>
+        <urn:Field name="Distinguished Name Pattern"/>
+        <urn:Field name="HTML Template">pingid.offline.auth.login.template.html</urn:Field>
+        <urn:Field name="Cookie Duration">1</urn:Field>
+        <urn:Field name="PingID Properties File Name">pingid.properties.3</urn:Field>
+        <urn:Field name="Keep Cookies at Sign-off">false</urn:Field>
+        <urn:Field name="Refresh UserId Cookie">false</urn:Field>
+        <urn:Field name="Require PingID Registration">false</urn:Field>
+        <urn:Field name="RISK LEVEL"/>
+        <urn:Field name="RESOURCE ID"/>
+    </urn:AdvancedFields>
+    <urn:Tables/>
+    <urn:ExtendedContractAttributes/>
+    <urn:ExtendedAttributesAdditionalProperties/>
+    <urn:UniqueKeyField>subject</urn:UniqueKeyField>
+    <urn:AttributeMapping>
+        <urn1:AttributeMap Name="org.sourceid.saml20.adapter.idp.authn.authnCtx" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>org.sourceid.saml20.adapter.idp.authn.authnCtx</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="pingid.authentication.accessing.device.city" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>pingid.authentication.accessing.device.city</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="pingid.authentication.accessing.device.ip" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>pingid.authentication.accessing.device.ip</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="pingid.authentication.authenticating.device.is.mdm" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>pingid.authentication.authenticating.device.is.mdm</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="pingid.authentication.authenticating.device.is.rooted" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>pingid.authentication.authenticating.device.is.rooted</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="pingid.authentication.type" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>pingid.authentication.type</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="subject" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>subject</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="pingid.authentication.authenticating.device.id" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>pingid.authentication.authenticating.device.id</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="pingid.authentication.authenticating.device.longitude" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>pingid.authentication.authenticating.device.longitude</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="pingid.authentication.authenticating.device.is.locked" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>pingid.authentication.authenticating.device.is.locked</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="pingid.authentication.authenticating.device.model" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>pingid.authentication.authenticating.device.model</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="pingid_state" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>pingid_state</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="pingid.authentication.authenticating.device.ip" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>pingid.authentication.authenticating.device.ip</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="pingid.authentication.authenticating.device.latitude" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>pingid.authentication.authenticating.device.latitude</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="pingid.authentication.authenticating.device.altitude" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>pingid.authentication.authenticating.device.altitude</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="winlogin.auth.response" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>winlogin.auth.response</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="pingid.authentication.authenticating.device.accuracy" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>pingid.authentication.authenticating.device.accuracy</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="pingid.authentication.authenticating.device.app.version" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>pingid.authentication.authenticating.device.app.version</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="pingid.authentication.authenticating.device.os.version" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>pingid.authentication.authenticating.device.os.version</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="pingid.authentication.accessing.device.country" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>pingid.authentication.accessing.device.country</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:AttributeMap Name="pingid.authentication.accessing.device.ip.reputation" Type="Adapter" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+            <urn1:ValueText>pingid.authentication.accessing.device.ip.reputation</urn1:ValueText>
+        </urn1:AttributeMap>
+        <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+    </urn:AttributeMapping>
+</urn:AdapterConfiguration>

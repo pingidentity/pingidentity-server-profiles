@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:config xmlns:con="http://www.sourceid.org/2004/05/config">
+    <con:item name="Associated">true</con:item>
+    <con:item name="ApplicationDockEndpoint">https://desktop.pingone.eu/cd-2036311318.raidiam</con:item>
+    <con:item name="ProvisioningBaseUrl">https://scim.pingone.eu/prov-service</con:item>
+    <con:item name="KeyPairAlias">hgx0vm8g8zwexnijh1dd7jxi7</con:item>
+    <con:item name="ClientId">12fdda47-4ed6-4bf9-a8d9-b477a299d318</con:item>
+    <con:item name="AccountId">9a9e4058-53a7-4050-8ea1-dcf593c0c1a0</con:item>
+    <con:item name="CompanyName">andrew.hill.lbg@raidiam.com</con:item>
+</con:config>

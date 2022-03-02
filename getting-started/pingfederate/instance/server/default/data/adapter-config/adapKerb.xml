@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:AdapterConfiguration authnCtxClassRef="" isInheritAttributeSettings="false" isInheritAttributeMapping="false" maskOgnlValues="false" uniqueUserKeyField="pf_none" isInheritExtendedContractAttributes="false" name="adapKerb" xmlns:urn="urn:sourceid.org:saml2:adapter:conf">
+    <urn:Fields>
+        <urn:Field name="Domain/Realm Name">KERB-5F2E7013B973A4693DFDF45CEA84DFF25EF3BB1A</urn:Field>
+        <urn:Field name="Error URL Redirect"/>
+        <urn:Field name="Error Template">false</urn:Field>
+        <urn:Field name="Authentication Context Value"/>
+    </urn:Fields>
+    <urn:AdvancedFields>
+        <urn:Field name="Error Template">false</urn:Field>
+        <urn:Field name="Authentication Context Value"/>
+    </urn:AdvancedFields>
+    <urn:Tables/>
+    <urn:ExtendedContractAttributes/>
+    <urn:UniqueKeyField>Username</urn:UniqueKeyField>
+    <urn:AttributeMapping>
+        <urn1:AttributeMap Name="Domain/Realm Name" Type="Adapter" Value="Domain/Realm Name" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="SIDs" Type="Adapter" Value="SIDs" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:AttributeMap Name="Username" Type="Adapter" Value="Username" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+    </urn:AttributeMapping>
+</urn:AdapterConfiguration>

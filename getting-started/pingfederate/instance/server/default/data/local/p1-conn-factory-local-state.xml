@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:config xmlns:con="http://www.sourceid.org/2004/05/config">
+    <con:item name="SigningKeyPairAlias">fzzmzp9vf0mv9go78c353pfrm</con:item>
+    <con:item name="MetadataUploadPending">false</con:item>
+</con:config>

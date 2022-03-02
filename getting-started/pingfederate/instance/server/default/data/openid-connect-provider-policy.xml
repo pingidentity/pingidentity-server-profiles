@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:OpenIdConnectProviderPolicy enabled="true" defaultPolicyGroupId="OAuthPlayground" trackUserSessionsForLogout="false" xmlns:urn="urn:pingidentity.com:pf:openid:connect:idp:policy">
+    <urn:ProviderPolicyGroup policyId="OAuthPlayground" idTokenLife="5" includeSriInIdToken="false" includeUserInfoInIdToken="false" includeSHashInIdToken="false" returnIdTokenOnRefreshGrant="false" reissueIdTokenHybridFlows="false" policyName="OAuthPlayground" accessTokenManagerId="jwt">
+        <urn:UserInfoMapping>
+            <urn1:AttributeMap Name="sub" Type="Token" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                <urn1:ValueText>Username</urn1:ValueText>
+            </urn1:AttributeMap>
+            <urn1:AttributeMap Name="zoneinfo" Type="Text" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                <urn1:ValueText>America/New_York</urn1:ValueText>
+            </urn1:AttributeMap>
+            <urn1:AttributeMap Name="address.locality" Type="Text" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                <urn1:ValueText>Smallville</urn1:ValueText>
+            </urn1:AttributeMap>
+            <urn1:AttributeMap Name="birthdate" Type="Text" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                <urn1:ValueText>1977-12-31</urn1:ValueText>
+            </urn1:AttributeMap>
+            <urn1:AttributeMap Name="gender" Type="Text" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                <urn1:ValueText>female</urn1:ValueText>
+            </urn1:AttributeMap>
+            <urn1:AttributeMap Name="preferred_username" Type="Text" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                <urn1:ValueText>mgsample</urn1:ValueText>
+            </urn1:AttributeMap>
+            <urn1:AttributeMap Name="locale" Type="Text" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                <urn1:ValueText>en_US</urn1:ValueText>
+            </urn1:AttributeMap>
+            <urn1:AttributeMap Name="address.country" Type="Text" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                <urn1:ValueText>USA</urn1:ValueText>
+            </urn1:AttributeMap>
+            <urn1:AttributeMap Name="updated_at" Type="Text" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                <urn1:ValueText>2011-01-03T23:58:42+0000</urn1:ValueText>
+            </urn1:AttributeMap>
+            <urn1:AttributeMap Name="address.postal_code" Type="Text" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                <urn1:ValueText>11223</urn1:ValueText>
+            </urn1:AttributeMap>
+            <urn1:AttributeMap Name="address.region" Type="Text" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                <urn1:ValueText>ME</urn1:ValueText>
+            </urn1:AttributeMap>
+            <urn1:AttributeMap Name="nickname" Type="Text" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                <urn1:ValueText>Name</urn1:ValueText>
+            </urn1:AttributeMap>
+            <urn1:AttributeMap Name="email" Type="Text" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                <urn1:ValueText>auser@example.com</urn1:ValueText>
+            </urn1:AttributeMap>
+            <urn1:AttributeMap Name="website" Type="Text" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                <urn1:ValueText>https://www.pingidentity.com/</urn1:ValueText>
+            </urn1:AttributeMap>
+            <urn1:AttributeMap Name="email_verified" Type="Text" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                <urn1:ValueText>true</urn1:ValueText>
+            </urn1:AttributeMap>
+            <urn1:AttributeMap Name="profile" Type="Text" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                <urn1:ValueText>https://www.pingidentity.com/products/pingfederate/</urn1:ValueText>
+            </urn1:AttributeMap>
+            <urn1:AttributeMap Name="phone_number_verified" Type="Text" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                <urn1:ValueText>true</urn1:ValueText>
+            </urn1:AttributeMap>
+            <urn1:AttributeMap Name="given_name" Type="Text" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                <urn1:ValueText>Mary</urn1:ValueText>
+            </urn1:AttributeMap>
+            <urn1:AttributeMap Name="middle_name" Type="Text" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                <urn1:ValueText>Good</urn1:ValueText>
+            </urn1:AttributeMap>
+            <urn1:AttributeMap Name="picture" Type="Text" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                <urn1:ValueText>https://www.pingidentity.com/images/ping-logo.png</urn1:ValueText>
+            </urn1:AttributeMap>
+            <urn1:AttributeMap Name="name" Type="Text" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                <urn1:ValueText>Mary Good Sample</urn1:ValueText>
+            </urn1:AttributeMap>
+            <urn1:AttributeMap Name="phone_number" Type="Text" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                <urn1:ValueText>(555) 555-5555</urn1:ValueText>
+            </urn1:AttributeMap>
+            <urn1:AttributeMap Name="address.formatted" Type="Text" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                <urn1:ValueText>123 Main Street, Smallville, ME USA 11223</urn1:ValueText>
+            </urn1:AttributeMap>
+            <urn1:AttributeMap Name="family_name" Type="Text" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                <urn1:ValueText>Sample</urn1:ValueText>
+            </urn1:AttributeMap>
+            <urn1:AttributeMap Name="address.street_address" Type="Text" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2">
+                <urn1:ValueText>123 Main Street</urn1:ValueText>
+            </urn1:AttributeMap>
+            <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+        </urn:UserInfoMapping>
+        <urn:scopeAttributesMap/>
+        <urn:attributeContractInclusionMap/>
+        <urn:ExtendedAttributesAdditionalProperties/>
+    </urn:ProviderPolicyGroup>
+</urn:OpenIdConnectProviderPolicy>

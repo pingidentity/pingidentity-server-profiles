@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<md:EntityDescriptor entityID="evaluation" urn:name="evaluation" ID="K413.4MDMRaFmf9M9Fr6bZLruy3" urn:baseUrl="https://localhost:9031" urn:LogLevel="STANDARD" urn:isActive="true" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:urn="urn:sourceid.org:saml2:metadata-extension:v2">
+    <md:Extensions>
+        <urn:EntityExtension PFVersion="10.3.2.0" LicenseGroup="">
+            <urn:DigitialSignatureAliases>
+                <urn:ActiveVerificationCertAlias>c5ryhuqsb188wpfvzv5iic585</urn:ActiveVerificationCertAlias>
+            </urn:DigitialSignatureAliases>
+            <urn:Encryption>
+                <urn:EncryptionPolicy EncryptionAlgorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc" KeyTransportAlgorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p" EncryptAssertion="false" EncryptSubjectNameID="false" SLOEncryptSubjectNameID="false"/>
+                <urn:DecryptionPolicy AssertionEncrypted="false" SubjectNameIDEncrypted="false" AttributeEncrypted="false" SLOSubjectNameIDEncrypted="false"/>
+            </urn:Encryption>
+            <urn:ConnectionTemplateProperties/>
+            <urn:MetadataUrlId xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+            <urn:enableAutoMetadataUpdate>false</urn:enableAutoMetadataUpdate>
+            <urn:alwaysSignArtifactResponse>false</urn:alwaysSignArtifactResponse>
+            <urn:AdditionalAllowedEntitiesConfiguration>
+                <urn:AllowAdditionalEntities>false</urn:AllowAdditionalEntities>
+                <urn:AllowAllEntities>false</urn:AllowAllEntities>
+                <urn:AdditionalAllowedEntities/>
+            </urn:AdditionalAllowedEntitiesConfiguration>
+        </urn:EntityExtension>
+    </md:Extensions>
+    <md:RoleDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" xsi:type="urn:PFOAuthRoleDescriptorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <md:Extensions>
+            <urn:RoleExtension LastModified="2021-11-24T11:38:30.188Z"/>
+        </md:Extensions>
+        <urn:OAuthSettings>
+            <urn:OAuthSAMLBearerMapping tokenManagerId="jwt">
+                <urn:AttributeMap Name="Username" Type="Assertion" Value="TOKEN_SUBJECT"/>
+                <urn:AttributeMap Name="OrgName" Type="Text" Value="Ping Identity Corporation"/>
+                <urn:TokenAuthorizationIssuanceCriteria/>
+            </urn:OAuthSAMLBearerMapping>
+        </urn:OAuthSettings>
+    </md:RoleDescriptor>
+    <md:RoleDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" xsi:type="urn:PFAvailableCertsRoleDescriptorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <urn:availableCert>
+            <urn:Base64EncodedCert>MIIDSjCCAjKgAwIBAgIGAXzH1+bdMA0GCSqGSIb3DQEBCwUAMGYxCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDTzEPMA0GA1UEBxMGRGVudmVyMQ0wCwYDVQQKEwRQaW5nMQwwCgYDVQQLEwNEZXYxHDAaBgNVBAMTE0NvbmZpZyBTaWduaW5nIENlcnQwHhcNMjExMDI4MTY1OTQ3WhcNMzYxMDI0MTY1OTQ3WjBmMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ08xDzANBgNVBAcTBkRlbnZlcjENMAsGA1UEChMEUGluZzEMMAoGA1UECxMDRGV2MRwwGgYDVQQDExNDb25maWcgU2lnbmluZyBDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAprryyoK9/VX0udwD2qhZb3YYLdWQ4Mv4WqTzQAF1XXcFecr++/iv7e2tZDlvnnyGonGRNOKJBNJ8tgISxvQ6yVzBuipWiAmGcp6jZnLsCvKbINCsCjGH7mhjx6A8ZCt+Ku4nE3yD74x5BoJqdMHlPv18k3dexoAo3XBDyTDkPECh+5e5GqGF9t2DIeMlr3u5g/KjcLkWxqlotRS+LfOZ0A7Y8vcJbhCHoBAkBinELOw23XLWAW/V2bM1YsCaU8WXb6ha8Nh8wK74kvk6jxoogy0aB+hZ7XyopJWHqWE1wYa1vsADCvXfOMHWzqQo2kpMenOg/THnOxchv3IS63fvHwIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQCLgY2AH+BURq2zSLyexfhqLlgr8B1Nic1UQGKtfKg3eZuEI7ikl3/IvX63J1/2mCe8fzEKUn962oMTiDuGKFpfRNNQT1BilZ3+UxV92P58uKdqMxXr9QyBeEZtFr5sPeo9+juJmj2n9WuFDMc5GBGwC593VEBJJKnYRgSXleYqBbSsh7jOUh4NyWV1RCh/B3Gza7dk+vJ2ghr/llxf2D1dKtJPqNr2uzl2bVnypp64gn9l5RF9Mf61sV7xOhvhmBSEb4AcbQaLGlS4YWrp0/9Hl4HLuZRnYprWTnv8R9ZFc29qp0PEEMIM+b8ZjtcSgpnn31mFcMUCKVuS/ZBZR/He</urn:Base64EncodedCert>
+            <urn:alias>c5ryhuqsb188wpfvzv5iic585</urn:alias>
+        </urn:availableCert>
+    </md:RoleDescriptor>
+    <md:ContactPerson contactType="administrative"/>
+</md:EntityDescriptor>

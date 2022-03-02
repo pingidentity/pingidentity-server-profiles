@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<loc:localIdentity profileId="3Mb8wlDhGqo727Nt" profileName="LocalIdentityProfileYubi" contractId="Cg3lM0SePqntWZ0o" profileEnabled="false" registrationEnabled="false" xmlns:loc="http://pingidentity.com/2017/07/localIdentity">
+    <loc:auth-sources>
+        <loc:auth-source id="M2zg00B6CoGQzOBs" name="Security Key">
+            <loc:update-policy attributeStorageEnabled="false" retainAttributes="false" updateAttributes="false" updateInterval="0.0"/>
+        </loc:auth-source>
+        <loc:auth-source id="xJjjm42FXoFkWom7" name="FIDO">
+            <loc:update-policy attributeStorageEnabled="false" retainAttributes="false" updateAttributes="false" updateInterval="0.0"/>
+        </loc:auth-source>
+        <loc:auth-source id="TpCOjANwRA51LajQ" name="Google">
+            <loc:update-policy attributeStorageEnabled="false" retainAttributes="false" updateAttributes="false" updateInterval="0.0"/>
+        </loc:auth-source>
+        <loc:auth-source id="tpBz7sogqNwBdzWJ" name="Facebook">
+            <loc:update-policy attributeStorageEnabled="false" retainAttributes="false" updateAttributes="false" updateInterval="0.0"/>
+        </loc:auth-source>
+        <loc:auth-source id="ReNg7QbqTHFSQI2e" name="LinkedIn">
+            <loc:update-policy attributeStorageEnabled="false" retainAttributes="false" updateAttributes="false" updateInterval="0.0"/>
+        </loc:auth-source>
+        <loc:auth-source id="SWBbHOBx5cgHVEvL" name="Amazon">
+            <loc:update-policy attributeStorageEnabled="false" retainAttributes="false" updateAttributes="false" updateInterval="0.0"/>
+        </loc:auth-source>
+    </loc:auth-sources>
+</loc:localIdentity>

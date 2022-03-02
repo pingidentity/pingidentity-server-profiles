@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rotn:pkCertRotations xmlns:rotn="http://pingidentity.com/2006/01/keypair-rotations">
+    <rotn:pkCertRotationType>
+        <rotn:certificateAlias>fzzmzp9vf0mv9go78c353pfrm</rotn:certificateAlias>
+        <rotn:enableCertRotation>true</rotn:enableCertRotation>
+        <rotn:rotationBufferMins>129600</rotn:rotationBufferMins>
+        <rotn:activationBufferMins>43200</rotn:activationBufferMins>
+        <rotn:keyAlgorithm>RSA</rotn:keyAlgorithm>
+        <rotn:keySize>2048</rotn:keySize>
+        <rotn:signatureAlgorithm>SHA256withRSA</rotn:signatureAlgorithm>
+        <rotn:validityPeriodDays>1095</rotn:validityPeriodDays>
+        <rotn:pendingCertAlias xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    </rotn:pkCertRotationType>
+</rotn:pkCertRotations>

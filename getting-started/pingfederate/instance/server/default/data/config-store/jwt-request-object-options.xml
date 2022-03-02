@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://www.sourceid.org/2004/05/config">
+    <item name="require-client_id">false</item>
+    <item name="require-aud">false</item>
+    <item name="require-exp">false</item>
+    <item name="require-nbf">false</item>
+    <list name="other-required-claims">
+        <!-- <ListItem>scope</ListItem> -->
+        <!-- <ListItem>other claim name</ListItem> -->
+    </list>
+    <item name="maxFutureValidityInMinutes">720</item>
+    <item name="maxPastValidityInMinutes">720</item>
+    <item name="alwaysProcessTheRequestObject">true</item>
+</config>

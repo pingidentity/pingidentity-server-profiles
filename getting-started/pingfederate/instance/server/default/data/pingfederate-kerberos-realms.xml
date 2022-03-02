@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ker:KerberosRealmsSettings xmlns:ker="http://pingidentity.com/2012/01/kerberos-realms">
+    <ker:KerberosRealms>
+        <ker:KerberosRealm id="KERB-5F2E7013B973A4693DFDF45CEA84DFF25EF3BB1A">
+            <ker:kerberosRealmName>test</ker:kerberosRealmName>
+            <ker:keyDistributionCenters/>
+            <ker:kerberosUsername>test</ker:kerberosUsername>
+            <ker:kerberosPassword>eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiUWVzOVR5eTV5WiIsInZlcnNpb24iOiIxMC4zLjIuMCJ9..j9cqM56doZykVr_baqQGTQ.c7IfC4sE6sd8uxPTP4IfjQ.canui4fnNOq4XCXJF6pFfA</ker:kerberosPassword>
+            <ker:suppressDomainNameConcatenation>false</ker:suppressDomainNameConcatenation>
+        </ker:KerberosRealm>
+    </ker:KerberosRealms>
+    <ker:KdcTimeout>3000</ker:KdcTimeout>
+    <ker:KdcRetries>3</ker:KdcRetries>
+    <ker:ForceTcp>false</ker:ForceTcp>
+    <ker:Debug>false</ker:Debug>
+</ker:KerberosRealmsSettings>

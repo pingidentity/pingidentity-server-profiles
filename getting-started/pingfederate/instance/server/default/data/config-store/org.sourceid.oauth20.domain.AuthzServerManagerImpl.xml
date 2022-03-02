@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c:config xmlns:c="http://www.sourceid.org/2004/05/config">
+    <c:item name="scope.whitelist">[a-zA-Z0-9!#$%&amp;'()*+,-./:;&lt;=>?@\[\]^_`{|}~]+</c:item>
+    <c:item name="UnidentifiedClientROCreds">false</c:item>
+    <c:item name="UnidentifiedClientExtGrants">false</c:item>
+</c:config>

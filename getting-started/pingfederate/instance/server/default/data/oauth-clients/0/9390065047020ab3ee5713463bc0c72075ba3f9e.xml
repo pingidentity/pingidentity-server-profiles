@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:Clients xmlns:urn="urn:pingidentity.com:pf:oauth:client">
+    <urn:Client client_id="saml_client" name="SAML Client" persistentGrantExpirationTime="0" enabled="true" lastModified="2021-10-28T16:59:51.233Z" bypassApprovalPage="false" restrictScopes="false" clientAuthnType="NONE" enforceOneTimeJWT="false" isRequireSignedRequest="false">
+        <urn:Grant type="extension"/>
+        <urn:SupplementalInfo key="DEVICE_FLOW_SETTING" value="SERVER_DEFAULT"/>
+        <urn:SupplementalInfo key="PAIRWISE_USER_TYPE" value="false"/>
+        <urn:SupplementalInfo key="DEFAULT_ATM_ID" value="jwt"/>
+        <urn:SupplementalInfo key="RESTRICT_RESPONSE_TYPES" value="false"/>
+        <urn:SupplementalInfo key="ACCESS_SESSION_MANAGEMENT_API" value="false"/>
+        <urn:SupplementalInfo key="PING_ACCESS_LOGOUT_CAPABLE" value="false"/>
+        <urn:SupplementalInfo key="ALLOW_AUTHENTICATION_API_INIT" value="false"/>
+        <urn:SupplementalInfo key="REQUIRE_PROOF_KEY_FOR_CODE_EXCHANGE" value="false"/>
+        <urn:SupplementalInfo key="ACCESS_SESSION_REVOCATION_API" value="false"/>
+        <urn:SupplementalInfo key="RESTRICT_TO_DEFAULT_ATM" value="false"/>
+        <urn:SupplementalInfo key="PERSISTENT_GRANT_IDLE_TIMEOUT_TYPE" value="SERVER_DEFAULT"/>
+        <urn:SupplementalInfo key="VALIDATE_USING_ALL_ELIGIBLE_ATMS" value="false"/>
+        <urn:SupplementalInfo key="ENABLED" value="true"/>
+    </urn:Client>
+</urn:Clients>
