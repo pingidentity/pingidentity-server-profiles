@@ -8,8 +8,6 @@ spring:
   web.resources:
     cache-period: 31536000 # 1 year
     add-mappings: false # use our custom mappings instead of the defaults
-  mvc:
-    favicon.enabled: false
 management.server.base-path: /actuator
 
 #################### WARNING ####################

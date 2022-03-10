@@ -25,7 +25,7 @@ logging:
     org.springframework.boot: DEBUG
     org.thymeleaf: WARN
     ch.qos.logback: WARN
-logging.console: true
+log.console: true
 log.file: /opt/out/instance/logs/console.log
 login.hide-server: false
 ldap:
