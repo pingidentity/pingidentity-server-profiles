@@ -1,14 +1,16 @@
 # see http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#common-application-properties
 spring:
   profiles.active: default
-  main:
-    banner-mode: "OFF"
-  thymeleaf:
-    prefix: classpath:/public/app/
-  web.resources:
+  main.show-banner: false
+  thymeleaf.cache: true
+  thymeleaf.prefix: classpath:/public/app/
+  resources:
     cache-period: 31536000 # 1 year
     add-mappings: false # use our custom mappings instead of the defaults
-management.server.base-path: /actuator
+  mvc:
+    favicon.enabled: false
+management:
+  context-path: /actuator
 
 #################### WARNING ####################
 # Increasing the log levels may cause sensitive information to be logged.
@@ -31,10 +33,5 @@ ldap:
   init-user: ${ROOT_USER}
   init-password: ${PING_IDENTITY_PASSWORD}
   #trust-store-file: ${AUTOGEN_TRUSTSTORE_FILE}
-PingData.SSO.OIDC:
-  enabled: ${PD_CONSOLE_SSO_ENABLED:-false}
-  issuer-uri: ${PD_CONSOLE_SSO_ISSUER_URI}
-  client-id: ${PD_CONSOLE_SSO_CLIENT_ID}
-  client-secret: ${PD_CONSOLE_SSO_CLIENT_SECRET}
 configuration:
   complexity: advanced

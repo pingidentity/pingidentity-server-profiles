@@ -1,16 +1,14 @@
 # see http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#common-application-properties
 spring:
   profiles.active: default
-  main.show-banner: false
-  thymeleaf.cache: true
-  thymeleaf.prefix: classpath:/public/app/
-  resources:
+  main:
+    banner-mode: "OFF"
+  thymeleaf:
+    prefix: classpath:/public/app/
+  web.resources:
     cache-period: 31536000 # 1 year
     add-mappings: false # use our custom mappings instead of the defaults
-  mvc:
-    favicon.enabled: false
-management:
-  context-path: /actuator
+management.server.base-path: /actuator
 
 #################### WARNING ####################
 # Increasing the log levels may cause sensitive information to be logged.
@@ -25,7 +23,7 @@ logging:
     org.springframework.boot: DEBUG
     org.thymeleaf: WARN
     ch.qos.logback: WARN
-logging.console: true
+log.console: true
 log.file: /opt/out/instance/logs/console.log
 login.hide-server: false
 ldap:
