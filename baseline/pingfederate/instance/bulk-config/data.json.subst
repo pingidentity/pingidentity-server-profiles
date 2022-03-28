@@ -1893,8 +1893,10 @@
         {
             "operationType": "SAVE",
             "items": [{
-                "apiEnabled": false,
-                "enableApiDescriptions": true
+                "apiEnabled": true,
+                "enableApiDescriptions": true,
+                "restrictAccessToRedirectlessMode": false,
+                "includeRequestContext": false
             }],
             "resourceType": "/authenticationApi/settings"
         },
