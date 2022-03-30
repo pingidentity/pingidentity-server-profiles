@@ -357,10 +357,10 @@
             "operationType": "SAVE",
             "items": [{
                 "federationInfo": {
-                    "saml2EntityId": "https://${PF_ENGINE_BASE_URL}",
+                    "saml2EntityId": "https://${PF_ENGINE_PRIVATE_HOSTNAME}:${PF_ENGINE_PRIVATE_PORT_HTTPS}",
                     "saml1xIssuerId": "localhost:default:entityId",
                     "wsfedRealm": "",
-                    "baseUrl": "https://${PF_ENGINE_BASE_URL}",
+                    "baseUrl": "https://${PF_ENGINE_PRIVATE_HOSTNAME}:${PF_ENGINE_PRIVATE_PORT_HTTPS}",
                     "saml1xSourceId": ""
                 },
                 "contactInfo": {},
