@@ -424,9 +424,9 @@
             "enableIdpDiscovery": true
           },
           "federationInfo": {
-            "baseUrl": "https://${PF_ENGINE_PRIVATE_HOSTNAME}:9031",
-            "saml2EntityId": "docker",
-            "saml1xIssuerId": "",
+            "baseUrl": "https://${PF_ENGINE_PRIVATE_HOSTNAME}::${PF_ENGINE_PRIVATE_PORT_HTTPS}",
+            "saml2EntityId": "https://${PF_ENGINE_PRIVATE_HOSTNAME}::${PF_ENGINE_PRIVATE_PORT_HTTPS}",
+            "saml1xIssuerId": "localhost:default:entityId",
             "saml1xSourceId": "",
             "wsfedRealm": ""
           },
