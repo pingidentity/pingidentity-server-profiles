@@ -118,6 +118,7 @@ pf-oauth-client-restrict-scopes: FALSE
 pf-oauth-client-require-signed-requests: FALSE
 pf-oauth-client-grant-type: refresh_token
 pf-oauth-client-grant-type: authorization_code
+pf-oauth-client-grant-type: implicit
 pf-oauth-client-redirect-uri: https://${PF_ENGINE_PUBLIC_HOSTNAME}:${PF_ENGINE_PUBLIC_PORT_HTTPS}/OAuthPlayground/authorization_code/callback
 pf-oauth-client-supplemental-info: 44:BYPASS_ACTIVATION_CODE_CONFIRMATION_OVERRIDE:null
 pf-oauth-client-supplemental-info: 19:DEVICE_FLOW_SETTING:SERVER_DEFAULT
@@ -139,6 +140,7 @@ pf-oauth-client-supplemental-info: 30:PENDING_AUTHZ_TIMEOUT_OVERRIDE:null
 pf-oauth-client-supplemental-info: 24:vnd.ping.policy_group_id:null
 pf-oauth-client-supplemental-info: 29:PERSISTENT_GRANT_IDLE_TIMEOUT:0
 pf-oauth-client-supplemental-info: 28:id_token_signed_response_alg:null
+pf-oauth-client-supplemental-info: 29:ALLOW_AUTHENTICATION_API_INIT:true
 pf-oauth-client-id: ac_client
 pf-oauth-client-persistent-grant-exp-type: SERVER_DEFAULT
 pf-oauth-client-authn-type: NONE
