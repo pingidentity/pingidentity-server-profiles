@@ -424,9 +424,9 @@
             "enableIdpDiscovery": true
           },
           "federationInfo": {
-            "baseUrl": "https://${PF_ENGINE_PRIVATE_HOSTNAME}::${PF_ENGINE_PRIVATE_PORT_HTTPS}",
-            "saml2EntityId": "https://${PF_ENGINE_PRIVATE_HOSTNAME}::${PF_ENGINE_PRIVATE_PORT_HTTPS}",
-            "saml1xIssuerId": "localhost:default:entityId",
+            "baseUrl": "https://${PF_ENGINE_PRIVATE_HOSTNAME}:9031",
+            "saml2EntityId": "docker",
+            "saml1xIssuerId": "",
             "saml1xSourceId": "",
             "wsfedRealm": ""
           },
@@ -1549,10 +1549,8 @@
       "operationType": "SAVE",
       "items": [
         {
-          "apiEnabled": true,
-          "enableApiDescriptions": true,
-          "restrictAccessToRedirectlessMode": false,
-          "includeRequestContext": false
+          "apiEnabled": false,
+          "enableApiDescriptions": true
         }
       ]
     },
