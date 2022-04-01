@@ -1545,14 +1545,14 @@
       ]
     },
     {
-      "resourceType": "/authenticationApi/settings",
-      "operationType": "SAVE",
-      "items": [
-        {
-          "apiEnabled": false,
-          "enableApiDescriptions": true
-        }
-      ]
+        "operationType": "SAVE",
+        "items": [{
+            "apiEnabled": true,
+            "enableApiDescriptions": true,
+            "restrictAccessToRedirectlessMode": false,
+            "includeRequestContext": false
+        }],
+        "resourceType": "/authenticationApi/settings"
     },
     {
       "resourceType": "/authenticationPolicies/default",
