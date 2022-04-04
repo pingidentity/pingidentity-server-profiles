@@ -1419,12 +1419,16 @@
           "clientId": "ac_client",
           "enabled": true,
           "redirectUris": [
-            "https://${PF_ENGINE_PUBLIC_HOSTNAME}:9031/OAuthPlayground/authorization_code/callback"
+            "https://pingfederate-engine.fips.ping-devops.com:9031/OAuthPlayground/authorization_code/callback"
           ],
           "grantTypes": [
-            "AUTHORIZATION_CODE"
+            "IMPLICIT",
+            "AUTHORIZATION_CODE",
+            "REFRESH_TOKEN"
           ],
           "name": "ac_client",
+          "description": "",
+          "logoUrl": "",
           "refreshRolling": "SERVER_DEFAULT",
           "refreshTokenRollingIntervalType": "SERVER_DEFAULT",
           "persistentGrantExpirationType": "SERVER_DEFAULT",
@@ -1433,9 +1437,10 @@
           "persistentGrantIdleTimeoutType": "SERVER_DEFAULT",
           "persistentGrantIdleTimeout": 0,
           "persistentGrantIdleTimeoutTimeUnit": "DAYS",
-          "allowAuthenticationApiInit": false,
+          "persistentGrantReuseType": "SERVER_DEFAULT",
+          "allowAuthenticationApiInit": true,
           "bypassApprovalPage": true,
-          "restrictScopes": false,
+          "restrictScopes": true,
           "requirePushedAuthorizationRequests": false,
           "restrictedScopes": [],
           "exclusiveScopes": [],
