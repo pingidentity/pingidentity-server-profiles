@@ -1422,9 +1422,13 @@
             "https://${PF_ENGINE_PUBLIC_HOSTNAME}:9031/OAuthPlayground/authorization_code/callback"
           ],
           "grantTypes": [
-            "AUTHORIZATION_CODE"
+            "IMPLICIT",
+            "AUTHORIZATION_CODE",
+            "REFRESH_TOKEN"
           ],
           "name": "ac_client",
+          "description": "",
+          "logoUrl": "",
           "refreshRolling": "SERVER_DEFAULT",
           "refreshTokenRollingIntervalType": "SERVER_DEFAULT",
           "persistentGrantExpirationType": "SERVER_DEFAULT",
@@ -1433,9 +1437,10 @@
           "persistentGrantIdleTimeoutType": "SERVER_DEFAULT",
           "persistentGrantIdleTimeout": 0,
           "persistentGrantIdleTimeoutTimeUnit": "DAYS",
-          "allowAuthenticationApiInit": false,
+          "persistentGrantReuseType": "SERVER_DEFAULT",
+          "allowAuthenticationApiInit": true,
           "bypassApprovalPage": true,
-          "restrictScopes": false,
+          "restrictScopes": true,
           "requirePushedAuthorizationRequests": false,
           "restrictedScopes": [],
           "exclusiveScopes": [],
@@ -1545,14 +1550,14 @@
       ]
     },
     {
-      "resourceType": "/authenticationApi/settings",
-      "operationType": "SAVE",
-      "items": [
-        {
-          "apiEnabled": false,
-          "enableApiDescriptions": true
-        }
-      ]
+        "operationType": "SAVE",
+        "items": [{
+            "apiEnabled": true,
+            "enableApiDescriptions": true,
+            "restrictAccessToRedirectlessMode": false,
+            "includeRequestContext": false
+        }],
+        "resourceType": "/authenticationApi/settings"
     },
     {
       "resourceType": "/authenticationPolicies/default",
