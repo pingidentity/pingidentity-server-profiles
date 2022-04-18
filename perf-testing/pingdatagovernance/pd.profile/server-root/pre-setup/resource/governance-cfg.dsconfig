@@ -17,7 +17,7 @@ dsconfig set-connection-handler-prop --handler-name "HTTPS Connection Handler" -
 # Status:Configuring Store Adapters
 #
 
-dsconfig set-store-adapter-prop --adapter-name UserStoreAdapter --set enabled:true --set structural-ldap-objectclass:inetOrgPerson --set include-base-dn:ou=people,dc=example,dc=com --set create-dn-pattern:entryUUID=server-generated,ou=people,dc=example,dc=com --set "load-balancing-algorithm:User Store LBA"
+dsconfig set-store-adapter-prop --adapter-name UserStoreAdapter --set enabled:true --set structural-ldap-objectclass:inetOrgPerson --set "include-base-dn:ou=people,${USER_BASE_DN}" --set "create-dn-pattern:entryUUID=server-generated,ou=people,${USER_BASE_DN}" --set "load-balancing-algorithm:User Store LBA"
 
 
 #

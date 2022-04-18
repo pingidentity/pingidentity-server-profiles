@@ -143,7 +143,7 @@ dsconfig create-identity-mapper \
     --set match-attribute:entryUUID  \
     --set match-attribute:uid  \
     --set match-base-dn:cn=config  \
-    --set match-base-dn:ou=people,dc=example,dc=com 
+    --set 'match-base-dn:ou=people,${USER_BASE_DN}'
 
 dsconfig create-access-token-validator \
     --validator-name jwt-atv  \
