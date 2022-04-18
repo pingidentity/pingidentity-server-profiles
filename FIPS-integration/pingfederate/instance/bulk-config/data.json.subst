@@ -106,7 +106,7 @@
                "type": "STRING"
            },
            {
-               "stringValue": "ou=oauthClients,dc=example,dc=com",
+               "stringValue": "ou=oauthClients,${USER_BASE_DN}",
                "id": "SearchBase",
                "type": "STRING"
            }
@@ -136,7 +136,7 @@
                "type": "STRING"
            },
            {
-               "stringValue": "ou=grants,dc=example,dc=com",
+               "stringValue": "ou=grants,${USER_BASE_DN}",
                "id": "SearchBase",
                "type": "STRING"
            }
@@ -158,7 +158,7 @@
                "type": "STRING"
            },
            {
-               "stringValue": "ou=identities,dc=example,dc=com",
+               "stringValue": "ou=identities,${USER_BASE_DN}",
                "id": "UserSearchBase",
                "type": "STRING"
            },
@@ -196,7 +196,7 @@
                "type": "STRING"
            },
            {
-               "stringValue": "ou=sessions,dc=example,dc=com",
+               "stringValue": "ou=sessions,${USER_BASE_DN}",
                "id": "SearchBase",
                "type": "STRING"
            }
@@ -585,7 +585,7 @@
               },
               {
                 "name": "Search Base",
-                "value": "ou=People,dc=example,dc=com"
+                "value": "ou=People,${USER_BASE_DN}"
               },
               {
                 "name": "Search Filter",
@@ -1717,7 +1717,7 @@
                     "id": "LDAP-201A8CDE130172B88F160E8DE63A2181101984CF"
                 },
                 "type": "LDAP",
-                "baseDn": "ou=people,dc=example,dc=com",
+                "baseDn": "ou=people,${USER_BASE_DN}",
                 "dataStoreMapping": {
                     "entryUUID": {
                         "metadata": {},
