@@ -1,0 +1,46 @@
+#!/usr/bin/env sh
+
+. "${HOOKS_DIR}/pingcommon.lib.sh"
+
+# Quietly continue if not a Restart
+if test ! "${RUN_PLAN}" = "RESTART" ; then
+  exit 0
+fi
+
+echo "INFO: Checking config for existing engines"
+# # # Get Active Config
+_out="/tmp/current-export.json"
+_password=${PING_IDENTITY_PASSWORD:-PA_ADMIN_PASSWORD_INITIAL}
+_export_http_code=$(
+curl \
+    --insecure \
+    --silent \
+    --request GET \
+    --write-out '%{http_code}' \
+    --user "${ROOT_USER}:${_password}" \
+    --header "X-Xsrf-Header: PingAccess" \
+    --output ${_out} \
+    "https://localhost:${PA_ADMIN_PORT}/pa-admin-api/v3/config/export" \
+    2> /dev/null
+)
+echo "error code is $_export_http_code"
+
+# set -x
+if ! test "${_export_http_code}" = "200"; then
+    echo_red "ERROR: Unable to get current config."
+    jq . "${_out}"
+    exit 20
+fi
+# # extract current engines
+_enginesArray=$(jq -c '.data.engines' < ${_out})
+if test "${_enginesArray}" != "null" ; then
+  echo "INFO: Backing up ${STAGING_DIR}/instance/data/data.json"
+  # backup staging data.json
+  cp "${STAGING_DIR}/instance/data/data.json" "${STAGING_DIR}/instance/data/data.json.bak"
+
+  # populate staging data.json with current engines
+  echo "INFO: merging existing engines to ${STAGING_DIR}/instance/data/data.json"
+  jq '.data.engines |= '"${_enginesArray}"'' < "${STAGING_DIR}/instance/data/data.json.bak" > "${STAGING_DIR}/instance/data/data.json"
+else
+  echo "INFO: No existing engines found, continuing.."
+fi
