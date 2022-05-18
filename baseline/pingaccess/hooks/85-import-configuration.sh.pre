@@ -23,7 +23,6 @@ curl \
     "https://localhost:${PA_ADMIN_PORT}/pa-admin-api/v3/config/export" \
     2> /dev/null
 )
-echo "error code is $_export_http_code"
 
 # set -x
 if ! test "${_export_http_code}" = "200"; then
