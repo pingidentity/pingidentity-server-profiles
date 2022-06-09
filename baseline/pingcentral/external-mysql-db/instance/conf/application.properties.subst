@@ -78,8 +78,10 @@ logging.level.com.pingidentity=${PING_CENTRAL_LOG_LEVEL}
 #pingcentral.admin.api-security-headers=Strict-Transport-Security,Content-Security-Policy,Feature-Policy
 #
 # PingCentral Actuator (Healthcheck, info, and more)
-#management.endpoints.enabled-by-default=true
+management.endpoints.enabled-by-default=false
 #management.endpoints.web.exposure.include=*
+management.endpoint.health.enabled=true
+management.endpoint.info.enabled=true
 #
 # PingCentral Metrics
 #management.endpoint.metrics.enabled=false
