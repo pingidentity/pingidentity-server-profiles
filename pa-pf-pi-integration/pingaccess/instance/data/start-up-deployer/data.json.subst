@@ -3,7 +3,7 @@
   "data": {
     "acmeDefaultServer": {
       "id": "8572f98e-482e-41c2-8a3d-6a0b2fc99734",
-      "location": "https://localhost:9000/pa-admin-api/v3/acme/servers/8572f98e-482e-41c2-8a3d-6a0b2fc99734"
+      "location": "https://test.pingidentity.space:9000/pa-admin-api/v3/acme/servers/8572f98e-482e-41c2-8a3d-6a0b2fc99734"
     },
     "acmeServers": [
       {
@@ -32,7 +32,7 @@
       "sessionTimeoutInMinutes": 240
     },
     "adminConfig": {
-      "hostPort": "pi-pingaccess-admin:9090",
+      "hostPort": "${PA_ADMIN_PRIVATE_HOSTNAME}:9090",
       "httpProxyId": 0,
       "httpsProxyId": 0
     },
@@ -270,9 +270,9 @@
       "signingAlgorithm": null
     },
     "pingFederateAdmin": {
-      "adminUsername": "administrator",
+      "adminUsername": "${ROOT_USER}",
       "adminPassword": {
-        "encryptedValue": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiNllFSUV3d3FVUkRRNHVyTiJ9..xp0_Z5PRf6SIG8o4W7VN9g.QmuSCirNykKxPhFCtXVDtg.y9ns-zUN9dUyWob5pqH7aQ"
+        "value": "${PING_IDENTITY_PASSWORD}"
       },
       "skipHostnameVerification": false,
       "expectedHostname": null,
@@ -281,8 +281,8 @@
       "auditLevel": "OFF",
       "secure": true,
       "useProxy": false,
-      "host": "pi-pingfederate-admin",
-      "port": 9999
+      "host": "${PF_ADMIN_PRIVATE_HOSTNAME}",
+      "port": ${PF_ADMIN_PRIVATE_PORT_HTTPS}
     },
     "pingFederateOAuth": {
       "clientCredentials": {
@@ -307,7 +307,7 @@
     },
     "pingFederateRuntime": {
       "description": null,
-      "issuer": "https://pi-pingfederate-engine:9031",
+      "issuer": "https://${PF_ENGINE_PRIVATE_HOSTNAME}:${PF_ENGINE_PRIVATE_PORT_HTTPS}",
       "trustedCertificateGroupId": 2,
       "useProxy": false,
       "useSlo": false,
@@ -469,9 +469,9 @@
         "id": 1,
         "name": "pingdirectory_rest_api_authn",
         "configuration": {
-          "username": "cn=administrator",
+          "username": "${ROOT_USER_DN}",
           "password": {
-            "encryptedValue": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiNllFSUV3d3FVUkRRNHVyTiJ9..RHxIDOJQ_gs_934uAehcBA.DrYqw4Nx9voA3SLJzfJfaQ._anN6FjlwpjCfq-TRFbblw"
+            "value": "${PING_IDENTITY_PASSWORD}"
           }
         }
       }
@@ -502,7 +502,7 @@
         "id": 2,
         "name": "pingfederate_docker",
         "targets": [
-          "pi-pingfederate-engine:9031"
+          "${PF_ENGINE_PRIVATE_HOSTNAME}:${PF_ENGINE_PRIVATE_PORT_HTTPS}"
         ],
         "secure": true,
         "trustedCertificateGroupId": 2,
@@ -522,7 +522,7 @@
         "id": 3,
         "name": "pingdirectory_rest_api",
         "targets": [
-          "pi-pingdirectory:443"
+          "${PD_ENGINE_PRIVATE_HOSTNAME}:${PD_ENGINE_PRIVATE_PORT_HTTPS}"
         ],
         "secure": true,
         "trustedCertificateGroupId": 2,
@@ -610,7 +610,7 @@
         "clientCredentials": {
           "clientId": "pingaccessAc",
           "clientSecret": {
-            "encryptedValue": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiNllFSUV3d3FVUkRRNHVyTiJ9..kJ9rgLPWzY7joQNzry06ng.NjjDO38z2FaFkiJV7OO8sA.RThKVTfkhwgl0iivf1cbZg"
+            "value": "${PING_IDENTITY_PASSWORD}"
           },
           "keyPairId": 0,
           "credentialsType": "SECRET"
