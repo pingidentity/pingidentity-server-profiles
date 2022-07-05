@@ -1,0 +1,21 @@
+{
+  "api_metadata": {
+    "protocol": "http",
+    "url": "/as",
+    "hostname": "*",
+    "cookie": "",
+    "oauth2_access_token": false,
+    "apikey_qs": "",
+    "apikey_header": "",
+    "login_url": "/as/token.oauth2",
+    "enable_blocking": true,
+    "api_memory_size": "128mb",
+    "decoy_config": {
+      "decoy_enabled": false,
+      "response_code": 200,
+      "response_def": "",
+      "response_message": "",
+      "decoy_subpaths": []
+    }
+  }
+}
