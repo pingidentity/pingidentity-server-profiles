@@ -550,7 +550,9 @@
           "localhost:8010",
           "localhost:8443",
           "pingintelligence:8010",
-          "pingintelligence:8443"
+          "pingintelligence:8443",
+          "${PI_ASE_PRIVATE_HOSTNAME}:8010",
+          "${PI_ASE_PRIVATE_HOSTNAME}:8443"
         ],
         "name": "ASE",
         "secure": false,
