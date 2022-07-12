@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+
+# For secure communication between PingAccess and ASE, enable sideband authentication
+${SERVER_ROOT_DIR}/bin/cli.sh -u admin -p 2FederateM0re enable_sideband_authentication
+sleep 1
+
+# A token is required for PingAccess to authenticate with ASE and set as env variable
+asetokenupdate=`${SERVER_ROOT_DIR}/bin/cli.sh -u admin -p 2FederateM0re create_sideband_token |cut -c 16-47`
+echo "PingIntelligence ASE token- ${asetokenupdate} created"
+sleep 1
+
+# update the aseToken in PingAccess
+curl -k https://${PA_ADMIN_PRIVATE_HOSTNAME}:${PA_ADMIN_PRIVATE_PORT_HTTPS}/pa-admin-api/v3/rules/3 -u Administrator:2FederateM0re -X PUT -H "X-XSRF-Header: PingAccess" -d '{"id":3,"name":"PingIntelligence","className":"com.pingidentity.intelligence.PingIntelligence","configuration":{"aseBackupService":"349b0f74-af09-4277-b271-833139a7d319","aseService":"349b0f74-af09-4277-b271-833139a7d319","asyncEnabled":true,"errorResponseStatusMsg":"Forbidden","errorResponseContentType":"text/html; charset=UTF-8","errorResponseCode":"403","oauthQueryParam":null,"aseauthtoken":"'$asetokenupdate'","errorResponseTemplateFile":"policy.error.page.template.html"}}'
