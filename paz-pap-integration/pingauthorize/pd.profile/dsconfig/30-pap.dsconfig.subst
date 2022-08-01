@@ -1,7 +1,7 @@
 dsconfig create-external-server \
 	--server-name pingauthorizepap \
 	--type policy \
-	--set base-url:https://pingauthorizepap:8443 \
+	--set base-url:https://${PAZP_ENGINE_PRIVATE_HOSTNAME}:${PAZP_ENGINE_PRIVATE_PORT_HTTPS} \
 	--set hostname-verification-method:allow-all \
 	--set key-manager-provider:Null \
 	--set "trust-manager-provider:Blind Trust" \
