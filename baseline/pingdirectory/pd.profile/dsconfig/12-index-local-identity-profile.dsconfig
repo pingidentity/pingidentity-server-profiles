@@ -8,7 +8,7 @@ dsconfig create-plugin \
   --set value-pattern:pf-connected-identities \
   --set target-attribute-exists-during-initial-population-behavior:merge-existing-and-composed-values \
   --set "include-base-dn:dc=example,dc=com" \
-  --set "include-filter:(objectClass=inetOrgPerson)" --no-prompt
+  --set "include-filter:(objectClass=inetOrgPerson)"
 
 dsconfig create-plugin \
   --plugin-name pf-connected-identity \
@@ -17,8 +17,7 @@ dsconfig create-plugin \
   --set attribute-type:pf-connected-identity \
   --set "value-pattern:auth-source=pf-local-identity:user-id={uid}" \
   --set "include-base-dn:dc=example,dc=com" \
-  --set "include-filter:(objectClass=inetOrgPerson)" \
-  --no-prompt
+  --set "include-filter:(objectClass=inetOrgPerson)"
 
 #
 # This is for pingfederate's local identity store
@@ -26,4 +25,4 @@ dsconfig create-plugin \
 dsconfig create-local-db-index \
   --backend-name userRoot \
   --index-name pf-connected-identity \
-  --set index-type:equality --no-prompt
+  --set index-type:equality
