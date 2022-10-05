@@ -12,7 +12,8 @@ dsconfig create-rest-resource-type   \
     --set resource-endpoint:users \
     --set "search-filter-pattern:(|(cn=*%%*)(mail=%%*)(uid=%%*)(sn=*%%*))" \
     --set structural-ldap-objectclass:inetOrgPerson \
-    --set "parent-dn:ou=people,${USER_BASE_DN}"
+    --set "parent-dn:ou=people,${USER_BASE_DN}" \
+    --set create-rdn-attribute-type:uid
 
 dsconfig create-rest-resource-type   \
     --type group \
