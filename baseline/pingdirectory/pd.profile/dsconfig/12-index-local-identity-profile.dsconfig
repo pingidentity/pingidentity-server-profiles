@@ -1,25 +1,4 @@
 #
-# Configure pf-connected-identities for DA configuration
-#
-dsconfig create-plugin \
-  --plugin-name pf-connected-identities \
-  --type composed-attribute --set enabled:true \
-  --set attribute-type:objectClass \
-  --set value-pattern:pf-connected-identities \
-  --set target-attribute-exists-during-initial-population-behavior:merge-existing-and-composed-values \
-  --set "include-base-dn:dc=example,dc=com" \
-  --set "include-filter:(objectClass=inetOrgPerson)"
-
-dsconfig create-plugin \
-  --plugin-name pf-connected-identity \
-  --type composed-attribute \
-  --set enabled:true \
-  --set attribute-type:pf-connected-identity \
-  --set "value-pattern:auth-source=pf-local-identity:user-id={uid}" \
-  --set "include-base-dn:dc=example,dc=com" \
-  --set "include-filter:(objectClass=inetOrgPerson)"
-
-#
 # This is for pingfederate's local identity store
 #
 dsconfig create-local-db-index \
