@@ -1,0 +1,10 @@
+# Create a backend for the restricted baseDN
+dsconfig create-backend \
+    --backend-name dataset \
+    --type local-db \
+    --set enabled:true \
+    --set "base-dn:ou=people,${USER_BASE_DN}"
+
+# Set the replication set for this PD server
+dsconfig set-global-configuration-prop \
+    --set "replication-set-name:${REPLICATION_SET_NAME}"
