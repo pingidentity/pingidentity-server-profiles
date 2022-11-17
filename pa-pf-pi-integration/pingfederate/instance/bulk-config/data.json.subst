@@ -254,8 +254,8 @@
         {
             "operationType": "SAVE",
             "items": [{
-                "password": "${keyPairs_sslServer_items_sslservercert_sslservercert_password}",
-                "fileData": "${keyPairs_sslServer_items_sslservercert_sslservercert_fileData}",
+                "password": "${PRIVATE_KEYSTORE_PIN}",
+                "fileData": "${PRIVATE_KEYSTORE}",
                 "id": "sslservercert"
             }],
             "resourceType": "/keyPairs/sslServer"
