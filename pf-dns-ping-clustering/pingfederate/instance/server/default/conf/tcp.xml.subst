@@ -30,8 +30,8 @@
     ${DISCOVERY_TAG}
 
     <!-- To enable discovery using the AWS SDK and a file stored in S3, comment out TCPPING, and uncomment the
-             section below. This is the recommended dynamic discovery mechanism when running in AWS but not using Kubernetes.
-             See https://github.com/jgroups-extras/native-s3-ping for further information on the available settings. -->
+         section below. This is the recommended dynamic discovery mechanism when running in AWS but not using Kubernetes.
+         See https://github.com/jgroups-extras/native-s3-ping for further information on the available settings. -->
     <!--
     <org.jgroups.aws.s3.NATIVE_S3_PING
             region_name="us-east-1"
