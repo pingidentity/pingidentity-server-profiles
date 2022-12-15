@@ -17,7 +17,7 @@
 #     AWS_PING
 #     SWIFT_PING
 #
-pf.cluster.discovery.protocol=TCPPING
+pf.cluster.discovery.protocol=DNS_PING
 
 # Optional property to declare fully-qualified class name of discovery protocol not included in the supported list for
 # "pf.cluster.discovery.protocol". Both "pf.cluster.discovery.protocol" and "pf.cluster.discovery.class" must be set
@@ -31,7 +31,7 @@ pf.cluster.discovery.class=
 # See JGroups documentation on TCPPING for further information on the available settings.
 #
 # Comma delimited list of hosts to be contacted for initial membership.
-pf.cluster.TCPPING.initial_hosts=${pf.cluster.tcp.discovery.initial.hosts}
+pf.cluster.TCPPING.initial_hosts=${_DOLLAR_}{pf.cluster.tcp.discovery.initial.hosts}
 #
 # Whether to return the entire logical-physical address cache on a discovery request. Default is true.
 pf.cluster.TCPPING.return_entire_cache=true
@@ -70,7 +70,7 @@ pf.cluster.NATIVE_S3_PING.write_data_on_find=true
 # See JGroups documentation on DNS_PING for further information on the available settings.
 #
 # A comma-separated list of DNS queries for fetching cluster members.
-pf.cluster.DNS_PING.dns_query=
+pf.cluster.DNS_PING.dns_query=${DNS_QUERY_LOCATION}
 
 # ---------------------------------
 #   AWS_PING configuration
