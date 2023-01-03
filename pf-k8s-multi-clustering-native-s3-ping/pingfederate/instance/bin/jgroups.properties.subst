@@ -84,7 +84,7 @@ pf.cluster.DNS_PING.dns_query=${DNS_QUERY_LOCATION}
 #
 # The port number that PingFederate listens on for cluster communication.
 # This should normally be left as ${pf.cluster.bind.port}.
-pf.cluster.AWS_PING.port_number=${pf.cluster.bind.port}
+pf.cluster.AWS_PING.port_number=${_DOLLAR_}{pf.cluster.bind.port}
 #
 # (OPTIONAL) PingFederate may probe additional ports when attempting to connect to other
 # nodes. Specify the number of additional ports beyond port_number to probe. The default is 0.
