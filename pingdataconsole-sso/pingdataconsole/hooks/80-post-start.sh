@@ -95,7 +95,7 @@ watch_server ()
 if test -n "${AUTOGEN_TRUSTSTORE_ENABLED}" ; 
 then
     ensure_trust_store_present
-    for server in "pingdirectory:${LDAPS_PORT}" "pingdirectoryproxy:${LDAPS_PORT}" "pingdatasync:${LDAPS_PORT}" "pingdatagovernance:${LDAPS_PORT}" ;
+    for server in "pingdirectory:${LDAPS_PORT}" "pingdirectoryproxy:${LDAPS_PORT}" "pingdatasync:${LDAPS_PORT}" ;
     do
         sleep 3
         watch_server "${server}" &
