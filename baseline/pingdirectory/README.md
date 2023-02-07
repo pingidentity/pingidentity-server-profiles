@@ -1,5 +1,5 @@
 # Purpose
-This server profile aims at providing a richer featured PingDirectory configuration that can them be used with PingFederate and PingDataSync
+This server profile aims at providing a richer featured PingDirectory configuration that can then be used with PingFederate and PingDataSync
 
 ## config
 This directory contains various config batch fragments that are assembled and applied together to set the instance up
