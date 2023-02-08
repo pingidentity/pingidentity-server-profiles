@@ -7,7 +7,10 @@
 #                or
 #         export MY_ENVIRONMENT_VARIABLE_1=${MY_ENVIRONMENT_VARIABLE_1:-wasNotSetElsewhere}
 # The location MUST be provided
-export LOCATION=${LOCATION:-Docker}
+# If PingDirectory is deployed in multi cluster mode, that is,
+# K8S_CLUSTER, K8S_CLUSTERS and K8S_SEED_CLUSTER are defined,
+# LOCATION is ignored and K8S_CLUSTER is used as the location
+# export LOCATION=${LOCATION:-Docker}
 # Suffix for the PD hostname, used in the entry balancing configuration.
 # When deploying your own entry balancing environment, you will need to generate the correct dsconfig
 # for your environment using the create-initial-proxy-config tool.
