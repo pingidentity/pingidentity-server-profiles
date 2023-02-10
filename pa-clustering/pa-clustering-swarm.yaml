@@ -10,7 +10,7 @@ services:
     environment:
       - SERVER_PROFILE_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
       - SERVER_PROFILE_PATH=pa-clustering/pingaccess
-      # Variables are added to ~/.pingidentity/devops and sourced by .bash_profile when setup.sh
+      # Variables are added to ~/.pingidentity/config and sourced by .bash_profile when setup.sh
       # (Getting-started project root directory) is first run to configure your environment.
       # Used to generate just-in-time evaluation licenses
       - OPERATIONAL_MODE=CLUSTERED_CONSOLE
@@ -36,7 +36,7 @@ services:
     environment:
       - SERVER_PROFILE_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
       - SERVER_PROFILE_PATH=pa-clustering/pingaccess
-      # Variables are added to ~/.pingidentity/devops and sourced by .bash_profile when setup.sh
+      # Variables are added to ~/.pingidentity/config and sourced by .bash_profile when setup.sh
       # (Getting-started project root directory) is first run to configure your environment.
       # Used to generate just-in-time evaluation licenses
       - OPERATIONAL_MODE=CLUSTERED_ENGINE

@@ -16,7 +16,7 @@ services:
       - OOBAUTH_EMAIL_SMTP_USERNAME=<SMTP Server username>
       - OOBAUTH_EMAIL_SMTP_PASSWORD=<SMTP Server password>
     env_file:
-      - ~/.pingidentity/devops         
+      - ~/.pingidentity/config         
    #volumes:
     #  - ${HOME}/projects/devops/volumes/full-stack.pingfederate:/opt/out
     #  - ${HOME}/projects/devops/volumes/pingidentity-server-profiles/baseline/pingfederate:/opt/in
@@ -36,7 +36,7 @@ services:
       - SERVER_PROFILE_BASELINE_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
       - SERVER_PROFILE_BASELINE_PATH=baseline/pingdirectory
     env_file:
-      - ~/.pingidentity/devops
+      - ~/.pingidentity/config
     #volumes:
     #  - ${HOME}/projects/devops/volumes/full-stack.pingdirectory:/opt/out
     #  - ${HOME}/projects/devops/pingidentity-server-profiles/baseline/pingdirectory:/opt/in
