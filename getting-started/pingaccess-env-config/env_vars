@@ -15,3 +15,7 @@
 
 export PA_LOG_LEVEL=${PA_LOG_LEVEL:=INFO}
 export PING_IDENTITY_PASSWORD=${PING_IDENTITY_PASSWORD:-2FederateM0re}
+
+# Variables added for PingAccess 7.3 environment variable config
+# run.properties.subst
+export PA_RUN_PA_OPERATIONAL_MODE=${PA_RUN_PA_OPERATIONAL_MODE:-${OPERATIONAL_MODE}}
