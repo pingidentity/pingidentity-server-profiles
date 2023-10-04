@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jwks:JWKSEndpointConfigType xmlns:jwks="http://pingidentity.com/2017/07/jwks-endpoint">
+    <jwks:enableStaticKeys>false</jwks:enableStaticKeys>
+    <jwks:p256ActiveKey xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    <jwks:p256PreviousKey xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    <jwks:p256PublishX5cParameter>false</jwks:p256PublishX5cParameter>
+    <jwks:p384ActiveKey xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    <jwks:p384PreviousKey xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    <jwks:p384PublishX5cParameter>false</jwks:p384PublishX5cParameter>
+    <jwks:p521ActiveKey xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    <jwks:p521PreviousKey xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    <jwks:p521PublishX5cParameter>false</jwks:p521PublishX5cParameter>
+    <jwks:rsaActiveKey xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    <jwks:rsaPreviousKey xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    <jwks:rsaPublishX5cParameter>false</jwks:rsaPublishX5cParameter>
+    <jwks:p256DecryptionActiveKey xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    <jwks:p256DecryptionPreviousKey xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    <jwks:p256DecryptionPublishX5cParameter>false</jwks:p256DecryptionPublishX5cParameter>
+    <jwks:p384DecryptionActiveKey xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    <jwks:p384DecryptionPreviousKey xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    <jwks:p384DecryptionPublishX5cParameter>false</jwks:p384DecryptionPublishX5cParameter>
+    <jwks:p521DecryptionActiveKey xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    <jwks:p521DecryptionPreviousKey xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    <jwks:p521DecryptionPublishX5cParameter>false</jwks:p521DecryptionPublishX5cParameter>
+    <jwks:rsaDecryptionActiveKey xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    <jwks:rsaDecryptionPreviousKey xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    <jwks:rsaDecryptionPublishX5cParameter>false</jwks:rsaDecryptionPublishX5cParameter>
+</jwks:JWKSEndpointConfigType>

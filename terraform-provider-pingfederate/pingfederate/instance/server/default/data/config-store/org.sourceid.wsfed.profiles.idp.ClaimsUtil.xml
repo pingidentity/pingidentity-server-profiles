@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c:config xmlns:c="http://www.sourceid.org/2004/05/config">
+
+    <!--
+        Whether the WS-Fed response should have a RequestSecurityTokenResponseCollection element or a RequestSecurityTokenResponse element.
+        Note that is is only applicable for WS-Fed connections that uses WS-Trust version 1.2. Connections configured with WS-Trust version 1.3,
+        shall always return RequestSecurityTokenResponseCollection.
+    -->
+
+    <c:item name="useRequestSecurityTokenResponseCollection">false</c:item>
+
+</c:config>

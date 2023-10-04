@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<z:config xmlns:z="http://www.sourceid.org/2004/05/config">
+    <!--Dictates the behavior of the server if the CRL cannot be retrieved from the URL (HTTP or LDAP only)
+        listed in the certificate's CRL distribution point.
+
+        If set to true, the server considers the inability to retrieve the CRL to be equivalent to a revoked 
+        certificate. If set to false, the server considers the certificate valid and will retry the CRL 
+        resolution after a configurable period of time (see next-retry-minutes-when-resolve-failed).
+
+        [System Default: false]-->
+    <z:item name="treat-non-retrievable-crl-as-revoked">false</z:item>
+    <!--Specifies the number of minutes the server waits before trying to retrieve a particular CRL when the 
+        previous attempt to retrieve it failed.  This parameter applies only when 
+        treat-non-retrievable-crl-as-revoked is set to false.
+
+        [System Default: 1440]-->
+    <z:item name="next-retry-minutes-when-resolve-failed">1440</z:item>
+    <!--Once a CRL is obtained, the system caches it until the next update time indicated in the CRL.
+        This parameter indicates how long the server waits before looking for the new CRL when the most recently
+        retrieved CRL has a next update date that has already passed. This reduces the possibility of the server
+        thrashing when a CRL isn't updated in a timely manner.
+
+        [System Default: 60]-->
+    <z:item name="next-retry-minutes-when-next-update-is-in-the-past">60</z:item>
+    <!--Specifies whether the signature on a CRL should be verified.
+
+        If set to true, the signature will be verified with the public key of the issuer which must be present
+        in the certificate chain or list of trusted CAs.  A CRL is not considered trustworthy if the signature 
+        cannot be verified. If set to false, the signature check is skipped and the CRL is explicitly trusted 
+        (this setting is not recommended).
+
+        [System Default: true]-->
+    <z:item name="verify-crl-signature">true</z:item>
+    <z:item name="crl-enable" preserveOnUpgrade="true">true</z:item>
+    <z:item name="crl-retrieval-connection-timeout-secs">30</z:item>
+    <z:item name="crl-retrieval-read-timeout-secs">30</z:item>
+    <!--Determines whether PingFederate accepts CRLs signed by any of its trust anchors. When set to false,
+        PingFederate requires the CRL to be signed by the same CA certificate that signed the target certificate.
+        When set to true, PingFederate accepts CRLs signed by any of its trust anchors. It is strongly
+        recommended to leave this set to the default value of false.-->
+    <z:item name="crl-issuer-allow-any-trust-anchor">false</z:item>
+    <!--Determines whether PingFederate verifies the issuing distribution point extension in the CRL (if
+        it is present). When set to true, PingFederate ensures that at least one name matches between the
+        issuing distribution point in the CRL and the distribution point in the certificate. It is strongly
+        recommended to leave this set to the default value of true.-->
+    <z:item name="crl-verify-issuing-distribution-point">true</z:item>
+    <!--If CRL retrieval is routed through a proxy server, specify the proxy server's port number and either 
+        its host name or IP address below. An <empty> "proxy-host" indicates that no proxy server configuration 
+        is needed.
+
+        [System Default: <empty>]
+        [System Default: 0]-->
+    <z:item name="proxy-host"/>
+    <z:item name="proxy-port"/>
+    <!--OCSP Settings-->
+    <z:item name="OCSP-enable" preserveOnUpgrade="true">false</z:item>
+    <!--use the url defined here instead of the url defined in the cert-->
+    <z:item name="OCSP-always-use-responder-URL-in-conf">false</z:item>
+    <!--Action to be taken for different exceptions
+    	  - CONTINUE: treat it as a good status and let the process continue
+    	  - FAIL: treat the cert as revoked
+    	  - FAILOVER: failover to use CRL checking-->
+    <z:item name="OCSP-action-on-responder-unavailable">CONTINUE</z:item>
+    <z:item name="OCSP-action-on-status-unknown">FAIL</z:item>
+    <z:item name="OCSP-action-on-unsuccessful-response">FAIL</z:item>
+    <!--Number of minutes that is used compensate the time shift between an OCSP responder and a PF server-->
+    <z:item name="OCSP-thisupdate-grace-period">5</z:item>
+    <z:item name="OCSP-nextupdate-grace-period">5</z:item>
+    <!--the alias of the OCSP responder cert-->
+    <z:item name="OCSP-responder-cert-alias"/>
+    <!--Number of hours that an OCSP response is cached-->
+    <z:item name="OCSP-response-cache-period">48</z:item>
+    <z:item name="OCSP-requester-add-nonce">false</z:item>
+    <z:item name="OCSP-connection-timeout-secs">5</z:item>
+    <!--When set to false, PingFederate will accept OCSP responses signed with any certificate that chains back
+        to one of PingFederate's trust anchors. This option is provided only for backwards compatibility,
+        it is strongly recommended to leave it as true.-->
+    <z:item name="OCSP-enforce-responder-key-usage-check">true</z:item>
+    <!--When OCSP-check-only-end-entity is set to true, PingFederate will perform OCSP checks only for end entity
+       certificates. OCSP checks will not be performed for intermediate CA certificates and, if CRL checking is
+       enabled, PingFederate will not fail over to CRL for these certificates.
+
+       When set to false, PingFederate will perform OCSP checks for both end entity and intermediate CA certificates.
+
+       Revocation checks are never performed for root CA certificates or self-signed certificates.-->
+    <z:item defaultForUpgrade="true" name="OCSP-check-only-end-entity">false</z:item>
+</z:config>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:PluginConfiguration isInheritExtendedContractAttributes="false" name="token generator" xmlns:urn="urn:sourceid.org:saml2:adapter:conf">
+    <urn:Fields>
+        <urn:Field name="Minutes Before">60</urn:Field>
+        <urn:Field name="Minutes After">60</urn:Field>
+        <urn:Field name="Issuer">issuer</urn:Field>
+        <urn:Field name="Signing Certificate">wudkda51esn3j7ucag5wmhjam</urn:Field>
+        <urn:Field name="Signing Algorithm">SHA1</urn:Field>
+        <urn:Field name="Include Certificate in KeyInfo">false</urn:Field>
+        <urn:Field name="Include Raw Key in KeyValue">false</urn:Field>
+        <urn:Field name="Audience">audience</urn:Field>
+        <urn:Field name="Confirmation Method">urn:oasis:names:tc:SAML:2.0:cm:sender-vouches</urn:Field>
+        <urn:Field name="Encryption Certificate"/>
+        <urn:Field name="Message Customization Expression"/>
+    </urn:Fields>
+    <urn:AdvancedFields>
+        <urn:Field name="Message Customization Expression"/>
+    </urn:AdvancedFields>
+    <urn:Tables/>
+    <urn:ExtendedContractAttributes/>
+    <urn:ExtendedAttributesAdditionalProperties/>
+</urn:PluginConfiguration>

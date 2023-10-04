@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<authnSessionPolicies>
+    <applicationPolicy idleTimeoutMins="60" maxTimeoutMins="480"/>
+    <globalPolicy enableSessions="false" hashUniqueUserKeyAttribute="false" idleTimeoutDisplayUnit="MINUTES" idleTimeoutMins="60" maxTimeoutDisplayUnit="MINUTES" maxTimeoutMins="480" persistentSessions="false"/>
+    <sourcePolicies/>
+</authnSessionPolicies>

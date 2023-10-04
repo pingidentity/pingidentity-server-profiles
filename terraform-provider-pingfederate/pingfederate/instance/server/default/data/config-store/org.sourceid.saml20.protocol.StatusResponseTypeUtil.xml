@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c:config xmlns:c="http://www.sourceid.org/2004/05/config">
+    <!-- Determines whether PingFederate includes the message field of the exception that triggered the error
+         as a 'Cause' element inside the SAML response. -->
+    <c:item name="IncludeErrorCauseInSamlResponse">true</c:item>
+</c:config>

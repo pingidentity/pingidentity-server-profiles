@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:config xmlns:con="http://www.sourceid.org/2004/05/config">
+    <con:list name="AllowedTrackedParams"/>
+
+    <!-- Determines whether PingFederate masks tracked HTTP parameters in server logs. -->
+    <con:item name="MaskTrackedParams">false</con:item>
+</con:config>

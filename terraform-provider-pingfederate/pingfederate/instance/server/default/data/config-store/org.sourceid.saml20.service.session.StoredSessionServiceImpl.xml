@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c:config xmlns:c="http://www.sourceid.org/2004/05/config">
+    <!--To precisely enforce idle timeouts, the last activity time must be updated each time user activity is detected.
+
+        By default, the last activity time in the data store will only be updated if less than 75% of any persistent
+        session’s idle timeout remains(i.e., threshold is 0.25). Hence, going beyond that 0.25 threshold is how we know
+        that less than 75% of the idle timeout remains.
+
+        Default configuration:
+        <c:item name="IdleTimeoutExtensionThreshold">0.25</c:item>-->
+    <c:item name="IdleTimeoutExtensionThreshold">0.25</c:item>
+    <c:item name="SessionGroupIdLength">25</c:item>
+    <!--The maximum number of session groups per unique user key allowed before session groups with the oldest last activity time
+        are deleted from session storage.
+
+        Please be aware that enabling this feature may impact performance on your session storage in cases where there is
+        a large number of existing session groups. Each time a user creates a new session, this feature will check and possibly
+        request your session storage to delete session groups for that user. These requests to retrieve and remove session groups
+        can increase the load on your session storage.
+
+        A value of -1 indicates that no limit should be enforced.
+
+        Default configuration:
+        <c:item name="MaxSessionGroupsPerUniqueUserKey" defaultForUpgrade="-1">100</c:item>-->
+    <c:item defaultForUpgrade="-1" name="MaxSessionGroupsPerUniqueUserKey">100</c:item>
+    <!--The maximum number of session groups to delete once the maximum number of session groups per unique user key
+        limit is reached.
+
+        Default configuration:
+        <c:item name="MaxSessionGroupsToRemove">50</c:item>-->
+    <c:item name="MaxSessionGroupsToRemove">50</c:item>
+</c:config>

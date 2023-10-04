@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:config xmlns:con="http://www.sourceid.org/2004/05/config">
+    <!--
+      This file allows PingFederate's default CORS settings to be overridden.
+      Note that the allowed origins for CORS requests are configured in the
+      admin console Authorization Server Settings page.
+
+      The endpoints for which CORS is enabled can be controlled by specifying
+      a value for the urlPatterns setting. A sample value for this setting is
+      shown below.
+
+      <con:item name="urlPatterns">/pf/JWKS,/as/token.oauth2,/as/revoke_token.oauth2,/idp/userinfo.openid,/.well-known/openid-configuration,/as/bc-auth.ciba,/pf-ws/rest/oauth/grants(/*)?</con:item>
+
+      If you wish to use a regular expression to specify a URL pattern, as is
+      shown above for the grants API endpoint, please include a '*' in the
+      pattern to indicate a regular expression should be used. Note also that
+      the '.' character is always treated as a literal.
+
+      Adding the OAuth authorization endpoint (/as/authorization.oauth2) to the
+      urlPatterns field is _strongly_ discouraged due to the resulting security
+      risks.
+    -->
+    <con:item name="allowedMethods">GET,POST,DELETE,HEAD</con:item>
+    <con:item name="allowedHeaders">X-Requested-With,X-XSRF-Header,Content-Type,Accept,Origin,Authorization</con:item>
+    <con:item name="preflightMaxAge">600</con:item>
+</con:config>

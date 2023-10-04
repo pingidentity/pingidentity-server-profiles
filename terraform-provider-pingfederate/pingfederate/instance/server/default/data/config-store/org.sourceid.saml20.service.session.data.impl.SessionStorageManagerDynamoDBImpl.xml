@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c:config xmlns:c="http://www.sourceid.org/2004/05/config">
+
+    <!-- Table names -->
+    <c:item name="SessionGroupTableName">PingFederateAuthenticationSessionGroup</c:item>
+
+    <c:item name="UserIdTableName">PingFederateAuthenticationSessionUserId</c:item>
+
+    
+	<!-- Index names used to query the DynamoDB table using different attributes. -->        
+    <c:item name="HashedSessionIdIndexName">PingFederateAuthenticationSessionHashedSessionId-index</c:item>
+    <c:item name="SessionUserIdGroupIdIndexName">PingFederateAuthenticationSessionUserIdGroupId-index</c:item>
+
+    <!-- The endpoint override is for testing with a local DynamoDB instance.
+         Provide the local DynamoDB endpoint here. This configuration should not be set for production environment.
+   -->
+    <c:item name="EndpointOverride"/>
+
+    <!--
+        Number of records to request when performing batch operation against DynamoDB.
+        minimum allowed value is 1
+        Maximum allowed value is 100
+        In case of an invalid value the default value (50) will be used.
+
+        Default configuration:
+        <c:item name="dynamoDbBatchSize">50</c:item>
+    -->
+    <c:item name="dynamoDbBatchSize">50</c:item>
+
+    <!--
+        Configure the amount of time(in milliseconds) to allow the client to complete the execution of an API call.
+
+        Default configuration:
+        <c:item name="ApiCallTimeout">10000</c:item>
+    -->
+    <c:item name="ApiCallTimeout">10000</c:item>
+
+    <!--
+        Configure the amount of time(in milliseconds) to wait for the http request to complete before giving up and timing out.
+
+        Default configuration:
+        <c:item name="ApiCallAttemptTimeout">1000</c:item>
+    -->
+    <c:item name="ApiCallAttemptTimeout">1000</c:item>
+ 	
+</c:config>
+
+

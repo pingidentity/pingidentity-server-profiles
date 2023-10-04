@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c:config xmlns:c="http://www.sourceid.org/2004/05/config">
+    <c:item name="AutoGenerateKrb5Conf">true</c:item>
+
+    <!--
+        A list of kerberos encryption types, in space delimited format, that are allowed when PingFederate is in
+        BCFIPS mode.
+
+        For a list of supported kerberos encryption types, see
+        https://docs.oracle.com/en/java/javase/11/security/kerberos-5-gss-api-mechanism.html
+     -->
+    <c:item name="FipsEncryptionTypes">aes256-cts aes128-cts aes256-sha2 aes128-sha2 des3-hmac-sha1</c:item>
+
+    <!--
+        A list of kerberos encryption types, in space delimited format, that are allowed when PingFederate is not in
+        BCFIPS mode.
+
+        For a list of supported kerberos encryption types, see
+        https://docs.oracle.com/en/java/javase/11/security/kerberos-5-gss-api-mechanism.html
+
+        Default configuration:
+        <c:item name="EncryptionTypes">aes256-cts aes128-cts aes256-sha2 aes128-sha2 des3-hmac-sha1</c:item>
+    -->
+    <c:item name="EncryptionTypes" preserveOnUpgrade="true">aes256-cts aes128-cts aes256-sha2 aes128-sha2 des3-hmac-sha1</c:item>
+</c:config>

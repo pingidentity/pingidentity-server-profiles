@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:config xmlns:con="http://www.sourceid.org/2004/05/config">
+    <con:map name="enabled-cipher-suites">
+        <con:item name="TLS_RSA_WITH_AES_128_CBC_SHA256"/>
+        <con:item name="TLS_AES_128_GCM_SHA256"/>
+        <con:item name="TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA"/>
+        <con:item name="TLS_RSA_WITH_AES_128_GCM_SHA256"/>
+        <con:item name="TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"/>
+        <con:item name="TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256"/>
+        <con:item name="TLS_AES_256_GCM_SHA384"/>
+        <con:item name="TLS_EMPTY_RENEGOTIATION_INFO_SCSV"/>
+        <con:item name="TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256"/>
+        <con:item name="TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"/>
+        <con:item name="TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"/>
+        <con:item name="TLS_ECDH_RSA_WITH_AES_128_CBC_SHA"/>
+        <con:item name="TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"/>
+        <con:item name="TLS_CHACHA20_POLY1305_SHA256"/>
+        <con:item name="TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256"/>
+        <con:item name="TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256"/>
+        <con:item name="TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA"/>
+    </con:map>
+</con:config>

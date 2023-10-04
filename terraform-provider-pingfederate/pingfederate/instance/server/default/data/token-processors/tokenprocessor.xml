@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:TokenProcessorConfiguration isInheritAttributeSettings="false" maskOgnlValues="false" isInheritExtendedContractAttributes="false" name="token processor" xmlns:urn="urn:sourceid.org:saml2:adapter:conf">
+    <urn:Fields>
+        <urn:Field name="Audience">audience</urn:Field>
+    </urn:Fields>
+    <urn:AdvancedFields/>
+    <urn:Tables>
+        <urn:Table name="Valid Certificate Issuer DNs"/>
+        <urn:Table name="Valid Certificate Subject DNs"/>
+    </urn:Tables>
+    <urn:ExtendedContractAttributes/>
+    <urn:ExtendedAttributesAdditionalProperties/>
+</urn:TokenProcessorConfiguration>
