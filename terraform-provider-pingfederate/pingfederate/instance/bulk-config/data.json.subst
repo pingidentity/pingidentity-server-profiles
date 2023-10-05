@@ -306,6 +306,48 @@
                     }
                 }
             ]
+        },
+        {
+            "resourceType": "/idp/tokenProcessors",
+            "operationType": "SAVE",
+            "items": [
+                {
+                    "id": "tokenprocessor",
+                    "name": "token processor",
+                    "pluginDescriptorRef": {
+                        "id": "org.sourceid.wstrust.processor.saml.Saml20TokenProcessor",
+                        "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/idp/tokenProcessors/descriptors/org.sourceid.wstrust.processor.saml.Saml20TokenProcessor"
+                    },
+                    "configuration": {
+                        "tables": [
+                        {
+                            "name": "Valid Certificate Issuer DNs",
+                            "rows": []
+                        },
+                        {
+                            "name": "Valid Certificate Subject DNs",
+                            "rows": []
+                        }
+                        ],
+                        "fields": [
+                        {
+                            "name": "Audience",
+                            "value": "audience"
+                        }
+                        ]
+                    },
+                    "attributeContract": {
+                        "coreAttributes": [
+                        {
+                            "name": "SAML_SUBJECT",
+                            "masked": false
+                        }
+                        ],
+                        "extendedAttributes": [],
+                        "maskOgnlValues": false
+                    }
+                }
+            ]
         }
     ]
 }
