@@ -18,6 +18,8 @@ export keyPairs_sslServer_items_vtcm75en83g6v1r87ytm7lihi_vtcm75en83g6v1r87ytm7l
 export serverSettings_systemKeys_items_current_keyData="zXq7Idi2Buey5Gu9UZjLz7AHcywCsF6g3uxj0tYK52A="
 export serverSettings_systemKeys_items_pending_keyData="7ZuraJ9Iz9H0tczsx4Ta2YOPZJUlN7Oksp4EcTwjCW0="
 export PING_IDENTITY_PASSWORD=${PING_IDENTITY_PASSWORD:=2FederateM0re}
+export PD_ENGINE_PRIVATE_HOSTNAME=${PD_ENGINE_PRIVATE_HOSTNAME:=pingdirectory}
+export PD_ENGINE_PRIVATE_PORT_LDAP=${PD_ENGINE_PRIVATE_PORT_LDAP:=1389}
 
 ## Variables for PF Bulk JSON
 export dataStores_items_LDAP_D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3_LDAP_D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3_password="2FederateM0re"
