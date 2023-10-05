@@ -1,0 +1,228 @@
+{
+    "metadata": {"pfVersion": "10.1.2.0"},
+    "operations": [
+        {
+            "operationType": "SAVE",
+            "items": [{
+                "accepted": true,
+                "licenseAgreementUrl": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/license-agreement"
+            }],
+            "resourceType": "/license/agreement"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{
+                "password": "${administrativeAccounts_items_Administrator_password}",
+                "roles": [
+                    "CRYPTO_ADMINISTRATOR",
+                    "ADMINISTRATOR",
+                    "EXPRESSION_ADMINISTRATOR",
+                    "USER_ADMINISTRATOR"
+                ],
+                "auditor": false,
+                "description": "Initial administrator user.",
+                "active": true,
+                "username": "Administrator"
+            }],
+            "resourceType": "/administrativeAccounts"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [
+                {
+                    "hostnamesTags": [{
+                        "defaultSource": true,
+                        "hostnames": ["${PD_ENGINE_PRIVATE_HOSTNAME}:${PD_ENGINE_PRIVATE_PORT_LDAP}"]
+                    }],
+                    "timeBetweenEvictions": 60000,
+                    "binaryAttributes": [],
+                    "ldapType": "PING_DIRECTORY",
+                    "type": "LDAP",
+                    "password": "${dataStores_items_LDAP_D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3_LDAP_D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3_password}",
+                    "minConnections": 10,
+                    "createIfNecessary": true,
+                    "id": "LDAP-D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3",
+                    "ldapDnsSrvPrefix": "_ldap._tcp",
+                    "connectionTimeout": 3000,
+                    "maxConnections": 100,
+                    "ldapsDnsSrvPrefix": "_ldaps._tcp",
+                    "useDnsSrvRecords": false,
+                    "bindAnonymously": false,
+                    "maxWait": -1,
+                    "verifyHost": true,
+                    "hostnames": ["${PD_ENGINE_PRIVATE_HOSTNAME}:${PD_ENGINE_PRIVATE_PORT_LDAP}"],
+                    "dnsTtl": 60000,
+                    "useSsl": false,
+                    "maskAttributeValues": false,
+                    "testOnBorrow": false,
+                    "testOnReturn": false,
+                    "readTimeout": 3000,
+                    "name": "pingdirectory",
+                    "userDN": "cn=pingfederate"
+                },
+                {
+                    "maskAttributeValues": false,
+                    "connectionUrlTags": [{
+                        "connectionUrl": "jdbc:hsqldb:${pf.server.data.dir}${/}hypersonic${/}ProvisionerDefaultDB;hsqldb.lock_file=false",
+                        "defaultSource": true
+                    }],
+                    "password": "${dataStores_items_ProvisionerDS_ProvisionerDS_password}",
+                    "allowMultiValueAttributes": false,
+                    "driverClass": "org.hsqldb.jdbcDriver",
+                    "name": "ProvisionerDS (sa)",
+                    "connectionUrl": "jdbc:hsqldb:${pf.server.data.dir}${/}hypersonic${/}ProvisionerDefaultDB;hsqldb.lock_file=false",
+                    "id": "ProvisionerDS",
+                    "type": "JDBC",
+                    "userName": "sa"
+                }
+            ],
+            "resourceType": "/dataStores"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [
+                {
+                    "configuration": {
+                        "tables": [{
+                            "name": "Authentication Error Overrides",
+                            "rows": []
+                        }],
+                        "fields": [
+                            {
+                                "name": "LDAP Datastore",
+                                "value": "LDAP-D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3"
+                            },
+                            {
+                                "name": "Search Base",
+                                "value": "${USER_BASE_DN}"
+                            },
+                            {
+                                "name": "Search Filter",
+                                "value": "(&(objectClass=person)(|(mail=${username})(cn=${username})(uid=${username})))"
+                            },
+                            {
+                                "name": "Scope of Search",
+                                "value": "Subtree"
+                            },
+                            {
+                                "name": "Case-Sensitive Matching",
+                                "value": "false"
+                            },
+                            {
+                                "name": "Display Name Attribute",
+                                "value": "displayName"
+                            },
+                            {
+                                "name": "Mail Attribute",
+                                "value": "mail"
+                            },
+                            {
+                                "name": "SMS Attribute",
+                                "value": ""
+                            },
+                            {
+                                "name": "PingID Username Attribute",
+                                "value": ""
+                            },
+                            {
+                                "name": "Mail Search Filter",
+                                "value": ""
+                            },
+                            {
+                                "name": "Username Attribute",
+                                "value": ""
+                            },
+                            {
+                                "name": "Mail Verified Attribute",
+                                "value": ""
+                            }
+                        ]
+                    },
+                    "name": "pingdirectory",
+                    "id": "pingdirectory",
+                    "pluginDescriptorRef": {
+                        "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/passwordCredentialValidators/descriptors/org.sourceid.saml20.domain.LDAPUsernamePasswordCredentialValidator",
+                        "id": "org.sourceid.saml20.domain.LDAPUsernamePasswordCredentialValidator"
+                    },
+                    "attributeContract": {
+                        "coreAttributes": [
+                            {"name": "mail"},
+                            {"name": "givenName"},
+                            {"name": "DN"},
+                            {"name": "username"}
+                        ],
+                        "extendedAttributes": [{"name": "entryUUID"}]
+                    }
+                },
+                {
+                    "configuration": {
+                        "tables": [{
+                            "name": "Users",
+                            "rows": [{
+                                "defaultRow": false,
+                                "fields": [
+                                    {
+                                        "name": "Username",
+                                        "value": "joe"
+                                    },
+                                    {
+                                        "name": "Password",
+                                        "value": "${passwordCredentialValidators_items_simple_configuration_tables_rows_fields_Password_value}"
+                                    },
+                                    {
+                                        "name": "Confirm Password",
+                                        "value": "${passwordCredentialValidators_items_simple_configuration_tables_rows_fields_Confirm_Password_value}"
+                                    },
+                                    {
+                                        "name": "Relax Password Requirements",
+                                        "value": "true"
+                                    }
+                                ]
+                            }]
+                        }],
+                        "fields": []
+                    },
+                    "name": "simple",
+                    "id": "simple",
+                    "pluginDescriptorRef": {
+                        "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/passwordCredentialValidators/descriptors/org.sourceid.saml20.domain.SimpleUsernamePasswordCredentialValidator",
+                        "id": "org.sourceid.saml20.domain.SimpleUsernamePasswordCredentialValidator"
+                    },
+                    "attributeContract": {"coreAttributes": [{"name": "username"}]}
+                }
+            ],
+            "resourceType": "/passwordCredentialValidators"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{
+                "password": "${PRIVATE_KEYSTORE_PIN}",
+                "fileData": "${PRIVATE_KEYSTORE}",
+                "id": "sslservercert"
+            }],
+            "resourceType": "/keyPairs/sslServer"
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{
+                "activeRuntimeServerCerts": [{
+                    "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/keyPairs/sslServer/sslservercert",
+                    "id": "sslservercert"
+                }],
+                "activeAdminConsoleCerts": [{
+                    "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/keyPairs/sslServer/sslservercert",
+                    "id": "sslservercert"
+                }],
+                "adminConsoleCertRef": {
+                    "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/keyPairs/sslServer/sslservercert",
+                    "id": "sslservercert"
+                },
+                "runtimeServerCertRef": {
+                    "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/keyPairs/sslServer/sslservercert",
+                    "id": "sslservercert"
+                }
+            }],
+            "resourceType": "/keyPairs/sslServer/settings"
+        }
+    ]
+}
