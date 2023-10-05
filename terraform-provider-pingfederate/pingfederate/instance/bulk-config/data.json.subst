@@ -223,6 +223,77 @@
                 }
             }],
             "resourceType": "/keyPairs/sslServer/settings"
+        },
+        {
+            "resourceType": "/sp/tokenGenerators",
+            "operationType": "SAVE",
+            "items": [
+                {
+                    "id": "tokengenerator",
+                    "name": "token generator",
+                    "pluginDescriptorRef": {
+                        "id": "org.sourceid.wstrust.generator.saml.Saml20TokenGenerator",
+                        "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/sp/tokenGenerators/descriptors/org.sourceid.wstrust.generator.saml.Saml20TokenGenerator"
+                    },
+                    "configuration": {
+                        "tables": [],
+                        "fields": [
+                            {
+                                "name": "Minutes Before",
+                                "value": "60"
+                            },
+                            {
+                                "name": "Minutes After",
+                                "value": "60"
+                            },
+                            {
+                                "name": "Issuer",
+                                "value": "issuer"
+                            },
+                            {
+                                "name": "Signing Certificate",
+                                "value": "434f9aepugrluh2ecp00u9nd7"
+                            },
+                            {
+                                "name": "Signing Algorithm",
+                                "value": "SHA1"
+                            },
+                            {
+                                "name": "Include Certificate in KeyInfo",
+                                "value": "false"
+                            },
+                            {
+                                "name": "Include Raw Key in KeyValue",
+                                "value": "false"
+                            },
+                            {
+                                "name": "Audience",
+                                "value": "audience"
+                            },
+                            {
+                                "name": "Confirmation Method",
+                                "value": "urn:oasis:names:tc:SAML:2.0:cm:sender-vouches"
+                            },
+                            {
+                                "name": "Encryption Certificate",
+                                "value": ""
+                            },
+                            {
+                                "name": "Message Customization Expression",
+                                "value": ""
+                            }
+                        ]
+                    },
+                    "attributeContract": {
+                        "coreAttributes": [
+                            {
+                                "name": "SAML_SUBJECT"
+                            }
+                        ],
+                        "extendedAttributes": []
+                    }
+                }
+            ]
         }
     ]
 }
