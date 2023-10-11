@@ -367,37 +367,19 @@
                 },
                 "processorMappings": [
                     {
-                    "attributeSources": [
-                        {
-                        "type": "JDBC",
-                        "dataStoreRef": {
-                            "id": "ProvisionerDS",
-                            "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/dataStores/ProvisionerDS"
-                        },
-                        "id": "attributesourceid",
-                        "description": "jdbcdatastore",
-                        "schema": "INFORMATION_SCHEMA",
-                        "table": "ADMINISTRABLE_ROLE_AUTHORIZATIONS",
-                        "filter": "${subjecttoken.SAML_SUBJECT}",
-                        "columnNames": [
-                            "GRANTEE",
-                            "IS_GRANTABLE",
-                            "ROLE_NAME"
-                        ]
-                        }
-                    ],
+                    "attributeSources": [],
                     "attributeContractFulfillment": {
                         "subject": {
                         "source": {
                             "type": "TEXT"
                         },
-                        "value": "test"
+                        "value": "value"
                         }
                     },
                     "issuanceCriteria": {
                         "conditionalCriteria": [
                         {
-                            "errorResult": "",
+                            "errorResult": "error",
                             "source": {
                             "type": "CONTEXT"
                             },
