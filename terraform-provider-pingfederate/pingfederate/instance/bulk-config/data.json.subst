@@ -348,6 +348,58 @@
                     }
                 }
             ]
+        },
+        {
+            "resourceType": "/oauth/tokenExchange/processor/policies",
+            "operationType": "SAVE",
+            "items": [
+                {
+                "id": "tokenexchangeprocessorpolicy",
+                "name": "tokenexchangeprocessorpolicy",
+                "actorTokenRequired": false,
+                "attributeContract": {
+                    "coreAttributes": [
+                    {
+                        "name": "subject"
+                    }
+                    ],
+                    "extendedAttributes": []
+                },
+                "processorMappings": [
+                    {
+                    "attributeSources": [],
+                    "attributeContractFulfillment": {
+                        "subject": {
+                        "source": {
+                            "type": "TEXT"
+                        },
+                        "value": "value"
+                        }
+                    },
+                    "issuanceCriteria": {
+                        "conditionalCriteria": [
+                        {
+                            "errorResult": "error",
+                            "source": {
+                            "type": "CONTEXT"
+                            },
+                            "attributeName": "ClientIp",
+                            "condition": "EQUALS",
+                            "value": "value"
+                        }
+                        ]
+                    },
+                    "subjectTokenType": "urn:ietf:params:oauth:token-type:saml2",
+                    "subjectTokenProcessor": {
+                        "id": "tokenprocessor",
+                        "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/idp/tokenProcessors/tokenprocessor"
+                    },
+                    "actorTokenType": "",
+                    "actorTokenProcessor": {}
+                    }
+                ]
+                }
+            ]
         }
     ]
 }
