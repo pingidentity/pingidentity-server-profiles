@@ -426,7 +426,7 @@
                 "name": "SpAdapter",
                 "pluginDescriptorRef": {
                     "id": "com.pingidentity.adapters.opentoken.SpAuthnAdapter",
-                    "location": "https://localhost:9999/pf-admin-api/v1/sp/adapters/descriptors/com.pingidentity.adapters.opentoken.SpAuthnAdapter"
+                    "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/sp/adapters/descriptors/com.pingidentity.adapters.opentoken.SpAuthnAdapter"
                 },
                 "configuration": {
                     "tables": [],
