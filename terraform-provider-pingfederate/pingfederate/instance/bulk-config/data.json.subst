@@ -400,6 +400,153 @@
                 ]
                 }
             ]
+        },
+        {
+            "resourceType": "/authenticationPolicyContracts",
+            "operationType": "SAVE",
+            "items": [
+                {
+                "id": "QGxlec5CX693lBQL",
+                "name": "apc",
+                "coreAttributes": [
+                    {
+                    "name": "subject"
+                    }
+                ],
+                "extendedAttributes": []
+                }
+            ]
+        },
+        {
+            "resourceType": "/sp/adapters",
+            "operationType": "SAVE",
+            "items": [
+                {
+                "id": "spadapter",
+                "name": "SpAdapter",
+                "pluginDescriptorRef": {
+                    "id": "com.pingidentity.adapters.opentoken.SpAuthnAdapter",
+                    "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/sp/adapters/descriptors/com.pingidentity.adapters.opentoken.SpAuthnAdapter"
+                },
+                "configuration": {
+                    "tables": [],
+                    "fields": [
+                    {
+                        "name": "Password",
+                        "encryptedValue": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiUWVzOVR5eTV5WiIsInZlcnNpb24iOiIxMS4yLjUuMCJ9..S07IsBZUPvN0EMWSjHeZzw.NufB_dB-tIV-xAYXb-e9QA.xlrVRdYjjd20jrx6g6Mnzw"
+                    },
+                    {
+                        "name": "Confirm Password",
+                        "encryptedValue": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiUWVzOVR5eTV5WiIsInZlcnNpb24iOiIxMS4yLjUuMCJ9..GS_uAbFh8qRrcLKa628Pgw.EBrVy9hMqdTFgqWmGKbyfg.zaCOoRj9GTUyYgoAt4TXfA"
+                    },
+                    {
+                        "name": "Transport Mode",
+                        "value": "2"
+                    },
+                    {
+                        "name": "Token Name",
+                        "value": "opentoken"
+                    },
+                    {
+                        "name": "Cipher Suite",
+                        "value": "2"
+                    },
+                    {
+                        "name": "Authentication Service",
+                        "value": ""
+                    },
+                    {
+                        "name": "Account Link Service",
+                        "value": ""
+                    },
+                    {
+                        "name": "Logout Service",
+                        "value": ""
+                    },
+                    {
+                        "name": "SameSite Cookie",
+                        "value": "3"
+                    },
+                    {
+                        "name": "Cookie Domain",
+                        "value": ""
+                    },
+                    {
+                        "name": "Cookie Path",
+                        "value": "/"
+                    },
+                    {
+                        "name": "Token Lifetime",
+                        "value": "300"
+                    },
+                    {
+                        "name": "Session Lifetime",
+                        "value": "43200"
+                    },
+                    {
+                        "name": "Not Before Tolerance",
+                        "value": "0"
+                    },
+                    {
+                        "name": "Force SunJCE Provider",
+                        "value": "false"
+                    },
+                    {
+                        "name": "Use Verbose Error Messages",
+                        "value": "false"
+                    },
+                    {
+                        "name": "Obfuscate Password",
+                        "value": "true"
+                    },
+                    {
+                        "name": "Session Cookie",
+                        "value": "false"
+                    },
+                    {
+                        "name": "Secure Cookie",
+                        "value": "true"
+                    },
+                    {
+                        "name": "HTTP Only Flag",
+                        "value": "true"
+                    },
+                    {
+                        "name": "Send Subject as Query Parameter",
+                        "value": ""
+                    },
+                    {
+                        "name": "Subject Query Parameter                 ",
+                        "value": ""
+                    },
+                    {
+                        "name": "Send Extended Attributes",
+                        "value": ""
+                    },
+                    {
+                        "name": "Skip Trimming of Trailing Backslashes",
+                        "value": "false"
+                    },
+                    {
+                        "name": "URL Encode Cookie Values",
+                        "value": "true"
+                    }
+                    ]
+                },
+                "attributeContract": {
+                    "coreAttributes": [
+                    {
+                        "name": "subject"
+                    }
+                    ],
+                    "extendedAttributes": []
+                },
+                "targetApplicationInfo": {
+                    "applicationName": "test",
+                    "applicationIconUrl": "https://test.com"
+                }
+                }
+            ]
         }
     ]
 }
