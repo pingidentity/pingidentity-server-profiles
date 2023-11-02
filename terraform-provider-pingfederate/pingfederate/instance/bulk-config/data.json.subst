@@ -418,6 +418,26 @@
             ]
         },
         {
+            "resourceType": "/pingOneConnections",
+            "operationType": "SAVE",
+            "items": [
+                {
+                    "id": "j5xwqFjMaGtbajOrrD6yXv",
+                    "name": "internal_brassteam_893438732",
+                    "active": true,
+                    "encryptedCredential": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiUWVzOVR5eTV5WiIsInZlcnNpb24iOiIxMS4yLjUuMCJ9..aiNN3hpEdUceUplnULScjg.k6EU2dop22C_6aButt3f164JVlrvYTNF2QYMwsEuoJIxlINALpzna8r7qyxXzeHJFu3uWsebYFbNuxDXT1VzlzKMmd_77qd6teyU2RgamGzdVj47aGzBBka33PNEacLcp-ysuQsZxjYGwLpirQiAWQ-8Mmk80T1_w39WWxQJQxeFHUDpUn7Xh_qzPraU3Q0tihBmSPn3xNBFEaKOinHV6Et6BRO2e3n8xtKytjVR6iC1o_ew-smpl1FzkBgXixqWz2Eiw9DnIAfbl6GbpQ_ycK-FUHBdiZ4LQaywGoRNncDDZDmuIr8LBYuYE8hjcYx8xCvMi-11yB9hza2drbji5U96jj7CqiUgBSDe1RhVDiLrjH3x1Vo-wLJP9_vtn9FMN0LI9CoWV_A7eZocUnn_xol065EcxUHF-uT0B9hFKsQgpvO4PjeXlVyjUR1t8VCIg3A2maPVWXh8CNm2ELutVPwuwe4ot9dKRHlIRbA61gziAAtJvcENf8vCtT1xu8spRQB-Nuc01Kq_Kc5bhCZTmU9dtRPTktp2TvXoa4Z6rz8o0jCgQ8tCk66lpVtYyOriFRgywMHLp2bPfohsylosSOfJEuko3t74CW0YyUpD29RIXZjgOrlZ8pjaED4aqjtiTNJUdxZxr8Z533OAuPMus2JvBb5JBGmEaw0ONyUzcZlDpjtyzH8dNysaTvVeAUxilHpLfqNboqjGkIx3PkO7Nd8DiuXF4OwnZdoz_6Vylw4Vb1rxuTIJX3ejJwDk8EUWdB4XCm_w4fS_GhGTnSPVpYYfpchBf1Jbe5Usn-RL7pZyohDv8_E7_jXbNGKYJNGrY4ptIAzJLydNEKZGpVMGkDAnYaCfdG0Z4UMW2ugdfLNVtn-hrjyk6hlK7kdMiJAw0qOuQjDd4BfYYd5DxRH5DpweOueWiZxj0uUBpm3lFiTmK4NG9zqH7mwG9SvltQWwLPwXaUH-ZLMIcNuzG81zWXHQJ4DYOR1Fqg5czNdz-LHgM6InuEb3cRb1Vvk9ifFcpUDeCjFjbgr3J2cYmQW9wBaGZPg7QA_kE914UHqmWbeqsmDUX4iiUErUCXO6ZxK6-SdtCNeLicPV_8g5_kyNLdxfLhgThLd72VYXjLye03aEKqu58_yPzgPk0TVOzFWX0F_b9D1o4Q34HZSaShZtpHsQO9veYuSxd_AYQ1-4dhINkiveJU-cDJn8hJ0HSUdp5h9DBHnngZI2dm0HpyBxbRuefAP6LyTZxFuzX2x1h-tSnxVZzeee6EKZ2TaWgVQGrcE7OT2uy62G9q8wg7NtD995LQJinL8YHveG2-__icGuu4C4Si9kYOBQ7vR8cufkc1V5wZxZjkg9octETlsIeybFw23ObyC2GDNw8nTsejua4WLV60Vc9lqbLxkT9D1YyUH0ZDsyYRDbhhg-tYp-PXuW7iVS8SQQv1qfl8zI6eNkVPrpEzdiU-h5S__35uuFPG3kGxI_cyLUH3_STXSDDZicMn3SEWIf-pRig5fJkpOGnf0srIqnApbL5hI-kHA55QdRKjc8LZEF5xqIQC1TOC9h8iKNRVs4gDJwK4MajPUXdNSrv_JwUbroXF6mDSMhNB9jH2pRCZ6G8YKoHhCcgM_cSY524pAZ-lPdadNo1lsO0hjtN5nALD_zw3eNoRsC6ImMFbST4IHg52EA7RrhA5hrNz5VoGxsonp9xrRwheva5xgv5Mpwkj8EIdip9thP2kAyzUp3wC4K4fSHjCfQgw.A3Mtc1qcBU9Ug1egctOf3w",
+                    "creationDate": "2023-11-02T19:04:22.135Z",
+                    "credentialId": "1d764221-3119-4fd7-8670-32d37bf9f542",
+                    "pingOneConnectionId": "2e994b50-0d2a-415d-8bed-de855392935b",
+                    "environmentId": "f5901536-2b60-4d4a-a987-3d56aadad46d",
+                    "organizationName": "internal_brassteam_893438732",
+                    "region": "North America",
+                    "pingOneManagementApiEndpoint": "https://api.pingone.com",
+                    "pingOneAuthenticationApiEndpoint": "https://auth.pingone.com"
+                }
+            ]
+        },
+        {
             "resourceType": "/sp/adapters",
             "operationType": "SAVE",
             "items": [
