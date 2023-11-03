@@ -418,6 +418,26 @@
             ]
         },
         {
+            "resourceType": "/pingOneConnections",
+            "operationType": "SAVE",
+            "items": [
+                {
+                    "id": "${PF_TF_P1_CONNECTION_ID}",
+                    "name": "${PF_TF_P1_CONNECTION_NAME}",
+                    "active": "${PF_TF_P1_CONNECTION_ACTIVE}",
+                    "encryptedCredential": "${PF_TF_P1_CONNECTION_ENCRYPTED_CRED}",
+                    "creationDate": "${PF_TF_P1_CONNECTION_CREATION_DATE}",
+                    "credentialId": "${PF_TF_P1_CONNECTION_CRED_ID}",
+                    "pingOneConnectionId": "${PF_TF_P1_CONNECTION_P1_CONNECTION_ID}",
+                    "environmentId": "${PF_TF_P1_CONNECTION_ENV_ID}",
+                    "organizationName": "${PF_TF_P1_CONNECTION_ORG_NAME}",
+                    "region": "${PF_TF_P1_CONNECTION_REGION}",
+                    "pingOneManagementApiEndpoint": "${PF_TF_P1_CONNECTION_P1_MANAGEMENT_API_EP}",
+                    "pingOneAuthenticationApiEndpoint": "${PF_TF_P1_CONNECTION_P1_AUTH_API_EP}"
+                }
+            ]
+        },
+        {
             "resourceType": "/sp/adapters",
             "operationType": "SAVE",
             "items": [
