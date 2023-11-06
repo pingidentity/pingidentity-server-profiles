@@ -31,10 +31,11 @@
             "items": [{
                 "id": "myauthenticationapiapplication",
                 "name": "myauthenticationapiapplication",
+                "additionalAllowedOrigins": [],
                 "url": "https://example.com",
                 "description": "example"
             }],
-            "resourceType": "/authenticationApi/applications"
+            "resourceType": "/authenticationApi"
         },
         {
             "operationType": "SAVE",
