@@ -28,6 +28,16 @@
         },
         {
             "operationType": "SAVE",
+            "items": [{
+                "id": "myauthenticationapiapplication",
+                "name": "myauthenticationapiapplication",
+                "url": "https://example.com",
+                "description": "example"
+            }],
+            "resourceType": "/authenticationApi/applications"
+        },
+        {
+            "operationType": "SAVE",
             "items": [
                 {
                     "hostnamesTags": [{
