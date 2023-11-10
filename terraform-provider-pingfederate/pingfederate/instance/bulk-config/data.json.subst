@@ -38,10 +38,10 @@
                     "binaryAttributes": [],
                     "ldapType": "PING_DIRECTORY",
                     "type": "LDAP",
-                    "password": "${dataStores_items_LDAP_D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3_LDAP_D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3_password}",
+                    "password": "${dataStores_pingdirectory_password}",
                     "minConnections": 10,
                     "createIfNecessary": true,
-                    "id": "LDAP-D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3",
+                    "id": "pingdirectory",
                     "ldapDnsSrvPrefix": "_ldap._tcp",
                     "connectionTimeout": 3000,
                     "maxConnections": 100,
@@ -90,7 +90,7 @@
                         "fields": [
                             {
                                 "name": "LDAP Datastore",
-                                "value": "LDAP-D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3"
+                                "value": "pingdirectory"
                             },
                             {
                                 "name": "Search Base",
