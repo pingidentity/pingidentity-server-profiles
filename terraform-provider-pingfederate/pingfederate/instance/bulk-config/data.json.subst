@@ -578,7 +578,7 @@
                 }
                 }
             ]
-        }
+        },
         {
             "resourceType": "/notificationPublishers",
             "operationType": "SAVE",
