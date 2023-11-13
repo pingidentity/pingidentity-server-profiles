@@ -604,6 +604,36 @@
                     }
                 }
             ]
+        },
+        {
+            "resourceType": "/captchaProviders",
+            "operationType": "SAVE",
+            "items": [
+                {
+                    "id": "exampleCaptchaProvider",
+                    "name": "exampleCaptchaProvider",
+                    "pluginDescriptorRef": {
+                        "id": "com.pingidentity.captcha.recaptchaV3.ReCaptchaV3Plugin"
+                    },
+                    "configuration": {
+                        "tables": [],
+                        "fields": [
+                            {
+                                "name": "Site Key",
+                                "value": "asdf"
+                            },
+                            {
+                                "name": "Secret Key",
+                                "value": "asdf"
+                            },
+                            {
+                                "name": "Pass Score Threshold",
+                                "value": "1"
+                            }
+                        ]
+                    }
+                }
+            ]
         }
     ]
 }
