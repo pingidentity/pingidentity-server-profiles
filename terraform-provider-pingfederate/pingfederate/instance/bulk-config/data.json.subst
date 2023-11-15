@@ -28,6 +28,17 @@
         },
         {
             "operationType": "SAVE",
+            "items": [{
+                "id": "myauthenticationapiapplication",
+                "name": "myauthenticationapiapplication",
+                "additionalAllowedOrigins": [],
+                "url": "https://example.com",
+                "description": "example"
+            }],
+            "resourceType": "/authenticationApi"
+        },
+        {
+            "operationType": "SAVE",
             "items": [
                 {
                     "hostnamesTags": [{
@@ -38,10 +49,10 @@
                     "binaryAttributes": [],
                     "ldapType": "PING_DIRECTORY",
                     "type": "LDAP",
-                    "password": "${dataStores_items_LDAP_D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3_LDAP_D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3_password}",
+                    "password": "${dataStores_pingdirectory_password}",
                     "minConnections": 10,
                     "createIfNecessary": true,
-                    "id": "LDAP-D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3",
+                    "id": "pingdirectory",
                     "ldapDnsSrvPrefix": "_ldap._tcp",
                     "connectionTimeout": 3000,
                     "maxConnections": 100,
@@ -90,7 +101,7 @@
                         "fields": [
                             {
                                 "name": "LDAP Datastore",
-                                "value": "LDAP-D803C87FAB2ADFB4B0A947B64BA6F0C6093A5CA3"
+                                "value": "pingdirectory"
                             },
                             {
                                 "name": "Search Base",
@@ -565,6 +576,62 @@
                     "applicationName": "test",
                     "applicationIconUrl": "https://test.com"
                 }
+                }
+            ]
+        },
+        {
+            "resourceType": "/notificationPublishers",
+            "operationType": "SAVE",
+            "items": [
+                {
+                    "id": "exampleSmtpPublisher",
+                    "name": "exampleSmtpPublisher",
+                    "pluginDescriptorRef": {
+                        "id": "com.pingidentity.email.SmtpNotificationPlugin"
+                    },
+                    "configuration": {
+                        "tables": [],
+                        "fields": [
+                            {
+                                "name": "From Address",
+                                "value": "example@pingidentity.com"
+                            },
+                            {
+                                "name": "Email Server",
+                                "value": "example.com"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "resourceType": "/captchaProviders",
+            "operationType": "SAVE",
+            "items": [
+                {
+                    "id": "exampleCaptchaProvider",
+                    "name": "exampleCaptchaProvider",
+                    "pluginDescriptorRef": {
+                        "id": "com.pingidentity.captcha.recaptchaV3.ReCaptchaV3Plugin"
+                    },
+                    "configuration": {
+                        "tables": [],
+                        "fields": [
+                            {
+                                "name": "Site Key",
+                                "value": "asdf"
+                            },
+                            {
+                                "name": "Secret Key",
+                                "value": "asdf"
+                            },
+                            {
+                                "name": "Pass Score Threshold",
+                                "value": "1"
+                            }
+                        ]
+                    }
                 }
             ]
         }
