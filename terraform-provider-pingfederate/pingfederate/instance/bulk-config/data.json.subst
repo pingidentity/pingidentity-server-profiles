@@ -620,11 +620,11 @@
                         "fields": [
                             {
                                 "name": "Site Key",
-                                "value": "asdf"
+                                "value": "exampleCaptchaProviderV2"
                             },
                             {
                                 "name": "Secret Key",
-                                "value": "asdf"
+                                "value": "2FederateM0re"
                             },
                             {
                                 "name": "JavaScript File Name",
