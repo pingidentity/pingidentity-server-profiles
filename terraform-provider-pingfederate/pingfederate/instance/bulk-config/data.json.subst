@@ -610,6 +610,36 @@
             "operationType": "SAVE",
             "items": [
                 {
+                    "id": "exampleCaptchaProviderV2",
+                    "name": "exampleCaptchaProviderV2",
+                    "pluginDescriptorRef": {
+                        "id": "com.pingidentity.captcha.ReCaptchaV2InvisiblePlugin"
+                    },
+                    "configuration": {
+                        "tables": [],
+                        "fields": [
+                            {
+                                "name": "Site Key",
+                                "value": "exampleCaptchaProviderV2"
+                            },
+                            {
+                                "name": "Secret Key",
+                                "value": "2FederateM0re"
+                            },
+                            {
+                                "name": "JavaScript File Name",
+                                "value": "recaptcha-v2-invisible.js"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "resourceType": "/captchaProviders",
+            "operationType": "SAVE",
+            "items": [
+                {
                     "id": "exampleCaptchaProvider",
                     "name": "exampleCaptchaProvider",
                     "pluginDescriptorRef": {
