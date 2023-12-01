@@ -664,6 +664,51 @@
                     }
                 }
             ]
+        },
+        {
+            "operationType": "SAVE",
+            "items": [{
+                "configuration": {
+                    "tables": [{
+                        "name": "Credential Validators",
+                        "rows": [
+                            {
+                                "defaultRow": false,
+                                "fields": [{
+                                    "name": "Password Credential Validator Instance",
+                                    "value": "pingdirectory"
+                                }]
+                            },
+                            {
+                                "defaultRow": false,
+                                "fields": [{
+                                    "name": "Password Credential Validator Instance",
+                                    "value": "simple"
+                                }]
+                            }
+                        ]
+                    }],
+                    "fields": [{
+                        "name": "Authentication Attempts",
+                        "value": "3"
+                    }]
+                },
+                "name": "UsernameTokenProcessor",
+                "id": "UsernameTokenProcessor",
+                "pluginDescriptorRef": {
+                    "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/idp/tokenProcessors/descriptors/com.pingidentity.pf.tokenprocessors.username.UsernameTokenProcessor",
+                    "id": "com.pingidentity.pf.tokenprocessors.username.UsernameTokenProcessor"
+                },
+                "attributeContract": {
+                    "maskOgnlValues": false,
+                    "coreAttributes": [{
+                        "masked": false,
+                        "name": "username"
+                    }],
+                    "extendedAttributes": []
+                }
+            }],
+            "resourceType": "/idp/tokenProcessors"
         }
     ]
 }
