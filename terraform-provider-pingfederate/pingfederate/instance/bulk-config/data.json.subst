@@ -709,6 +709,142 @@
                 }
             }],
             "resourceType": "/idp/tokenProcessors"
+        },
+        {
+            "resourceType": "/idp/adapters",
+            "operationType": "SAVE",
+            "items": [
+                {
+                    "id": "OTIdPJava",
+                    "name": "OTIdPJava",
+                    "pluginDescriptorRef": {
+                        "id": "com.pingidentity.adapters.opentoken.IdpAuthnAdapter",
+                        "location": "https://localhost:9999/pf-admin-api/v1/idp/adapters/descriptors/com.pingidentity.adapters.opentoken.IdpAuthnAdapter"
+                    },
+                    "configuration": {
+                        "tables": [],
+                        "fields": [
+                            {
+                                "name": "Password",
+                                "value": "2FederateM0re"
+                            },
+                            {
+                                "name": "Confirm Password",
+                                "value": "2FederateM0re"
+                            },
+                            {
+                                "name": "Authentication Service",
+                                "value": "https://localhost:9031/IdpSample/?cmd=sso"
+                            },
+                            {
+                                "name": "Transport Mode",
+                                "value": "1"
+                            },
+                            {
+                                "name": "Token Name",
+                                "value": "idpopentoken"
+                            },
+                            {
+                                "name": "Cipher Suite",
+                                "value": "2"
+                            },
+                            {
+                                "name": "Logout Service",
+                                "value": "https://localhost:9031/IdpSample/?cmd=slo"
+                            },
+                            {
+                                "name": "Cookie Domain",
+                                "value": ""
+                            },
+                            {
+                                "name": "Cookie Path",
+                                "value": "/"
+                            },
+                            {
+                                "name": "Token Lifetime",
+                                "value": "300"
+                            },
+                            {
+                                "name": "Session Lifetime",
+                                "value": "43200"
+                            },
+                            {
+                                "name": "Not Before Tolerance",
+                                "value": "0"
+                            },
+                            {
+                                "name": "Force SunJCE Provider",
+                                "value": "false"
+                            },
+                            {
+                                "name": "Use Verbose Error Messages",
+                                "value": "false"
+                            },
+                            {
+                                "name": "Obfuscate Password",
+                                "value": "true"
+                            },
+                            {
+                                "name": "Session Cookie",
+                                "value": "false"
+                            },
+                            {
+                                "name": "Secure Cookie",
+                                "value": "false"
+                            },
+                            {
+                                "name": "Delete Cookie",
+                                "value": "false"
+                            },
+                            {
+                                "name": "Replay Prevention",
+                                "value": "false"
+                            },
+                            {
+                                "name": "Skip Malformed Attribute Detection",
+                                "value": "false"
+                            },
+                            {
+                                "name": "SameSite Cookie",
+                                "value": "3"
+                            },
+                            {
+                                "name": "HTTP Only Flag",
+                                "value": "true"
+                            },
+                            {
+                                "name": "Track Authentication Time",
+                                "value": "true"
+                            }
+                        ]
+                    },
+                    "attributeContract": {
+                        "coreAttributes": [
+                            {
+                                "name": "subject",
+                                "masked": false,
+                                "pseudonym": true
+                            }
+                        ],
+                        "extendedAttributes": [],
+                        "maskOgnlValues": false
+                    },
+                    "attributeMapping": {
+                        "attributeSources": [],
+                        "attributeContractFulfillment": {
+                            "subject": {
+                                "source": {
+                                    "type": "ADAPTER"
+                                },
+                                "value": "subject"
+                            }
+                        },
+                        "issuanceCriteria": {
+                            "conditionalCriteria": []
+                        }
+                    }
+                }
+            ]
         }
     ]
 }
