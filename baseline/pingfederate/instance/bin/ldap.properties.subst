@@ -1,4 +1,5 @@
 ldap.url=ldap://${PD_ENGINE_PRIVATE_HOSTNAME}:${LDAP_PORT}
+ldap.type=${PF_LDAP_TYPE}
 ldap.username=cn=pingfederate
 ldap.password=${PING_IDENTITY_PASSWORD}
 ldap.connectTimeout=10000
