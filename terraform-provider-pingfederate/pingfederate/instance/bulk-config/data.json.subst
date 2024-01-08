@@ -980,7 +980,7 @@
                         "issuanceCriteria":{
                             "conditionalCriteria":[]
                         }
-                    },
+                    }
                 }
             ]
         }
