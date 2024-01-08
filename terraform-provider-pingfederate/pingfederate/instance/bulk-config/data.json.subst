@@ -943,18 +943,14 @@
                     "alternativeLoginHintTokenIssuers":[],
                     "identityHintContract":{
                         "coreAttributes":[
-                        {
+                            {
                             "name":"IDENTITY_HINT_SUBJECT"
-                        }
+                            }
                         ],
-                        "extendedAttributes":[
-                        
-                        ]
+                        "extendedAttributes":[]
                     },
                     "identityHintContractFulfillment":{
-                        "attributeSources":[
-                        
-                        ],
+                        "attributeSources":[],
                         "attributeContractFulfillment":{
                         "IDENTITY_HINT_SUBJECT":{
                             "source":{
@@ -964,15 +960,11 @@
                         }
                         },
                         "issuanceCriteria":{
-                        "conditionalCriteria":[
-                            
-                        ]
+                        "conditionalCriteria":[]
                         }
                     },
                     "identityHintMapping":{
-                        "attributeSources":[
-                        
-                        ],
+                        "attributeSources":[],
                         "attributeContractFulfillment":{
                         "subject":{
                             "source":{
@@ -986,11 +978,9 @@
                         }
                         },
                         "issuanceCriteria":{
-                        "conditionalCriteria":[
-                            
-                        ]
+                        "conditionalCriteria":[]
                         }
-                    }
+                    },
                 }
             ]
         }
