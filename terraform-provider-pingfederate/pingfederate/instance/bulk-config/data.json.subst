@@ -719,7 +719,7 @@
                     "name": "OTIdPJava",
                     "pluginDescriptorRef": {
                         "id": "com.pingidentity.adapters.opentoken.IdpAuthnAdapter",
-                        "location": "https://localhost:9999/pf-admin-api/v1/idp/adapters/descriptors/com.pingidentity.adapters.opentoken.IdpAuthnAdapter"
+                        "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/idp/adapters/descriptors/com.pingidentity.adapters.opentoken.IdpAuthnAdapter"
                     },
                     "configuration": {
                         "tables": [],
@@ -843,6 +843,144 @@
                             "conditionalCriteria": []
                         }
                     }
+                }
+            ]
+        },
+        {
+            "resourceType": "/oauth/outOfBandAuthPlugins",
+            "operationType": "SAVE",
+            "items": [
+                {
+                    "id": "exampleCibaAuthenticator",
+                    "name": "exampleCibaAuthenticator",
+                    "pluginDescriptorRef": {
+                        "id": "com.pingidentity.oobauth.pingone.mfa.PingOneMfaCibaAuthenticator",
+                        "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/oauth/outOfBandAuthPlugins/descriptors/com.pingidentity.oobauth.pingone.mfa.PingOneMfaCibaAuthenticator"
+                    },
+                    "configuration": {
+                        "tables": [
+                            {
+                                "name": "PingOne Template Variables",
+                                "rows": []
+                            }
+                        ],
+                        "fields": [
+                            {
+                                "name": "PingOne Environment",
+                                "value": "${PF_TF_P1_CONNECTION_ENV_ID}"
+                            },
+                            {
+                                "name": "Application",
+                                "value": "${PF_TF_P1_EXAMPLE_OAUTH_APP_ID}"
+                            },
+                            {
+                                "name": "PingOne Authentication Policy",
+                                "value": ""
+                            },
+                            {
+                                "name": "Test Username",
+                                "value": ""
+                            },
+                            {
+                                "name": "PingOne Template Name",
+                                "value": "transaction"
+                            },
+                            {
+                                "name": "PingOne Template Variant",
+                                "value": ""
+                            },
+                            {
+                                "name": "Client Context",
+                                "value": "#*\nDefine additional key/value pairs to be received at the mobile application.\nThe following variables are available by default:\n\n$oobAuthRequestContext - Context for the out-of-band authentication/authorization request\n$languagePackMessages - The language-pack file configured for this authenticator\n$subject - The user's PingOne username or user ID.\n$JSONValue - A JSON utility class that can be used to escape text and convert objects to JSON.\n   Methods:\n       escape(String s) - Escape quotes, \\, /, \\r, \\n, \\b, \\f, \\t and other control characters (U+0000 through U+001F).\n       toJSONString(Object value) - Convert an object to JSON text.\n\nAdditionally, any Extended Contract attributes are also available using the $name syntax.\n\nExample:\n\n{\n   \"requestingApplicationName\": \"$JSONValue.escape($oobAuthRequestContext.requestingApplication.name)\",\n   \"requestedScope\": $JSONValue.toJSONString($oobAuthRequestContext.requestedScope.values()),\n   \"amount\": \"$JSONValue.escape($amount)\",\n   \"alert.color\": \"red\"\n}\n*#"
+                            },
+                            {
+                                "name": "Messages Files",
+                                "value": "pingone-mfa-messages"
+                            },
+                            {
+                                "name": "API Request Timeout",
+                                "value": "12000"
+                            },
+                            {
+                                "name": "Proxy Settings",
+                                "value": "System Defaults"
+                            },
+                            {
+                                "name": "Custom Proxy Host",
+                                "value": ""
+                            },
+                            {
+                                "name": "Custom Proxy Port",
+                                "value": ""
+                            }
+                        ]
+                    },
+                    "attributeContract": {
+                        "coreAttributes": [
+                            {
+                                "name": "subject"
+                            }
+                        ],
+                        "extendedAttributes": []
+                    }
+                }
+            ]
+        },
+        {
+            "resourceType": "/oauth/cibaServerPolicy/requestPolicies",
+            "operationType": "SAVE",
+            "items": [
+                {
+                    "id": "exampleCibaReqPolicy",
+                    "name": "exampleCibaReqPolicy",
+                    "authenticatorRef": {
+                        "id": "exampleCibaAuthenticator",
+                        "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/oauth/outOfBandAuthPlugins/exampleCibaAuthenticator"
+                    },
+                    "transactionLifetime": 120,
+                    "allowUnsignedLoginHintToken": false,
+                    "requireTokenForIdentityHint": false,
+                    "alternativeLoginHintTokenIssuers": [],
+                    "identityHintContract": {
+                        "coreAttributes": [
+                            {
+                                "name": "IDENTITY_HINT_SUBJECT"
+                            }
+                        ],
+                        "extendedAttributes": []
+                    },
+                    "identityHintContractFulfillment": {
+                        "attributeSources": [],
+                        "attributeContractFulfillment": {
+                            "IDENTITY_HINT_SUBJECT": {
+                                "source": {
+                                    "type": "REQUEST"
+                                },
+                                "value": "IDENTITY_HINT_SUBJECT"
+                            }
+                        },
+                        "issuanceCriteria": {
+                            "conditionalCriteria": []
+                        }
+                    },
+                    "identityHintMapping": {
+                        "attributeSources": [],
+                        "attributeContractFulfillment": {
+                            "subject": {
+                                "source": {
+                                    "type": "NO_MAPPING"
+                                }
+                            },
+                            "USER_KEY": {
+                                "source": {
+                                    "type": "NO_MAPPING"
+                                }
+                            }
+                        },
+                        "issuanceCriteria": {
+                            "conditionalCriteria": []
+                        }
+                    },
                 }
             ]
         }
