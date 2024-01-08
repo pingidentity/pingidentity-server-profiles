@@ -944,7 +944,7 @@
                     "identityHintContract":{
                         "coreAttributes":[
                             {
-                            "name":"IDENTITY_HINT_SUBJECT"
+                                "name":"IDENTITY_HINT_SUBJECT"
                             }
                         ],
                         "extendedAttributes":[]
@@ -952,33 +952,33 @@
                     "identityHintContractFulfillment":{
                         "attributeSources":[],
                         "attributeContractFulfillment":{
-                        "IDENTITY_HINT_SUBJECT":{
-                            "source":{
-                                "type":"REQUEST"
-                            },
-                            "value":"IDENTITY_HINT_SUBJECT"
-                        }
+                            "IDENTITY_HINT_SUBJECT":{
+                                "source":{
+                                    "type":"REQUEST"
+                                },
+                                "value":"IDENTITY_HINT_SUBJECT"
+                            }
                         },
                         "issuanceCriteria":{
-                        "conditionalCriteria":[]
+                            "conditionalCriteria":[]
                         }
                     },
                     "identityHintMapping":{
                         "attributeSources":[],
                         "attributeContractFulfillment":{
-                        "subject":{
-                            "source":{
-                                "type":"NO_MAPPING"
+                            "subject":{
+                                "source":{
+                                    "type":"NO_MAPPING"
+                                }
+                            },
+                            "USER_KEY":{
+                                "source":{
+                                    "type":"NO_MAPPING"
+                                }
                             }
-                        },
-                        "USER_KEY":{
-                            "source":{
-                                "type":"NO_MAPPING"
-                            }
-                        }
                         },
                         "issuanceCriteria":{
-                        "conditionalCriteria":[]
+                            "conditionalCriteria":[]
                         }
                     },
                 }
