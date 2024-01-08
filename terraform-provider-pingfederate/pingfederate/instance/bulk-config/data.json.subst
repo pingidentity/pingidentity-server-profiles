@@ -867,7 +867,7 @@
                         "fields": [
                             {
                                 "name": "PingOne Environment",
-                                "value": "${PF_TF_P1_CONNECTION_ENV_ID}"
+                                "value": "${PF_TF_P1_CONNECTION_ID}"
                             },
                             {
                                 "name": "Application",
