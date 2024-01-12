@@ -205,16 +205,16 @@
             "resourceType": "/passwordCredentialValidators"
         },
         {
-        "resourceType": "/keyPairs/signing",
-        "operationType": "SAVE",
-        "items": [
-            {
-            "id": "419x9yg43rlawqwq9v6az997k",
-            "fileData": "MIIKAAIBAzCCCaoGCSqGSIb3DQEHAaCCCZsEggmXMIIJkzCCBaoGCSqGSIb3DQEHAaCCBZsEggWXMIIFkzCCBY8GCyqGSIb3DQEMCgECoIIFQDCCBTwwZgYJKoZIhvcNAQUNMFkwOAYJKoZIhvcNAQUMMCsEFLTKPJwidJYF-vbm9h9ij2NGhf9oAgInEAIBIDAMBggqhkiG9w0CCQUAMB0GCWCGSAFlAwQBKgQQ79KdD_qxBVa0U7JyU_DiaASCBNDYe72YOp8awn68_hl524b1wEmFaJxXreKC3SRPDR_7NgFlD1jKQQ0CtPaUVgxgZ1LMMBqtvj2j__jF2SYxVJ-eWvz4sExEXPuyNY1RZbppB24h_4gfzpCL_F1QPAuG5agBy-7GoIjJMszuuW-RYudB-bwZqwwducg42VYBOMD8_XNT49qoVpYA0A0HeBrPkfP32AVddrdFEzJFsxYbj2NfrONCaJTwJrFHAdbvBiHRxD4Spg1VQVw6-4NjBC5DgcrKfdPl3NwVQFMxpHLrS-5dr8kFZICwm4UdlLwq0NPr7aREYsLr2G-pCJLCvGZz_9-WYmlqL-ZfGNrLpHYqv3gD7srSbwMxdz1bNoV9MfDlGspc2a2J3pASca3GSfAvAiJXS4p_VpNxc6bXDB5zwbZpksCc1ISmtM2Hoh1f6EffjeVHFI03-sWQsRLZNSiUrOV9b0qNCj2m9U5quagx9JyM3ZzFfemibTYrdoU3oPVHHf_EHKqh-MaDAowcenHfxwo5WWJapjyFUswzSgjZr8OyDE0z9Sr67VFrFLL670qHCnoMQm7ell-C9Lbt637Oqhf3eYoWlJSO5tglEt-QyOSc-G-Iw9I-0-UgQf4QaZHEXMTopSE4O_XSkTNrM-HG73zagcByj8BHTD7YyvPNs55H7wCcs_n1vtoiPaWefBwMkDUHr2vu84OOyA-9GI1hhO1nCR7p1ThLy_b8KT1i2E3ktJ5-RjQPGHIrzOv0h7AnbPB_jqlqmN1q9nwzprjmh9oYlBmuCTXOCDZk0BQpYsOaCSZt9mHrU9pcp63mG05A3YTF8_zSnBgKD3MAL3ieaTd98ki6g_czAxm3Zfv1qC7frGJOobqZQjd1v8CcZG502RmSGDttiyusH6BMMuHlJQP98n5QDRZa7MGYKz7bVt4IZC0IfGGe7hqYZId2Pt7fSgWYd3wjKDby8OdWKpEvUq74rUYKzqjHGHPaujUssJ1qxkoe2jrTCVvwvJmbDfsI-Mcd3Yt4blS1ytfD0HERnB3KJiG7nHlTlWlae0kECOCbLq1aTxtHoXBqWkz3kG6oNG5u-QmtO4EGlOVgXrbx6HuJ-h9KEInSmnFKmesDCkCGhWuy0NA3zp4xMIjGMUFkx7cgTi6jPFHmNfOIpR7Vow2b1yDYlCvV6_EOhHnE3_z9I2rh90cqsTE22MFEH9i9OLijIWP4EqAxXYLF01QJznB4Cmgxel4R8r7a0eN0gf9otWsaUcnVAJuBAtU1J5JbQKsCin9Cf6BQ64u53gaTtAEKOqCh_LUFCfrBjXvbC64CNjWHyAmRy_sM2BVqjExzh35LGpzPPvaO1PzPGOsWETzzd5fwbigOR46a4f5z_dstneLnG_WDaGQwoedXvKeHW4RDE5oQ49b-_0A8MXy-RIlsiU-r3sbYoil7rsrzy_0j3dglNAFlIVmc6zvb4xSiPdnieohN_iv2VVCZdwYBH-xux9pLV4hF2BL2s-YFIQWPUd9TiEeAtikYyXOu7l9F9cld2OqMlbdOtOVJ1V2vn8xm8al91YKJHXd9yEyDP4PUHwu4nz0KZrXVqPuXDAoZB_buoxv2mEgbGQ0WKFXTDrz-opq2L9SSoiAh5Mf9-efBC3d6sPO_jMh74q2rl2p5qjE8MBcGCSqGSIb3DQEJFDEKHggAcABpAG4AZzAhBgkqhkiG9w0BCRUxFAQSVGltZSAxNjk2NTMyNTEwODY0MIID4QYJKoZIhvcNAQcGoIID0jCCA84CAQAwggPHBgkqhkiG9w0BBwEwZgYJKoZIhvcNAQUNMFkwOAYJKoZIhvcNAQUMMCsEFAFdj0s4XgV7ONDqUlU2K0ZGWk3nAgInEAIBIDAMBggqhkiG9w0CCQUAMB0GCWCGSAFlAwQBKgQQslddrqq6CVi_URYA6GwnEYCCA1C4uJ1QZpXZFFU72fKc3GWE1wrg4tOKVsMyfqewoUh88O3MdFJIcqfHn1xGc1DVD2s3GoYax1maMlfigHDHxIu5vUV6PS6z9TYdMsh8JCoUNwl_HRccRH8ssMJ0uO6dgETnjmQaTEpghx1JCN-_ssXVtGHJY3gok_SFCtRuyo8p2xiy6xOTvh_Sf1F1jbqau62Bt1W-pveqEDGe7zu9Y0q-6a7lS386oS5TSLdU0d_w-9Rteut-zkMJqzfyUhbPBS4IU8uQqm9GIRx2loNgv14is5v8A7guXUInXy2XXWFQJAJAZ5Q_fQheiGKyJJiJXyvVF9Dh9zEM5MmOwCvuu0uXarnY4PHdO4UbYF_KnEFU7z_lpZf3xrOW84zEjVaGS3erIfusQp3P7ocQHYsIpwBOYguFCCNB5ESndnKgXHquX-kOYgmFIbGVu5OOn6ThA_HNzga2hlnj19CM3T5cT_T8o1rhS15TzUP-68L6-0yZa_gCb1UtjPGya3HEncgEpnzCHSlLp-a5nc2LP8VBpTanjqmhhn8G4jnTm6odTm9-e2HptimFUEE-17T5_D6BFCZnybYhYbyAoGFWqEQun-iqC4U34vUrYabVzp6L61bwQwr2pMNHpvn19BWI7gj-5Fiv2LX_-i3RM9JNTtHxr-XyhnnObSzEE06BWDzbYc_Mix3Lo9YG1_GczqamZaFLDuw6DjsfWS46ak_s05Xb8VB5L8hvuGPLIBDTI4ekvVhnuaLz02hHGt7b6BsMu6BlnaJH0dQ823e3cqN3-6ZK1wDIevKhhfxk063K1RysbsAwD-881lotTbVy4Ni2PQo_aldUNVoO4b6Z_t1iJeIyMCyE6iLNK8dQ3jcHlJVfuQ5wiVYTPvzpyO_75X-FVzn3z7nYr_-6_ifldADvGH129NzbiIS_pyqGagNeGievYy__6mRk6eggii6FlIUmXs9gmDgN_SKTH5GrYhRvVGXYIcssLIcOWoBjCmzZcLuvnqPL26lLWREVICZAZJKFN2Z9PEeLGYjnfzf5_fWTEVnTSrUkpKuRYkt3ZHGrGaddmhifK2EnPiZNow5Deb5PnTsKDzAxde72zE1nqtqYxOKZcMO9kX2FVSkgijSLaRhKaAmetTBNMDEwDQYJYIZIAWUDBAIBBQAEINbpIfulyYknJxcBpJ1nPDeqtR-_CVqeWCqd5Rru8To8BBRJ0_5HpFO0PxATZveX8rK8cEqvtgICJxA=",
-            "format": "PKCS12",
-            "encryptedPassword": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiUWVzOVR5eTV5WiIsInZlcnNpb24iOiIxMS4yLjUuMCJ9..QxamhMMTPjLpYZ-1uhf-ww.EL3oTIlhI-wlX1oWrWiyWKR42hCwXxpHTBA62UiReDw.0VKa9gKWPEmASgS68xCErA"
-            }
-        ]
+            "resourceType": "/keyPairs/signing",
+            "operationType": "SAVE",
+            "items": [
+                {
+                "id": "419x9yg43rlawqwq9v6az997k",
+                "fileData": "MIIKAAIBAzCCCaoGCSqGSIb3DQEHAaCCCZsEggmXMIIJkzCCBaoGCSqGSIb3DQEHAaCCBZsEggWXMIIFkzCCBY8GCyqGSIb3DQEMCgECoIIFQDCCBTwwZgYJKoZIhvcNAQUNMFkwOAYJKoZIhvcNAQUMMCsEFLTKPJwidJYF-vbm9h9ij2NGhf9oAgInEAIBIDAMBggqhkiG9w0CCQUAMB0GCWCGSAFlAwQBKgQQ79KdD_qxBVa0U7JyU_DiaASCBNDYe72YOp8awn68_hl524b1wEmFaJxXreKC3SRPDR_7NgFlD1jKQQ0CtPaUVgxgZ1LMMBqtvj2j__jF2SYxVJ-eWvz4sExEXPuyNY1RZbppB24h_4gfzpCL_F1QPAuG5agBy-7GoIjJMszuuW-RYudB-bwZqwwducg42VYBOMD8_XNT49qoVpYA0A0HeBrPkfP32AVddrdFEzJFsxYbj2NfrONCaJTwJrFHAdbvBiHRxD4Spg1VQVw6-4NjBC5DgcrKfdPl3NwVQFMxpHLrS-5dr8kFZICwm4UdlLwq0NPr7aREYsLr2G-pCJLCvGZz_9-WYmlqL-ZfGNrLpHYqv3gD7srSbwMxdz1bNoV9MfDlGspc2a2J3pASca3GSfAvAiJXS4p_VpNxc6bXDB5zwbZpksCc1ISmtM2Hoh1f6EffjeVHFI03-sWQsRLZNSiUrOV9b0qNCj2m9U5quagx9JyM3ZzFfemibTYrdoU3oPVHHf_EHKqh-MaDAowcenHfxwo5WWJapjyFUswzSgjZr8OyDE0z9Sr67VFrFLL670qHCnoMQm7ell-C9Lbt637Oqhf3eYoWlJSO5tglEt-QyOSc-G-Iw9I-0-UgQf4QaZHEXMTopSE4O_XSkTNrM-HG73zagcByj8BHTD7YyvPNs55H7wCcs_n1vtoiPaWefBwMkDUHr2vu84OOyA-9GI1hhO1nCR7p1ThLy_b8KT1i2E3ktJ5-RjQPGHIrzOv0h7AnbPB_jqlqmN1q9nwzprjmh9oYlBmuCTXOCDZk0BQpYsOaCSZt9mHrU9pcp63mG05A3YTF8_zSnBgKD3MAL3ieaTd98ki6g_czAxm3Zfv1qC7frGJOobqZQjd1v8CcZG502RmSGDttiyusH6BMMuHlJQP98n5QDRZa7MGYKz7bVt4IZC0IfGGe7hqYZId2Pt7fSgWYd3wjKDby8OdWKpEvUq74rUYKzqjHGHPaujUssJ1qxkoe2jrTCVvwvJmbDfsI-Mcd3Yt4blS1ytfD0HERnB3KJiG7nHlTlWlae0kECOCbLq1aTxtHoXBqWkz3kG6oNG5u-QmtO4EGlOVgXrbx6HuJ-h9KEInSmnFKmesDCkCGhWuy0NA3zp4xMIjGMUFkx7cgTi6jPFHmNfOIpR7Vow2b1yDYlCvV6_EOhHnE3_z9I2rh90cqsTE22MFEH9i9OLijIWP4EqAxXYLF01QJznB4Cmgxel4R8r7a0eN0gf9otWsaUcnVAJuBAtU1J5JbQKsCin9Cf6BQ64u53gaTtAEKOqCh_LUFCfrBjXvbC64CNjWHyAmRy_sM2BVqjExzh35LGpzPPvaO1PzPGOsWETzzd5fwbigOR46a4f5z_dstneLnG_WDaGQwoedXvKeHW4RDE5oQ49b-_0A8MXy-RIlsiU-r3sbYoil7rsrzy_0j3dglNAFlIVmc6zvb4xSiPdnieohN_iv2VVCZdwYBH-xux9pLV4hF2BL2s-YFIQWPUd9TiEeAtikYyXOu7l9F9cld2OqMlbdOtOVJ1V2vn8xm8al91YKJHXd9yEyDP4PUHwu4nz0KZrXVqPuXDAoZB_buoxv2mEgbGQ0WKFXTDrz-opq2L9SSoiAh5Mf9-efBC3d6sPO_jMh74q2rl2p5qjE8MBcGCSqGSIb3DQEJFDEKHggAcABpAG4AZzAhBgkqhkiG9w0BCRUxFAQSVGltZSAxNjk2NTMyNTEwODY0MIID4QYJKoZIhvcNAQcGoIID0jCCA84CAQAwggPHBgkqhkiG9w0BBwEwZgYJKoZIhvcNAQUNMFkwOAYJKoZIhvcNAQUMMCsEFAFdj0s4XgV7ONDqUlU2K0ZGWk3nAgInEAIBIDAMBggqhkiG9w0CCQUAMB0GCWCGSAFlAwQBKgQQslddrqq6CVi_URYA6GwnEYCCA1C4uJ1QZpXZFFU72fKc3GWE1wrg4tOKVsMyfqewoUh88O3MdFJIcqfHn1xGc1DVD2s3GoYax1maMlfigHDHxIu5vUV6PS6z9TYdMsh8JCoUNwl_HRccRH8ssMJ0uO6dgETnjmQaTEpghx1JCN-_ssXVtGHJY3gok_SFCtRuyo8p2xiy6xOTvh_Sf1F1jbqau62Bt1W-pveqEDGe7zu9Y0q-6a7lS386oS5TSLdU0d_w-9Rteut-zkMJqzfyUhbPBS4IU8uQqm9GIRx2loNgv14is5v8A7guXUInXy2XXWFQJAJAZ5Q_fQheiGKyJJiJXyvVF9Dh9zEM5MmOwCvuu0uXarnY4PHdO4UbYF_KnEFU7z_lpZf3xrOW84zEjVaGS3erIfusQp3P7ocQHYsIpwBOYguFCCNB5ESndnKgXHquX-kOYgmFIbGVu5OOn6ThA_HNzga2hlnj19CM3T5cT_T8o1rhS15TzUP-68L6-0yZa_gCb1UtjPGya3HEncgEpnzCHSlLp-a5nc2LP8VBpTanjqmhhn8G4jnTm6odTm9-e2HptimFUEE-17T5_D6BFCZnybYhYbyAoGFWqEQun-iqC4U34vUrYabVzp6L61bwQwr2pMNHpvn19BWI7gj-5Fiv2LX_-i3RM9JNTtHxr-XyhnnObSzEE06BWDzbYc_Mix3Lo9YG1_GczqamZaFLDuw6DjsfWS46ak_s05Xb8VB5L8hvuGPLIBDTI4ekvVhnuaLz02hHGt7b6BsMu6BlnaJH0dQ823e3cqN3-6ZK1wDIevKhhfxk063K1RysbsAwD-881lotTbVy4Ni2PQo_aldUNVoO4b6Z_t1iJeIyMCyE6iLNK8dQ3jcHlJVfuQ5wiVYTPvzpyO_75X-FVzn3z7nYr_-6_ifldADvGH129NzbiIS_pyqGagNeGievYy__6mRk6eggii6FlIUmXs9gmDgN_SKTH5GrYhRvVGXYIcssLIcOWoBjCmzZcLuvnqPL26lLWREVICZAZJKFN2Z9PEeLGYjnfzf5_fWTEVnTSrUkpKuRYkt3ZHGrGaddmhifK2EnPiZNow5Deb5PnTsKDzAxde72zE1nqtqYxOKZcMO9kX2FVSkgijSLaRhKaAmetTBNMDEwDQYJYIZIAWUDBAIBBQAEINbpIfulyYknJxcBpJ1nPDeqtR-_CVqeWCqd5Rru8To8BBRJ0_5HpFO0PxATZveX8rK8cEqvtgICJxA=",
+                "format": "PKCS12",
+                "encryptedPassword": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiUWVzOVR5eTV5WiIsInZlcnNpb24iOiIxMS4yLjUuMCJ9..QxamhMMTPjLpYZ-1uhf-ww.EL3oTIlhI-wlX1oWrWiyWKR42hCwXxpHTBA62UiReDw.0VKa9gKWPEmASgS68xCErA"
+                }
+            ]
         },
         {
             "operationType": "SAVE",
@@ -846,6 +846,143 @@
                 }
             ]
         },
+        {
+            "resourceType": "/oauth/outOfBandAuthPlugins",
+            "operationType": "SAVE",
+            "items": [
+                {
+                    "id": "exampleCibaAuthenticator",
+                    "name": "exampleCibaAuthenticator",
+                    "pluginDescriptorRef": {
+                        "id": "com.pingidentity.oobauth.pingone.mfa.PingOneMfaCibaAuthenticator",
+                        "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/oauth/outOfBandAuthPlugins/descriptors/com.pingidentity.oobauth.pingone.mfa.PingOneMfaCibaAuthenticator"
+                    },
+                    "configuration": {
+                        "tables": [
+                            {
+                                "name": "PingOne Template Variables",
+                                "rows": []
+                            }
+                        ],
+                        "fields": [
+                            {
+                                "name": "PingOne Environment",
+                                "value": "${PF_TF_P1_CONNECTION_ID}|${PF_TF_P1_CONNECTION_ENV_ID}"
+                            },
+                            {
+                                "name": "Application",
+                                "value": "${PF_TF_P1_EXAMPLE_OAUTH_APP_ID}"
+                            },
+                            {
+                                "name": "PingOne Authentication Policy",
+                                "value": ""
+                            },
+                            {
+                                "name": "Test Username",
+                                "value": ""
+                            },
+                            {
+                                "name": "PingOne Template Name",
+                                "value": "transaction"
+                            },
+                            {
+                                "name": "PingOne Template Variant",
+                                "value": ""
+                            },
+                            {
+                                "name": "Client Context",
+                                "value": "#*\nDefine additional key/value pairs to be received at the mobile application.\nThe following variables are available by default:\n\n$oobAuthRequestContext - Context for the out-of-band authentication/authorization request\n$languagePackMessages - The language-pack file configured for this authenticator\n$subject - The user's PingOne username or user ID.\n$JSONValue - A JSON utility class that can be used to escape text and convert objects to JSON.\n   Methods:\n       escape(String s) - Escape quotes, \\, /, \\r, \\n, \\b, \\f, \\t and other control characters (U+0000 through U+001F).\n       toJSONString(Object value) - Convert an object to JSON text.\n\nAdditionally, any Extended Contract attributes are also available using the $name syntax.\n\nExample:\n\n{\n   \"requestingApplicationName\": \"$JSONValue.escape($oobAuthRequestContext.requestingApplication.name)\",\n   \"requestedScope\": $JSONValue.toJSONString($oobAuthRequestContext.requestedScope.values()),\n   \"amount\": \"$JSONValue.escape($amount)\",\n   \"alert.color\": \"red\"\n}\n*#"
+                            },
+                            {
+                                "name": "Messages Files",
+                                "value": "pingone-mfa-messages"
+                            },
+                            {
+                                "name": "API Request Timeout",
+                                "value": "12000"
+                            },
+                            {
+                                "name": "Proxy Settings",
+                                "value": "System Defaults"
+                            },
+                            {
+                                "name": "Custom Proxy Host",
+                                "value": ""
+                            },
+                            {
+                                "name": "Custom Proxy Port",
+                                "value": ""
+                            }
+                        ]
+                    },
+                    "attributeContract": {
+                        "coreAttributes": [
+                        {
+                            "name": "subject"
+                        }
+                        ],
+                        "extendedAttributes": []
+                    }
+                }
+            ]
+        },
+        {
+            "resourceType":"/oauth/cibaServerPolicy/requestPolicies",
+            "operationType":"SAVE",
+            "items":[
+                {
+                    "id":"exampleCibaReqPolicy",
+                    "name":"exampleCibaReqPolicy",
+                    "authenticatorRef":{
+                        "id":"exampleCibaAuthenticator",
+                        "location":"https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/oauth/outOfBandAuthPlugins/exampleCibaAuthenticator"
+                    },
+                    "transactionLifetime":120,
+                    "allowUnsignedLoginHintToken":false,
+                    "requireTokenForIdentityHint":false,
+                    "alternativeLoginHintTokenIssuers":[],
+                    "identityHintContract":{
+                        "coreAttributes":[
+                            {
+                                "name":"IDENTITY_HINT_SUBJECT"
+                            }
+                        ],
+                        "extendedAttributes":[]
+                    },
+                    "identityHintContractFulfillment":{
+                        "attributeSources":[],
+                        "attributeContractFulfillment":{
+                            "IDENTITY_HINT_SUBJECT":{
+                                "source":{
+                                    "type":"REQUEST"
+                                },
+                                "value":"IDENTITY_HINT_SUBJECT"
+                            }
+                        },
+                        "issuanceCriteria":{
+                            "conditionalCriteria":[]
+                        }
+                    },
+                    "identityHintMapping":{
+                        "attributeSources":[],
+                        "attributeContractFulfillment":{
+                            "subject":{
+                                "source":{
+                                    "type":"NO_MAPPING"
+                                }
+                            },
+                            "USER_KEY":{
+                                "source":{
+                                    "type":"NO_MAPPING"
+                                }
+                            }
+                        },
+                        "issuanceCriteria":{
+                            "conditionalCriteria":[]
+                        }
+                    }
+                }
+            ]
         {
             "resourceType": "/oauth/tokenExchange/generator/groups",
             "operationType": "SAVE",
