@@ -983,6 +983,7 @@
                     }
                 }
             ]
+        },
         {
             "resourceType": "/oauth/tokenExchange/generator/groups",
             "operationType": "SAVE",
