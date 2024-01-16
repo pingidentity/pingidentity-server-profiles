@@ -1004,6 +1004,27 @@
                     ]
                 }
             ]
+        },
+        {
+            "resourceType": "/oauth/tokenExchange/generator/groups",
+            "operationType": "SAVE",
+            "items": [
+                {
+                    "id": "exampleGeneratorGroup2",
+                    "name": "exampleGeneratorGroup2",
+                    "resourceUris": [],
+                    "generatorMappings": [
+                        {
+                            "requestedTokenType": "urn:ietf:params:oauth:token-type:saml2",
+                            "tokenGenerator": {
+                                "id": "tokengenerator",
+                                "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/sp/tokenGenerators/tokengenerator"
+                            },
+                            "defaultMapping": true
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
