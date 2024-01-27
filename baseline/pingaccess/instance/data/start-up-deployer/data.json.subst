@@ -225,7 +225,7 @@
         "pingFederateAdmin": {
             "adminUsername": "${ROOT_USER}",
             "adminPassword": {
-                "value": "${PING_IDENTITY_PASSWORD}"
+                "value": "${PING_FEDERATE_PASSWORD}"
             },
             "host": "${PF_ADMIN_PRIVATE_HOSTNAME}",
             "port": ${PF_ADMIN_PRIVATE_PORT_HTTPS},
@@ -382,7 +382,7 @@
                 "configuration": {
                     "username": "${ROOT_USER_DN}",
                     "password": {
-                        "value": "${PING_IDENTITY_PASSWORD}"
+                        "value": "${PING_FEDERATE_PASSWORD}"
                     }
                 }
             }
@@ -508,7 +508,7 @@
                 "clientCredentials": {
                     "clientId": "pingaccessAc",
                     "clientSecret": {
-                        "value": "${PING_IDENTITY_PASSWORD}"
+                        "value": "${PING_FEDERATE_PASSWORD}"
                     }
                 },
                 "audience": "PingAccess",
