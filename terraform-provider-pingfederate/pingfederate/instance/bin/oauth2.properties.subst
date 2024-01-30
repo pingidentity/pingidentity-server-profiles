@@ -1,0 +1,132 @@
+###############################################################################
+#                                                                             #
+# OAuth 2.0-based Administrative API Authorization                            #
+#                                                                             #
+# This authorization mechanism requires all requests to the PingFederate      #
+# administrative API to include an OAuth access token (AT) in the HTTP        #
+# "Authorization" request header with a "Bearer" type (following RFC 6750).   #
+#                                                                             #
+# ATs are validated by calling an introspection endpoint at the issuing OAuth #
+# Authorization Server (AS). Token claims returned from the AS dictate the    #
+# username and administrative roles of the API caller.                        #
+#                                                                             #
+###############################################################################
+
+#   --------------------
+#   Client ID (REQUIRED)
+#   --------------------
+#   The client ID used to identify the PingFederate administrative API as a Resource Server (RS) to the AS for AT introspection.
+#
+client.id=test
+
+#   ---------------------------------------
+#   Client Authentication Method (REQUIRED)
+#   ---------------------------------------
+#   The type of authentication expected by the AS introspection endpoint.
+#
+#   Supported values are:
+#    client_secret_basic   - Client credentials sent using HTTP Basic authentication.
+#    client_secret_post    - Client credentials included in the HTTP request body.
+#    private_key_jwt       - Client authenticates in accordance with RFC 7523. Public keys to enable the AS to validate JWT
+#                            signatures are published at the PingFederate runtime JWKS endpoint (e.g.: https://example.com:9031/pf/JWKS).
+#    none                  - No client authentication.
+#
+client.authn.method=client_secret_basic
+
+#   ------------------------
+#   Client Secret (OPTIONAL)
+#   ------------------------
+#   The client secret used in client_secret_basic or client_secret_post authentication methods.
+#   This property should be obfuscated using one of the following utilities:
+#
+#   On Windows:
+#     >obfuscate.bat <password>
+#
+#   On Linux:
+#     >./obfuscate.sh <password>
+#
+#   Example:
+#     obfuscate.bat secret
+#       Result:
+#       OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiVEU0dVZjcU1wayIsInZlcnNpb24iOiI3LjEuMjAwLjQtU05BUFNIT1QifQ..8Zf_xQ4PuXuYkdE0culPpA.E2Lh_zAne5YpaJo9wbl39A.Z8wVd6SFB8lcQbvutU1u-Q
+#   Copy complete result into property value, as shown in the example below:
+#     client.secret=OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiVEU0dVZjcU1wayIsInZlcnNpb24iOiI3LjEuMjAwLjQtU05BUFNIT1QifQ..8Zf_xQ4PuXuYkdE0culPpA.E2Lh_zAne5YpaJo9wbl39A.Z8wVd6SFB8lcQbvutU1u-Q
+#
+client.secret=2FederateM0re!
+
+#   ---------------------------------------
+#   Token Introspection Endpoint (REQUIRED)
+#   ---------------------------------------
+#   The full HTTPS URL of the AS introspection endpoint PingFederate will call for AT validation.
+#
+introspection.endpoint=https://localhost:9031/as/introspect.oauth2
+
+#   -----------------
+#   Scopes (REQUIRED)
+#   -----------------
+#   The required scopes of validated ATs authorized to call the PingFederate administrative API. Space delimit multiple values.
+#
+required.scopes=email
+
+#   ----------------------------------
+#   Username Attribute Name (REQUIRED)
+#   ----------------------------------
+#   The name of the claim in the AT introspection response that contains the username of the administrator. The value of the
+#   username claim is used in administrative audit logs.
+#
+username.attribute.name=Username
+
+#   ------------------------------
+#   Role Attribute Name (REQUIRED)
+#   ------------------------------
+#   The name of the claim in the introspection response that determines the administrative role.
+#
+#   Example:
+#     role.attribute.name=admin_role
+#
+role.attribute.name=OrgName
+
+#   -------------------------------------
+#   Administrator Role Mapping (REQUIRED)
+#   -------------------------------------
+#   The following set of properties maps the AT introspection response to roles to determine administrative permissions.
+#
+#   Some special characters in the value that need to be evaluated must be escaped (e.g., "\ " for " ").  This is also true for
+#   spaces that occur at the beginning. See the Javadoc for the load method of the java.util.Properties class for a definitive
+#   description of what characters need to be escaped and how to do so.
+#
+#   Example:
+#   Assume that admin_role is set for the Role Attribute Name (role.attribute.name) and mappings are set as follows:
+#
+#   role.admin=admin
+#   role.cryptoManager=cryptoadmin
+#   role.userAdmin=useradmin
+#   role.expressionAdmin=expressionadmin
+#
+#   When admin_role claim has a single value:
+#   admin_role : "admin"
+#   The caller will be granted the admin role.
+#
+#   When the admin_role claim has an array containing multiple values:
+#   admin_role : ["admin","cryptoadmin","useradmin"]
+#   The caller will be granted the admin, crypto and user administrator roles.
+#
+#   Only one value can be entered per line. If multiple values need to be mapped to a single PingFederate role, then multiple
+#   properties must be created using a numeric, incremental suffix, starting with 1. Example:
+#     role.admin.1=
+#     role.admin.2=
+#     role.admin.3=
+#
+role.admin=Ping
+role.cryptoManager=Ping
+role.userAdmin=Ping
+
+# The expressionAdmin role must only be granted to the administrators with admin role.
+role.expressionAdmin=Ping
+
+#   -----------------------------------------------
+#   Auditor Role Attribute Value Mapping (OPTIONAL)
+#   -----------------------------------------------
+#   The auditor role overrides the privileges associated with the assignment of any other role for the same caller.
+#
+role.auditor=${PF_OAUTH2_ROLE_AUDITOR}
