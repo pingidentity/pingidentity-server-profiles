@@ -1318,52 +1318,6 @@
             ]
         },
         {
-            "resourceType": "/oauth/openIdConnect/policies",
-            "operationType": "SAVE",
-            "items": [
-                {
-                    "id": "testClientPolicy",
-                    "name": "testClientPolicy",
-                    "idTokenLifetime": 5,
-                    "attributeContract": {
-                        "coreAttributes": [
-                        {
-                            "name": "sub",
-                            "multiValued": false
-                        }
-                        ],
-                        "extendedAttributes": []
-                    },
-                    "attributeMapping": {
-                        "attributeSources": [],
-                        "attributeContractFulfillment": {
-                        "sub": {
-                            "source": {
-                            "type": "TOKEN"
-                            },
-                            "value": "contract"
-                        }
-                        },
-                        "issuanceCriteria": {
-                        "conditionalCriteria": []
-                        }
-                    },
-                    "includeSriInIdToken": false,
-                    "includeUserInfoInIdToken": false,
-                    "includeSHashInIdToken": false,
-                    "includeX5tInIdToken": false,
-                    "idTokenTypHeaderValue": "",
-                    "returnIdTokenOnRefreshGrant": false,
-                    "reissueIdTokenInHybridFlow": false,
-                    "accessTokenManagerRef": {
-                        "id": "oidcJsonWebTokenExample",
-                        "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/v1/oauth/accessTokenManagers/oidcJsonWebTokenExample"
-                    },
-                    "scopeAttributeMappings": {}
-                }
-            ]
-        },
-        {
             "resourceType": "/oauth/clients",
             "operationType": "SAVE",
             "items": [
@@ -1405,10 +1359,6 @@
                     "restrictToDefaultAccessTokenManager": false,
                     "validateUsingAllEligibleAtms": false,
                     "oidcPolicy": {
-                        "policyGroup": {
-                            "id": "testClientPolicy",
-                            "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/oauth/openIdConnect/policies/testClientPolicy"
-                        },
                         "grantAccessSessionRevocationApi": false,
                         "grantAccessSessionSessionManagementApi": false,
                         "logoutMode": "NONE",
