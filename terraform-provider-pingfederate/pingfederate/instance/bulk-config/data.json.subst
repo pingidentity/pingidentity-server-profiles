@@ -1025,6 +1025,422 @@
                     ]
                 }
             ]
+        },
+        {
+            "resourceType": "/certificates/ca",
+            "operationType": "SAVE",
+            "items": [
+                {
+                    "id": "gdxuvcw6p95rex3go7eb3ctsb",
+                    "fileData": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURPakNDQWlJQ0NRQ2piQjdYQlZreEN6QU5CZ2txaGtpRzl3MEJBUXNGQURCZk1SSXdFQVlEVlFRRERBbHNiMk5oYkdodmMzUXgKRGpBTUJnTlZCQWdNQlZSRldFRlRNUTh3RFFZRFZRUUhEQVpCVlZOVVNVNHhEVEFMQmdOVkJBc01CRkJKVGtjeEREQUtCZ05WQkFvTQpBME5FVWpFTE1Ba0dBMVVFQmhNQ1ZWTXdIaGNOTWpNd056RTBNREkxTkRVeldoY05NalF3TnpFek1ESTFORFV6V2pCZk1SSXdFQVlEClZRUUREQWxzYjJOaGJHaHZjM1F4RGpBTUJnTlZCQWdNQlZSRldFRlRNUTh3RFFZRFZRUUhEQVpCVlZOVVNVNHhEVEFMQmdOVkJBc00KQkZCSlRrY3hEREFLQmdOVkJBb01BME5FVWpFTE1Ba0dBMVVFQmhNQ1ZWTXdnZ0VpTUEwR0NTcUdTSWIzRFFFQkFRVUFBNElCRHdBdwpnZ0VLQW9JQkFRQzV5RnJoOVZSMndrOUlqek16K0VpODBLNDUzZzFqMS9HdjNFUS9TQzloN0haQkk2YVY5RmFFWWhHbmFxdVJUNXE4CjdwOGx6Q3BoS05YVnllTDZUL3BESk9XNzB6WEl0a2w4UnlvYzB0SWFrblJRbWo4K1lBMEhyOUdEZG1ZZXYyeXJ4U29WUzdzNUJsOHAKb2FzbjNEbGpnbldUMDd2c1F6K2h3M05ZNFNQcDdJRkdQMlBwR1VCQklJdnJPYURXcFBHc1hlem5CeFNGdGlzNlFvK0ppRW9hVnFsOQpiOS9YeUtaajY1d09zVnlaaEZXZU0xbkNRSVRTUDlPcU9jOUZTb0RGWVExQVZvZ200QTJBelVya01uVDFTck4yZEN1VG1OYmVWdzdnCk9NcU1yVmYwQ2lUdjloSTBjQVRiTzV3ZTFzUEFsSnhzY1NrSmpzYUkrc1FmamlBbkFnTUJBQUV3RFFZSktvWklodmNOQVFFTEJRQUQKZ2dFQkFDZ3dvSDFxa2xQRjFuSTkrV2JJSjRLMTJEbDkrVTNaTVphMmxQNGhBazFyTUJIazlTSGJvT1UxQ0hEUUtUMVo2dXhpME5JNApKWkhtUDFxUDhLUE5FV1RJOFE3NnVlNFEzYWlBNTNFUWd1ekdiM1NFdHlwMzZKR0JxMDVKb3I5ZXJFZWJGZnRWbDgzTkZ2aW83MkZuCjBOMnh2dTh6Q25seWxmMmhwejl4MWkwMVhuejVVTnRaMnBwc2YyenpUKzRVNnczZnJIK3BrcDBSRFB1b2U5bW5CRjAwMUFndVAzMWgKU0JaeVp6V2N3UWx0dU5FTG5TUkNjZ0psNGtDMmgzbUFnYVZ0WWFsckZ4TFJhM3RBMlhGMkJIUkhtS2dvY2VkVmhUcSs4MXhycWorVwpRdURtVWUwNkRuclMzT2hteWozamhzQ0NsdXpuQW9sbXJCaFQvU2FEdUdnPQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg=="
+                }
+            ]
+        },
+        {
+            "resourceType": "/oauth/accessTokenManagers",
+            "operationType": "SAVE",
+            "items": [
+                {
+                    "id": "jwt",
+                    "name": "JSON Web Tokens",
+                    "pluginDescriptorRef": {
+                        "id": "com.pingidentity.pf.access.token.management.plugins.JwtBearerAccessTokenManagementPlugin",
+                        "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/oauth/accessTokenManagers/descriptors/com.pingidentity.pf.access.token.management.plugins.JwtBearerAccessTokenManagementPlugin"
+                    },
+                    "configuration": {
+                        "tables": [
+                        {
+                            "name": "Symmetric Keys",
+                            "rows": []
+                        },
+                        {
+                            "name": "Certificates",
+                            "rows": [
+                                {
+                                    "fields": [
+                                    {
+                                        "name": "Key ID",
+                                        "value": "k1"
+                                    },
+                                    {
+                                        "name": "Certificate",
+                                        "value": "419x9yg43rlawqwq9v6az997k"
+                                    }
+                                    ],
+                                    "defaultRow": false
+                                }
+                            ]
+                        }
+                        ],
+                        "fields": [
+                        {
+                            "name": "Token Lifetime",
+                            "value": "120"
+                        },
+                        {
+                            "name": "Use Centralized Signing Key",
+                            "value": "false"
+                        },
+                        {
+                            "name": "JWS Algorithm",
+                            "value": "RS256"
+                        },
+                        {
+                            "name": "Active Symmetric Key ID",
+                            "value": ""
+                        },
+                        {
+                            "name": "Active Signing Certificate Key ID",
+                            "value": "k1"
+                        },
+                        {
+                            "name": "JWE Algorithm",
+                            "value": ""
+                        },
+                        {
+                            "name": "JWE Content Encryption Algorithm",
+                            "value": ""
+                        },
+                        {
+                            "name": "Active Symmetric Encryption Key ID",
+                            "value": ""
+                        },
+                        {
+                            "name": "Asymmetric Encryption Key",
+                            "value": ""
+                        },
+                        {
+                            "name": "Asymmetric Encryption JWKS URL",
+                            "value": ""
+                        },
+                        {
+                            "name": "Enable Token Revocation",
+                            "value": "false"
+                        },
+                        {
+                            "name": "Include Key ID Header Parameter",
+                            "value": "true"
+                        },
+                        {
+                            "name": "Include X.509 Thumbprint Header Parameter",
+                            "value": "false"
+                        },
+                        {
+                            "name": "Default JWKS URL Cache Duration",
+                            "value": "720"
+                        },
+                        {
+                            "name": "Include JWE Key ID Header Parameter",
+                            "value": "true"
+                        },
+                        {
+                            "name": "Include JWE X.509 Thumbprint Header Parameter",
+                            "value": "false"
+                        },
+                        {
+                            "name": "Client ID Claim Name",
+                            "value": "client_id_name"
+                        },
+                        {
+                            "name": "Scope Claim Name",
+                            "value": "scope"
+                        },
+                        {
+                            "name": "Space Delimit Scope Values",
+                            "value": "false"
+                        },
+                        {
+                            "name": "Authorization Details Claim Name",
+                            "value": "authorization_details"
+                        },
+                        {
+                            "name": "Issuer Claim Value",
+                            "value": ""
+                        },
+                        {
+                            "name": "Audience Claim Value",
+                            "value": ""
+                        },
+                        {
+                            "name": "Not Before Claim Offset",
+                            "value": ""
+                        },
+                        {
+                            "name": "Include Issued At Claim",
+                            "value": "false"
+                        },
+                        {
+                            "name": "JWT ID Claim Length",
+                            "value": "22"
+                        },
+                        {
+                            "name": "Access Grant GUID Claim Name",
+                            "value": "agid"
+                        },
+                        {
+                            "name": "JWKS Endpoint Path",
+                            "value": ""
+                        },
+                        {
+                            "name": "JWKS Endpoint Cache Duration",
+                            "value": "720"
+                        },
+                        {
+                            "name": "Publish Key ID X.509 URL",
+                            "value": "false"
+                        },
+                        {
+                            "name": "Publish Thumbprint X.509 URL",
+                            "value": "false"
+                        },
+                        {
+                            "name": "Expand Scope Groups",
+                            "value": "false"
+                        },
+                        {
+                            "name": "Type Header Value",
+                            "value": ""
+                        }
+                        ]
+                    },
+                    "lastModified": "2024-01-30T19:36:56.913Z",
+                    "attributeContract": {
+                        "coreAttributes": [],
+                        "extendedAttributes": [
+                        {
+                            "name": "Username",
+                            "multiValued": false
+                        },
+                        {
+                            "name": "OrgName",
+                            "multiValued": false
+                        }
+                        ],
+                        "defaultSubjectAttribute": "OrgName"
+                    },
+                    "selectionSettings": {
+                        "resourceUris": []
+                    },
+                    "accessControlSettings": {
+                        "restrictClients": false,
+                        "allowedClients": []
+                    },
+                    "sessionValidationSettings": {
+                        "checkValidAuthnSession": false,
+                        "checkSessionRevocationStatus": false,
+                        "updateAuthnSessionActivity": false,
+                        "includeSessionId": false
+                    },
+                    "sequenceNumber": 2
+                }
+            ]
+        },
+        {
+            "resourceType": "/oauth/accessTokenManagers/settings",
+            "operationType": "SAVE",
+            "items": [
+                {
+                    "defaultAccessTokenManagerRef": {
+                        "id": "jwt",
+                        "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/oauth/accessTokenManagers/jwt"
+                    }
+                }
+            ]
+        },
+        {
+            "resourceType": "/oauth/authServerSettings",
+            "operationType": "SAVE",
+            "items": [
+                {
+                    "defaultScopeDescription": "",
+                    "scopes": [
+                        {
+                        "name": "email",
+                        "description": "email scope",
+                        "dynamic": false
+                        }
+                    ],
+                    "scopeGroups": [],
+                    "exclusiveScopes": [],
+                    "exclusiveScopeGroups": [],
+                    "authorizationCodeTimeout": 60,
+                    "authorizationCodeEntropy": 30,
+                    "disallowPlainPKCE": false,
+                    "includeIssuerInAuthorizationResponse": false,
+                    "persistentGrantLifetime": -1,
+                    "persistentGrantLifetimeUnit": "DAYS",
+                    "persistentGrantIdleTimeout": 30,
+                    "persistentGrantIdleTimeoutTimeUnit": "DAYS",
+                    "refreshTokenLength": 42,
+                    "rollRefreshTokenValues": false,
+                    "refreshTokenRollingGracePeriod": 60,
+                    "refreshRollingInterval": 0,
+                    "persistentGrantReuseGrantTypes": [
+                        "IMPLICIT"
+                    ],
+                    "persistentGrantContract": {
+                        "extendedAttributes": [],
+                        "coreAttributes": [
+                        {
+                            "name": "USER_KEY"
+                        },
+                        {
+                            "name": "USER_NAME"
+                        }
+                        ]
+                    },
+                    "bypassAuthorizationForApprovedGrants": false,
+                    "allowUnidentifiedClientROCreds": false,
+                    "allowUnidentifiedClientExtensionGrants": false,
+                    "tokenEndpointBaseUrl": "",
+                    "userAuthorizationUrl": "",
+                    "registeredAuthorizationPath": "",
+                    "pendingAuthorizationTimeout": 600,
+                    "bypassActivationCodeConfirmation": false,
+                    "devicePollingInterval": 5,
+                    "activationCodeCheckMode": "AFTER_AUTHENTICATION",
+                    "userAuthorizationConsentPageSetting": "INTERNAL",
+                    "atmIdForOAuthGrantManagement": "jwt",
+                    "scopeForOAuthGrantManagement": "email",
+                    "allowedOrigins": [],
+                    "trackUserSessionsForLogout": false,
+                    "parReferenceTimeout": 60,
+                    "parReferenceLength": 24,
+                    "parStatus": "ENABLED",
+                    "clientSecretRetentionPeriod": 0,
+                    "jwtSecuredAuthorizationResponseModeLifetime": 600,
+                    "dpopProofRequireNonce": false,
+                    "dpopProofLifetimeSeconds": 120,
+                    "dpopProofEnforceReplayPrevention": false,
+                    "bypassAuthorizationForApprovedConsents": false,
+                    "consentLifetimeDays": -1
+                }
+            ]
+        },
+        {
+            "resourceType": "/oauth/clients",
+            "operationType": "SAVE",
+            "items": [
+                {
+                    "clientId": "test",
+                    "enabled": true,
+                    "redirectUris": [],
+                    "grantTypes": [
+                        "CLIENT_CREDENTIALS",
+                        "ACCESS_TOKEN_VALIDATION"
+                    ],
+                    "name": "test",
+                    "description": "",
+                    "logoUrl": "",
+                    "modificationDate": "2024-01-30T20:22:16.054Z",
+                    "creationDate": "2024-01-30T17:50:18.492Z",
+                    "refreshRolling": "SERVER_DEFAULT",
+                    "refreshTokenRollingIntervalType": "SERVER_DEFAULT",
+                    "persistentGrantExpirationType": "SERVER_DEFAULT",
+                    "persistentGrantExpirationTime": 0,
+                    "persistentGrantExpirationTimeUnit": "DAYS",
+                    "persistentGrantIdleTimeoutType": "SERVER_DEFAULT",
+                    "persistentGrantIdleTimeout": 0,
+                    "persistentGrantIdleTimeoutTimeUnit": "DAYS",
+                    "persistentGrantReuseType": "SERVER_DEFAULT",
+                    "allowAuthenticationApiInit": false,
+                    "bypassApprovalPage": false,
+                    "restrictScopes": false,
+                    "requirePushedAuthorizationRequests": false,
+                    "requireJwtSecuredAuthorizationResponseMode": false,
+                    "restrictedScopes": [],
+                    "exclusiveScopes": [],
+                    "restrictedResponseTypes": [],
+                    "authorizationDetailTypes": [],
+                    "defaultAccessTokenManagerRef": {
+                        "id": "jwt",
+                        "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/oauth/accessTokenManagers/jwt"
+                    },
+                    "restrictToDefaultAccessTokenManager": false,
+                    "validateUsingAllEligibleAtms": false,
+                    "oidcPolicy": {
+                        "policyGroup": {},
+                        "grantAccessSessionRevocationApi": false,
+                        "grantAccessSessionSessionManagementApi": false,
+                        "logoutMode": "NONE",
+                        "pingAccessLogoutCapable": false,
+                        "pairwiseIdentifierUserType": false
+                    },
+                    "clientAuth": {
+                        "type": "SECRET",
+                        "encryptedSecret": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiUWVzOVR5eTV5WiIsInZlcnNpb24iOiIxMi4wLjAuOSJ9..Rsv3b2i5_n5YafLuS-mr9g.3ys3kpiqcbrn6XoSn7qumr3F8tVgLWRNecgYCgNMN3uVft6x5xAjWJktgr3dVw08XK2CYeV2gXHPB5EnOTy7_mLuH9GFtK9i1YdnpPxK82w.hKLjJaBHpaPR3NUklqziLw",
+                        "secondarySecrets": []
+                    },
+                    "deviceFlowSettingType": "SERVER_DEFAULT",
+                    "requireProofKeyForCodeExchange": false,
+                    "refreshTokenRollingGracePeriodType": "SERVER_DEFAULT",
+                    "clientSecretRetentionPeriodType": "SERVER_DEFAULT",
+                    "requireDpop": false,
+                    "requireSignedRequests": false
+                }
+            ]
+        },
+        {
+            "resourceType": "/oauth/accessTokenMappings",
+            "operationType": "SAVE",
+            "items": [
+                {
+                    "attributeSources": [],
+                    "attributeContractFulfillment": {
+                        "Username": {
+                            "source": {
+                                "type": "TEXT"
+                            },
+                            "value": "Administrator"
+                        },
+                        "OrgName": {
+                            "source": {
+                                "type": "TEXT"
+                            },
+                            "value": "Ping"
+                        }
+                    },
+                    "issuanceCriteria": {
+                        "conditionalCriteria": []
+                    },
+                    "id": "client_credentials|jwt",
+                    "context": {
+                        "type": "CLIENT_CREDENTIALS"
+                    },
+                    "accessTokenManagerRef": {
+                        "id": "jwt",
+                        "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/oauth/accessTokenManagers/jwt"
+                    }
+                },
+                {
+                    "attributeSources": [],
+                    "attributeContractFulfillment": {
+                        "Username": {
+                            "source": {
+                                "type": "TEXT"
+                            },
+                            "value": "Administrator"
+                        },
+                        "OrgName": {
+                            "source": {
+                                "type": "TEXT"
+                            },
+                            "value": "Ping"
+                        }
+                    },
+                    "issuanceCriteria": {
+                        "conditionalCriteria": []
+                    },
+                    "id": "default|jwt",
+                    "context": {
+                        "type": "DEFAULT"
+                    },
+                    "accessTokenManagerRef": {
+                        "id": "jwt",
+                        "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/oauth/accessTokenManagers/jwt"
+                    }
+                }
+            ]
         }
     ]
 }
