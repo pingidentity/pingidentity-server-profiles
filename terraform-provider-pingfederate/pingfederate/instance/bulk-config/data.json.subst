@@ -1308,8 +1308,6 @@
                     "parStatus": "ENABLED",
                     "clientSecretRetentionPeriod": 0,
                     "jwtSecuredAuthorizationResponseModeLifetime": 600,
-                    "dpopProofLifetimeSeconds": 120,
-                    "dpopProofEnforceReplayPrevention": false,
                     "bypassAuthorizationForApprovedConsents": false,
                     "consentLifetimeDays": -1
                 }
@@ -1373,7 +1371,6 @@
                     "requireProofKeyForCodeExchange": false,
                     "refreshTokenRollingGracePeriodType": "SERVER_DEFAULT",
                     "clientSecretRetentionPeriodType": "SERVER_DEFAULT",
-                    "requireDpop": false,
                     "requireSignedRequests": false
                 }
             ]
