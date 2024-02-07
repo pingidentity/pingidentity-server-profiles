@@ -1356,7 +1356,6 @@
                         "policyGroup": {},
                         "grantAccessSessionRevocationApi": false,
                         "grantAccessSessionSessionManagementApi": false,
-                        "logoutMode": "NONE",
                         "pingAccessLogoutCapable": false,
                         "pairwiseIdentifierUserType": false
                     },
