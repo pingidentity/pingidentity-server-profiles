@@ -1308,7 +1308,6 @@
                     "parStatus": "ENABLED",
                     "clientSecretRetentionPeriod": 0,
                     "jwtSecuredAuthorizationResponseModeLifetime": 600,
-                    "dpopProofRequireNonce": false,
                     "dpopProofLifetimeSeconds": 120,
                     "dpopProofEnforceReplayPrevention": false,
                     "bypassAuthorizationForApprovedConsents": false,
