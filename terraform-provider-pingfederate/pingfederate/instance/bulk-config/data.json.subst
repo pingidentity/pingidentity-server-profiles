@@ -1307,7 +1307,7 @@
                     "parReferenceLength": 24,
                     "parStatus": "ENABLED",
                     "clientSecretRetentionPeriod": 0,
-                    "jwtSecuredAuthorizationResponseModeLifetime": 600,
+                    "jwtSecuredAuthorizationResponseModeLifetime": 600
                 }
             ]
         },
