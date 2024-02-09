@@ -602,6 +602,26 @@
                             }
                         ]
                     }
+                },
+                {
+                    "id": "exampleSmtpPublisher2",
+                    "name": "exampleSmtpPublisher2",
+                    "pluginDescriptorRef": {
+                        "id": "com.pingidentity.email.SmtpNotificationPlugin"
+                    },
+                    "configuration": {
+                        "tables": [],
+                        "fields": [
+                            {
+                                "name": "From Address",
+                                "value": "example@pingdemo.example"
+                            },
+                            {
+                                "name": "Email Server",
+                                "value": "pingdemo.example"
+                            }
+                        ]
+                    }
                 }
             ]
         },
