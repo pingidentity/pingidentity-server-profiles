@@ -1,13 +1,7 @@
 # Configure and enable the HTTP servlet extension for publishing values of a configured set of data
 # for consumption by Prometheus
-# Must be disabled/enabled or a restart of the server to be active; for a pod disable/enable is used
 # See https://docs.pingidentity.com/r/en-us/pingauthorize-100/paz_monitor_server_metrics_prometheus
 
 dsconfig set-connection-handler-prop \
      --handler-name "HTTPS Connection Handler" \
      --add "http-servlet-extension:Prometheus Monitoring" \
-     --set enabled:false
-
-dsconfig set-connection-handler-prop \
-     --handler-name "HTTPS Connection Handler" \
-     --set enabled:true
