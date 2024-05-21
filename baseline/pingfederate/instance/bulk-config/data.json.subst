@@ -1722,6 +1722,7 @@
                             {"name": "birthdate"},
                             {"name": "email_verified"},
                             {"name": "gender"},
+                            {"name":"roles","includeInIdToken":true,"includeInUserInfo":true,"multiValued":true},
                             {"name": "profile"},
                             {"name": "phone_number_verified"},
                             {"name": "preferred_username"},
@@ -1749,10 +1750,164 @@
                 },
                 {
                     "attributeMapping": {
-                        "attributeContractFulfillment": {"sub": {
-                            "source": {"type": "TOKEN"},
-                            "value": "Username"
-                        }},
+"attributeContractFulfillment": {
+              "sub": {
+                "source": {
+                  "type": "TOKEN"
+                },
+                "value": "Username"
+              },
+              "zoneinfo": {
+                "source": {
+                  "type": "TEXT"
+                },
+                "value": "America/New_York"
+              },
+              "address.locality": {
+                "source": {
+                  "type": "TEXT"
+                },
+                "value": "Smallville"
+              },
+              "birthdate": {
+                "source": {
+                  "type": "TEXT"
+                },
+                "value": "1977-12-31"
+              },
+              "gender": {
+                "source": {
+                  "type": "TEXT"
+                },
+                "value": "female"
+              },
+              "roles": {
+                "source": {
+                  "type": "TEXT"
+                },
+                "value": "security_clearance_nato"
+              },
+              "preferred_username": {
+                "source": {
+                  "type": "TEXT"
+                },
+                "value": "mgsample"
+              },
+              "locale": {
+                "source": {
+                  "type": "TEXT"
+                },
+                "value": "en_US"
+              },
+              "address.country": {
+                "source": {
+                  "type": "TEXT"
+                },
+                "value": "USA"
+              },
+              "updated_at": {
+                "source": {
+                  "type": "TEXT"
+                },
+                "value": "2011-01-03T23:58:42+0000"
+              },
+              "address.postal_code": {
+                "source": {
+                  "type": "TEXT"
+                },
+                "value": "11223"
+              },
+              "address.region": {
+                "source": {
+                  "type": "TEXT"
+                },
+                "value": "ME"
+              },
+              "nickname": {
+                "source": {
+                  "type": "TEXT"
+                },
+                "value": "Name"
+              },
+              "email": {
+                "source": {
+                  "type": "TEXT"
+                },
+                "value": "auser@example.com"
+              },
+              "website": {
+                "source": {
+                  "type": "TEXT"
+                },
+                "value": "https://www.pingidentity.com/"
+              },
+              "email_verified": {
+                "source": {
+                  "type": "TEXT"
+                },
+                "value": "true"
+              },
+              "profile": {
+                "source": {
+                  "type": "TEXT"
+                },
+                "value": "https://www.pingidentity.com/products/pingfederate/"
+              },
+              "phone_number_verified": {
+                "source": {
+                  "type": "TEXT"
+                },
+                "value": "true"
+              },
+              "given_name": {
+                "source": {
+                  "type": "TEXT"
+                },
+                "value": "Mary"
+              },
+              "middle_name": {
+                "source": {
+                  "type": "TEXT"
+                },
+                "value": "Good"
+              },
+              "picture": {
+                "source": {
+                  "type": "TEXT"
+                },
+                "value": "https://www.pingidentity.com/images/ping-logo.png"
+              },
+              "name": {
+                "source": {
+                  "type": "TEXT"
+                },
+                "value": "Mary Good Sample"
+              },
+              "phone_number": {
+                "source": {
+                  "type": "TEXT"
+                },
+                "value": "(555) 555-5555"
+              },
+              "address.formatted": {
+                "source": {
+                  "type": "TEXT"
+                },
+                "value": "123 Main Street, Smallville, ME USA 11223"
+              },
+              "family_name": {
+                "source": {
+                  "type": "TEXT"
+                },
+                "value": "Sample"
+              },
+              "address.street_address": {
+                "source": {
+                  "type": "TEXT"
+                },
+                "value": "123 Main Street"
+              }
+            },
                         "attributeSources": [],
                         "issuanceCriteria": {"conditionalCriteria": []}
                     },
