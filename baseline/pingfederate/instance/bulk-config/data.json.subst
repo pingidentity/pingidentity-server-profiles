@@ -1859,199 +1859,36 @@
       "resourceType": "/oauth/cibaServerPolicy/settings"
     },
     {
+      "resourceType": "/oauth/openIdConnect/policies",
       "operationType": "SAVE",
       "items": [
         {
-          "attributeMapping": {
-            "attributeContractFulfillment": {
-              "sub": {
-                "source": {
-                  "type": "TOKEN"
-                },
-                "value": "Username"
-              },
-              "zoneinfo": {
-                "source": {
-                  "type": "TEXT"
-                },
-                "value": "America/New_York"
-              },
-              "address.locality": {
-                "source": {
-                  "type": "TEXT"
-                },
-                "value": "Smallville"
-              },
-              "birthdate": {
-                "source": {
-                  "type": "TEXT"
-                },
-                "value": "1977-12-31"
-              },
-              "gender": {
-                "source": {
-                  "type": "TEXT"
-                },
-                "value": "female"
-              },
-              "preferred_username": {
-                "source": {
-                  "type": "TEXT"
-                },
-                "value": "mgsample"
-              },
-              "locale": {
-                "source": {
-                  "type": "TEXT"
-                },
-                "value": "en_US"
-              },
-              "address.country": {
-                "source": {
-                  "type": "TEXT"
-                },
-                "value": "USA"
-              },
-              "updated_at": {
-                "source": {
-                  "type": "TEXT"
-                },
-                "value": "2011-01-03T23:58:42+0000"
-              },
-              "address.postal_code": {
-                "source": {
-                  "type": "TEXT"
-                },
-                "value": "11223"
-              },
-              "address.region": {
-                "source": {
-                  "type": "TEXT"
-                },
-                "value": "ME"
-              },
-              "nickname": {
-                "source": {
-                  "type": "TEXT"
-                },
-                "value": "Name"
-              },
-              "email": {
-                "source": {
-                  "type": "TEXT"
-                },
-                "value": "auser@example.com"
-              },
-              "website": {
-                "source": {
-                  "type": "TEXT"
-                },
-                "value": "https://www.pingidentity.com/"
-              },
-              "email_verified": {
-                "source": {
-                  "type": "TEXT"
-                },
-                "value": "true"
-              },
-              "profile": {
-                "source": {
-                  "type": "TEXT"
-                },
-                "value": "https://www.pingidentity.com/products/pingfederate/"
-              },
-              "phone_number_verified": {
-                "source": {
-                  "type": "TEXT"
-                },
-                "value": "true"
-              },
-              "given_name": {
-                "source": {
-                  "type": "TEXT"
-                },
-                "value": "Mary"
-              },
-              "middle_name": {
-                "source": {
-                  "type": "TEXT"
-                },
-                "value": "Good"
-              },
-              "picture": {
-                "source": {
-                  "type": "TEXT"
-                },
-                "value": "https://www.pingidentity.com/images/ping-logo.png"
-              },
-              "name": {
-                "source": {
-                  "type": "TEXT"
-                },
-                "value": "Mary Good Sample"
-              },
-              "phone_number": {
-                "source": {
-                  "type": "TEXT"
-                },
-                "value": "(555) 555-5555"
-              },
-              "address.formatted": {
-                "source": {
-                  "type": "TEXT"
-                },
-                "value": "123 Main Street, Smallville, ME USA 11223"
-              },
-              "family_name": {
-                "source": {
-                  "type": "TEXT"
-                },
-                "value": "Sample"
-              },
-              "address.street_address": {
-                "source": {
-                  "type": "TEXT"
-                },
-                "value": "123 Main Street"
-              }
-            },
-            "attributeSources": [],
-            "issuanceCriteria": {
-              "conditionalCriteria": []
-            }
-          },
-          "name": "OAuthPlayground",
-          "scopeAttributeMappings": {},
-          "returnIdTokenOnRefreshGrant": false,
           "id": "OAuthPlayground",
-          "includeSriInIdToken": false,
-          "includeSHashInIdToken": false,
-          "includeUserInfoInIdToken": false,
+          "name": "OAuthPlayground",
           "idTokenLifetime": 5,
           "attributeContract": {
             "coreAttributes": [
               {
-                "name": "sub"
+                "name": "sub",
+                "multiValued": false
               }
             ],
             "extendedAttributes": [
               {
-                "name": "zoneinfo"
+                "name": "zoneinfo",
+                "multiValued": false
               },
               {
-                "name": "website"
+                "name": "address.locality",
+                "multiValued": false
               },
               {
-                "name": "address.locality"
+                "name": "birthdate",
+                "multiValued": false
               },
               {
-                "name": "birthdate"
-              },
-              {
-                "name": "email_verified"
-              },
-              {
-                "name": "gender"
+                "name": "gender",
+                "multiValued": false
               },
               {
                 "name": "roles",
@@ -2060,68 +1897,89 @@
                 "multiValued": true
               },
               {
-                "name": "profile"
+                "name": "preferred_username",
+                "multiValued": false
               },
               {
-                "name": "phone_number_verified"
+                "name": "locale",
+                "multiValued": false
               },
               {
-                "name": "preferred_username"
+                "name": "address.country",
+                "multiValued": false
               },
               {
-                "name": "locale"
+                "name": "updated_at",
+                "multiValued": false
               },
               {
-                "name": "given_name"
+                "name": "address.postal_code",
+                "multiValued": false
               },
               {
-                "name": "middle_name"
+                "name": "address.region",
+                "multiValued": false
               },
               {
-                "name": "picture"
+                "name": "nickname",
+                "multiValued": false
               },
               {
-                "name": "address.country"
+                "name": "email",
+                "multiValued": false
               },
               {
-                "name": "updated_at"
+                "name": "website",
+                "multiValued": false
               },
               {
-                "name": "address.postal_code"
+                "name": "email_verified",
+                "multiValued": false
               },
               {
-                "name": "address.region"
+                "name": "profile",
+                "multiValued": false
               },
               {
-                "name": "nickname"
+                "name": "phone_number_verified",
+                "multiValued": false
               },
               {
-                "name": "name"
+                "name": "given_name",
+                "multiValued": false
               },
               {
-                "name": "phone_number"
+                "name": "middle_name",
+                "multiValued": false
               },
               {
-                "name": "address.formatted"
+                "name": "picture",
+                "multiValued": false
               },
               {
-                "name": "family_name"
+                "name": "name",
+                "multiValued": false
               },
               {
-                "name": "email"
+                "name": "phone_number",
+                "multiValued": false
               },
               {
-                "name": "address.street_address"
+                "name": "address.formatted",
+                "multiValued": false
+              },
+              {
+                "name": "family_name",
+                "multiValued": false
+              },
+              {
+                "name": "address.street_address",
+                "multiValued": false
               }
             ]
           },
-          "accessTokenManagerRef": {
-            "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/oauth/accessTokenManagers/jwt",
-            "id": "jwt"
-          }
-        },
-        {
           "attributeMapping": {
+            "attributeSources": [],
             "attributeContractFulfillment": {
               "sub": {
                 "source": {
@@ -2280,34 +2138,59 @@
                 "value": "123 Main Street"
               }
             },
-            "attributeSources": [],
             "issuanceCriteria": {
               "conditionalCriteria": []
             }
           },
-          "name": "pingaccess",
-          "scopeAttributeMappings": {},
-          "returnIdTokenOnRefreshGrant": false,
-          "id": "pingaccess",
-          "includeSriInIdToken": true,
+          "includeSriInIdToken": false,
+          "includeUserInfoInIdToken": false,
           "includeSHashInIdToken": false,
-          "includeUserInfoInIdToken": true,
+          "includeX5tInIdToken": false,
+          "idTokenTypHeaderValue": "",
+          "returnIdTokenOnRefreshGrant": false,
+          "reissueIdTokenInHybridFlow": false,
+          "accessTokenManagerRef": {
+            "id": "jwt",
+            "location": "https://aaronhas-everything-pingfederate-admin.ping-devops.com/pf-admin-api/v1/oauth/accessTokenManagers/jwt"
+          },
+          "scopeAttributeMappings": {
+            "profile": {
+              "values": [
+                "birthdate",
+                "family_name",
+                "gender",
+                "given_name",
+                "locale",
+                "middle_name",
+                "name",
+                "nickname",
+                "picture",
+                "preferred_username",
+                "profile",
+                "roles",
+                "updated_at",
+                "website",
+                "zoneinfo"
+              ]
+            }
+          },
+          "lastModified": "2024-05-21T09:43:30.477Z"
+        },
+        {
+          "id": "pingaccess",
+          "name": "pingaccess",
           "idTokenLifetime": 5,
           "attributeContract": {
             "coreAttributes": [
               {
-                "name": "sub"
+                "name": "sub",
+                "multiValued": false
               }
             ],
             "extendedAttributes": []
           },
-          "accessTokenManagerRef": {
-            "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/oauth/accessTokenManagers/jwt",
-            "id": "jwt"
-          }
-        },
-        {
           "attributeMapping": {
+            "attributeSources": [],
             "attributeContractFulfillment": {
               "sub": {
                 "source": {
@@ -2316,34 +2199,65 @@
                 "value": "Username"
               }
             },
-            "attributeSources": [],
             "issuanceCriteria": {
               "conditionalCriteria": []
             }
           },
-          "name": "pingdelegator",
-          "scopeAttributeMappings": {},
-          "returnIdTokenOnRefreshGrant": false,
-          "id": "pingdelegator",
-          "includeSriInIdToken": false,
+          "includeSriInIdToken": true,
+          "includeUserInfoInIdToken": true,
           "includeSHashInIdToken": false,
-          "includeUserInfoInIdToken": false,
+          "includeX5tInIdToken": false,
+          "idTokenTypHeaderValue": "",
+          "returnIdTokenOnRefreshGrant": false,
+          "reissueIdTokenInHybridFlow": false,
+          "accessTokenManagerRef": {
+            "id": "jwt",
+            "location": "https://aaronhas-everything-pingfederate-admin.ping-devops.com/pf-admin-api/v1/oauth/accessTokenManagers/jwt"
+          },
+          "scopeAttributeMappings": {},
+          "lastModified": "2024-05-20T15:24:38.051Z"
+        },
+        {
+          "id": "pingdelegator",
+          "name": "pingdelegator",
           "idTokenLifetime": 5,
           "attributeContract": {
             "coreAttributes": [
               {
-                "name": "sub"
+                "name": "sub",
+                "multiValued": false
               }
             ],
             "extendedAttributes": []
           },
+          "attributeMapping": {
+            "attributeSources": [],
+            "attributeContractFulfillment": {
+              "sub": {
+                "source": {
+                  "type": "TOKEN"
+                },
+                "value": "Username"
+              }
+            },
+            "issuanceCriteria": {
+              "conditionalCriteria": []
+            }
+          },
+          "includeSriInIdToken": false,
+          "includeUserInfoInIdToken": false,
+          "includeSHashInIdToken": false,
+          "includeX5tInIdToken": false,
+          "idTokenTypHeaderValue": "",
+          "returnIdTokenOnRefreshGrant": false,
+          "reissueIdTokenInHybridFlow": false,
           "accessTokenManagerRef": {
-            "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/oauth/accessTokenManagers/jwt",
-            "id": "jwt"
-          }
+            "id": "jwt",
+            "location": "https://aaronhas-everything-pingfederate-admin.ping-devops.com/pf-admin-api/v1/oauth/accessTokenManagers/jwt"
+          },
+          "scopeAttributeMappings": {}
         }
-      ],
-      "resourceType": "/oauth/openIdConnect/policies"
+      ]
     },
     {
       "operationType": "SAVE",
