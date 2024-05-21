@@ -497,7 +497,7 @@
                 "name": "simplecontract",
                 "id": "Zxp6N6W5PH9onACT",
                 "coreAttributes": [{"name": "subject"}],
-                "extendedAttributes": [{"name": "mail"},{"name":"uuid"}],
+                "extendedAttributes": [{"name": "mail"},{"name":"uuid"}]
             }],
             "resourceType": "/authenticationPolicyContracts"
         },
