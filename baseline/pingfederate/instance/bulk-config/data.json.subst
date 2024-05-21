@@ -497,7 +497,7 @@
                 "name": "simplecontract",
                 "id": "Zxp6N6W5PH9onACT",
                 "coreAttributes": [{"name": "subject"}],
-                "extendedAttributes": [{"name": "mail"}]
+                "extendedAttributes": [{"name": "mail"},{"name":"uuid"}]
             }],
             "resourceType": "/authenticationPolicyContracts"
         },
@@ -1564,7 +1564,7 @@
                     },
                     "USER_KEY": {
                         "source": {"type": "AUTHENTICATION_POLICY_CONTRACT"},
-                        "value": "subject"
+                        "value": "uuid"
                     }
                 },
                 "id": "Zxp6N6W5PH9onACT",
@@ -1945,9 +1945,16 @@
                                                 "id": "RBSQIwi5KWYN9ZGK",
                                                 "type": "LOCAL_IDENTITY_PROFILE"
                                             },
-                                            "value": "entryUUID"
+                                            "value": "uid"
                                         }
                                     },
+                                  "uuid": {
+                                    "source": {
+                                      "type": "LOCAL_IDENTITY_PROFILE",
+                                      "id": "RBSQIwi5KWYN9ZGK"
+                                    },
+                                    "value": "entryUUID"
+                                  }
                                     "attributeSources": [],
                                     "issuanceCriteria": {"conditionalCriteria": []}
                                 },
