@@ -18,7 +18,7 @@
           "type": "STRING"
         },
         {
-          "stringValue": "/as/authorization.oauth2",
+          "stringValue": "/as/authorization.oauth2,/pf/JWKS,/as/token.oauth2,/as/revoke_token.oauth2,/idp/userinfo.openid,/.well-known/openid-configuration,/as/bc-auth.ciba,/pf-ws/rest/oauth/grants(/*)?",
           "id": "urlPatterns",
           "type": "STRING"
         }
