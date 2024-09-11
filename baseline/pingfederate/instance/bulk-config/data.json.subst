@@ -16,6 +16,11 @@
           "stringValue": "GET,POST,HEAD",
           "id": "allowedMethods",
           "type": "STRING"
+        },
+        {
+          "stringValue": "/as/authorization.oauth2",
+          "id": "urlPatterns",
+          "type": "STRING"
         }
       ],
       "resourceType": "/configStore"
