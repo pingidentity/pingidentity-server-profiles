@@ -47,3 +47,34 @@ javax.net.ssl.sessionCacheSize=5000
 org.apache.xml.security.ignoreLineBreaks=true
 # com.unboundid.ldap.sdk.debug.type=LDAP
 com.pingidentity.tapestry.services.CustomHomeService=ReactHome
+pf.tls.client.protocols=TLSv1.2,TLSv1.3
+pf.tls.runtime.server.protocols=TLSv1.2,TLSv1.3
+pf.tls.admin.server.protocols=TLSv1.2,TLSv1.3
+pf.admin.threads.min=1
+pf.admin.threads.max=10
+pf.runtime.threads.min=10
+pf.runtime.threads.max=200
+pf.admin.acceptQueueSize=512
+pf.runtime.acceptQueueSize=512
+pf.admin.output.buffer.size=32768
+pf.runtime.output.buffer.size=32768
+# request header buffer size
+pf.admin.request.header.size=16384
+pf.runtime.request.header.size=16384
+# response header buffer size
+pf.admin.response.header.size=16384
+pf.runtime.response.header.size=16384
+# Enable delayed dispatch optimisation
+pf.admin.delayDispatchUntilContent=false
+pf.runtime.delayDispatchUntilContent=false
+# HTTP idle timeout in milliseconds
+pf.admin.http.idleTimeout=30000
+pf.runtime.http.idleTimeout=30000
+# Parameters to control the number and priority of acceptors and selectors
+pf.admin.ssl.selectors=1
+pf.admin.ssl.acceptors=0
+pf.runtime.ssl.selectors=1
+pf.runtime.ssl.acceptors=0
+pf.runtime.http.selectors=1
+pf.runtime.http.acceptors=0
+pf.runtime.http.maxRequestBodySize=200000
