@@ -1,11 +1,3 @@
-
-                     Security Warning
-
-The server profile being used to configure this Ping Identity Docker Image
-is for demo and documentation purposes only. The configuration contains default
-keys/credentials etc and is not suitable for production as it carries a substantial
-security risk.
-
-For additional information, please see
-https://github.com/pingidentity/pingidentity-devops-getting-started/blob/master/SECURITY.md
-
+Congratulations! If you are reading this message, your PingFederate pod has successfully pulled the server profile configuration from GitHub.
+Important Notice
+The server profile being used to configure this Ping Identity Docker Image is for demo and documentation purposes only.
