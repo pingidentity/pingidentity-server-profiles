@@ -75,6 +75,6 @@ jobs:
         --set pingfederate-admin.image.tag=$RELEASE_TAG \
         --set pingfederate-engine.image.tag=$RELEASE_TAG \
         --version 0.10.0 \
-        -f baseline\pingfederate\dev-values.yaml
+        -f baseline\pingfederate\values.yaml
 
 
