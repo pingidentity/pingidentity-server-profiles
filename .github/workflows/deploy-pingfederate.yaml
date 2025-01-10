@@ -70,9 +70,9 @@ jobs:
         sudo apt-get update
         sudo apt-get install helm
         sleep 5s
-        echo "Helm installed" \
-        helm repo add pingidentity https://helm.pingidentity.com/ \
-        helm repo update \
+        echo "Helm installed"
+        helm repo add pingidentity https://helm.pingidentity.com/ 
+        helm repo update 
         helm upgrade --install pingfederate-release pingidentity/ping-devops \
         --set global.envs.PING_IDENTITY_ACCEPT_EULA=YES \
         --set pingfederate-admin.image.tag=$RELEASE_TAG \
