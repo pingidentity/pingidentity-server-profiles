@@ -14,6 +14,7 @@ env:
   ECR_REGISTRY: 528446573583.dkr.ecr.us-east-1.amazonaws.com
   EKS_CLUSTER_NAME: pingdevops-cluster 
   AWS_REGION: us-east-1
+  #
   
   
 
@@ -55,9 +56,25 @@ jobs:
         echo "image build completed"
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$RELEASE_TAG
         echo  "image push completed"
+
+
     - name: Update kube config
       run: aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION
+    # Ref: https://github.com/marketplace/actions/deploy-helm-chart-to-aws-eks-cluster
 
+    - name: Deploy Helm
+      uses: bitovi/github-actions-deploy-eks-helm@v1.2.12
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+        cluster-name: ${EKS_CLUSTER_NAME}
+        config-files: baseline/pingfederate/dev-values.yaml
+        chart-repository: https://helm.pingidentity.com
+        chart-path: ping-devops
+        namespace: pingdevops-namespace-a
+        values: global.envs.PING_IDENTITY_ACCEPT_EULA=YES
+        name: release_name
     # - name: Deploy to EKS
     #   env:
     #     ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}        
