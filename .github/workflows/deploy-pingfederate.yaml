@@ -1,0 +1,66 @@
+name: Deploy to ECR
+
+on:
+ 
+  push:
+    branches: [ master ]
+
+env:
+  # Set the base image repository and tag
+  BASE_IMAGE_REPOSITORY: https://hub.docker.com
+  BASE_IMAGE_TAG: 2411-12.1.4
+  PRODUCT: pingfederate
+  # Set the target ECR repository, registry, EKS cluster name, and AWS region
+  ECR_REPOSITORY: pingfederate
+  ECR_REGISTRY: 528446573583.dkr.ecr.us-east-1.amazonaws.com
+  EKS_CLUSTER_NAME: pingdevops-cluster 
+  AWS_REGION: us-east-1
+  
+  
+
+jobs:
+  
+  build:
+    
+    name: build and deploy PingFederate to EKS
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Set env
+      id: vars
+      run: echo "RELEASE_TAG=${GITHUB_REF#refs/*/}-${BASE_IMAGE_TAG}" >> $GITHUB_ENV
+
+    - name: Check out code
+      uses: actions/checkout@v2
+    
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{env.AWS_REGION}}
+
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+
+    - name: Build, tag, and push image to Amazon ECR
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}        
+        IMAGE_TAG: ${{ steps.commit.outputs.short }}
+      run: |
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY/:$RELEASE_TAG -f baseline\pingfederate\Dockerfile .
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$RELEASE_TAG
+
+    - name: Update kube config
+      run: aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION
+
+    # - name: Deploy to EKS
+    #   env:
+    #     ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}        
+    #     IMAGE_TAG: ${{ steps.commit.outputs.short }}
+    #   run: |
+    #     sed -i.bak "s|DOCKER_IMAGE|$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG|g" manifests/hello-app-deployment.yaml && \
+    #     kubectl apply -f manifests/hello-app-deployment.yaml
+    #     kubectl apply -f manifests/hello-app-service.yaml
