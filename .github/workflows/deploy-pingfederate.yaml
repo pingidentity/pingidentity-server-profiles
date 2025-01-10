@@ -81,6 +81,6 @@ jobs:
         --set pingfederate-engine.image.tag=$RELEASE_TAG \
         --version 0.10.0 \
         --namespace=$STUDENT_NAMESPACE \
-        -f baseline\pingfederate\values.yaml
+        -f baseline/pingfederate/values.yaml
 
 
