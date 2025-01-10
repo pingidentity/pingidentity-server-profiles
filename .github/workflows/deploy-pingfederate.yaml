@@ -1,8 +1,13 @@
-# You must have enabled GitHub Actions for your Google Cloud Project as part of the cloud onboarding process to use this workflow.
-name: Deploy PF to GKE
+name: Deploy to EKS
+
 on:
+ 
   push:
-    tags: pf-v**
+    branches: [ master ]
+# name: Deploy PF to GKE
+# on:
+#   push:
+#     tags: pf-v**
 
 env:
   # Set the base image repository and tag
