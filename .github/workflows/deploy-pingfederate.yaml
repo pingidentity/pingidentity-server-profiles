@@ -63,23 +63,18 @@ jobs:
     # Ref: https://github.com/marketplace/actions/deploy-helm-chart-to-aws-eks-cluster
 
     - name: Deploy Helm
-      uses: bitovi/github-actions-deploy-eks-helm@v1.2.12
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1
-        cluster-name: $EKS_CLUSTER_NAME
-        config-files: baseline/pingfederate/dev-values.yaml
-        chart-repository: https://helm.pingidentity.com
-        chart-path: ping-devops
-        namespace: pingdevops-namespace-a
-        values: global.envs.PING_IDENTITY_ACCEPT_EULA=YES
-        name: release_name
-    # - name: Deploy to EKS
-    #   env:
-    #     ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}        
-    #     IMAGE_TAG: ${{ steps.commit.outputs.short }}
-    #   run: |
-    #     sed -i.bak "s|DOCKER_IMAGE|$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG|g" manifests/hello-app-deployment.yaml && \
-    #     kubectl apply -f manifests/hello-app-deployment.yaml
-    #     kubectl apply -f manifests/hello-app-service.yaml
+      run: |
+        echo "Installing Helm..." \
+        curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+        chmod 700 get_helm.sh  &&     ./get_helm.sh \
+        echo "Helm installed" \
+        helm repo add pingidentity https://helm.pingidentity.com/ \
+        helm repo update \
+        helm upgrade --install pingfederate-release pingidentity/ping-devops \
+        --set global.envs.PING_IDENTITY_ACCEPT_EULA=YES \
+        --set pingfederate-admin.image.tag=$RELEASE_TAG \
+        --set pingfederate-engine.image.tag=$RELEASE_TAG \
+        --version 0.10.0 \
+        -f baseline\pingfederate\dev-values.yaml
+
+
