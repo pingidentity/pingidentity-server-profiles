@@ -15,6 +15,7 @@ env:
   EKS_CLUSTER_NAME: pingdevops-cluster 
   AWS_REGION: us-east-1
   #
+  STUDENT_NAMESPACE: "pingdevops-namespace-a"
   
   
 
@@ -79,6 +80,7 @@ jobs:
         --set pingfederate-admin.image.tag=$RELEASE_TAG \
         --set pingfederate-engine.image.tag=$RELEASE_TAG \
         --version 0.10.0 \
+        --namespace=$STUDENT_NAMESPACE \
         -f baseline\pingfederate\values.yaml
 
 
