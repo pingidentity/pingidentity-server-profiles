@@ -46,9 +46,15 @@ jobs:
 
     - name: Build, tag, and push image to Amazon ECR
       run: |
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$RELEASE_TAG -f baseline/pingfederate/Dockerfile .
+        docker build \
+        --build-arg BASE_IMAGE_REPOSITORY=$BASE_IMAGE_REPOSITORY \
+        --build-arg PRODUCT=$PRODUCT \
+        --build-arg BASE_IMAGE_TAG=$BASE_IMAGE_TAG \
+        -t $ECR_REGISTRY/$ECR_REPOSITORY:$RELEASE_TAG \
+        -f baseline/pingfederate/Dockerfile .
+        echo "image build completed"
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$RELEASE_TAG
-
+        echo  "image push completed"
     - name: Update kube config
       run: aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION
 
