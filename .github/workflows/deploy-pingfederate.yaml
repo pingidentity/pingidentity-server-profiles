@@ -6,7 +6,7 @@ on:
 
 env:
   # Set the base image repository and tag
-  BASE_IMAGE_REPOSITORY: https://hub.docker.com
+  BASE_IMAGE_REPOSITORY: hub.docker.com
   BASE_IMAGE_TAG: 2411-12.1.4
   PRODUCT: pingfederate
   # Set the target ECR repository, registry, EKS cluster name, and AWS region
@@ -45,9 +45,6 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1
 
     - name: Build, tag, and push image to Amazon ECR
-      env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}        
-        IMAGE_TAG: ${{ steps.commit.outputs.short }}
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$RELEASE_TAG -f baseline/pingfederate/Dockerfile .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$RELEASE_TAG
