@@ -49,7 +49,7 @@ jobs:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}        
         IMAGE_TAG: ${{ steps.commit.outputs.short }}
       run: |
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY/:$RELEASE_TAG -f baseline\pingfederate\Dockerfile .
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$RELEASE_TAG -f baseline\pingfederate\Dockerfile .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$RELEASE_TAG
 
     - name: Update kube config
