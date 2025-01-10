@@ -901,7 +901,7 @@ ldap-sdk-tools:
 # @default  false
 #############################################################
 pingfederate-admin:
-  enabled: false
+  enabled: true
   name: pingfederate-admin
   image:
     name: pingfederate
@@ -965,7 +965,7 @@ pingfederate-admin:
 # @default  false
 #############################################################
 pingfederate-engine:
-  enabled: false
+  enabled: true
   name: pingfederate-engine
   image:
     name: pingfederate
