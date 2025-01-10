@@ -6,7 +6,7 @@ on:
 
 env:
   # Set the base image repository and tag
-  BASE_IMAGE_REPOSITORY: registry.hub.docker.com
+  BASE_IMAGE_REPOSITORY: registry.hub.docker.com/pingidentity
   BASE_IMAGE_TAG: 2411-12.1.4
   PRODUCT: pingfederate
   # Set the target ECR repository, registry, EKS cluster name, and AWS region
