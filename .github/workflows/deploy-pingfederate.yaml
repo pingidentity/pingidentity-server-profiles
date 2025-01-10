@@ -68,7 +68,7 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
-        cluster-name: ${{ EKS_CLUSTER_NAME }}
+        cluster-name: $EKS_CLUSTER_NAME
         config-files: baseline/pingfederate/dev-values.yaml
         chart-repository: https://helm.pingidentity.com
         chart-path: ping-devops
