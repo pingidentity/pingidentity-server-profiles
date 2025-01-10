@@ -1,13 +1,8 @@
-name: Deploy to EKS
 
+name: Deploy PF to GKE
 on:
- 
   push:
-    branches: [ master ]
-# name: Deploy PF to GKE
-# on:
-#   push:
-#     tags: pf-v**
+    tags: pf-v**
 
 env:
   # Set the base image repository and tag
