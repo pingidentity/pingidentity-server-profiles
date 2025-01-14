@@ -985,6 +985,9 @@ pingfederate-engine:
 
   envs:
     PF_ADMIN_PORT: "9999"
+    SERVER_PROFILE_PATH: baseline/pingfederate
+    SERVER_PROFILE_URL: https://github.com/saadousman/pingidentity-server-profiles
+
 
   services:
     https:
@@ -1066,6 +1069,11 @@ pingdirectory:
       limits:
         cpu: 2
         memory: 8Gi
+
+  envs:
+    PF_ADMIN_PORT: "9999"
+    SERVER_PROFILE_PATH: baseline/pingfederate
+    SERVER_PROFILE_URL: https://github.com/saadousman/pingidentity-server-profiles
 
     terminationGracePeriodSeconds: 300
 

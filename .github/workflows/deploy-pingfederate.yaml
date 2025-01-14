@@ -1,4 +1,5 @@
 
+# Ref: https://dlmade.medium.com/ci-cd-with-github-action-and-aws-eks-5fd9714010cd
 name: Deploy PF to GKE
 on:
   push:
@@ -75,12 +76,13 @@ jobs:
         echo "Helm installed"
         helm repo add pingidentity https://helm.pingidentity.com/ 
         helm repo update 
+
         helm upgrade --install pingfederate-release pingidentity/ping-devops \
         --set global.envs.PING_IDENTITY_ACCEPT_EULA=YES \
         --set pingfederate-admin.image.tag=$RELEASE_TAG \
         --set pingfederate-engine.image.tag=$RELEASE_TAG \
-        --set pingfederate-engine.image.repositoryFqn=$ECR_REGISTRY/$ECR_REPOSITORY \
         --set pingfederate-admin.image.repositoryFqn=$ECR_REGISTRY/$ECR_REPOSITORY \
+        --set pingfederate-engine.image.repositoryFqn=$ECR_REGISTRY/$ECR_REPOSITORY \
         --version 0.10.0 \
         --namespace=$STUDENT_NAMESPACE \
         -f baseline/pingfederate/values.yaml
