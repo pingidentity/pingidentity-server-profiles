@@ -1,4 +1,3 @@
-
 # Ref: https://dlmade.medium.com/ci-cd-with-github-action-and-aws-eks-5fd9714010cd
 name: Deploy PF to GKE
 on:
@@ -6,36 +5,43 @@ on:
     tags: pf-v**
 
 env:
-  # Set the base image repository and tag
+  # Define the base Docker image repository and tag for PingFederate
+  # Base images can be hosted on DockerHub or private registries
   BASE_IMAGE_REPOSITORY: registry.hub.docker.com/pingidentity
   BASE_IMAGE_TAG: 2411-12.1.4
   PRODUCT: pingfederate
-  # Set the target ECR repository, registry, EKS cluster name, and AWS region
+
+  # Amazon Elastic Container Registry (ECR) repository details for storing the Docker image
   ECR_REPOSITORY: pingfederate
   ECR_REGISTRY: 528446573583.dkr.ecr.us-east-1.amazonaws.com
-  EKS_CLUSTER_NAME: pingdevops-cluster 
+
+  # Amazon Elastic Kubernetes Service (EKS) cluster name and AWS region for deployment
+  EKS_CLUSTER_NAME: pingdevops-cluster
   AWS_REGION: us-east-1
-  #
+
+  # Specify the student namespace for isolation within the Kubernetes cluster
+  # Example: STUDENT_NAMESPACE: "pingdevops-namespace-a"
   STUDENT_NAMESPACE: "pingdevops-namespace-b"
-  
-  
 
 jobs:
-  
+
   build:
-    
-    name: build and deploy PingFederate to EKS
+
+    name: Build and deploy PingFederate to EKS
     runs-on: ubuntu-latest
 
     steps:
 
+    # Set environment variables, including the release tag used for versioning
     - name: Set env
       id: vars
       run: echo "RELEASE_TAG=${GITHUB_REF#refs/*/}-${BASE_IMAGE_TAG}" >> $GITHUB_ENV
 
+    # Check out the repository code
     - name: Check out code
       uses: actions/checkout@v2
-    
+
+    # Configure AWS credentials for authentication with AWS services
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
@@ -43,10 +49,12 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{env.AWS_REGION}}
 
+    # Log in to Amazon ECR for pushing Docker images
     - name: Login to Amazon ECR
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
 
+    # Build the Docker image, tag it, and push it to Amazon ECR
     - name: Build, tag, and push image to Amazon ECR
       run: |
         docker build \
@@ -55,18 +63,17 @@ jobs:
         --build-arg BASE_IMAGE_TAG=$BASE_IMAGE_TAG \
         -t $ECR_REGISTRY/$ECR_REPOSITORY:$RELEASE_TAG \
         -f baseline/pingfederate/Dockerfile .
-        echo "image build completed"
+        echo "Image build completed"
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$RELEASE_TAG
-        echo  "image push completed"
+        echo "Image push completed"
 
-
+    # Update kubeconfig to access the EKS cluster
     - name: Update kube config
       run: aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION
-    # Ref: https://github.com/marketplace/actions/deploy-helm-chart-to-aws-eks-cluster
 
+    # Install Helm CLI for managing Kubernetes applications
     - name: Deploy Helm
       run: |
-
         curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
         sudo apt-get install apt-transport-https --yes
         echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
@@ -74,9 +81,12 @@ jobs:
         sudo apt-get install helm
         sleep 5s
         echo "Helm installed"
+
+        # Add and update the PingIdentity Helm repository
         helm repo add pingidentity https://helm.pingidentity.com/ 
         helm repo update 
 
+        # Deploy the application using Helm, setting the appropriate parameters
         helm upgrade --install pingfederate-release pingidentity/ping-devops \
         --set global.envs.PING_IDENTITY_ACCEPT_EULA=YES \
         --set pingfederate-admin.image.tag=$RELEASE_TAG \
@@ -86,5 +96,3 @@ jobs:
         --version 0.10.0 \
         --namespace=$STUDENT_NAMESPACE \
         -f baseline/pingfederate/values.yaml
-
-
