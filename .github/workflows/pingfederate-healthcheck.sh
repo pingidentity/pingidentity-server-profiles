@@ -6,6 +6,9 @@ check_deployment_readiness() {
     namespace=$STUDENT_NAMESPACE
     timeout_sec=500
 
+    echo $namespace
+    echi $deployment_name
+
     # Start time
     start_time=$(date +%s)
 
@@ -19,7 +22,7 @@ check_deployment_readiness() {
         ready_replicas=$(kubectl get deployment "$deployment_name" -n "$namespace" -o jsonpath='{.status.readyReplicas}' 2>/dev/null)
         desired_replicas=$(kubectl get deployment "$deployment_name" -n "$namespace" -o jsonpath='{.status.replicas}' 2>/dev/null)
 
-        [ "$ready_replicas" = "$desired_replicas" ] && {
+        [ -n "$ready_replicas" ] && [ -n "$desired_replicas" ] && [ "$ready_replicas" = "$desired_replicas" ] && {
             echo "Deployment '$deployment_name' is ready."; exit 0;
         }
 
