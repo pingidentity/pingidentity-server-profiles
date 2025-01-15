@@ -8,36 +8,32 @@ on:
 env:
   # Define the base Docker image repository and tag for PingFederate
   # Base images can be hosted on DockerHub or private registries
-  BASE_IMAGE_REPOSITORY: registry.hub.docker.com/pingidentity
+  BASE_IMAGE_REPOSITORY: ${{env.BASE_IMAGE_REPOSITORY}}
   BASE_IMAGE_TAG: 2411-12.1.4
   PRODUCT: pingfederate
 
   # Amazon Elastic Container Registry (ECR) repository details for storing the Docker image
   ECR_REPOSITORY: pingfederate
-  ECR_REGISTRY: 528446573583.dkr.ecr.us-east-1.amazonaws.com
+  ECR_REGISTRY: ${{env.ECR_REGISTRY}}
 
   # Amazon Elastic Kubernetes Service (EKS) cluster name and AWS region for deployment
-  EKS_CLUSTER_NAME: pingdevops-cluster
+  EKS_CLUSTER_NAME: ${{env.EKS_CLUSTER_NAME}}
   AWS_REGION: us-east-1
 
   # Specify the student namespace for isolation within the Kubernetes cluster
   # Example: STUDENT_NAMESPACE: "pingdevops-namespace-a"
-  STUDENT_NAMESPACE: "pingdevops-namespace-a"
+  STUDENT_NAMESPACE: ${{env.STUDENT_NAMESPACE}}
 
 
 jobs:
-
   build:
-
-
     name: Build and deploy PingFederate to EKS
-
     runs-on: ubuntu-latest
 
     steps:
 
     # Set environment variables, including the release tag used for versioning
-    - name: Set env
+    - name: Set Release Tag variable
       id: vars
       run: echo "RELEASE_TAG=${GITHUB_REF#refs/*/}-${BASE_IMAGE_TAG}" >> $GITHUB_ENV
 
@@ -66,9 +62,9 @@ jobs:
         --build-arg PRODUCT=$PRODUCT \
         --build-arg BASE_IMAGE_TAG=$BASE_IMAGE_TAG \
         -t $ECR_REGISTRY/$ECR_REPOSITORY:$RELEASE_TAG \
-        -f baseline/pingfederate/Dockerfile baseline/pingfederate/
-        echo "Image build completed"
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$RELEASE_TAG
+        -f baseline/pingfederate/Dockerfile baseline/pingfederate/ \ 
+        echo "Image build completed" \ 
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$RELEASE_TAG \ 
         echo "Image push completed"
 
     # Update kubeconfig to access the EKS cluster
@@ -78,7 +74,7 @@ jobs:
     # Install Helm CLI for managing Kubernetes applications
     - name: Deploy Helm
       run: |
-        # less secure: for dev
+        # less secure: for non-prod
         curl -fsSL https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 
         # more secure: for prod
@@ -97,12 +93,18 @@ jobs:
 
         # Deploy the application using Helm, setting the appropriate parameters
 
+        # This Helm command upgrades or installs the PingFederate release using the Ping Identity DevOps Helm chart.
+        # It sets several configuration values, including accepting the EULA, specifying image tags and repositories,
+        # and setting the release name. The command also specifies the chart version and the namespace to use,
+        # and includes additional values from a values.yaml file.
+
         helm upgrade --install pingfederate-release pingidentity/ping-devops \
         --set global.envs.PING_IDENTITY_ACCEPT_EULA=YES \
         --set pingfederate-admin.image.tag=$RELEASE_TAG \
         --set pingfederate-engine.image.tag=$RELEASE_TAG \
         --set pingfederate-admin.image.repositoryFqn=$ECR_REGISTRY/$ECR_REPOSITORY \
         --set pingfederate-engine.image.repositoryFqn=$ECR_REGISTRY/$ECR_REPOSITORY \
+        --set global.addReleaseNameToResource=none \ 
         --version 0.10.0 \
         --namespace=$STUDENT_NAMESPACE \
         -f baseline/pingfederate/values.yaml
@@ -112,8 +114,7 @@ jobs:
       run: chmod +x .github/workflows/health-check.sh
 
     - name: Post Deployment Healthcheck - PingFederate Admin
-      run: .github/workflows/health-check.sh check_deployment_readiness "pingfederate-release-pingfederate-admin" $STUDENT_NAMESPACE 300
+      run: .github/workflows/health-check.sh check_deployment_readiness "pingfederate-admin" $STUDENT_NAMESPACE 300
 
     - name: Post Deployment Healthcheck - PingFederate Engine
-      run: .github/workflows/health-check.sh check_deployment_readiness "pingfederate-release-pingfederate-engine" $STUDENT_NAMESPACE 300
-        
+      run: .github/workflows/health-check.sh check_deployment_readiness "pingfederate-engine" $STUDENT_NAMESPACE 300

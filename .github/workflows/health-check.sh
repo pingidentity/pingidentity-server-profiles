@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# This script contains functions to check the readiness of Kubernetes deployments and statefulsets.
+# It provides two main functions:
+# 1. check_deployment_readiness: Checks if a specified Kubernetes deployment has all its pods in a ready state within a given timeout period.
+# 2. check_statefulset_readiness: Checks if a specified Kubernetes statefulset has all its pods in a ready state within a given timeout period.
+
+# The functions take the name of the deployment/statefulset, the namespace, and an optional timeout period (default is 500 seconds).
+# They continuously poll the Kubernetes API to check the number of ready replicas against the desired replicas and return success if they match within the timeout period.
+# If the timeout period is exceeded without all pods becoming ready, the functions return a failure.
+
 check_deployment_readiness() {
     local deployment_name="$1"
     local namespace="$2"
@@ -81,4 +90,9 @@ check_statefulset_readiness() {
 # Call the function when invoked
 if [ "$1" = "check_deployment_readiness" ]; then
     check_deployment_readiness "$2" "$3" "$4"
+fi
+
+# Call the function when invoked
+if [ "$1" = "check_statefulset_readiness" ]; then
+    check_statefulset_readiness "$2" "$3" "$4"
 fi
