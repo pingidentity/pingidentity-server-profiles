@@ -12,10 +12,6 @@ env:
   BASE_IMAGE_TAG: 2411-12.1.4
   PRODUCT: pingfederate
 
-  # Amazon Elastic Container Registry (ECR) repository details for storing the Docker image
-  ECR_REPOSITORY: pingfederate
-  ECR_REGISTRY: ${{vars.ECR_REGISTRY}}
-
   # Amazon Elastic Kubernetes Service (EKS) cluster name and AWS region for deployment
   EKS_CLUSTER_NAME: ${{vars.EKS_CLUSTER_NAME}}
   AWS_REGION: us-east-1
@@ -32,10 +28,6 @@ jobs:
 
     steps:
 
-    # Set environment variables, including the release tag used for versioning
-    - name: Set Release Tag variable
-      id: vars
-      run: echo "RELEASE_TAG=${GITHUB_REF#refs/*/}-${BASE_IMAGE_TAG}" >> $GITHUB_ENV
 
     # Check out the repository code
     - name: Check out code
@@ -49,23 +41,6 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{vars.AWS_REGION}}
 
-    # Log in to Amazon ECR for pushing Docker images
-    - name: Login to Amazon ECR
-      id: login-ecr
-      uses: aws-actions/amazon-ecr-login@v1
-
-    # Build the Docker image, tag it, and push it to Amazon ECR
-    - name: Build, tag, and push image to Amazon ECR
-      run: |
-        docker build \
-        --build-arg BASE_IMAGE_REPOSITORY=$BASE_IMAGE_REPOSITORY \
-        --build-arg PRODUCT=$PRODUCT \
-        --build-arg BASE_IMAGE_TAG=$BASE_IMAGE_TAG \
-        -t $ECR_REGISTRY/$ECR_REPOSITORY:$RELEASE_TAG \
-        -f baseline/pingfederate/Dockerfile baseline/pingfederate/ 
-        echo "Image build completed" \ 
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$RELEASE_TAG 
-        echo "Image push completed"
 
     # Update kubeconfig to access the EKS cluster
     - name: Connect with EKS cluster
@@ -94,17 +69,14 @@ jobs:
         # Deploy the application using Helm, setting the appropriate parameters
 
         # This Helm command upgrades or installs the PingFederate release using the Ping Identity DevOps Helm chart.
-        # It sets several configuration values, including accepting the EULA, specifying image tags and repositories,
+        # It sets several configuration values, including accepting the EULA, 
         # and setting the release name. The command also specifies the chart version and the namespace to use,
         # and includes additional values from a values.yaml file.
 
         helm upgrade --install pingfederate-release pingidentity/ping-devops \
         --set global.envs.PING_IDENTITY_ACCEPT_EULA=YES \
-        --set pingfederate-admin.image.tag=$RELEASE_TAG \
-        --set pingfederate-engine.image.tag=$RELEASE_TAG \
-        --set pingfederate-admin.image.repositoryFqn=$ECR_REGISTRY/$ECR_REPOSITORY \
-        --set pingfederate-engine.image.repositoryFqn=$ECR_REGISTRY/$ECR_REPOSITORY \
         --set global.addReleaseNameToResource=none \
+        --set pingfederate-engine.container.replicaCount=2 \
         --version 0.10.0 \
         --namespace=$STUDENT_NAMESPACE \
         -f baseline/pingfederate/values.yaml
