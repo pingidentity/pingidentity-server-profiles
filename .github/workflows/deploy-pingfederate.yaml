@@ -1,3 +1,4 @@
+
 # Ref: https://dlmade.medium.com/ci-cd-with-github-action-and-aws-eks-5fd9714010cd
 name: Deploy PF to GKE
 on:
@@ -19,15 +20,19 @@ env:
   EKS_CLUSTER_NAME: pingdevops-cluster
   AWS_REGION: us-east-1
 
+
   # Specify the student namespace for isolation within the Kubernetes cluster
   # Example: STUDENT_NAMESPACE: "pingdevops-namespace-a"
   STUDENT_NAMESPACE: "pingdevops-namespace-b"
+
 
 jobs:
 
   build:
 
+
     name: Build and deploy PingFederate to EKS
+
     runs-on: ubuntu-latest
 
     steps:
@@ -86,7 +91,9 @@ jobs:
         helm repo add pingidentity https://helm.pingidentity.com/ 
         helm repo update 
 
+
         # Deploy the application using Helm, setting the appropriate parameters
+
         helm upgrade --install pingfederate-release pingidentity/ping-devops \
         --set global.envs.PING_IDENTITY_ACCEPT_EULA=YES \
         --set pingfederate-admin.image.tag=$RELEASE_TAG \
@@ -96,3 +103,66 @@ jobs:
         --version 0.10.0 \
         --namespace=$STUDENT_NAMESPACE \
         -f baseline/pingfederate/values.yaml
+
+
+    - name: Post Deployment Healthcheck - PingFederate admin
+
+      run: |
+        #!/bin/bash
+        # GitHub Action: Check Deployment Pods Readiness
+        deployment_name="pingfederate-admin"
+        namespace=${STUDENT_NAMESPACE}
+        timeout_sec=300
+
+        # Start time
+        start_time=$(date +%s)
+
+        # Check pod readiness
+        while true; do
+          elapsed_time=$(( $(date +%s) - start_time ))
+          [ "$elapsed_time" -ge "$timeout_sec" ] && {
+            echo "Timeout reached. Exiting with failure."; exit 1;
+          }
+
+          ready_replicas=$(kubectl get deployment "$deployment_name" -n "$namespace" -o jsonpath='{.status.readyReplicas}' 2>/dev/null)
+          desired_replicas=$(kubectl get deployment "$deployment_name" -n "$namespace" -o jsonpath='{.status.replicas}' 2>/dev/null)
+
+          [ "$ready_replicas" = "$desired_replicas" ] && {
+            echo "Deployment '$deployment_name' is ready."; exit 0;
+          }
+
+          echo "Waiting for pods to become ready... Ready: ${ready_replicas:-0}, Desired: ${desired_replicas:-0}";
+          sleep 5
+        done
+              
+    - name: Post Deployment Healthcheck - PingFederate Engine
+
+      run: |
+        #!/bin/bash
+        # GitHub Action: Check Deployment Pods Readiness
+        deployment_name="pingfederate-engine"
+        namespace=${STUDENT_NAMESPACE}
+        timeout_sec=500
+
+        # Start time
+        start_time=$(date +%s)
+
+        # Check pod readiness
+        while true; do
+          elapsed_time=$(( $(date +%s) - start_time ))
+          [ "$elapsed_time" -ge "$timeout_sec" ] && {
+            echo "Timeout reached. Exiting with failure."; exit 1;
+          }
+
+          ready_replicas=$(kubectl get deployment "$deployment_name" -n "$namespace" -o jsonpath='{.status.readyReplicas}' 2>/dev/null)
+          desired_replicas=$(kubectl get deployment "$deployment_name" -n "$namespace" -o jsonpath='{.status.replicas}' 2>/dev/null)
+
+          [ "$ready_replicas" = "$desired_replicas" ] && {
+            echo "Deployment '$deployment_name' is ready."; exit 0;
+          }
+
+          echo "Waiting for pods to become ready... Ready: ${ready_replicas:-0}, Desired: ${desired_replicas:-0}";
+          sleep 5
+        done
+
+
