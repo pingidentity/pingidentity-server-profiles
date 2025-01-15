@@ -109,7 +109,7 @@ jobs:
 
 
     - name: Set excecutable permissions Post Deployment Healthcheck
-      run: chmod +x .github/workflows/pingfederate-healthcheck.sh
+      run: chmod +x .github/workflows/healthcheck.sh
 
     - name: Post Deployment Healthcheck - PingFederate Admin
       run: .github/workflows/health-check.sh check_deployment_readiness "pingfederate-admin" $STUDENT_NAMESPACE 300
