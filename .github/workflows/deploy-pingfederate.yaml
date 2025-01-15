@@ -8,21 +8,21 @@ on:
 env:
   # Define the base Docker image repository and tag for PingFederate
   # Base images can be hosted on DockerHub or private registries
-  BASE_IMAGE_REPOSITORY: ${{env.BASE_IMAGE_REPOSITORY}}
+  BASE_IMAGE_REPOSITORY: ${{vars.BASE_IMAGE_REPOSITORY}}
   BASE_IMAGE_TAG: 2411-12.1.4
   PRODUCT: pingfederate
 
   # Amazon Elastic Container Registry (ECR) repository details for storing the Docker image
   ECR_REPOSITORY: pingfederate
-  ECR_REGISTRY: ${{env.ECR_REGISTRY}}
+  ECR_REGISTRY: ${{vars.ECR_REGISTRY}}
 
   # Amazon Elastic Kubernetes Service (EKS) cluster name and AWS region for deployment
-  EKS_CLUSTER_NAME: ${{env.EKS_CLUSTER_NAME}}
+  EKS_CLUSTER_NAME: ${{vars.EKS_CLUSTER_NAME}}
   AWS_REGION: us-east-1
 
   # Specify the student namespace for isolation within the Kubernetes cluster
   # Example: STUDENT_NAMESPACE: "pingdevops-namespace-a"
-  STUDENT_NAMESPACE: ${{env.STUDENT_NAMESPACE}}
+  STUDENT_NAMESPACE: ${{vars.STUDENT_NAMESPACE}}
 
 
 jobs:
@@ -47,7 +47,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{env.AWS_REGION}}
+        aws-region: ${{vars.AWS_REGION}}
 
     # Log in to Amazon ECR for pushing Docker images
     - name: Login to Amazon ECR
