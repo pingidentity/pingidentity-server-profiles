@@ -8,7 +8,7 @@ on:
 env:
   # Define the base Docker image repository and tag for PingFederate
   # Base images can be hosted on DockerHub or private registries
-  BASE_IMAGE_REPOSITORY: ${{vars.BASE_IMAGE_REPOSITORY}}
+  BASE_IMAGE_REPOSITORY: 528446573583.dkr.ecr.us-east-1.amazonaws.com
   BASE_IMAGE_TAG: 2411-12.1.4
   PRODUCT: pingfederate
 
