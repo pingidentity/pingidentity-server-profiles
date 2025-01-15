@@ -1,10 +1,9 @@
 #!/bin/bash
-# GitHub Action: Check Deployment Pods Readiness
 
 check_deployment_readiness() {
     local deployment_name="$1"
     local namespace="$2"
-    local timeout_sec="${3:-500}" # Default timeout to 500 seconds if not provided
+    local timeout_sec="${3:-500}" # Default to 500 seconds if not provided
 
     if [ -z "$deployment_name" ] || [ -z "$namespace" ]; then
         echo "Error: Deployment name or namespace is missing."
@@ -40,6 +39,7 @@ check_deployment_readiness() {
     done
 }
 
-
-# Call the function
-check_deployment_readiness
+# Call the function when invoked
+if [ "$1" = "check_deployment_readiness" ]; then
+    check_deployment_readiness "$2" "$3" "$4"
+fi

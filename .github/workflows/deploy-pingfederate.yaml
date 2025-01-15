@@ -112,8 +112,8 @@ jobs:
       run: chmod +x .github/workflows/pingfederate-healthcheck.sh
 
     - name: Post Deployment Healthcheck - PingFederate Admin
-      run: .github/workflows/pingfederate-healthcheck.sh check_deployment_readiness "pingfederate-admin" "$STUDENT_NAMESPACE" 300
+      run: .github/workflows/health-check.sh check_deployment_readiness "pingfederate-admin" $STUDENT_NAMESPACE 300
 
     - name: Post Deployment Healthcheck - PingFederate Engine
-      run: .github/workflows/pingfederate-healthcheck.sh check_deployment_readiness "pingfederate-engine" "$STUDENT_NAMESPACE" 300
+      run: .github/workflows/pingfederate-healthcheck.sh check_deployment_readiness "pingfederate-engine" $STUDENT_NAMESPACE 300
         
