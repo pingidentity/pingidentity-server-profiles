@@ -907,6 +907,7 @@ pingfederate-admin:
     name: pingfederate
 
   container:
+
     resources:
       requests:
         cpu: 0
@@ -971,6 +972,7 @@ pingfederate-engine:
     name: pingfederate
 
   container:
+    replicaCount: 1
     resources:
       requests:
         cpu: 0
