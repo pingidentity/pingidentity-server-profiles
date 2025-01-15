@@ -117,6 +117,3 @@ jobs:
         deployment_name: "pingfederate-engine"
       run: .github/workflows/pingfederate-healthcheck.sh
         
-
-
-C:\Users\Dell\Documents\GitHub\pingidentity-server-profiles\.github\workflows\deploy-pingfederate.yaml
