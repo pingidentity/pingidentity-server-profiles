@@ -80,7 +80,7 @@ jobs:
       run: |
         # less secure: for dev
         curl -fsSL https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
-        
+
         # more secure: for prod
         # curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
         # sudo apt-get install apt-transport-https --yes
@@ -114,10 +114,10 @@ jobs:
     - name: Post Deployment Healthcheck - PingFederate Admin
       env:
         deployment_name: "pingfederate-admin"
-      run: .github/workflows/pingfederate-healthcheck.sh
+      run: .github/workflows/pingfederate-healthcheck.sh check_deployment_readiness
 
     - name: Post Deployment Healthcheck - PingFederate Engine
       env:
         deployment_name: "pingfederate-engine"
-      run: .github/workflows/pingfederate-healthcheck.sh
+      run: .github/workflows/pingfederate-healthcheck.sh check_deployment_readiness
         
