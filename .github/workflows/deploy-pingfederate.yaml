@@ -141,7 +141,7 @@ jobs:
         #!/bin/bash
         # GitHub Action: Check Deployment Pods Readiness
         deployment_name="pingfederate-engine"
-        namespace=${STUDENT_NAMESPACE}
+        namespace="pingdevops-namespace-a"
         timeout_sec=500
 
         # Start time
