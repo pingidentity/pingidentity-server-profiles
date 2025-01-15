@@ -115,6 +115,5 @@ jobs:
       run: .github/workflows/pingfederate-healthcheck.sh check_deployment_readiness "pingfederate-admin" "$STUDENT_NAMESPACE" 300
 
     - name: Post Deployment Healthcheck - PingFederate Engine
-      env:
       run: .github/workflows/pingfederate-healthcheck.sh check_deployment_readiness "pingfederate-engine" "$STUDENT_NAMESPACE" 300
         
