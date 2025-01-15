@@ -62,9 +62,9 @@ jobs:
         --build-arg PRODUCT=$PRODUCT \
         --build-arg BASE_IMAGE_TAG=$BASE_IMAGE_TAG \
         -t $ECR_REGISTRY/$ECR_REPOSITORY:$RELEASE_TAG \
-        -f baseline/pingfederate/Dockerfile baseline/pingfederate/ \ 
+        -f baseline/pingfederate/Dockerfile baseline/pingfederate/ 
         echo "Image build completed" \ 
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$RELEASE_TAG \ 
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$RELEASE_TAG 
         echo "Image push completed"
 
     # Update kubeconfig to access the EKS cluster
