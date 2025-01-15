@@ -1,0 +1,120 @@
+
+# Ref: https://dlmade.medium.com/ci-cd-with-github-action-and-aws-eks-5fd9714010cd
+name: Deploy PF to EKS
+on:
+  push:
+    tags: pf-v**
+
+env:
+  # Define the base Docker image repository and tag for PingFederate
+  # Base images can be hosted on DockerHub or private registries
+  BASE_IMAGE_REPOSITORY: registry.hub.docker.com/pingidentity
+  BASE_IMAGE_TAG: 2411-12.1.4
+  PRODUCT: pingfederate
+
+  # Amazon Elastic Container Registry (ECR) repository details for storing the Docker image
+  ECR_REPOSITORY: pingfederate
+  ECR_REGISTRY: ${{vars.ECR_REGISTRY}}
+
+  # Amazon Elastic Kubernetes Service (EKS) cluster name and AWS region for deployment
+  EKS_CLUSTER_NAME: ${{vars.EKS_CLUSTER_NAME}}
+  AWS_REGION: us-east-1
+
+  # Specify the student namespace for isolation within the Kubernetes cluster
+  # Example: STUDENT_NAMESPACE: "pingdevops-namespace-a"
+  STUDENT_NAMESPACE: ${{vars.STUDENT_NAMESPACE}}
+
+
+jobs:
+  build:
+    name: Build and deploy PingFederate to EKS
+    runs-on: ubuntu-latest
+
+    steps:
+
+    # Set environment variables, including the release tag used for versioning
+    - name: Set Release Tag variable
+      id: vars
+      run: echo "RELEASE_TAG=${GITHUB_REF#refs/*/}-${BASE_IMAGE_TAG}" >> $GITHUB_ENV
+
+    # Check out the repository code
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    # Configure AWS credentials for authentication with AWS services
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{vars.AWS_REGION}}
+
+    # Log in to Amazon ECR for pushing Docker images
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+
+    # Build the Docker image, tag it, and push it to Amazon ECR
+    - name: Build, tag, and push image to Amazon ECR
+      run: |
+        docker build \
+        --build-arg BASE_IMAGE_REPOSITORY=$BASE_IMAGE_REPOSITORY \
+        --build-arg PRODUCT=$PRODUCT \
+        --build-arg BASE_IMAGE_TAG=$BASE_IMAGE_TAG \
+        -t $ECR_REGISTRY/$ECR_REPOSITORY:$RELEASE_TAG \
+        -f baseline/pingfederate/Dockerfile baseline/pingfederate/ 
+        echo "Image build completed" \ 
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$RELEASE_TAG 
+        echo "Image push completed"
+
+    # Update kubeconfig to access the EKS cluster
+    - name: Connect with EKS cluster
+      run: aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION
+
+    # Install Helm CLI for managing Kubernetes applications
+    - name: Deploy Helm
+      run: |
+        # less secure: for non-prod
+        curl -fsSL https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+
+        # more secure: for prod
+        # curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
+        # sudo apt-get install apt-transport-https --yes
+        # echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+        # sudo apt-get update
+        # sudo apt-get install helm
+        # sleep 5s
+        # echo "Helm installed"
+
+        # Add and update the PingIdentity Helm repository
+        helm repo add pingidentity https://helm.pingidentity.com/ 
+        helm repo update 
+
+
+        # Deploy the application using Helm, setting the appropriate parameters
+
+        # This Helm command upgrades or installs the PingFederate release using the Ping Identity DevOps Helm chart.
+        # It sets several configuration values, including accepting the EULA, specifying image tags and repositories,
+        # and setting the release name. The command also specifies the chart version and the namespace to use,
+        # and includes additional values from a values.yaml file.
+
+        helm upgrade --install pingfederate-release pingidentity/ping-devops \
+        --set global.envs.PING_IDENTITY_ACCEPT_EULA=YES \
+        --set pingfederate-admin.image.tag=$RELEASE_TAG \
+        --set pingfederate-engine.image.tag=$RELEASE_TAG \
+        --set pingfederate-admin.image.repositoryFqn=$ECR_REGISTRY/$ECR_REPOSITORY \
+        --set pingfederate-engine.image.repositoryFqn=$ECR_REGISTRY/$ECR_REPOSITORY \
+        --set global.addReleaseNameToResource=none \
+        --version 0.10.0 \
+        --namespace=$STUDENT_NAMESPACE \
+        -f baseline/pingfederate/values.yaml
+
+
+    - name: Set excecutable permissions Post Deployment Healthcheck
+      run: chmod +x .github/workflows/health-check.sh
+
+    - name: Post Deployment Healthcheck - PingFederate Admin
+      run: .github/workflows/health-check.sh check_deployment_readiness "pingfederate-admin" $STUDENT_NAMESPACE 300
+
+    - name: Post Deployment Healthcheck - PingFederate Engine
+      run: .github/workflows/health-check.sh check_deployment_readiness "pingfederate-engine" $STUDENT_NAMESPACE 300
