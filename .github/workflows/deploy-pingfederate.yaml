@@ -72,7 +72,7 @@ jobs:
         echo "Image push completed"
 
     # Update kubeconfig to access the EKS cluster
-    - name: Update kube config
+    - name: Connect with EKS cluster
       run: aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION
 
     # Install Helm CLI for managing Kubernetes applications
@@ -105,17 +105,18 @@ jobs:
 
 
     - name: Set excecutable permissions Post Deployment Healthcheck
-      run: chmod +x .github\workflows\pingfederate-healthcheck.sh
+      run: chmod +x .github/workflows/pingfederate-healthcheck.sh
 
     - name: Post Deployment Healthcheck - PingFederate Admin
       env:
         deployment_name: "pingfederate-admin"
-      run: .github\workflows\pingfederate-healthcheck.sh
+      run: .github/workflows/pingfederate-healthcheck.sh
 
     - name: Post Deployment Healthcheck - PingFederate Engine
       env:
         deployment_name: "pingfederate-engine"
-      run: .github\workflows\pingfederate-healthcheck.sh
+      run: .github/workflows/pingfederate-healthcheck.sh
         
 
 
+C:\Users\Dell\Documents\GitHub\pingidentity-server-profiles\.github\workflows\deploy-pingfederate.yaml
