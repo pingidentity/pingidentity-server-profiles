@@ -901,7 +901,7 @@ ldap-sdk-tools:
 # @default  false
 #############################################################
 pingfederate-admin:
-  enabled: false
+  enabled: true
   name: pingfederate-admin
   image:
     name: pingfederate
@@ -920,6 +920,35 @@ pingfederate-admin:
       strategy:
         type: Recreate
 
+  envs:
+   SERVER_PROFILE_PATH: baseline/pingfederate
+   SERVER_PROFILE_URL: https://github.com/saadousman/pingidentity-server-profiles
+
+  vault:
+   enabled: true
+   hashicorp:
+    annotations:
+      agent-inject: true
+      agent-init-first: true
+      agent-pre-populate-only: true
+      log-level: info
+      preserve-secret-case: true
+      role: pingfederate-auth-role
+      serviceAccountName: pingfederate-service-acccount
+      agent-inject-secret-pingfederate.lic: pingfederate/data/pingdevops-namespace-a/license
+      secret-volume-path-pingfederate.lic: /opt/in/instance/server/default/conf
+      agent-inject-file-pingfederate.lic: pingfederate.lic
+      agent-inject-template-pingfederate.lic: |
+        {{- with secret "pingfederate/data/pingdevops-namespace-a/license" -}}
+        {{ .Data.data.licensefile }}
+        {{- end -}}
+      agent-inject-secret-pingfed-admin-password.env: pingfederate/data/pingdevops-namespace-a/adminpassword
+      secret-volume-path-pingfed-admin-password.env: /run/secrets
+      agent-inject-file-pingfed-admin-password.env: pingfed-admin-password.env
+      agent-inject-template-pingfed-admin-password.env: |
+        {{- with secret "pingfederate/data/pingdevops-namespace-a/adminpassword" -}}
+        PING_IDENTITY_PASSWORD="{{ .Data.data.PING_IDENTITY_PASSWORD }}"
+        {{- end -}}
   # Example: If PingFederate Admin relies on pingdirectory for AuthN
   #          Creates init container wait-for on pingdirectory ldaps service
   #
@@ -965,7 +994,7 @@ pingfederate-admin:
 # @default  false
 #############################################################
 pingfederate-engine:
-  enabled: false
+  enabled: true
   name: pingfederate-engine
   image:
     name: pingfederate
@@ -985,6 +1014,40 @@ pingfederate-engine:
 
   envs:
     PF_ADMIN_PORT: "9999"
+
+
+  envs:
+   SERVER_PROFILE_PATH: baseline/pingfederate
+   SERVER_PROFILE_URL: https://github.com/saadousman/pingidentity-server-profiles
+
+
+
+  vault:
+   enabled: true
+   hashicorp:
+    annotations:
+      agent-inject: true
+      agent-init-first: true
+      agent-pre-populate-only: true
+      log-level: info
+      preserve-secret-case: true
+      role: pingfederate-auth-role
+      serviceAccountName: pingfederate-service-acccount
+      agent-inject-secret-pingfederate.lic: pingfederate/data/pingdevops-namespace-a/license
+      secret-volume-path-pingfederate.lic: /opt/in/instance/server/default/conf
+      agent-inject-file-pingfederate.lic: pingfederate.lic
+      agent-inject-template-pingfederate.lic: |
+        {{- with secret "pingfederate/data/pingdevops-namespace-a/license" -}}
+        {{ .Data.data.licensefile }}
+        {{- end -}}
+      agent-inject-secret-pingfed-admin-password.env: pingfederate/data/pingdevops-namespace-a/adminpassword
+      secret-volume-path-pingfed-admin-password.env: /run/secrets
+      agent-inject-file-pingfed-admin-password.env: pingfed-admin-password.env
+      agent-inject-template-pingfed-admin-password.env: |
+        {{- with secret "pingfederate/data/pingdevops-namespace-a/adminpassword" -}}
+        PING_IDENTITY_PASSWORD="{{ .Data.data.PING_IDENTITY_PASSWORD }}"
+        {{- end -}}
+
 
   services:
     https:
