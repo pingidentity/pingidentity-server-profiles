@@ -23,7 +23,7 @@ env:
 
   # Specify the student namespace for isolation within the Kubernetes cluster
   # Example: STUDENT_NAMESPACE: "pingdevops-namespace-a"
-  STUDENT_NAMESPACE: "pingdevops-namespace-b"
+  STUDENT_NAMESPACE: "pingdevops-namespace-a"
 
 
 jobs:
