@@ -104,7 +104,7 @@ jobs:
         --set pingfederate-engine.image.tag=$RELEASE_TAG \
         --set pingfederate-admin.image.repositoryFqn=$ECR_REGISTRY/$ECR_REPOSITORY \
         --set pingfederate-engine.image.repositoryFqn=$ECR_REGISTRY/$ECR_REPOSITORY \
-        --set global.addReleaseNameToResource=none \ 
+        --set global.addReleaseNameToResource=none \
         --version 0.10.0 \
         --namespace=$STUDENT_NAMESPACE \
         -f baseline/pingfederate/values.yaml
