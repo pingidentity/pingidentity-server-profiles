@@ -1,0 +1,1 @@
+Just a temp file to add and commit to GIT to makesure the PR makes sense. Otherwise there is no difference between the master and config/update-motd
