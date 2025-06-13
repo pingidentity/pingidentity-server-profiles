@@ -1,0 +1,25 @@
+
+
+kubectl create secret generic ping-licenses \
+  --from-file=pingfederate.lic=/opt/out/instance/server/default/conf/pingfederate.lic \
+  --from-file=pingaccess.lic=/opt/out/instance/server/default/conf/pingaccess.lic \
+  --from-file=pingdirectory.lic=/opt/out/instance/server/default/conf/pingdirectory.lic \
+  -n pinghelm
+  
+  If you just want quick access without DNS:
+kubectl port-forward svc/pingfederate-admin 9999:9999 -n ping
+Then open:
+https://localhost:9999/pingfederate/app
+
+kubectl describe pod demo-pingaccess-admin-0
+
+
+kubectl create secret generic ping-licenses \
+  --from-file=pingfederate.lic=/opt/out/instance/server/default/conf/pingfederate.lic \
+  --from-file=pingaccess.lic=/opt/out/instance/conf/pingaccess.lic \
+  --from-file=pingdirectory.lic=/opt/staging/pd.profile/server-root/pre-setup/PingDirectory.lic \
+  -n pinghelm
+  
+  port forwarding:
+   kubectl port-forward pod/demo-pingfederate-admin-7f7968bdfc-bmjbp 9000:9999 -n pinghelm
+   
