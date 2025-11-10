@@ -1,0 +1,64 @@
+#if($heartbeatSystemMonitoring)
+#set( $Content-Type = "application/json" )
+#macro( safeNumberT $prm )
+#if ( "$!{prm}" eq "" or $prm eq "N/A" )
+null #else
+#if ( "$!{mode}" eq "strict" and not ( $prm.class.name eq "java.lang.Integer" or $prm.class.name eq "java.lang.Double" or $prm.class.name eq "java.lang.Float" ) )
+null #else
+$prm #end
+#end
+#end
+#set( $resultKeysNumbers = [
+    "atm.*.token.map.size",
+    "idp.session.registry.session.map.size",
+    "response.concurrency.statistics.*.percentile",
+    "response.concurrency.statistics.max",
+    "response.concurrency.statistics.min",
+    "response.statistics.count",
+    "response.statistics.window.seconds",
+    "response.time.statistics.*.percentile",
+    "response.time.statistics.max",
+    "response.time.statistics.min",
+    "session.state.attribute.map.size",
+    "sp.session.registry.session.map.size",
+    "total.failed.transactions",
+    "total.transactions",
+    "response.concurrency.statistics.mean",
+    "response.time.statistics.mean"])
+{
+    "template.version": "0.1.T",
+##    "test.null": #safeNumberT(  ),
+##    "test.empty": #safeNumberT( "" ),
+##    "test.na": #safeNumberT( "N/A" ),
+##    "test.integerStrict": #safeNumberT( 9 "strict" ),
+##    "test.integer": #safeNumberT( 9 ),
+##    "test.doubleStrict": #safeNumberT( 9.1 "strict" ),
+##    "test.double": #safeNumberT( 9.1 ),
+##  doubleDotZero renders to 9 in PA 6.2.0 vs 9.0 in PF 10.2.2 
+##    "test.doubleDotZero": #safeNumberT( 9.0 ),
+##    "test.doubleString": #safeNumberT( "9.1" ),
+##  doubleStringString renders to 9.1 in PA 6.2.0 and null in PF 10.2.2
+##    "test.doubleStringStrict": #safeNumberT( "9.1" "strict" ),
+    "cpu.load": #safeNumberT( $monitor.getCpuLoad('####.#') ),
+    "total.jvm.memory": #safeNumberT( $monitor.getTotalJvmMemory() ),
+    "free.jvm.memory": #safeNumberT( $monitor.getFreeJvmMemory() ),
+    "used.jvm.memory": #safeNumberT( $monitor.getUsedJvmMemory() ),
+    "total.physical.system.memory": #safeNumberT( $monitor.getTotalPhysicalSystemMemory() ),
+    "total.free.physical.system.memory": #safeNumberT( $monitor.getTotalFreePhysicalSystemMemory() ),
+    "total.used.physical.system.memory": #safeNumberT( $monitor.getTotalUsedPhysicalSystemMemory() ),
+    "number.of.cpus": #safeNumberT( $monitor.getNumberOfCpus() ),
+#set ( $map = $monitor.getResults($resultKeysNumbers) )
+#set ( $size = $map.size() )
+#set ( $count = 0)
+#foreach( $key in $map.keySet() )
+#set ( $count =  $count + 1)
+#set ( $value = $map.get($key) )
+    "${key}": #safeNumberT( $value ) #if( $count < $size ),
+#end
+#end
+
+}
+#else
+    #set( $Content-Type = "text/html" )
+OK
+#end
