@@ -392,8 +392,8 @@
                 "id": 1,
                 "name": "anything",
                 "targets": [
-                    "httpbin:80",
-                    "httpbin.org:80"
+                    "httpcan:80",
+                    "httpcan.org:80"
                 ],
                 "secure": false,
                 "trustedCertificateGroupId": 0,

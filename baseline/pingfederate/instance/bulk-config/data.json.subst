@@ -1411,7 +1411,7 @@
                             "isDefault": true,
                             "binding": "POST",
                             "index": 0,
-                            "url": "https://httpbin.org/anything"
+                            "url": "https://httpcan.org/anything"
                         }],
                         "adapterMappings": [],
                         "assertionLifetime": {
@@ -1426,7 +1426,7 @@
                             "extendedAttributes": []
                         }
                     },
-                    "entityId": "https://httpbin.org",
+                    "entityId": "https://httpcan.org",
                     "loggingMode": "STANDARD",
                     "id": "gpFvXmhDHSRUSHWLZLZ_XBIU_YK",
                     "type": "SP",
