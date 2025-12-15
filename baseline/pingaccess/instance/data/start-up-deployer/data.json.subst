@@ -392,10 +392,9 @@
                 "id": 1,
                 "name": "anything",
                 "targets": [
-                    "httpcan:80",
-                    "httpcan.org:80"
+                    "httpcan.org:443"
                 ],
-                "secure": false,
+                "secure": true,
                 "trustedCertificateGroupId": 0,
                 "sendPaCookie": true,
                 "useTargetHostHeader": false,
