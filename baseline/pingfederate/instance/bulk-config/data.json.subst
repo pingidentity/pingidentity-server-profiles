@@ -1411,7 +1411,7 @@
                             "isDefault": true,
                             "binding": "POST",
                             "index": 0,
-                            "url": "https://httpcan.org/anything"
+                            "url": "http://${HTTPCAN_PRIVATE_HOSTNAME}:${HTTPCAN_PRIVATE_PORT_HTTP}/anything"
                         }],
                         "adapterMappings": [],
                         "assertionLifetime": {
@@ -1426,7 +1426,7 @@
                             "extendedAttributes": []
                         }
                     },
-                    "entityId": "https://httpcan.org",
+                    "entityId": "http://${HTTPCAN_PRIVATE_HOSTNAME}:${HTTPCAN_PRIVATE_PORT_HTTP}",
                     "loggingMode": "STANDARD",
                     "id": "gpFvXmhDHSRUSHWLZLZ_XBIU_YK",
                     "type": "SP",

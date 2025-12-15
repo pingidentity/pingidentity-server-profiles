@@ -392,9 +392,9 @@
                 "id": 1,
                 "name": "anything",
                 "targets": [
-                    "httpcan.org:443"
+                    "${HTTPCAN_PRIVATE_HOSTNAME}:${HTTPCAN_PRIVATE_PORT_HTTP}"
                 ],
-                "secure": true,
+                "secure": false,
                 "trustedCertificateGroupId": 0,
                 "sendPaCookie": true,
                 "useTargetHostHeader": false,
