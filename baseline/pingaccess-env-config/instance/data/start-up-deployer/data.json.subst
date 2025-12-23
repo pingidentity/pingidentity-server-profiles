@@ -392,7 +392,8 @@
                 "id": 1,
                 "name": "anything",
                 "targets": [
-                    "${HTTPCAN_PRIVATE_HOSTNAME}:${HTTPCAN_PRIVATE_PORT_HTTP}"
+                    "httpbin:80",
+                    "httpbin.org:80"
                 ],
                 "secure": false,
                 "trustedCertificateGroupId": 0,

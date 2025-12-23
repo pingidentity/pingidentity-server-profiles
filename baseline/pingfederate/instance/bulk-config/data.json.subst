@@ -1411,7 +1411,7 @@
                             "isDefault": true,
                             "binding": "POST",
                             "index": 0,
-                            "url": "http://${HTTPCAN_PRIVATE_HOSTNAME}:${HTTPCAN_PRIVATE_PORT_HTTP}/anything"
+                            "url": "https://httpbin.org/anything"
                         }],
                         "adapterMappings": [],
                         "assertionLifetime": {
@@ -1426,7 +1426,7 @@
                             "extendedAttributes": []
                         }
                     },
-                    "entityId": "http://${HTTPCAN_PRIVATE_HOSTNAME}:${HTTPCAN_PRIVATE_PORT_HTTP}",
+                    "entityId": "https://httpbin.org",
                     "loggingMode": "STANDARD",
                     "id": "gpFvXmhDHSRUSHWLZLZ_XBIU_YK",
                     "type": "SP",
