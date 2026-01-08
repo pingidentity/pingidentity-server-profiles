@@ -1,1 +1,1 @@
-See [server profiles](https://devops.pingidentity.com/how-to/containerAnatomy/) docs for more information.
+See [server profiles](https://developer.pingidentity.com/devops/how-to/containerAnatomy.html) docs for more information.

@@ -1,0 +1,16 @@
+
+dsconfig set-trust-manager-provider-prop \
+    --provider-name 'Blind Trust'  \
+    --set enabled:true
+
+dsconfig create-external-server \
+    --server-name pingdirectory  \
+    --type ping-identity-ds \
+    --set server-host-name:${PD_ENGINE_PRIVATE_HOSTNAME}  \
+    --set server-port:${PD_ENGINE_PRIVATE_PORT_LDAPS} \
+    --set bind-dn:cn=pingdirectoryproxy  \
+    --set password<${ROOT_USER_PASSWORD_FILE} \
+    --set location:${LOCATION}  \
+    --set connection-security:ssl \
+    --set key-manager-provider:Null \
+    --set 'trust-manager-provider:Blind Trust'
