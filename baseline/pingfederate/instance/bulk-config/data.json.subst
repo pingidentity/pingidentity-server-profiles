@@ -2214,11 +2214,11 @@
                                 "type": "DONE"
                             }},
                             {"action": {
+                                "type": "LOCAL_IDENTITY_MAPPING",
+                                "context": "Success",
                                 "localIdentityRef": {
                                     "location": "https://${PF_ADMIN_PUBLIC_HOSTNAME}:${PF_ADMIN_PUBLIC_PORT_HTTPS}/pf-admin-api/v1/localIdentity/identityProfiles/RBSQIwi5KWYN9ZGK",
-                                   "id": "RBSQIwi5KWYN9ZGK",
-                                   "type": "LOCAL_IDENTITY_MAPPING",
-                                   "context": "Success"
+                                   "id": "RBSQIwi5KWYN9ZGK"
                                 },
                                 "inboundMapping": {
                                     "attributeContractFulfillment": {"pf.local.identity.unique.id": {
