@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
+# Copyright © 2026 Ping Identity Corporation
+
 
 echo "THIS IS LIVENESS@!!"
 wait-for "${PA_ENGINE_PUBLIC_HOSTNAME}:3000" -t 200 || exit 1

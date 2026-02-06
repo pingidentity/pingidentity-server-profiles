@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
+# Copyright © 2026 Ping Identity Corporation
+
 if test -z "${OPERATIONAL_MODE}" || test "${OPERATIONAL_MODE}" = "CLUSTERED_CONSOLE" || test "${OPERATIONAL_MODE}" = "STANDALONE" ; then
     if test -f ${STAGING_DIR}/instance/data/data.json -a -f ${STAGING_DIR}/instance/conf/pa.jwk ; then 
         while true ; do
