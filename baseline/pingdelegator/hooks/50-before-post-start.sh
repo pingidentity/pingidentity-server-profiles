@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
+# Copyright © 2026 Ping Identity Corporation
+
 
 . "${HOOKS_DIR}/pingcommon.lib.sh"
 
