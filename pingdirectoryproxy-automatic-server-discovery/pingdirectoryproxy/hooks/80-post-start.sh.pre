@@ -14,7 +14,7 @@ test "${VERBOSE}" = "true" && set -x
 . "${HOOKS_DIR}/pingdata.lib.sh"
 
 get_proxy_dsconfig_options() {
-    echo "--no-prompt --quiet --noPropertiesFile --hostname ${POD_HOSTNAME} --port ${POD_LDAPS_PORT} --useSSL --trustAll --bindDN \"${ROOT_USER_DN}\" --bindPasswordFile \"${ROOT_USER_PASSWORD_FILE}\""
+    echo "--no-prompt --quiet --noPropertiesFile --hostname localhost --port ${POD_LDAPS_PORT} --useSSL --trustAll --bindDN \"${ROOT_USER_DN}\" --bindPasswordFile \"${ROOT_USER_PASSWORD_FILE}\""
 }
 
 run_proxy_dsconfig() {
