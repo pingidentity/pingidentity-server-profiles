@@ -1,0 +1,168 @@
+#!/usr/bin/env sh
+# Copyright © 2026 Ping Identity Corporation
+
+#
+# Ping Identity DevOps - Server Profile Hook
+#
+# Ensure multi-cluster proxy locations exist before the product hook joins the
+# PingDirectory topology for automatic server discovery.
+#
+test "${VERBOSE}" = "true" && set -x
+
+. "${HOOKS_DIR}/pingcommon.lib.sh"
+
+. "${HOOKS_DIR}/pingdata.lib.sh"
+
+get_proxy_dsconfig_options() {
+    echo "--no-prompt --quiet --noPropertiesFile --hostname localhost --port ${POD_LDAPS_PORT} --useSSL --trustAll --bindDN \"${ROOT_USER_DN}\" --bindPasswordFile \"${ROOT_USER_PASSWORD_FILE}\""
+}
+
+run_proxy_dsconfig() {
+    _dsconfig_options=$(get_proxy_dsconfig_options)
+    # Word-split is expected behavior for $_dsconfig_options. Disable shellcheck.
+    # shellcheck disable=SC2086
+    eval "dsconfig ${_dsconfig_options} $*"
+}
+
+location_exists() {
+    _location_name=$1
+    run_proxy_dsconfig "get-location-prop --location-name \"${_location_name}\"" >/dev/null 2>&1
+}
+
+ensure_location_exists() {
+    _location_name=$1
+
+    if location_exists "${_location_name}"; then
+        echo "PingDirectoryProxy location '${_location_name}' already exists"
+        return 0
+    fi
+
+    echo "Creating PingDirectoryProxy location '${_location_name}'"
+    if ! run_proxy_dsconfig "create-location --location-name \"${_location_name}\""; then
+        if location_exists "${_location_name}"; then
+            echo "PingDirectoryProxy location '${_location_name}' was created concurrently"
+            return 0
+        fi
+
+        return 1
+    fi
+}
+
+cluster_in_configured_list() {
+    _location_name=$1
+
+    case " ${_seen_clusters} " in
+        *" ${_location_name} "*)
+            return 0
+            ;;
+    esac
+
+    return 1
+}
+
+if test "$(toLower "${JOIN_PD_TOPOLOGY}")" != "true"; then
+    echo "Skipping multi-cluster proxy location configuration because JOIN_PD_TOPOLOGY is not true."
+    exit 0
+fi
+
+if test -z "${K8S_CLUSTERS}" && test -z "${K8S_CLUSTER}"; then
+    echo "Skipping multi-cluster proxy location configuration because K8S_CLUSTERS and K8S_CLUSTER are not set."
+    exit 0
+fi
+
+if test -z "${K8S_CLUSTERS}" || test -z "${K8S_CLUSTER}"; then
+    container_failure 81 "K8S_CLUSTERS (${K8S_CLUSTERS}) and K8S_CLUSTER (${K8S_CLUSTER}) must both be set when configuring multi-cluster PingDirectoryProxy automatic discovery."
+fi
+
+_local_cluster_found=false
+_remote_locations=""
+_seen_clusters=""
+
+for _cluster_name in ${K8S_CLUSTERS}; do
+    case " ${_seen_clusters} " in
+        *" ${_cluster_name} "*)
+            echo "Ignoring duplicate cluster '${_cluster_name}' in K8S_CLUSTERS"
+            continue
+            ;;
+    esac
+
+    _seen_clusters="${_seen_clusters} ${_cluster_name}"
+
+    if test "${_cluster_name}" = "${K8S_CLUSTER}"; then
+        _local_cluster_found=true
+        continue
+    fi
+
+    _remote_locations="${_remote_locations} ${_cluster_name}"
+done
+
+if test "${_local_cluster_found}" != "true"; then
+    container_failure 82 "K8S_CLUSTER (${K8S_CLUSTER}) must be present in K8S_CLUSTERS (${K8S_CLUSTERS}) for multi-cluster PingDirectoryProxy automatic discovery."
+fi
+
+if test -n "${PREFERRED_FAILOVER_LOCATIONS}"; then
+    _remote_locations=""
+    _seen_failover_locations=""
+
+    for _failover_location in ${PREFERRED_FAILOVER_LOCATIONS}; do
+        if test "${_failover_location}" = "${K8S_CLUSTER}"; then
+            container_failure 86 "PREFERRED_FAILOVER_LOCATIONS (${PREFERRED_FAILOVER_LOCATIONS}) must not include the local K8S_CLUSTER (${K8S_CLUSTER})."
+        fi
+
+        if ! cluster_in_configured_list "${_failover_location}"; then
+            container_failure 87 "PREFERRED_FAILOVER_LOCATIONS (${PREFERRED_FAILOVER_LOCATIONS}) must only include clusters listed in K8S_CLUSTERS (${K8S_CLUSTERS})."
+        fi
+
+        case " ${_seen_failover_locations} " in
+            *" ${_failover_location} "*)
+                echo "Ignoring duplicate preferred failover location '${_failover_location}'"
+                continue
+                ;;
+        esac
+
+        _seen_failover_locations="${_seen_failover_locations} ${_failover_location}"
+        _remote_locations="${_remote_locations} ${_failover_location}"
+    done
+fi
+
+_pod_name=$(getHostName)
+echo "Waiting until ${PING_PRODUCT} service is running on this Server (${POD_HOSTNAME:?})"
+echo "        ${_pod_name:?}:${POD_LDAPS_PORT:?}"
+waitUntilLdapUp "${_pod_name}" "${POD_LDAPS_PORT}" ""
+
+echo "Ensuring PingDirectoryProxy location objects exist for K8S_CLUSTERS='${K8S_CLUSTERS}'"
+ensure_location_exists "${K8S_CLUSTER}" || container_failure 83 "Unable to create or verify the local PingDirectoryProxy location '${K8S_CLUSTER}'."
+
+for _remote_location in ${_remote_locations}; do
+    ensure_location_exists "${_remote_location}" || container_failure 84 "Unable to create or verify the remote PingDirectoryProxy location '${_remote_location}'."
+done
+
+if test -z "${_remote_locations}"; then
+    echo "No preferred failover locations configured. Preferred failover configuration is unchanged."
+    exit 0
+fi
+
+_batch_file=$(mktemp)
+cat > "${_batch_file}" <<EOF
+dsconfig set-location-prop \
+    --location-name "${K8S_CLUSTER}" \
+    --reset preferred-failover-location
+EOF
+
+for _remote_location in ${_remote_locations}; do
+    cat >> "${_batch_file}" <<EOF
+dsconfig set-location-prop \
+    --location-name "${K8S_CLUSTER}" \
+    --add preferred-failover-location:"${_remote_location}"
+EOF
+done
+
+echo "Applying preferred failover order for location '${K8S_CLUSTER}':${_remote_locations}"
+if ! run_proxy_dsconfig "--batch-file \"${_batch_file}\""; then
+    rm -f "${_batch_file}"
+    container_failure 85 "Unable to configure preferred failover locations for '${K8S_CLUSTER}'."
+fi
+
+rm -f "${_batch_file}"
+
+echo "PingDirectoryProxy multi-cluster location configuration completed for local location '${K8S_CLUSTER}'."
