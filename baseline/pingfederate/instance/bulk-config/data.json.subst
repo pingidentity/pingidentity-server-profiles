@@ -1,5 +1,5 @@
 {
-    "metadata": {"pfVersion": "13.0.0.6"},
+    "metadata": {"pfVersion": "12.0.0.0"},
     "operations": [
         {
             "operationType": "SAVE",
@@ -1298,10 +1298,6 @@
                             "value": "23456789BCDFGHJKMNPQRSTVWXZbcdfghjkmnpqrstvwxz"
                         },
                         {
-                            "name": "Client Side Authenticator",
-                            "value": ""
-                        },
-                        {
                             "name": "CAPTCHA Provider",
                             "value": ""
                         },
@@ -1464,10 +1460,7 @@
                 "entityId": "docker",
                 "loggingMode": "STANDARD",
                 "id": "aLGfLX1-K4VP6a3uGh33YOuZodG",
-                "type": "IDP",
-                "modificationDate": "2026-01-13T18:47:02.555Z",
-                "creationDate": "2026-01-13T18:47:02.555Z",
-                "replicationStatus": "REPLICATED"
+                "type": "IDP"
             }],
             "resourceType": "/sp/idpConnections"
         },
@@ -1525,9 +1518,6 @@
                     "loggingMode": "STANDARD",
                     "id": "IENFjGICXt3YsBKNxHSzkN28LWg",
                     "type": "SP",
-                    "modificationDate": "2026-01-13T18:47:02.876Z",
-                    "creationDate": "2026-01-13T18:47:02.875Z",
-                    "replicationStatus": "REPLICATED",
                     "connectionTargetType": "STANDARD"
                 },
                 {
@@ -1599,9 +1589,6 @@
                     "loggingMode": "STANDARD",
                     "id": "gpFvXmhDHSRUSHWLZLZ_XBIU_YK",
                     "type": "SP",
-                    "modificationDate": "2026-01-13T18:47:02.896Z",
-                    "creationDate": "2026-01-13T18:47:02.896Z",
-                    "replicationStatus": "REPLICATED",
                     "connectionTargetType": "STANDARD"
                 }
             ],
@@ -2381,25 +2368,8 @@
                         "name": "REST Data Store Requests and Responses",
                         "description": "Log REST datastore requests and responses. Sensitive information, such as passwords, may be logged when this category is enabled.",
                         "enabled": false
-                    },
-                    {
-                        "id": "provisioning",
-                        "name": "Provisioning Operations",
-                        "description": "Debug logging for user and group provisioning operations, including detailed information about provisioning requests, responses, and processing steps.",
-                        "enabled": false
                     }
-                ],
-                "modificationDate": "2026-01-13T18:46:44.848Z",
-                "replicationStatus": "REPLICATED"
-            }]
-        },
-        {
-            "resourceType": "/cluster/settings",
-            "operationType": "SAVE",
-            "items": [{
-                "replicateConnectionsOnSave": true,
-                "replicateClientsOnSave": true,
-                "replicateLogSettingsOnSave": true
+                ]
             }]
         },
         {
