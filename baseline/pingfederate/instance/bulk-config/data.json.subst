@@ -291,15 +291,7 @@
         {
             "operationType": "SAVE",
             "items": [{
-                "staticJwksEnabled": false,
-                "publishDynamicKeyX5cs": false,
-                "dynamicKeyCertificateInformation": {
-                    "organization": null,
-                    "organizationUnit": null,
-                    "country": null,
-                    "state": null,
-                    "city": null
-                }
+                "staticJwksEnabled": false
             }],
             "resourceType": "/keyPairs/oauthOpenIdConnect"
         },
