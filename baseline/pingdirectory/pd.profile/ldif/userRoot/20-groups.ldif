@@ -41,3 +41,10 @@ objectClass: top
 objectClass: groupOfNames
 cn: PFExpressionAdminGroup
 member: uid=administrator,ou=people,${USER_BASE_DN}
+
+# PingFederate 12.2 introduces a new Data Collection Admin role
+dn: cn=PFDataCollectionAdminGroup,ou=groups,${USER_BASE_DN}
+objectClass: top
+objectClass: groupOfNames
+cn: PFDataCollectionAdminGroup
+member: uid=administrator,ou=people,${USER_BASE_DN}
