@@ -9,11 +9,11 @@
       <create-instance class="org.sourceid.saml20.service.impl.proxy.AssertionReplayPreventionSvcProxy" model="primitive"/>
     </service-point>
 
-    <service-point id="IdpSessionReqistry" interface="org.sourceid.saml20.service.IdpSessionRegistry">
+    <service-point id="IdpSessionRegistry" interface="org.sourceid.saml20.service.IdpSessionRegistry">
       <create-instance class="org.sourceid.saml20.service.impl.proxy.IdpSessionRegistryProxy" model="primitive"/>
     </service-point>
 
-    <service-point id="SpSessionReqistry" interface="org.sourceid.saml20.service.SpSessionRegistry">
+    <service-point id="SpSessionRegistry" interface="org.sourceid.saml20.service.SpSessionRegistry">
       <create-instance class="org.sourceid.saml20.service.impl.proxy.SpSessionRegistryProxy" model="primitive"/>
     </service-point>
 
