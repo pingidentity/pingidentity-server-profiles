@@ -119,7 +119,6 @@ pf-oauth-client-require-signed-requests: FALSE
 pf-oauth-client-grant-type: refresh_token
 pf-oauth-client-grant-type: authorization_code
 pf-oauth-client-grant-type: implicit
-pf-oauth-client-redirect-uri: https://${PF_ENGINE_PUBLIC_HOSTNAME}:${PF_ENGINE_PUBLIC_PORT_HTTPS}/OAuthPlayground/authorization_code/callback
 pf-oauth-client-supplemental-info: 44:BYPASS_ACTIVATION_CODE_CONFIRMATION_OVERRIDE:null
 pf-oauth-client-supplemental-info: 19:DEVICE_FLOW_SETTING:SERVER_DEFAULT
 pf-oauth-client-supplemental-info: 14:DEFAULT_ATM_ID:jwt
@@ -304,7 +303,6 @@ pf-oauth-client-restrict-scopes: FALSE
 pf-oauth-client-require-signed-requests: FALSE
 pf-oauth-client-grant-type: refresh_token
 pf-oauth-client-grant-type: authorization_code
-pf-oauth-client-redirect-uri: https://${PF_ENGINE_PUBLIC_HOSTNAME}:${PF_ENGINE_PUBLIC_PORT_HTTPS}/OAuthPlayground/authorization_code/oidc/callback
 pf-oauth-client-supplemental-info: 44:BYPASS_ACTIVATION_CODE_CONFIRMATION_OVERRIDE:null
 pf-oauth-client-supplemental-info: 19:DEVICE_FLOW_SETTING:SERVER_DEFAULT
 pf-oauth-client-supplemental-info: 14:DEFAULT_ATM_ID:jwt
@@ -323,7 +321,7 @@ pf-oauth-client-supplemental-info: 16:EXCLUSIVE_SCOPES:null
 pf-oauth-client-supplemental-info: 7:ENABLED:true
 pf-oauth-client-supplemental-info: 23:USER_AUTHZ_URL_OVERRIDE:null
 pf-oauth-client-supplemental-info: 30:PENDING_AUTHZ_TIMEOUT_OVERRIDE:null
-pf-oauth-client-supplemental-info: 24:vnd.ping.policy_group_id:OAuthPlayground
+pf-oauth-client-supplemental-info: 24:vnd.ping.policy_group_id:null
 pf-oauth-client-supplemental-info: 29:PERSISTENT_GRANT_IDLE_TIMEOUT:0
 pf-oauth-client-supplemental-info: 28:id_token_signed_response_alg:HS256
 pf-oauth-client-id: ac_oic_client
@@ -380,7 +378,6 @@ pf-oauth-client-last-modified: 1548660083889
 pf-oauth-client-restrict-scopes: FALSE
 pf-oauth-client-require-signed-requests: FALSE
 pf-oauth-client-grant-type: implicit
-pf-oauth-client-redirect-uri: https://${PF_ENGINE_PUBLIC_HOSTNAME}:${PF_ENGINE_PUBLIC_PORT_HTTPS}/OAuthPlayground/implicit/callback
 pf-oauth-client-supplemental-info: 44:BYPASS_ACTIVATION_CODE_CONFIRMATION_OVERRIDE:null
 pf-oauth-client-supplemental-info: 19:DEVICE_FLOW_SETTING:SERVER_DEFAULT
 pf-oauth-client-supplemental-info: 14:DEFAULT_ATM_ID:jwt
@@ -417,7 +414,6 @@ pf-oauth-client-last-modified: 1548660083896
 pf-oauth-client-restrict-scopes: FALSE
 pf-oauth-client-require-signed-requests: FALSE
 pf-oauth-client-grant-type: implicit
-pf-oauth-client-redirect-uri: https://${PF_ENGINE_PUBLIC_HOSTNAME}:${PF_ENGINE_PUBLIC_PORT_HTTPS}/OAuthPlayground/implicit/oidc/callback
 pf-oauth-client-supplemental-info: 44:BYPASS_ACTIVATION_CODE_CONFIRMATION_OVERRIDE:null
 pf-oauth-client-supplemental-info: 19:DEVICE_FLOW_SETTING:SERVER_DEFAULT
 pf-oauth-client-supplemental-info: 14:DEFAULT_ATM_ID:jwt
@@ -435,7 +431,7 @@ pf-oauth-client-supplemental-info: 16:EXCLUSIVE_SCOPES:null
 pf-oauth-client-supplemental-info: 7:ENABLED:true
 pf-oauth-client-supplemental-info: 23:USER_AUTHZ_URL_OVERRIDE:null
 pf-oauth-client-supplemental-info: 30:PENDING_AUTHZ_TIMEOUT_OVERRIDE:null
-pf-oauth-client-supplemental-info: 24:vnd.ping.policy_group_id:OAuthPlayground
+pf-oauth-client-supplemental-info: 24:vnd.ping.policy_group_id:null
 pf-oauth-client-supplemental-info: 29:PERSISTENT_GRANT_IDLE_TIMEOUT:0
 pf-oauth-client-supplemental-info: 28:id_token_signed_response_alg:RS256
 pf-oauth-client-id: im_oic_client
