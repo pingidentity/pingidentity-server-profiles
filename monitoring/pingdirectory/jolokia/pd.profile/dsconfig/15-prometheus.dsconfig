@@ -1,7 +1,0 @@
-# Configure and enable the HTTP servlet extension for publishing values of a configured set of data
-# for consumption by Prometheus
-# See https://docs.pingidentity.com/r/en-us/pingdirectory-92/pd_ds_monitor_server_metrics_prometheus
-
-dsconfig set-connection-handler-prop \
-     --handler-name "HTTPS Connection Handler" \
-     --add "http-servlet-extension:Prometheus Monitoring" \

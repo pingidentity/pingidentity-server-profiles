@@ -1,3 +1,0 @@
-dsconfig set-virtual-attribute-prop \
-  --name "Password Policy State JSON" \
-  --set enabled:true

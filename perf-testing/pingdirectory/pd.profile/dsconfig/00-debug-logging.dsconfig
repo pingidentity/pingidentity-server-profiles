@@ -1,3 +1,0 @@
-dsconfig set-log-publisher-prop \
-  --publisher-name "File-Based Debug Logger" \
-  --set enabled:false
