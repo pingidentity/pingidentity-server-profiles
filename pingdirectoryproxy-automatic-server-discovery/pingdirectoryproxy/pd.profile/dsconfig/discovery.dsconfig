@@ -15,6 +15,14 @@ dsconfig create-ldap-health-check \
     --type replication-backlog \
     --set enabled:true \
     --set base-dn:dc=example,dc=com
+
+# Attempt to configure Locations using $Location = this location ; $PDP_LOC2 = secondary - preferred falover location.
+# Add 2ndary location - from ENV Var provided - could be derived from (K8S_CLUSTERS | replace  K8S_CLUSTER "")
+dsconfig create-location  \
+    --location-name "${PD_LOC2}"  --set "preferred-failover-location:${LOCATION}" 
+
+# current location - set failover to 2ndary just created
+dsconfig set-location-prop --location-name "${LOCATION}" --set "preferred-failover-location:${PD_LOC2}"      
  
 # Create an LDAP external server template with the above
 dsconfig create-ldap-external-server-template \
